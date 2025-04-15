@@ -1,8 +1,33 @@
 const categoryItems = [
     {
-        img: "",
+        id: 1,
+        img: "/categories/catalog5.png",
         text: "Творчі набори",
-        signature: ""
+        signature: "Створи шедевр сьогодні"
+    },
+    {
+        id: 2,
+        img: "/categories/catalog3.png",
+        text: "Декор",
+        signature: "Створи шедевр сьогодні"
+    },
+    {
+        id: 3,
+        img: "/categories/catalog1.png",
+        text: "Подарунки",
+        signature: "Даруйте натхнення"
+    },
+    {
+        id: 4,
+        img: "/categories/catalog4.png",
+        text: "Новинки",
+        signature: "Нове у нашому магазині"
+    },
+    {
+        id: 5,
+        img: "/categories/catalog2.png",
+        text: "Знижки",
+        signature: "Вигідні пропозиції"
     }
 ];
 

@@ -7,16 +7,16 @@ import { imagesList } from "./imagesList"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 import { Navigation, Pagination } from 'swiper/modules';
-import Logo from "@/shared/components/Logo/Logo";
 import LogoSymbol from "@/shared/components/LogoSymbol/LogoSymbol";
 import TextSubtitle from "@/shared/components/TextSubtitle.tsx/TextSubtitle";
 import TextTitle from "@/shared/components/TextTitle/TextTitle";
+import { CircleChevronLeft, CircleChevronRight } from "lucide-react";
 
 type Props = {}
 const HeaderSlider = (props: Props) => {
 
     return (
-        <div className="relative ">
+        <div className="relative pb-11">
             <Swiper
                 modules={[Navigation, Pagination]}
                 className="w-full"
@@ -24,22 +24,28 @@ const HeaderSlider = (props: Props) => {
                 slidesPerView={1}
                 loop={true}
                 navigation={
-
-
-
                     {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
+                        nextEl: '.swiper-hero-next',
+                        prevEl: '.swiper-hero-prev',
+
 
                     }
                 }
+
                 pagination={{
                     clickable: true,
-                    el: '.swiper-pagination',
+                    el: '.swiper-hero-pagination',
+                    bulletClass: 'swiper-hero-bullet',
+                    bulletActiveClass: 'active',
+
+                    bulletElement: 'span',
+
 
                     renderBullet: (index, className) =>
                         `<span class="${className} custom-bullet">${index + 1}</span>`,
+
                 }}
+
 
 
 
@@ -55,34 +61,39 @@ const HeaderSlider = (props: Props) => {
                                 width={360}
                                 height={316}
                             />
-
                             <TextSubtitle text={'Створи шедевр вже сьогодні!'} className="mb-8 p-1" />
-
                             <TextTitle text={image.description} fontSize="12px" className="mb-8 max-w-40 font-light text-white text-balance p-1 " />
-
                             <TextTitle text="ТВОЯ ТВОРЧІСТЬ ПОЧИНАЄТЬСЯ ТУТ!" fontSize="16px" className="text-white max-w-44 text-balance p-1 m-auto text-center" />
+                        </div>
 
-                        </div>
-                        <div className="min-h-[72px] flex justify-center">
-                        </div>
 
                     </SwiperSlide>
                 ))}
 
 
             </Swiper>
-            <div className=" flex justify-center items-center absolute bottom-0 left-0 right-0 z-20  py-2 max-w-[120px] m-auto min-h-[72px] bg-blue-500 text-xs">
-                <div className="swiper-button-prev cursor-pointer "></div>
-                <div className="swiper-pagination flex gap-2 "></div>
-                <div className="swiper-button-next text-white cursor-pointer"></div>
-            </div>
+
 
             <LogoSymbol
                 fill="#FFFFFF"
                 width={171}
                 height={145}
-                className="absolute top-2/5 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+                className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
             />
+
+            <div className="max-w-[120px] min-h-[72px] relative m-auto mt-10 ">
+                <div className=" flex justify-center items-center bottom-0 left-0 right-0 z-20  m-auto text-xs m-width-full">
+                    <button className="swiper-hero-prev">
+                        <CircleChevronLeft stroke="#FFF" />
+                    </button>
+                    <div className="swiper-hero-pagination flex ml-2 mr-2"></div>
+                    <button className="swiper-hero-next">
+                        <   CircleChevronRight stroke='#FFF' />
+                    </button>
+                </div>
+            </div>
+
+
 
         </div >
     )
