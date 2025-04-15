@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-
+import localFont from "next/font/local";
 import Navbar from "@/modules/Navbar/Navbar";
-
 import "../styles/style.css";
 
 const montserrat = Montserrat({
-    weight: ["300", "400", "500", "600", "700", "800"],
-    variable: "--font-montserrat",
-    subsets: ["latin", "cyrillic"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-montserrat",
+  subsets: ["latin", "cyrillic"],
+});
+const denistina = localFont({
+  src: "./denistina.ttf",
+  variable: "--font-denistina",
+
 });
 
 export const metadata: Metadata = {
@@ -22,13 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" >
       <body
-        className={`${montserrat.variable}`}
+        className={`${montserrat.variable} ${denistina.variable} `}
       >
-      <Navbar />
+        <Navbar />
         {children}
       </body>
-    </html>
+    </html >
   );
 }
