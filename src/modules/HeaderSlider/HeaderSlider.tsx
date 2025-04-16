@@ -61,6 +61,7 @@ const HeaderSlider = (props: Props) => {
                                 alt={`Slider ${index + 1}`}
                                 width={360}
                                 height={316}
+                                priority
                             />
                             <TextSubtitle text={'Створи шедевр вже сьогодні!'} className="mb-8 p-1" />
                             <TextTitle text={image.description} fontSize="12px" className="mb-8 max-w-40 font-light text-white text-balance p-1 " />
