@@ -16,6 +16,7 @@ type Props = {}
 const HeaderSlider = (props: Props) => {
 
     return (
+
         <div className="relative pb-11">
             <Swiper
                 modules={[Navigation, Pagination]}

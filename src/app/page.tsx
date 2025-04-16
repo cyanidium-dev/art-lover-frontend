@@ -1,13 +1,17 @@
 import Categories from "@/modules/Categories/Categories";
 import HeaderSlider from "@/modules/HeaderSlider/HeaderSlider";
-import Navbar from "@/modules/Navbar/Navbar";
+import GlobalWrapper from "@/shared/components/GlobalWrapper/GlobalWrapper";
 
 export default function Home() {
   return (
     <>
 
       <HeaderSlider />
-      <Categories />
+      <GlobalWrapper className={"px-8"}>
+        <Categories />
+      </  GlobalWrapper>
+
+
     </>
   );
 }
