@@ -18,10 +18,11 @@ const TextSubtitle = ({
 }: Props) => {
     return (
         <div
-            className={`${className} ${color} ${fontWeight}`}
+            className={`${className} ${fontWeight}`}
             style={{
                 fontSize,
                 fontFamily: `var(${fontVariable})`,
+                color: color,
             }}
         >            {text}
         </div>

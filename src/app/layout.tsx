@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 import Navbar from "@/modules/Navbar/Navbar";
+import GlobalWrapper from "@/shared/components/GlobalWrapper/GlobalWrapper";
 import "../styles/style.css";
 
 const montserrat = Montserrat({
@@ -29,8 +30,7 @@ export default function RootLayout({
     <html lang="en" >
       <body
         className={`${montserrat.variable} ${denistina.variable} `}
-      >
-        <Navbar />
+      >   <Navbar />
         {children}
       </body>
     </html >
