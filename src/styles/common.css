@@ -11,7 +11,8 @@ body {
     font-weight: 400;
 }
 
-.custom-bullet {
+.custom-bullet,
+swiper-hero-bullet {
     padding: 2px;
     opacity: 0.5;
     transition: opacity 0.3s;

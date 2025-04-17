@@ -9,6 +9,7 @@ import AboutUs from "@/modules/AboutUs/AboutUs";
 import Reviews from "@/modules/Reviews/Reviews";
 import FollowUs from "@/modules/FollowUs/FollowUs";
 import Subscribe from "@/modules/Subscribe/Subscribe";
+import Footer from "@/modules/Footer/Footer";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
 
       <GlobalWrapper className={" max-w-[360px] mx-auto bg-amber-200"}>
         <Subscribe />
+        <Footer />
       </GlobalWrapper>
 
     </>
