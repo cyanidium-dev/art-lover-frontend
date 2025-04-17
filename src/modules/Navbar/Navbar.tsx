@@ -6,13 +6,12 @@ import NavBarCatalog from "./NavbarMenu/NavBarCatalog";
 const Navbar = () => {
     return (
         <nav>
-            <div className="container px-8">
-                <div className="wrapper flex justify-between items-center py-8">
 
-                    <NavBarCatalog />
-                    <Logo />
-                    <NavbarMenu />
-                </div>
+            <div className="wrapper flex justify-between items-center py-8">
+
+                <NavBarCatalog />
+                <Logo />
+                <NavbarMenu />
             </div>
         </nav>
     )

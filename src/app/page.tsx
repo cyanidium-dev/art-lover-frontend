@@ -5,19 +5,26 @@ import Gifts from "../modules/Gifts/Gifts";
 import Hits from "@/modules/Hits/Hits";
 import New from "@/modules/New/New";
 import Sale from "@/modules/Sale/Sale";
+import AboutUs from "@/modules/AboutUs/AboutUs";
+import Reviews from "@/modules/Reviews/Reviews";
 
 export default function Home() {
   return (
     <>
 
-      <HeaderSlider />
-      <GlobalWrapper className={"px-[32px]"}>
+
+      <GlobalWrapper className={" max-w-[360px] mx-auto bg-amber-200 "}><HeaderSlider /></GlobalWrapper>
+
+
+      <GlobalWrapper className={"px-[32px] max-w-[360px] mx-auto bg-amber-200"}>
         <Categories />
         <Gifts />
         <Hits />
         <New />
         <Sale />
-      </  GlobalWrapper>
+        <AboutUs />
+        <Reviews />
+      </GlobalWrapper>
 
 
     </>

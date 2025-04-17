@@ -20,7 +20,7 @@ const TextSubtitle = ({
         <div
             className={`${className} ${fontWeight}`}
             style={{
-                fontSize,
+                fontSize: fontSize,
                 fontFamily: `var(${fontVariable})`,
                 color: color,
             }}
