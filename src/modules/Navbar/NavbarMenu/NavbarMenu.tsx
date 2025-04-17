@@ -3,14 +3,14 @@ import { Heart, MenuIcon, Search, SearchCheck, SearchCodeIcon, ShoppingCart } fr
 
 
 const NavbarMenu = () => {
-    return <div className="">
+    return <div className="flex gap-1">
 
 
 
 
 
 
-        <Button className=" cursor-pointer border-0 rounded-sm " svg={<Search width={20} height={20} strokeWidth="1.5" stroke="#3A3A3A" />} />
+        <Button className="  " svg={<Search width={20} height={20} strokeWidth="1.5" stroke="#3A3A3A" />} />
         <Button svg={<Heart width={20} height={20} strokeWidth="1.5" fill="#3A3A3A" stroke="#3A3A3A" />} />
         <Button svg={<ShoppingCart width={20} height={20} strokeWidth="1.5" fill="#3A3A3A" stroke="#3A3A3A" />} />
         <Button svg={<MenuIcon width={20} height={20} strokeWidth="1.5" fill="#3A3A3A" stroke="#3A3A3A" />} />

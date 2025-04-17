@@ -7,7 +7,7 @@ import Image from 'next/image'
 
 const Gifts = () => {
     return (
-        <div className='relative flex flex-col justify-end bg-[var(--main-orange)]  rounded-lg overflow-hidden w-full  max-w-4xl mx-auto mb-8'>
+        <div className='relative flex flex-col justify-end bg-[var(--main-orange)] rounded-2xl   mx-auto my-8 overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.25)]'>
 
             <div className="absolute top-0 w-full h-[48px] bg-[var(--main-orange-light)]  bg-repeat-wrap bg-blend-lighten rounded-b-full"
                 style={{
@@ -34,7 +34,7 @@ const Gifts = () => {
                 width={0}
                 height={0}
                 sizes="100vw"
-                className="w-full h-auto  object-bottom"
+                className="w-full h-auto object-bottom"
             />
         </div>
     )

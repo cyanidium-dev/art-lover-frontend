@@ -30,7 +30,10 @@ export default function RootLayout({
     <html lang="en" >
       <body
         className={`${montserrat.variable} ${denistina.variable} `}
-      >   <Navbar />
+      >
+        < GlobalWrapper className={"max-w-[360px] px-[32px] mx-auto bg-amber-200"}>
+          <Navbar />
+        </GlobalWrapper>
         {children}
       </body>
     </html >

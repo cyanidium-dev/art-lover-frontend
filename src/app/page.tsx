@@ -10,14 +10,17 @@ export default function Home() {
   return (
     <>
 
-      <HeaderSlider />
-      <GlobalWrapper className={"px-[32px]"}>
+
+      <GlobalWrapper className={" max-w-[360px] mx-auto bg-amber-200 "}><HeaderSlider /></GlobalWrapper>
+
+
+      <GlobalWrapper className={"px-[32px] max-w-[360px] mx-auto bg-amber-200"}>
         <Categories />
         <Gifts />
         <Hits />
         <New />
         <Sale />
-      </  GlobalWrapper>
+      </GlobalWrapper>
 
 
     </>
