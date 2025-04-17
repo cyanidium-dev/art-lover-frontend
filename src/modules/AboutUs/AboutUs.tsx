@@ -12,7 +12,7 @@ const AboutUs = (props: Props) => {
           
           <div className="flex gap-4 ">
           <div className="w-[58px] h-[58px]">
-              <TextTitle text="Про нас" fontSize="24px" className="uppercase font-medium" />
+                  <TextTitle text="Про нас" fontSize="20px" className="uppercase font-medium" />
           </div>
           <div>
                   <p className=" font-light text-balance  text-[14px] text-justify">
