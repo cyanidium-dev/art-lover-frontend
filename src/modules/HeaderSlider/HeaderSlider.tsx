@@ -11,6 +11,7 @@ import LogoSymbol from "@/shared/components/LogoSymbol/LogoSymbol";
 import TextSubtitle from "@/shared/components/TextSubtitle.tsx/TextSubtitle";
 import TextTitle from "@/shared/components/TextTitle/TextTitle";
 import { CircleChevronLeft, CircleChevronRight } from "lucide-react";
+import SliderControllers from "@/shared/components/SliderControllers/SliderControllers";
 
 type Props = {}
 const HeaderSlider = (props: Props) => {
@@ -86,18 +87,12 @@ const HeaderSlider = (props: Props) => {
             />
 
             <div className="max-w-[120px] min-h-[72px] relative m-auto mt-8 ">
-                <div className=" flex justify-center items-center bottom-0 left-0 right-0 z-20  m-auto text-xs m-width-full">
 
-
-
-                    <button className="swiper-hero-prev">
-                        <CircleChevronLeft stroke="currentColor" />
-                    </button>
-                    <div className="swiper-hero-pagination flex ml-2 mr-2"></div>
-                    <button className="swiper-hero-next">
-                        <   CircleChevronRight stroke='currentColor' />
-                    </button>
-                </div>
+                <SliderControllers
+                    prevClass="swiper-hero-prev"
+                    nextClass="swiper-hero-next"
+                    paginationClass="swiper-hero-pagination"
+                />
             </div>
 
 
