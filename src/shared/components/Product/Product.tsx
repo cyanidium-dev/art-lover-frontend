@@ -1,6 +1,7 @@
 import { ShoppingCart } from "lucide-react";
 import Button from "../Button/Button";
 import ButtonOval from "../ButtonOval/ButtonOval";
+import Image from "next/image";
 
 type Props = {
     item: {
@@ -12,8 +13,8 @@ type Props = {
 }
 const Product = (props: Props) => {
     return (
-        <li key={props.item.id} className="flex flex-col items-center gap-[12px] rounded-md bg-white shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.10),0px_2px_4px_-2px_rgba(0,0,0,0.10)] p-[12px] border-1 border-transparent">
-            <img src={props.item.img} alt={props.item.name} className="w-[151px] h-[120px] object-cover" />
+        <li key={props.item.id} className="flex flex-col items-center gap-[12px] rounded-md bg-white shadow-lg p-[12px] border-1 border-transparent">
+            <Image src={props.item.img} alt={props.item.name} width={151} height={120} className="object-cover" />
             <div className="flex flex-col">
                 <p className="text-[14px] font-medium ">{props.item.price}</p>
                 <p className="text-[14px] font-medium">{props.item.name}</p>

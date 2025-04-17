@@ -6,6 +6,7 @@ import Hits from "@/modules/Hits/Hits";
 import New from "@/modules/New/New";
 import Sale from "@/modules/Sale/Sale";
 import AboutUs from "@/modules/AboutUs/AboutUs";
+import Reviews from "@/modules/Reviews/Reviews";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <New />
         <Sale />
         <AboutUs />
+        <Reviews />
       </GlobalWrapper>
 
 

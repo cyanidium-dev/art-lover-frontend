@@ -36,7 +36,7 @@ const AboutUs = (props: Props) => {
           <div>
               <ul className="flex gap-4 justify-center items-center ">
                   {counterItems.map((item, index) => (
-                      <Counter key={index} number={item.number} text={item.text} />
+                      <Counter key={item.id} number={item.number} text={item.text} />
                   ))}
                     
           
