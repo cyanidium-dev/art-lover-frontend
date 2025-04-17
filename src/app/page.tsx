@@ -5,6 +5,7 @@ import Gifts from "../modules/Gifts/Gifts";
 import Hits from "@/modules/Hits/Hits";
 import New from "@/modules/New/New";
 import Sale from "@/modules/Sale/Sale";
+import AboutUs from "@/modules/AboutUs/AboutUs";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <Hits />
         <New />
         <Sale />
+        <AboutUs />
       </GlobalWrapper>
 
 

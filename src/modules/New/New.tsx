@@ -9,7 +9,7 @@ const New = (props: Props) => {
     return (
         <div className="py-8">
             <TextTitle text="наші новинки " className="uppercase text-left mb-3 font-medium" fontSize="20px" />
-            <TextSubtitle text="Творчість, яка підкорила серця" className="text-left mb-6 font-normal" fontSize="16px" />
+            <TextSubtitle text="Творчість, яка підкорила серця" className="text-left mb-6 font-normal" fontSize="14px" />
 
             <ul className="flex gap-4 overflow-auto mb-8" >
                 {productItems
