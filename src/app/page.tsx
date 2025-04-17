@@ -8,6 +8,7 @@ import Sale from "@/modules/Sale/Sale";
 import AboutUs from "@/modules/AboutUs/AboutUs";
 import Reviews from "@/modules/Reviews/Reviews";
 import FollowUs from "@/modules/FollowUs/FollowUs";
+import Subscribe from "@/modules/Subscribe/Subscribe";
 
 export default function Home() {
   return (
@@ -15,8 +16,6 @@ export default function Home() {
 
 
       <GlobalWrapper className={" max-w-[360px] mx-auto bg-amber-200 "}><HeaderSlider /></GlobalWrapper>
-
-
       <GlobalWrapper className={"px-[32px] max-w-[360px] mx-auto bg-amber-200"}>
         <Categories />
         <Gifts />
@@ -26,8 +25,12 @@ export default function Home() {
         <AboutUs />
         <Reviews />
         <FollowUs />
+
       </GlobalWrapper>
 
+      <GlobalWrapper className={" max-w-[360px] mx-auto bg-amber-200"}>
+        <Subscribe />
+      </GlobalWrapper>
 
     </>
   );

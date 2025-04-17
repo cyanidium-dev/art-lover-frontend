@@ -5,6 +5,7 @@ type Props = {
     svg?: React.ReactNode;
     className?: string;
     variant?: "primary" | "secondary" | "tertiary";
+    type?: "button" | "submit" | "reset";
     size?: "small" | "medium" | "large";
     style?: React.CSSProperties;
 }
