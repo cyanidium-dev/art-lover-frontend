@@ -20,7 +20,7 @@ const Sale = (props: Props) => {
 
             </ul>
 
-            <    SliderControllers />
+            <SliderControllers prevClass="prev-sale" nextClass="next-sale" />
 
         </div>
     )

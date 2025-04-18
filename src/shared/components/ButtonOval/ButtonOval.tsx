@@ -8,11 +8,13 @@ type Props = {
     type?: "button" | "submit" | "reset";
     size?: "small" | "medium" | "large";
     style?: React.CSSProperties;
+    onClick?: () => void;
 }
 const ButtonOval = (props: Props) => {
     return (
         <button
             className={`btn flex ${props.className} ${props.variant} ${props.size} cursor-pointer rounded-2xl text-[var(--main-dark-color)]  px-2 py-2 `}
+            onClick={props.onClick}
             style={
                 props.style || {
                     background: 'linear-gradient(121deg, #FFF 22.48%, #FF692D 337.32%)',

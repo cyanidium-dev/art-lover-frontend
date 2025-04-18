@@ -25,10 +25,7 @@ const Subscribe = () => {
                   {...register("email")}
                   />
                   <ButtonOval buttonText="Надіслати" type="submit" className="w-[120px] h-[40px] bg-white text-[var(--main-dark-color)] font-light leading-2 text-[10px]" style={{ background: '#FFFFFF' }} />
-                </form>
-              
-              
-              
+        </form>
           </div>
           
         

@@ -20,7 +20,10 @@ const New = (props: Props) => {
                     ))}
 
             </ul>
-            <    SliderControllers />
+            <SliderControllers
+                prevClass="prev-new"
+                nextClass="next-new"
+            />
         </div>
     )
 }

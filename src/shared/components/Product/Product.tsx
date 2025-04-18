@@ -4,6 +4,8 @@ import { ShoppingCart } from "lucide-react";
 import Button from "../Button/Button";
 import ButtonOval from "../ButtonOval/ButtonOval";
 import Image from "next/image";
+import { useState } from "react";
+import CartAddedModal from "../Modal/CartAddedModal";
 
 type Props = {
     item: {
@@ -14,7 +16,15 @@ type Props = {
     };
 }
 const Product = (props: Props) => {
+    const [addedToCart, setAddedToCart] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const handleAddToCart = () => {
+        setAddedToCart(addedToCart);
+        setShowModal(true);
+        console.log("Add to cart", props.item.id);
+    };
     return (
+        <>
         <li key={props.item.id} className="flex flex-col items-center gap-[12px] rounded-md bg-white shadow-lg p-[12px] ">
             <Image src={props.item.img} alt={props.item.name} width={151} height={120} className="object-cover" />
             <div className="flex flex-col">
@@ -40,11 +50,16 @@ const Product = (props: Props) => {
                     <Button
                         svg={<ShoppingCart width={24} height={24} strokeWidth="1.5" stroke="#FFF" />}
                         className=" bg-[var(--main-orange)] flex items-center justify-center rounded-md h-[36px] w-[36px]"
-                        onClick={() => console.log("Add to cart")}
+                            onClick={() => handleAddToCart()}
                     />
                 </div>
             </div>
         </li>
+
+            <CartAddedModal open={showModal} continueShopping={() => setShowModal(false)} /></>
     )
 }
+
+
+
 export default Product
