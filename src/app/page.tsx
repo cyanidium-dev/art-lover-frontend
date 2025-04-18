@@ -15,8 +15,8 @@ export default function Home() {
     <>
 
 
-      <GlobalWrapper className={" max-w-[360px] mx-auto bg-amber-200 "}><HeaderSlider /></GlobalWrapper>
-      <GlobalWrapper className={"px-[32px] max-w-[360px] mx-auto bg-amber-200"}>
+      <GlobalWrapper className={" max-w-[360px] mx-auto "}><HeaderSlider /></GlobalWrapper>
+      <GlobalWrapper className={"px-[32px] max-w-[360px] mx-auto"}>
         <Categories />
         <Gifts />
         <Hits />

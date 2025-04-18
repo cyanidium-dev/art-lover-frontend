@@ -1,11 +1,15 @@
+
+'use client'
+
 import gifts from '@/assets/gifts.png';
-import Button from '@/shared/components/Button/Button';
 import ButtonOval from '@/shared/components/ButtonOval/ButtonOval';
-import TextTitle from '@/shared/components/TextTitle/TextTitle';
 import Image from 'next/image'
+import { useRouter } from 'next/navigation';
 
 
 const Gifts = () => {
+    const router = useRouter();
+
     return (
         <div className='py-8'>
             <div className='relative flex flex-col justify-end bg-[var(--main-orange)] rounded-2xl   mx-auto overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.25)]'>
@@ -23,7 +27,8 @@ const Gifts = () => {
                     Допоможемо обрати подарунок
                 </h2>
                 <p className="text-justify text-[12px] text-white font-light mb-[12px] leading-none">Наш сайт допоможе обрати подарунок для будь-якого свята та події за допомогою фільтрів</p>
-                <ButtonOval buttonText='Обрати подарунок' className='text-[8px]' />
+                    <ButtonOval buttonText='Обрати подарунок' className='text-[8px]' onClick={() => router.push('/gifts')}
+                    />
             </div>
 
 

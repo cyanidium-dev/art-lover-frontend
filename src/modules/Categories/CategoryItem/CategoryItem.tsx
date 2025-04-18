@@ -1,6 +1,7 @@
 import EllipseBackground from "@/shared/components/ElipseBackground/EllipseBackground"
 import TextSubtitle from "@/shared/components/TextSubtitle.tsx/TextSubtitle"
 import TextTitle from "@/shared/components/TextTitle/TextTitle"
+import Link from "next/link"
 
 type Props = {
     item: {
@@ -8,6 +9,7 @@ type Props = {
         img: string
         text: string
         signature: string
+        path?: string
     }
     index: number
 }
@@ -50,6 +52,7 @@ const CategoryItem = (props: Props) => {
 
 
     return (
+        <Link href={`${props.item.path || '#'}`} className="w-full h-full flex items-center justify-center">
         <li
             key={props.item.id}
             className={`relative flex h-[100px] w-full max-w-4xl overflow-hidden rounded-lg border border-[var(--main-dark-color)] ${props.index % 2 === 0
@@ -81,7 +84,8 @@ const CategoryItem = (props: Props) => {
                 <TextTitle text={props.item.text} className={`absolute flex text-center mb-2 font-medium uppercase  ${textPositions[props.index] || ''}`} fontSize="14px" />
                 <TextSubtitle text={props.item.signature} className={`absolute flex text-center ${subtitlePositions[props.index] || ''}`} fontSize="12px" />
             </div>
-        </li>
+            </li>
+        </Link>
     )
 }
 export default CategoryItem
