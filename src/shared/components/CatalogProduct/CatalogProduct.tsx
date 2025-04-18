@@ -48,8 +48,8 @@ const CatalogProduct = (props: Props) => {
             />
             <Button
                 svg={<ShoppingCart width={20} height={20} strokeWidth="1.5" stroke="#FFF" />}
-                    className="bg-[var(--main-orange)] flex items-center justify-center rounded-md h-[32px] w-[32px] p-1.5 
-"
+                    className="bg-[var(--main-orange)] flex items-center justify-center rounded-md h-[32px] w-[32px] p-1.5"
+                    onClick={() => console.log("Add to cart")}
             />
         </div>
         </li>
