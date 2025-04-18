@@ -1,5 +1,5 @@
 
-
+'use client'
 type Props = {
     buttonText?: string;
     svg?: React.ReactNode;
