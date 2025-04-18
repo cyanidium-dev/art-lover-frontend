@@ -1,6 +1,6 @@
-import CategoryFilter from "./CategoryFilter/CategoryFilter"
-import CategorySort from "./CategorySort/CategorySort"
-import FilterButton from "./CategoryFilter/FilterButton/FilterButton"
+
+import CategoryFilter from "../CategoryFilter/CategoryFilter"
+import CategorySort from "../CategorySort/CategorySort"
 
 const CategoryControllers = () => {
   return (

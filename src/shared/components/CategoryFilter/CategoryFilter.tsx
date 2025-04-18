@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from "react";
-import FilterButton from "./FilterButton/FilterButton";
-import FilterSlider from "./FilterSlider/FilterSlider";
+import CategoryFilterButton from "../CategoryFilterButton/CategoryFilterButton";
+import CategoryFilterSlider from "../CategoryFilterSlider/CategoryFilterSlider";
 import { CircleX, Filter } from "lucide-react";
 
 const CategoryFilter=()=> {
@@ -28,7 +28,7 @@ const CategoryFilter=()=> {
     return (
         <div className="relative z-20 w-full">
         
-<FilterButton onClick={() => { setOpen(!open); setIsAnimatingOut(false); }} />
+            <CategoryFilterButton onClick={() => { setOpen(!open); setIsAnimatingOut(false); }} />
 
             {/* Filter Panel */}
             {open && (
@@ -56,7 +56,7 @@ const CategoryFilter=()=> {
                                 }}
                                 className="text-xs text-[var(--main-orange)] font-normal"
                             >
-                              <CircleX width={28} height={28} stroke="#FFF" fill="currentColor" />
+                                    <CircleX width={20} height={20} stroke="#FFF" fill="currentColor" />
                             </button>
                         </div>
 
@@ -76,7 +76,7 @@ const CategoryFilter=()=> {
 
                             {/* Ціна */}
                         
-                                <FilterSlider
+                                <CategoryFilterSlider
                                     min={50}
                                     max={8000}
                                     values={priceRange}
@@ -99,7 +99,7 @@ const CategoryFilter=()=> {
                             </div>
 
                             {/* Вік */}
-                           <FilterSlider
+                                <CategoryFilterSlider
                                 min={15}
                                 max={70}
                                 values={ageRange}

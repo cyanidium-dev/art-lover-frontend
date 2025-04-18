@@ -10,7 +10,7 @@ type FilterSliderProps = {
     onChange: (values: [number, number]) => void;
 };
 
-const FilterSlider = ({
+const CategoryFilterSlider = ({
     min = 0,
     max = 100,
     values,
@@ -57,4 +57,4 @@ const FilterSlider = ({
     );
 };
 
-export default FilterSlider;
+export default CategoryFilterSlider;

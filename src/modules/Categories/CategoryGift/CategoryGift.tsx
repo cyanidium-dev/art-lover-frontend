@@ -1,22 +1,14 @@
-import Image from "next/image"
-import CategoryControllers from "../CategoryControllers/CategoryControllers"
+import CategoryControllers from "../../../shared/components/CategoryControllers/CategoryControllers"
 import categoryGifts from '@/assets/categoryGifts.png'
+import CategoryBanner from "../../../shared/components/CategoryBanner/CategoryBanner"
+import CategorySexFilter from "../../../shared/components/CategorySexFilter/CategorySexFilter"
 
 type Props = {}
 const CategoryGift = (props: Props) => {
   return (
     <div className="">
-      <Image
-        src={categoryGifts}
-        alt="categoryGifts"
-        priority
-        width={0}
-        height={0}
-        sizes="100vw"
-      />
-      
-      
-      
+      <CategoryBanner src={categoryGifts} alt="categoryGifts" />
+      <CategorySexFilter />
    <CategoryControllers/>
     </div>
   )

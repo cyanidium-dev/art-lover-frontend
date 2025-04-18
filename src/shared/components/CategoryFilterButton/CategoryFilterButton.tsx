@@ -9,7 +9,7 @@ type Props = {
 };
 
 
-const FilterButton=(props:Props)=> {
+const CategoryFilterButton =(props:Props)=> {
 
     return (
         <div className="relative">
@@ -28,4 +28,4 @@ const FilterButton=(props:Props)=> {
     );
 }
 
-export default FilterButton;
+export default CategoryFilterButton;
