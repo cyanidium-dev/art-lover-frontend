@@ -47,7 +47,7 @@ const Reviews = (props: Props) => {
              
           </ul>
           
-          <SliderControllers />
+      <SliderControllers prevClass="prev-button-class" nextClass="next-button-class" />
       </div>
   )
 }
