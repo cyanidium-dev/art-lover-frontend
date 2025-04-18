@@ -28,11 +28,11 @@ export default function Home() {
         <FollowUs />
 
       </GlobalWrapper>
-
+      {/*
       <GlobalWrapper className={" max-w-[360px] mx-auto bg-amber-200"}>
         <Subscribe />
         <Footer />
-      </GlobalWrapper>
+      </GlobalWrapper> */}
 
     </>
   );

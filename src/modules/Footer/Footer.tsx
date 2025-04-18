@@ -11,7 +11,9 @@ const Footer = () => {
         <div>
             <footer className="bg-[var(--main-dark-color)] text-white py-[40px] px-[32px] text-[14px]">
                 <div className="mb-6">
-                    <a href="#gifts"><p className="text-[var(--main-orange)] font-semibold">0 800 550 130</p></a>
+                    <a href="tel:0800550130">
+                        <p className="text-[var(--main-orange)] font-semibold">0 800 550 130</p>
+                    </a>
                     <p className="text-[12px]">Безкоштовно</p>
                     <p className="mt-4 font-semibold">Пн-Пт: 09:00-00:00<br />Сб-Нд: 10:00-20:00</p>
                 </div>
@@ -19,26 +21,26 @@ const Footer = () => {
                 <div className="mb-6">
                     <p className="text-[var(--main-orange)] font-semibold mb-2">Каталог</p>
                     <ul className="space-y-3 font-normal">
-                        <li>Подарунки</li>
-                        <li>Товари для творчості</li>
-                        <li>Творчі набори</li>
-                        <li>Художні товари</li>
-                        <li>Хобі та розваги</li>
-                        <li>Косметичні засоби</li>
-                        <li>Декор</li>
-                        <li>Канцелярія</li>
-                        <li>Аксесуари</li>
+                        <li><a href="#">Подарунки</a></li>
+                        <li><a href="#">Товари для творчості</a></li>
+                        <li><a href="#">Творчі набори</a></li>
+                        <li><a href="#">Художні товари</a></li>
+                        <li><a href="#">Хобі та розваги</a></li>
+                        <li><a href="#">Косметичні засоби</a></li>
+                        <li><a href="#">Декор</a></li>
+                        <li><a href="#">Канцелярія</a></li>
+                        <li><a href="#">Аксесуари</a></li>
                     </ul>
                 </div>
 
                 <div className="mb-[32px]">
                     <p className="text-[var(--main-orange)] font-semibold mb-2">Про компанію</p>
                     <ul className="space-y-3 font-normal">
-                        <li>Про нас</li>
-                        <li>Блог</li>
-                        <li>Контакти</li>
-                        <li>Оплата та доставка</li>
-                        <li>Публічний договір</li>
+                        <li><a href="#">Про нас</a></li>
+                        <li><a href="#">Блог</a></li>
+                        <li><a href="#">Контакти</a></li>
+                        <li><a href="#">Оплата та доставка</a></li>
+                        <li><a href="#">Публічний договір</a></li>
                     </ul>
                 </div>
 
