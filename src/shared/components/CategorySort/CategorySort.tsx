@@ -3,13 +3,17 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Option,sortingOptions } from './sortingOptions';
+import { Option, sortingOptions } from './sortingOptions';
 
-const CategorySort = () => {
+type Props = {
+    sorted: Option;
+    onChange: (value: Option) => void;
+};
+const CategorySort = ({ sorted, onChange }: Props) => {
     
 
     const [open, setOpen] = useState(false);
-    const [selected, setSelected] = useState<Option>('За популярністю');
+    // const [selected, setSelected] = useState<Option>('За популярністю');
     const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
     const dropdownRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
@@ -33,7 +37,7 @@ const CategorySort = () => {
                     prev === null ? sortingOptions.length - 1 : (prev - 1 + sortingOptions.length) % sortingOptions.length
                 );
             } else if (e.key === 'Enter' && focusedIndex !== null) {
-                setSelected(sortingOptions[focusedIndex]);
+                onChange(sortingOptions[focusedIndex]);
                 setOpen(false);
                 setFocusedIndex(null);
             } else if (e.key === 'Escape') {
@@ -53,7 +57,7 @@ const CategorySort = () => {
                 className="flex text-[10px] h-[32px] w-[248px] items-center  border border-[var(--main-orange)] px-4 rounded-full text-[var(--main-dark-color)] bg-white "
             >
                 Сортувати ▾
-                <span className="ml-3  text-[var(--main-orange)] font-semibold text-right">{selected}</span>
+                <span className="ml-3  text-[var(--main-orange)] font-semibold text-right">{sorted}</span>
             </button>
 
             {open && (
@@ -63,7 +67,7 @@ const CategorySort = () => {
                             key={option}
                             onMouseEnter={() => setFocusedIndex(index)}
                             onClick={() => {
-                                setSelected(option);
+                                onChange(option);
                                 setOpen(false);
                                 setFocusedIndex(null);
                             }}

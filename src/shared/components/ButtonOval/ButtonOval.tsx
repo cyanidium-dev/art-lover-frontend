@@ -12,7 +12,7 @@ type Props = {
 const ButtonOval = (props: Props) => {
     return (
         <button
-            className={`btn ${props.className} ${props.variant} ${props.size} cursor-pointer rounded-2xl text-[var(--main-dark-color)] px-4 py-2 `}
+            className={`btn flex ${props.className} ${props.variant} ${props.size} cursor-pointer rounded-2xl text-[var(--main-dark-color)]  px-2 py-2 `}
             style={
                 props.style || {
                     background: 'linear-gradient(121deg, #FFF 22.48%, #FF692D 337.32%)',

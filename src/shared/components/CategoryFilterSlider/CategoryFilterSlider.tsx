@@ -38,15 +38,19 @@ const CategoryFilterSlider = ({
                         {children}
                     </div>
                 )}
-                renderThumb={({ props, index }) => (
-                    <div
-                        {...props}
-                        className="flex items-center justify-center  h-[23px] rounded-sm bg-[var(--main-orange)] text-white text-xs font-normal p-1"
-                        style={{ ...props.style }}
-                    >
-                        {values[index]}
-                    </div>
-                )}
+                renderThumb={({ props, index }) => {
+                    const { key, ...safeProps } = props;
+                    return (
+                        <div
+                            key={index}
+                            {...safeProps}
+                            className="flex items-center justify-center h-[23px] rounded-sm bg-[var(--main-orange)] text-white text-xs font-normal p-1"
+                            style={{ ...props.style }}
+                        >
+                            {values[index]}
+                        </div>
+                    );
+                }}
             />
 
             <div className="flex justify-between text-xs mt-2">
