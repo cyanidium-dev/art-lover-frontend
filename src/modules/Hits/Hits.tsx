@@ -28,7 +28,11 @@ const Hits = (props: Props) => {
             </ul>
 
 
-            <SliderControllers />
+            <SliderControllers
+                prevClass="prev-hits"
+                nextClass="next-hits"
+
+            />
 
         </div>
     )

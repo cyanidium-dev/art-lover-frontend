@@ -4,6 +4,8 @@ import localFont from "next/font/local";
 import Navbar from "@/modules/Navbar/Navbar";
 import GlobalWrapper from "@/shared/components/GlobalWrapper/GlobalWrapper";
 import "../styles/style.css";
+import Footer from "@/modules/Footer/Footer";
+import Subscribe from "@/modules/Subscribe/Subscribe";
 
 const montserrat = Montserrat({
   weight: ["300", "400", "500", "600", "700", "800"],
@@ -35,6 +37,11 @@ export default function RootLayout({
           <Navbar />
         </GlobalWrapper>
         {children}
+        <GlobalWrapper className={" max-w-[360px] mx-auto bg-amber-200"}>
+          <Subscribe />
+          <Footer />
+        </GlobalWrapper>
+
       </body>
     </html >
   );

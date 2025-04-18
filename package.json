@@ -16,6 +16,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.55.0",
+    "react-range": "^1.10.0",
     "sass": "^1.86.3",
     "swiper": "^11.2.6",
     "yup": "^1.6.1"
