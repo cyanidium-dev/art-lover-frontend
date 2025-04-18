@@ -1,3 +1,5 @@
+'use client'
+
 import { ShoppingCart } from "lucide-react";
 import Button from "../Button/Button";
 import ButtonOval from "../ButtonOval/ButtonOval";
