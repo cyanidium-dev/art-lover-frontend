@@ -5,13 +5,12 @@ import NavbarMenu from "@/modules/Navbar/NavbarMenu/NavbarMenu";
 import NavBarCatalog from "./NavbarMenu/NavBarCatalog";
 import { useState } from "react";
 import Basket from "../Basket/Basket";
-import basketItems from "../Basket/basketItems";
+import basketItems from "../Basket/itemsInBasket";
 
 const Navbar = () => {
     const [basketOpen, setBasketOpen] = useState(false);
     const openBasket = () => {
         setBasketOpen(true);
-        console.log("Basket opened");
     }
 
     return (
@@ -23,7 +22,7 @@ const Navbar = () => {
                 <NavbarMenu onCartClick={openBasket} />
                 {basketOpen && (
                     <Basket
-                        items={basketItems}
+
                         open={basketOpen}
                         onClose={() => setBasketOpen(false)}
                     />
