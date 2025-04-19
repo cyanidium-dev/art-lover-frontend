@@ -9,6 +9,7 @@ import Hint from '@/shared/components/Hint/Hint';
 
 import BasketProduct from '@/shared/components/BasketProduct/BasketProduct';
 import GiftWrapItem from '@/shared/components/GiftWrapItem/GiftWrapItem';
+import { useRouter } from 'next/navigation';
 
 type FormData = {
     name: string;
@@ -32,11 +33,13 @@ const CheckoutForm = () => {
             tip: '0',
         },
     });
+    const router = useRouter();
 
     const onSubmit = async (data: FormData) => {
         console.log('Submitting...', data);
         await new Promise((res) => setTimeout(res, 2000));
         console.log('Submitted!');
+        router.push('/thanks');
     };
     const selectedTip = watch('tip');
 
@@ -163,7 +166,7 @@ const CheckoutForm = () => {
                     <CheckOutStepTitle title="Ваше замовлення" text="" icon={<ShoppingBag />} />
                     <ul className='flex flex-col gap-2 mb-4'>
                         {itemsInBasket.map((item) => (
-                            <BasketProduct key={item.id} item={item} onUpdateQuantity={() => { }} onDelete={() => { }} className="text-[12px] text-[var(--main-dark-color)] "
+                            <BasketProduct key={item.id} item={item} onUpdateQuantity={() => { console.log("upd") }} onDelete={() => { console.log("del") }} className="text-[12px] text-[var(--main-dark-color)] "
                             />
                         ))}</ul>
 
@@ -243,6 +246,7 @@ const CheckoutForm = () => {
                     </div>
                     <button
                         type="submit"
+
                         disabled={isSubmitting}
                         className={`px-6 py-2 w-full rounded-2xl transition ${isSubmitting
                             ? 'bg-[var(--main-dark-color)] cursor-not-allowed text-white'
