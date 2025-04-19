@@ -51,7 +51,7 @@ const productsWithFull = [
                 id: "3",
                 name: "Alice Johnson",
                 rating: 5,
-                comment: "Highly recommend this for anyone who loves crafting!"
+                comment: "Highly recommend this for anyone who loves crafting!!!!"
             },
         ],
 

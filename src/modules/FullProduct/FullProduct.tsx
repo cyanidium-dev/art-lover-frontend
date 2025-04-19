@@ -106,6 +106,8 @@ const FullProduct = (props: FullProductProps) => {
               <FullProductReview reviews={props.item.reviews || []} />
           </div>
           
+      
+          
 
 
 
