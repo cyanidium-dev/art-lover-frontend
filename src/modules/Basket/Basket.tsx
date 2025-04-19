@@ -8,6 +8,7 @@ import items from './itemsInBasket';
 import itemsInBasket from './itemsInBasket';
 import FreeShipping from '@/shared/components/FreeShipping/FreeShipping';
 import ButtonOval from '@/shared/components/ButtonOval/ButtonOval';
+import { useRouter } from 'next/navigation';
 
 type Props = {
     open: boolean;
@@ -15,9 +16,10 @@ type Props = {
 };
 
 const Basket = ({ open, onClose }: Props) => {
+
+    const router = useRouter()
+
     const [basketItems, setBasketItems] = useState(itemsInBasket)
-
-
     const updateItemQuantity = (quantity: number, id: string) => {
         setBasketItems((prevItems) =>
             prevItems.map((item) =>
@@ -28,15 +30,23 @@ const Basket = ({ open, onClose }: Props) => {
     const deleteItem = (id: string) => {
         setBasketItems((prevItems) => prevItems.filter((item) => item.id !== id));
     }
-
-
     const totalQuantity = basketItems.reduce((sum, item) => sum + item.quantity, 0);
     const totalPrice = basketItems.reduce((sum, item) => sum + item.quantity * parseFloat(item.price), 0);
-
-
     useEffect(() => {
         setBasketItems(itemsInBasket)
     }, [])
+    const checkout = () => {
+        if (basketItems.length === 0) {
+            alert('Кошик порожній!');
+            return;
+        }
+
+        router.push('/checkout')
+        if (open) {
+            onClose();
+        }
+
+    }
 
 
 
@@ -63,11 +73,11 @@ const Basket = ({ open, onClose }: Props) => {
                         </button>
                 </div>
                 {/* Items */}
-                <div className="flex flex-col gap-3 px-[32px] mt-3 max-h-1/2 overflow-y-auto">
+                <ul className="flex flex-col gap-3 px-[32px] mt-3 max-h-1/2 overflow-y-auto">
                     {basketItems.map((item) => (
-                        <BasketProduct key={item.id} item={item} onUpdateQuantity={updateItemQuantity} onDelete={deleteItem} />
+                        <BasketProduct key={item.id} item={item} onUpdateQuantity={updateItemQuantity} onDelete={deleteItem} className='text-white' />
                     ))}
-                </div>
+                </ul>
                 <div>
                     <FreeShipping totalPrice={totalPrice} />
                 {/* Footer */}
@@ -80,7 +90,7 @@ const Basket = ({ open, onClose }: Props) => {
                             <span className="font-medium">Загальна вартість</span>
                             <span className="font-medium">{totalPrice.toFixed(2)} USD</span>
                         </div>
-                        <ButtonOval buttonText={"Oформити замовлення"} className="flex items-center justify-center w-full py-1 bg-[var(--main-orange)] text-white rounded-full text-[12px] font-medium" style={{ background: " var(--main-orange)" }} />
+                        <ButtonOval onClick={checkout} buttonText={"Oформити замовлення"} className="flex items-center justify-center w-full py-1 bg-[var(--main-orange)] text-white rounded-full text-[12px] font-medium" style={{ background: " var(--main-orange)" }} />
 
                     </div>
                 </div>

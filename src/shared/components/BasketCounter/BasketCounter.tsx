@@ -4,7 +4,8 @@ import { useState } from "react";
 
 type Props = {
     item: BasketProductItem;
-    onChange: (quantity: number, id:string) => void;
+  onChange: (quantity: number, id: string) => void;
+  className?: string;
 
 
 }
@@ -26,9 +27,9 @@ const BasketItemCounter = (props: Props) => {
   return (
       <div>
             <div className="flex items-center mt-1 gap-2">
-            <button onClick={handleDecrement} className="w-5 h-5 rounded bg-transparent text-white text-xs">-</button>
-            <span className="text-white flex items-center justify-center border rounded w-5 h-5">{count}</span>
-              <button onClick={handleIncrement} className="w-5 h-5 rounded bg-transparent text-white text-xs">+</button>
+        <button onClick={handleDecrement} className={`w-5 h-5 rounded bg-transparent ${props.className} text-xs`}>-</button>
+        <span className={`flex items-center justify-center border rounded w-5 h-5 ${props.className}`}>{count}</span>
+        <button onClick={handleIncrement} className={`w-5 h-5 rounded bg-transparent ${props.className} text-xs`}>+</button>
               </div>
     </div>
   )

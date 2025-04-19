@@ -8,11 +8,12 @@ interface Props {
     item: BasketProductItem;
     onUpdateQuantity: (quantity: number, id: string) => void;
     onDelete: (id: string) => void;
+    className?: string;
 }
 
 
 const BasketProduct = (props: Props) => (
-    <div className="relative flex items-start gap-4 border border-white/20 rounded-lg p-2 text-[12px]">
+    <li className={`relative flex items-start gap-4 border rounded-lg p-2 text-[12px] ${props.className}`}>
         <div className="w-[90px] h-[101px] overflow-hidden rounded">
             <Image
                 src={props.item.img}
@@ -23,21 +24,21 @@ const BasketProduct = (props: Props) => (
             />
         </div>
         <button
-            className="absolute top-2 right-2 text-white "
+            className={`absolute top-2 right-2 ${props.className}`}
             onClick={() => props.onDelete(props.item.id)}
         >
             <Trash size={20} />
         </button>
-        <div className="flex flex-col flex-grow text-white">
+        <div className={` ${props.className} flex flex-col flex-grow`}>
             <p className="text-[12px] w-[80px] mb-1 ">
                 {props.item.name}
             </p>
             <p className="font-semibold text-[13px] mb-1">USD {props.item.price}</p>
 
-            <BasketCounter item={props.item} onChange={props.onUpdateQuantity} />
+            <BasketCounter item={props.item} onChange={props.onUpdateQuantity} className={props.className} />
 
         </div>
-    </div>
+    </li>
 );
 
 
