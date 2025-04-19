@@ -13,16 +13,15 @@ type Props = {
 const ButtonOval = (props: Props) => {
     return (
         <button
-            className={`btn flex ${props.className} ${props.variant} ${props.size} cursor-pointer rounded-2xl text-[var(--main-dark-color)]  px-2 py-2 items-center justify-center`}
+            className={`btn flex ${props.className} ${props.variant} ${props.size} cursor-pointer rounded-2xl text-[var(--main-dark-color)]  px-2 py-1.5 items-center justify-center`}
             onClick={props.onClick}
             style={{
-                background: 'linear-gradient(121deg, #FFF 22.48%, #FF692D 337.32%)',
-                boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-                border: '1px solid transparent',
+                // background: 'linear-gradient(121deg, #FFF 22.48%, #FF692D 337.32%)',
+                // boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
                 ...props.style,
             }}
         >   
-            <span className="truncate">{props.buttonText}</span>
+            <span className="">{props.buttonText}</span>
             {props.svg && <span className="ml-2">{props.svg}</span>}
 
 

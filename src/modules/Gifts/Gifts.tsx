@@ -27,7 +27,13 @@ const Gifts = () => {
                     Допоможемо обрати подарунок
                 </h2>
                 <p className="text-justify text-[12px] text-white font-light mb-[12px] leading-none">Наш сайт допоможе обрати подарунок для будь-якого свята та події за допомогою фільтрів</p>
-                    <ButtonOval buttonText='Обрати подарунок' className='text-[8px]' onClick={() => router.push('/gifts')}
+                    <ButtonOval buttonText='Обрати подарунок' className='text-[8px] ' onClick={() => router.push('/gifts')} style={{
+                        background: 'linear-gradient(121deg, #FFF 22.48%, #FF692D 337.32%)',
+                        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+                        color: 'var(--main-dark-color)',
+                        borderRadius: '20px',
+                        border: '1px solid transparent',
+                    }}
                     />
             </div>
 

@@ -35,14 +35,12 @@ const Product = (props: Props) => {
 
             <div className="flex gap-3 items-center justify-center">
 
-                <ButtonOval buttonText="Детальніше" className=" bg-[var(--main-dark-color)] text-white  rounded px-4 py-2 h-[36px] w-[102px]" style={
+                    <ButtonOval buttonText="Детальніше" className="px-4 py-2 h-[36px] w-[102px] rounded-3xl text-[10px] border " style={
                         {
 
-                        fontSize: "10px",
-                            borderRadius: "28px",
-                            border: "1px solid var(--main-dark-color)",
-                            backgroundColor: "transparent",
+                            backgroundColor: "#FFF",
                             color: "var(--main-dark-color)",
+                            border: "1px solid var(--main-dark-color)",
                         }
                     } />
 
