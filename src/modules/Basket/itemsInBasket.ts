@@ -1,18 +1,19 @@
-const basketItems = [
+const itemsInBasket = [
     {
-        id: 1,
+        id: "1",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: '19.99',
+        quantity: 1,
         hit: true,
         new: false,
         discount: false,
         category: "String Art",
-        quantity: 1,
+
 
     },
     {
-        id: 2,
+        id: "2",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: '19.99',
@@ -24,7 +25,7 @@ const basketItems = [
 
     },
     {
-        id: 3,
+        id: "3",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: '19.99',
@@ -37,4 +38,4 @@ const basketItems = [
     }
 ]
 
-export default basketItems;
+export default itemsInBasket;

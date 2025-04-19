@@ -1,29 +1,55 @@
 'use client';
 
 import BasketProduct from '@/shared/components/BasketProduct/BasketProduct';
-import { ShoppingCart, Settings, CircleX } from 'lucide-react';
-import { useEffect } from 'react';
+import { BasketProductItem } from '@/types/basketProductItem';
+import { ShoppingCart, CircleX } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import items from './itemsInBasket';
+import itemsInBasket from './itemsInBasket';
+import FreeShipping from '@/shared/components/FreeShipping/FreeShipping';
+import ButtonOval from '@/shared/components/ButtonOval/ButtonOval';
+import { useRouter } from 'next/navigation';
 
 type Props = {
-    items: any[];
     open: boolean;
     onClose: () => void;
 };
 
-const Basket = ({ items, open, onClose }: Props) => {
-    const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
-    const totalPrice = items.reduce((sum, item) => sum + item.quantity * parseFloat(item.price), 0);
+const Basket = ({ open, onClose }: Props) => {
 
-  
+    const router = useRouter()
+
+    const [basketItems, setBasketItems] = useState(itemsInBasket)
+    const updateItemQuantity = (quantity: number, id: string) => {
+        setBasketItems((prevItems) =>
+            prevItems.map((item) =>
+                item.id === id ? { ...item, quantity } : item
+            )
+        );
+    };
+    const deleteItem = (id: string) => {
+        setBasketItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    }
+    const totalQuantity = basketItems.reduce((sum, item) => sum + item.quantity, 0);
+    const totalPrice = basketItems.reduce((sum, item) => sum + item.quantity * parseFloat(item.price), 0);
     useEffect(() => {
-        const handleEsc = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') onClose();
-        };
-        document.addEventListener('keydown', handleEsc);
-        return () => document.removeEventListener('keydown', handleEsc);
-    }, [onClose]);
+        setBasketItems(itemsInBasket)
+    }, [])
+    const checkout = () => {
+        if (basketItems.length === 0) {
+            alert('Кошик порожній!');
+            return;
+        }
 
-    if (!open) return null;
+        router.push('/checkout')
+        if (open) {
+            onClose();
+        }
+
+    }
+
+
+
 
     return (
         <div className="fixed inset-0 z-50">
@@ -36,8 +62,8 @@ const Basket = ({ items, open, onClose }: Props) => {
             {/* Drawer */}
             <div className="absolute right-0 top-0 h-full w-full bg-[var(--main-dark-color)] flex flex-col justify-between shadow-lg animate-slide-in">
                 {/* Header */}
-                <div>
-                    <div className="flex items-center justify-between px-8 py-3 text-white">
+
+                <div className="flex items-center justify-between px-8 py-8 text-white">
                         <div className="flex items-center gap-2">
                             <ShoppingCart size={20} />
                             <span className="text-sm font-semibold">КОШИК</span>
@@ -45,33 +71,28 @@ const Basket = ({ items, open, onClose }: Props) => {
                         <button onClick={onClose}>
                             <CircleX size={20} />
                         </button>
-                    </div>
-
-                    {/* Items */}
-                    <div className="flex flex-col gap-3 px-[32px] mt-3">
-                        {items.map((item) => (
-                            <BasketProduct key={item.id} item={item} />
-                        ))}
-                    </div>
-
-                    <p className="text-xs text-white/70 text-right mt-3 px-4">
-                        До безкоштовної доставки додавьте на <span className="text-white">25 USD</span>
-                    </p>
                 </div>
-
+                {/* Items */}
+                <ul className="flex flex-col gap-3 px-[32px] mt-3 max-h-1/2 overflow-y-auto">
+                    {basketItems.map((item) => (
+                        <BasketProduct key={item.id} item={item} onUpdateQuantity={updateItemQuantity} onDelete={deleteItem} className='text-white' />
+                    ))}
+                </ul>
+                <div>
+                    <FreeShipping totalPrice={totalPrice} />
                 {/* Footer */}
-                <div className="bg-white rounded-t-xl px-4 py-4 mt-6">
-                    <div className="flex justify-between text-xs text-[var(--main-dark-color)] mb-1">
+                    <div className="bg-white rounded-t-xl px-8 py-4 font-normal">
+                        <div className="flex justify-between text-[12px] text-[var(--main-dark-color)] mb-1">
                         <span>Кількість товарів у кошику</span>
                         <span>{totalQuantity}</span>
                     </div>
-                    <div className="flex justify-between text-xs text-[var(--main-dark-color)] mb-4">
-                        <span>Загальна вартість</span>
-                        <span className="font-semibold">{totalPrice.toFixed(2)} USD</span>
+                        <div className="flex justify-between text-[12px] font-normal text-[var(--main-dark-color)] mb-2">
+                            <span className="font-medium">Загальна вартість</span>
+                            <span className="font-medium">{totalPrice.toFixed(2)} USD</span>
+                        </div>
+                        <ButtonOval onClick={checkout} buttonText={"Oформити замовлення"} className="flex items-center justify-center w-full py-1 bg-[var(--main-orange)] text-white rounded-full text-[12px] font-medium" style={{ background: " var(--main-orange)" }} />
+
                     </div>
-                    <button className="w-full py-2 bg-[var(--main-orange)] text-white rounded-full text-sm font-medium">
-                        Оформити замовлення
-                    </button>
                 </div>
             </div>
 

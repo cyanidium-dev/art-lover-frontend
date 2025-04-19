@@ -6,16 +6,14 @@ import ButtonOval from "../ButtonOval/ButtonOval";
 import Image from "next/image";
 import { useState } from "react";
 import CartAddedModal from "../Modal/CartAddedModal";
+import { useRouter } from "next/navigation";
+import { CategoryProductItem } from "@/types/categoryProductItem";
 
 type Props = {
-    item: {
-        id: number;
-        img: string;
-        name: string;
-        price: string;
-    };
+    item: CategoryProductItem;
 }
 const Product = (props: Props) => {
+    const router = useRouter();
     const [addedToCart, setAddedToCart] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const handleAddToCart = () => {
@@ -35,16 +33,17 @@ const Product = (props: Props) => {
 
             <div className="flex gap-3 items-center justify-center">
 
-                <ButtonOval buttonText="Детальніше" className=" bg-[var(--main-dark-color)] text-white  rounded px-4 py-2 h-[36px] w-[102px]" style={
+                    <ButtonOval buttonText="Детальніше" className="px-4 py-2 h-[36px] w-[102px] rounded-3xl text-[10px] border " style={
                         {
 
-                        fontSize: "10px",
-                            borderRadius: "28px",
-                            border: "1px solid var(--main-dark-color)",
-                            backgroundColor: "transparent",
+                            backgroundColor: "#FFF",
                             color: "var(--main-dark-color)",
+                            border: "1px solid var(--main-dark-color)",
                         }
-                    } />
+
+
+
+                    } onClick={() => router.push(`/product/${props.item.id}`)} />
 
                 <div className="">
                     <Button

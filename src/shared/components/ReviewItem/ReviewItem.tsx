@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
 import Image from "next/image"
 import TextSubtitle from "../TextSubtitle.tsx/TextSubtitle";
+import Rating from "../Rating/Rating";
 
 type Props = {
   item: {
@@ -29,11 +30,10 @@ const ReviewItem = (props: Props) => {
 
       </div>
 
-      <div className="flex gap-1 items-center">
-        {Array.from({ length: props.item.rating }, (_, index) => (
-          <span key={index} ><Star height={20} width={20} fill="var(--main-orange)" stroke="var(--main-orange)" /></span>
-        ))}
-      </div>
+
+      <Rating rating={props.item.rating} className="text-left" fill="var(--main-orange)" stroke="var(--main-orange)" height={20} width={20} />
+
+
 
       <div className="flex gap-2 mt-auto ">
         <TextSubtitle text={props.item.name} className="text-left font-normal" fontSize="20px" />

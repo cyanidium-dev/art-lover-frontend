@@ -9,9 +9,10 @@ type FormValues = {
     
 
 const Subscribe = () => {
-    const { register, handleSubmit, reset, watch, control } = useForm<FormValues>();
-    const onSubmit = (data: FormValues) => {
-        console.log(data);
+  const { register, handleSubmit, reset, watch, control, formState: { isSubmitting }, } = useForm<FormValues>();
+  const onSubmit = async (data: FormValues) => {
+    console.log('Subscribed:', data.email);
+    await new Promise((res) => setTimeout(res, 1000)); 
         reset();
     };
 
@@ -24,7 +25,12 @@ const Subscribe = () => {
           <input id="email" type="email" placeholder="Email" className="w-full h-[40px]  text-white rounded-2xl   bg-[rgba(255,255,255,0.34)] p-2 border-transparent  outline-none placeholder:text-left placeholder:pl-2 placeholder:text-[12px] placeholder:font-light placeholder:text-white"
                   {...register("email")}
                   />
-                  <ButtonOval buttonText="Надіслати" type="submit" className="w-[120px] h-[40px] bg-white text-[var(--main-dark-color)] font-light leading-2 text-[10px]" style={{ background: '#FFFFFF' }} />
+          <ButtonOval
+            buttonText={isSubmitting ? '...' : 'Надіслати'}
+            type="submit"
+            className="w-[120px] h-[40px] bg-white text-[var(--main-dark-color)] font-light leading-2 text-[10px]"
+            style={{ background: '#FFFFFF' }}
+          />
         </form>
           </div>
           

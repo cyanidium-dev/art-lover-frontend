@@ -1,32 +1,44 @@
 import Image from "next/image";
+import BasketCounter from "../BasketCounter/BasketCounter";
+import { BasketProductItem } from "@/types/basketProductItem";
+import { useState } from "react";
+import { Trash } from "lucide-react";
+
+interface Props {
+    item: BasketProductItem;
+    onUpdateQuantity: (quantity: number, id: string) => void;
+    onDelete: (id: string) => void;
+    className?: string;
+}
 
 
-
-
-
-const BasketProduct = ({ item }: { item: any }) => (
-    <div className="flex items-start gap-4 border border-white/20 rounded-lg p-2 text-[12px]">
+const BasketProduct = (props: Props) => (
+    <li className={`relative flex items-start gap-4 border rounded-lg p-2 text-[12px] ${props.className}`}>
         <div className="w-[90px] h-[101px] overflow-hidden rounded">
             <Image
-                src={item.img}
-                alt={item.name}
+                src={props.item.img}
+                alt={props.item.name}
                 width={90}
                 height={101}
                 className="w-full h-full object-cover"
             />
         </div>
-        <div className="flex flex-col flex-grow text-white">
+        <button
+            className={`absolute top-2 right-2 ${props.className}`}
+            onClick={() => props.onDelete(props.item.id)}
+        >
+            <Trash size={20} />
+        </button>
+        <div className={` ${props.className} flex flex-col flex-grow`}>
             <p className="text-[12px] w-[80px] mb-1 ">
-                {item.name}
+                {props.item.name}
             </p>
-            <p className="font-semibold text-[13px] mb-1">USD {item.price}</p>
-            <div className="flex items-center mt-1 gap-2">
-                <button className="w-5 h-5 rounded bg-transparent text-white text-xs">-</button>
-                <span className="text-white flex items-center justify-center border rounded w-5 h-5">{item.quantity}</span>
-                <button className="w-5 h-5 rounded bg-transparent text-white text-xs">+</button>
-            </div>
+            <p className="font-semibold text-[13px] mb-1">USD {props.item.price}</p>
+
+            <BasketCounter item={props.item} onChange={props.onUpdateQuantity} className={props.className} />
+
         </div>
-    </div>
+    </li>
 );
 
 
