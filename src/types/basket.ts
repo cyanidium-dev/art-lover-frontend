@@ -1,5 +1,5 @@
 import { BasketProductItem } from "./basketProductItem";
 
-export type Basket = {
+export interface Basket {
     items: BasketProductItem[];
 }

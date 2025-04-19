@@ -1,4 +1,4 @@
-export type BasketProductItem = {
+export interface BasketProductItem {
     id: string;
     img: string;
     name: string;

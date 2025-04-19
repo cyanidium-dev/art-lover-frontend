@@ -26,11 +26,12 @@ const FullProductCounter = (props: Props) => {
     };
   return (
 
-            <div className="flex items-center mt-1 gap-2 border-1 border-[var(--main-dark-color)] rounded-md">
-        <button onClick={handleDecrement} className={`w-5 h-5 rounded bg-transparent ${props.className} text-xs`}>-</button>
-        <span className={`flex items-center justify-center border rounded w-5 h-5 ${props.className}`}>{count}</span>
-        <button onClick={handleIncrement} className={`w-5 h-5 rounded bg-transparent ${props.className} text-xs`}>+</button>
-              </div>
+      <div className="flex items-center gap-2 border border-zinc-200 rounded-xl px-1 py-1 bg-white text-[10px] text-zinc-400">
+          <button onClick={handleDecrement} className="px-1 text-xs">{'<'}</button>
+          <span className="px-1">{count}</span>
+          <button onClick={handleIncrement} className="px-1 text-xs">{'>'}</button>
+      </div>
+
 
   )
 }

@@ -1,15 +1,13 @@
 import TextSubtitle from "@/shared/components/TextSubtitle.tsx/TextSubtitle"
 import TextTitle from "@/shared/components/TextTitle/TextTitle"
 import productItems from "../productItems"
-import ButtonOval from "@/shared/components/ButtonOval/ButtonOval"
-import Button from "@/shared/components/Button/Button"
-import { ShoppingCart } from "lucide-react"
+
 import Product from "@/shared/components/Product/Product"
 import SliderControllers from "@/shared/components/SliderControllers/SliderControllers"
-import Swiper from "swiper"
 
-type Props = {}
-const Hits = (props: Props) => {
+
+
+const Hits = () => {
     return (
 
         <div className="py-8">

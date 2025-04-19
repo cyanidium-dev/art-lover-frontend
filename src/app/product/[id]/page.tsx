@@ -40,7 +40,14 @@ export default function ProductPage({ params }: ProductPageProps) {
     const product = productsWithFull.find((p) => p.id === params.id);
     
     
-    return <>   {product && <FullProduct item={product} />}</>
+    return <>
+
+
+        {product && <FullProduct item={product} />}
+
+
+
+    </>
            
          
             

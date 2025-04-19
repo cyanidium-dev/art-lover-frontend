@@ -7,15 +7,10 @@ import Image from "next/image";
 import { useState } from "react";
 import CartAddedModal from "../Modal/CartAddedModal";
 import { useRouter } from "next/navigation";
+import { CategoryProductItem } from "@/types/categoryProductItem";
 
 type Props = {
-    item: {
-        id: number;
-        img: string;
-        name: string;
-        price: string;
-
-    };
+    item: CategoryProductItem;
 }
 const Product = (props: Props) => {
     const router = useRouter();

@@ -1,5 +1,62 @@
 const productsWithFull = [
     {
+        id: "1",
+        img: "/products/product.png",
+        name: "String Art Portrait Kit",
+        price: 'USD 19.99',
+        hit: true,
+        new: false,
+        discount: false,
+        category: "String Art",
+        quantity: 1,
+        rating: 5,
+        suitableFor: ['Творчого часу з родиною',
+            'Антистрес терапії',
+            'Заняття на вечір',
+            'Хобі для дорослих',
+            'Релаксу та медитації',
+            'Розвитку моторики',
+            'Релаксу та медитації',
+            'Заняття на вечір',],
+        gallery: [
+            "/products/product.png",
+            "/products/product.png",
+            "/products/product.png",
+            "/products/product.png",
+            "/products/product.png",
+        ],
+        shortDescription: "Short description of the product. one more line of text",
+        description: "String Art Portrait Kit is a unique and creative way to create beautiful art pieces using string and nails. This kit includes everything you need to get started, including a wooden board, nails, and colorful string. With easy-to-follow instructions, you can create stunning designs that will impress your friends and family. Perfect for crafters of all skill levels, this kit is a great way to unleash your creativity and make something special for your home or as a gift.",
+        details: [
+            "Includes wooden board, nails, and colorful string",
+            "Easy-to-follow instructions for creating stunning designs",
+            "Perfect for crafters of all skill levels",
+            "Great for home decor or as a gift",
+            "Unleash your creativity with this fun and unique kit",
+        ],
+        reviews: [
+            {
+                id: "1",
+                name: "John Doe",
+                rating: 5,
+                comment: "I loved this"
+            },
+            {
+                id: "2",
+                name: "Jane Smith",
+                rating: 4,
+                comment: "Great kit, easy to use!"
+            },
+            {
+                id: "3",
+                name: "Alice Johnson",
+                rating: 5,
+                comment: "Highly recommend this for anyone who loves crafting!"
+            },
+        ],
+
+    },
+    {
         id: "9",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
@@ -9,7 +66,15 @@ const productsWithFull = [
         discount: false,
         category: "String Art",
         quantity: 1,
-        rating:5,
+        rating: 5,
+        suitableFor: ['Творчого часу з родиною',
+            'Антистрес терапії',
+            'Заняття на вечір',
+            'Хобі для дорослих',
+            'Релаксу та медитації',
+            'Розвитку моторики',
+            'Релаксу та медитації',
+            'Заняття на вечір',],
         gallery: [
             "/products/product.png",
             "/products/product.png",
@@ -49,6 +114,64 @@ const productsWithFull = [
 
     },
     {
+        id: "23",
+        img: "/products/product.png",
+        name: "String Art Portrait Kit",
+        price: 'USD 19.99',
+        hit: true,
+        new: false,
+        discount: false,
+        category: "String Art",
+        quantity: 1,
+        rating: 5,
+        gallery: [
+            "/products/product.png",
+            "/products/product.png",
+            "/products/product.png",
+            "/products/product.png",
+            "/products/product.png",
+        ],
+        shortDescription: "Short description of the product. one more line of text",
+        description: "String Art Portrait Kit is a unique and creative way to create beautiful art pieces using string and nails. This kit includes everything you need to get started, including a wooden board, nails, and colorful string. With easy-to-follow instructions, you can create stunning designs that will impress your friends and family. Perfect for crafters of all skill levels, this kit is a great way to unleash your creativity and make something special for your home or as a gift.",
+        details: [
+            "Includes wooden board, nails, and colorful string",
+            "Easy-to-follow instructions for creating stunning designs",
+            "Perfect for crafters of all skill levels",
+            "Great for home decor or as a gift",
+            "Unleash your creativity with this fun and unique kit",
+        ],
+        suitableFor: ['Творчого часу з родиною',
+            'Антистрес терапії',
+            'Заняття на вечір',
+            'Хобі для дорослих',
+            'Релаксу та медитації',
+            'Розвитку моторики',
+            'Релаксу та медитації',
+            'Заняття на вечір',],
+        reviews: [
+            {
+                id: "1",
+                name: "John Doe",
+                rating: 5,
+                comment: "I loved this"
+            },
+            {
+                id: "2",
+                name: "Jane Smith",
+                rating: 4,
+                comment: "Great kit, easy to use!"
+            },
+            {
+                id: "3",
+                name: "Alice Johnson",
+                rating: 5,
+                comment: "Highly recommend this for anyone who loves crafting!"
+            },
+        ],
+
+
+    },
+    {
         id:"2",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
@@ -62,6 +185,14 @@ const productsWithFull = [
 
         discount: false,
         category: "String Art",
+        suitableFor: ['Творчого часу з родиною',
+            'Антистрес терапії',
+            'Заняття на вечір',
+            'Хобі для дорослих',
+            'Релаксу та медитації',
+            'Розвитку моторики',
+            'Релаксу та медитації',
+            'Заняття на вечір',],
         gallery: [
             "/products/product.png",
             "/products/product.png",
@@ -69,6 +200,7 @@ const productsWithFull = [
             "/products/product.png",
             "/products/product.png",
         ],
+
         description: "String Art Portrait Kit is a unique and creative way to create beautiful art pieces using string and nails. This kit includes everything you need to get started, including a wooden board, nails, and colorful string. With easy-to-follow instructions, you can create stunning designs that will impress your friends and family. Perfect for crafters of all skill levels, this kit is a great way to unleash your creativity and make something special for your home or as a gift.",
         details: [
             "Includes wooden board, nails, and colorful string",
@@ -106,6 +238,14 @@ const productsWithFull = [
         hit: false,
         shortDescription: "Short description of the product. one more line of text",
         quantity: 1,
+        suitableFor: ['Творчого часу з родиною',
+            'Антистрес терапії',
+            'Заняття на вечір',
+            'Хобі для дорослих',
+            'Релаксу та медитації',
+            'Розвитку моторики',
+            'Релаксу та медитації',
+            'Заняття на вечір',],
 
         new: false,
         discount: true,
@@ -156,6 +296,14 @@ const productsWithFull = [
         rating: 5,
         shortDescription: "Short description of the product. one more line of text",
         quantity: 1,
+        suitableFor: ['Творчого часу з родиною',
+            'Антистрес терапії',
+            'Заняття на вечір',
+            'Хобі для дорослих',
+            'Релаксу та медитації',
+            'Розвитку моторики',
+            'Релаксу та медитації',
+            'Заняття на вечір',],
 
 
         discount: false,
@@ -207,6 +355,14 @@ const productsWithFull = [
         rating: 5,
         shortDescription: "Short description of the product. one more line of text",
         quantity: 1,
+        suitableFor: ['Творчого часу з родиною',
+            'Антистрес терапії',
+            'Заняття на вечір',
+            'Хобі для дорослих',
+            'Релаксу та медитації',
+            'Розвитку моторики',
+            'Релаксу та медитації',
+            'Заняття на вечір',],
 
 
         discount: false,
@@ -257,6 +413,14 @@ const productsWithFull = [
         discount: false,
         category: "Deco",
         quantity: 1,
+        suitableFor: ['Творчого часу з родиною',
+            'Антистрес терапії',
+            'Заняття на вечір',
+            'Хобі для дорослих',
+            'Релаксу та медитації',
+            'Розвитку моторики',
+            'Релаксу та медитації',
+            'Заняття на вечір',],
 
         gallery: [
             "/products/product.png",
