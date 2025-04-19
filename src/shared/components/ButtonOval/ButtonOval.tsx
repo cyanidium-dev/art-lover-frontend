@@ -23,6 +23,7 @@ const ButtonOval = (props: Props) => {
             }}
         >   
             <span className="truncate">{props.buttonText}</span>
+            {props.svg && <span className="ml-2">{props.svg}</span>}
 
 
         </button >
