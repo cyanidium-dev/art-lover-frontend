@@ -47,8 +47,6 @@ const CheckoutForm = () => {
     return (
         <div className='py-4'>
             <TextTitle text="Оформлення замовлення" className="uppercase text-center mb-4 font-semibold" fontSize="18px" />
-
-
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mb-4">
             {/* Tabs */}
                 <div className="flex gap-2 mb-8">
@@ -158,9 +156,6 @@ const CheckoutForm = () => {
                     <CheckOutStepTitle title="Крок 5" text="Додати коментар" icon={<PersonStanding />} />
                     <textarea {...register('comment')} placeholder="Додайте коментар, якщо потрібно" className="w-full p-1.5 min-h-16 border rounded text-[12px]" />
                 </div>
-
-
-
                 {/*step 6 */}
                 <div className="border p-4 rounded">
                     <CheckOutStepTitle title="Ваше замовлення" text="" icon={<ShoppingBag />} />
@@ -206,10 +201,7 @@ const CheckoutForm = () => {
                         className="w-full border rounded px-2 py-1 text-[12px]"
                     />
                 </div>
-
-
                 {/*step 8 */}
-
                 <div className="border p-4 rounded">
                     <CheckOutStepTitle
                         title="Залишити чайові нашим пакувальникам"

@@ -6,6 +6,7 @@ import ButtonOval from "../ButtonOval/ButtonOval";
 import Image from "next/image";
 import { useState } from "react";
 import CartAddedModal from "../Modal/CartAddedModal";
+import { useRouter } from "next/navigation";
 
 type Props = {
     item: {
@@ -13,9 +14,11 @@ type Props = {
         img: string;
         name: string;
         price: string;
+
     };
 }
 const Product = (props: Props) => {
+    const router = useRouter();
     const [addedToCart, setAddedToCart] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const handleAddToCart = () => {
@@ -42,7 +45,10 @@ const Product = (props: Props) => {
                             color: "var(--main-dark-color)",
                             border: "1px solid var(--main-dark-color)",
                         }
-                    } />
+
+
+
+                    } onClick={() => router.push(`/product/${props.item.id}`)} />
 
                 <div className="">
                     <Button

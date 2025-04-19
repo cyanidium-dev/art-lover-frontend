@@ -9,7 +9,7 @@ type Props = {
 
 
 }
-const BasketItemCounter = (props: Props) => {
+const FullProductCounter = (props: Props) => {
 
     const [count, setCount] = useState(1);
 
@@ -26,7 +26,7 @@ const BasketItemCounter = (props: Props) => {
     };
   return (
 
-            <div className="flex items-center mt-1 gap-2">
+            <div className="flex items-center mt-1 gap-2 border-1 border-[var(--main-dark-color)] rounded-md">
         <button onClick={handleDecrement} className={`w-5 h-5 rounded bg-transparent ${props.className} text-xs`}>-</button>
         <span className={`flex items-center justify-center border rounded w-5 h-5 ${props.className}`}>{count}</span>
         <button onClick={handleIncrement} className={`w-5 h-5 rounded bg-transparent ${props.className} text-xs`}>+</button>
@@ -34,4 +34,4 @@ const BasketItemCounter = (props: Props) => {
 
   )
 }
-export default BasketItemCounter
+export default FullProductCounter
