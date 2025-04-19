@@ -1,6 +1,6 @@
 const productItems = [
     {
-        id: 1,
+        id: "1",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -11,7 +11,7 @@ const productItems = [
 
     },
     {
-        id: 2,
+        id: "2",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -21,7 +21,7 @@ const productItems = [
         category: "String Art",
     },
     {
-        id: 3,
+        id: "3",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -31,7 +31,7 @@ const productItems = [
         category: "String Art",
     },
     {
-        id: 4,
+        id: "4",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -41,7 +41,7 @@ const productItems = [
         category: "String Art",
     },
     {
-        id: 5,
+        id: "5",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -51,7 +51,7 @@ const productItems = [
         category: "Deco",
     },
     {
-        id: 6,
+        id: "6",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -61,7 +61,7 @@ const productItems = [
         category: "Deco",
     },
     {
-        id: 7,
+        id: "7",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -72,7 +72,7 @@ const productItems = [
     },
 
     {
-        id: 8,
+        id: "8",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -82,7 +82,7 @@ const productItems = [
         category: "Deco",
     },
     {
-        id: 9,
+        id: "9",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -92,7 +92,7 @@ const productItems = [
         category: "New",
     },
     {
-        id: 10,
+        id: "10",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -102,7 +102,7 @@ const productItems = [
         category: "New",
     },
     {
-        id: 11,
+        id: "11",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -112,27 +112,7 @@ const productItems = [
         category: "New",
     },
     {
-        id: 12,
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: false,
-        category: "New",
-    },
-    {
-        id: 12,
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: false,
-        category: "New",
-    },
-    {
-        id: 14,
+        id: "12",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -143,7 +123,18 @@ const productItems = [
     },
 
     {
-        id: 15,
+        id: "14",
+        img: "/products/product.png",
+        name: "String Art Portrait Kit",
+        price: 'USD 19.99',
+        hit: false,
+        new: false,
+        discount: false,
+        category: "New",
+    },
+
+    {
+        id: "15",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -152,38 +143,9 @@ const productItems = [
         discount: true,
         category: "Sale",
     },
+
     {
-        id: 16,
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: true,
-        category: "Sale",
-    },
-    {
-        id: 17,
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: true,
-        category: "Sale",
-    },
-    {
-        id: 18,
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: true,
-        category: "Sale",
-    },
-    {
-        id: 19,
+        id: "19",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -193,7 +155,7 @@ const productItems = [
         category: "Gifts",
     },
     {
-        id: 20,
+        id: "20",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -203,7 +165,7 @@ const productItems = [
         category: "Gifts",
     },
     {
-        id: 21,
+        id: "21",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -213,7 +175,7 @@ const productItems = [
         category: "Gifts",
     },
     {
-        id: 22,
+        id: "22",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -223,7 +185,7 @@ const productItems = [
         category: "Gifts",
     },
     {
-        id: 23,
+        id: "23",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -233,7 +195,7 @@ const productItems = [
         category: "Hits",
     },
     {
-        id: 24,
+        id: "24",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -243,7 +205,7 @@ const productItems = [
         category: "Hits",
     },
     {
-        id: 25,
+        id: "25",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -253,7 +215,7 @@ const productItems = [
         category: "Hits",
     },
     {
-        id: 26,
+        id: "26",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -263,7 +225,7 @@ const productItems = [
         category: "Hits",
     },
     {
-        id: 27,
+        id: "27",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -273,7 +235,7 @@ const productItems = [
         category: "hits",
     },
     {
-        id: 28,
+        id: "28",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',

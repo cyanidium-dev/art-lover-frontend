@@ -1,6 +1,6 @@
 export const alreadyVisited = [
     {
-        id: 1,
+        id: "1",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -10,7 +10,7 @@ export const alreadyVisited = [
         category: "Hits",
     },
     {
-        id: 2,
+        id: "2",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -20,7 +20,7 @@ export const alreadyVisited = [
         category: "Hits",
     },
     {
-        id: 3,
+        id: "3",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -30,7 +30,7 @@ export const alreadyVisited = [
         category: "Hits",
     },
     {
-        id: 4,
+        id: "4",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -40,7 +40,7 @@ export const alreadyVisited = [
         category: "Hits",
     },
     {
-        id: 5,
+        id: "5",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
@@ -50,7 +50,7 @@ export const alreadyVisited = [
         category: "hits",
     },
     {
-        id: 6,
+        id: "6",
         img: "/products/product.png",
         name: "String Art Portrait Kit",
         price: 'USD 19.99',
