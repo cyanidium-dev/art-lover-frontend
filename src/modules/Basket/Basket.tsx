@@ -1,13 +1,14 @@
 'use client';
 
 import BasketProduct from '@/shared/components/BasketProduct/BasketProduct';
-import { ShoppingCart, CircleX } from 'lucide-react';
+import { ShoppingCart, CircleX, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import itemsInBasket from './itemsInBasket';
 import FreeShipping from '@/shared/components/FreeShipping/FreeShipping';
 import ButtonOval from '@/shared/components/ButtonOval/ButtonOval';
 import { useRouter } from 'next/navigation';
 import ModalBackDrop from '@/shared/components/ModalBackdrop/ModalBackDrop';
+import { AnimatePresence, motion } from 'framer-motion';
 
 type Props = {
     open: boolean;
@@ -54,13 +55,14 @@ const Basket = ({ open, onClose }: Props) => {
     }
 
     return (
-        <ModalBackDrop onClose={onClose}>
 
 
-
-
+        <ModalBackDrop onClose={onClose} direction='right'>
             {/* Drawer */}
-            <div className="absolute right-0 top-0 h-full w-full bg-[var(--main-dark-color)] flex flex-col justify-between shadow-lg animate-slide-in">
+            <div
+
+                className="absolute right-0 top-0 h-full w-full bg-[var(--main-dark-color)] flex flex-col justify-between shadow-lg z-50"
+            >
                 {/* Header */}
 
                 <div className="flex items-center justify-between px-8 py-8 text-white">
@@ -68,8 +70,11 @@ const Basket = ({ open, onClose }: Props) => {
                             <ShoppingCart size={20} />
                             <span className="text-sm font-semibold">КОШИК</span>
                         </div>
-                        <button onClick={onClose}>
-                            <CircleX size={20} />
+                    <button onClick={onClose} type="button" className="flex items-center justify-center rounded-full w-[32px] h-[32px] text-white bg-[var(--main-dark-color)] shadow border border-white transition duration-300 hover:bg-white hover:text-[var(--main-dark-color)]"
+
+
+                        aria-label="Close">
+                        <X size={20} />
                         </button>
                 </div>
                 {/* Items */}
@@ -107,22 +112,10 @@ const Basket = ({ open, onClose }: Props) => {
                 </div>
             </div>
 
-            {/* Animations */}
-            <style jsx>{`
-        @keyframes slide-in {
-          from {
-            transform: translateX(100%);
-          }
-          to {
-            transform: translateX(0%);
-          }
-        }
-        .animate-slide-in {
-          animation: slide-in 0.3s ease-out forwards;
-        }
-      `}</style>
 
         </ModalBackDrop>
+
+
     );
 };
 

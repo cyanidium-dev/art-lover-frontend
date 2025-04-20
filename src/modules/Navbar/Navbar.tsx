@@ -8,6 +8,7 @@ import Basket from "../Basket/Basket";
 import basketItems from "../Basket/itemsInBasket";
 import Link from "next/link";
 import MobileCatalog from "../MobileCatalog/MobileCatalog";
+import { AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
     const [basketOpen, setBasketOpen] = useState(false);
@@ -21,24 +22,28 @@ const Navbar = () => {
     return (
         <nav>
             <div className="wrapper flex justify-between items-center py-8">
-
                 <NavBarCatalog onCatalogClick={openCatalog} />
+
                 <Link href="/" className="inline-block">
                     <Logo />
                 </Link>
-
-                {catalogOpen && (<MobileCatalog open={catalogOpen} onClose={() => setCatalogOpen(false)} />
-                )}
-
-
                 <NavbarMenu onCartClick={openBasket} />
-                {basketOpen && (
-                    <Basket
 
+
+
+                <AnimatePresence>{catalogOpen && (<MobileCatalog open={catalogOpen} onClose={() => setCatalogOpen(false)} />
+                )}
+                </AnimatePresence>
+
+
+
+                <AnimatePresence>
+                {basketOpen && (
+                        <Basket
                         open={basketOpen}
                         onClose={() => setBasketOpen(false)}
                     />
-                )}
+                    )}</AnimatePresence>
 
 
             </div>

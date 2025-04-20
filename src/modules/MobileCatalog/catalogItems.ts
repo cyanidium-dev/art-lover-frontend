@@ -22,12 +22,12 @@ export const catalogItems: CatalogItem[] = [
             { id: '12', name: 'Подарунки для чоловіків', link: '/gifts/man' },]
     },
     {
-        id: '2', name: 'Творчі набори', link: '/sets', icon: PackageSearch, subItems: [
-            { id:"21", name: 'StringArt картини нитками', link: '/sets/string-art' },
-            { id: '23', name: 'Картини за номерами', link: '/sets/paint-by-numbers' },
-            { id: '22', name: 'Алмазна мозаїка', link: '/sets/diamond' },
-            { id: '24', name: 'Вишивання', link: '/sets/embroidery' },
-            { id: '25', name: 'Інші', link: '/sets/other' },
+        id: '2', name: 'Творчі набори', link: '/art', icon: PackageSearch, subItems: [
+            { id: "21", name: 'StringArt картини нитками', link: '/art/string-art' },
+            { id: '23', name: 'Картини за номерами', link: '/art/paint-by-numbers' },
+            { id: '22', name: 'Алмазна мозаїка', link: '/art/diamond' },
+            { id: '24', name: 'Вишивання', link: '/art/embroidery' },
+            { id: '25', name: 'Інші', link: '/art/other' },
         ],
     },
     { id: '3', name: 'Художні товари', link: '/art', icon: Paintbrush },

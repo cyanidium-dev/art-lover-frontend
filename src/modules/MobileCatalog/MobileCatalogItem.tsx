@@ -8,6 +8,7 @@ type Props = {
     item: {
         id: string, name: string, link: string, icon: LucideIcon, subItems?: { id: string; name: string; link: string }[]
     }
+    onClose?: () => void
 }
 const MobileCatalogItem = (props: Props) => {
     const [open, setOpen] = useState(false);
@@ -20,12 +21,18 @@ const MobileCatalogItem = (props: Props) => {
             >
                 <div className="flex items-center gap-2">
                     <props.item.icon size={20} className="text-[var(--main-dark-color)]" />
-                    <Link href={props.item.link}>{props.item.name}</Link>
+                    <Link
+                        onClick={props.onClose}
+
+                        href={props.item.link}
+                        className="hover:text-[var(--main-orange)] transition-colors"
+                    >
+                        {props.item.name}
+                    </Link>
                 </div>
                 {/* Arrow icon for sub-items */}
                 <div>
                     {props.item.subItems && (
-                        
                     <button
                             className="flex items-center justify-center  rounded w-[32px] h-[32px] text-[var(--main-dark-color)]"
                         type="button"
@@ -54,8 +61,14 @@ const MobileCatalogItem = (props: Props) => {
                     >
                         {props.item.subItems.map((subItem) => (
                             <li key={subItem.id}>
-                                <Link href={subItem.link}>{subItem.name}</Link>
-                            </li>
+                                <Link
+                                    onClick={props.onClose}
+
+                                    href={subItem.link}
+                                    className="hover:text-[var(--main-orange)] transition-colors"
+                                >
+                                    {subItem.name}
+                                </Link>                            </li>
                         ))}
                     </motion.ul>
                 )}
