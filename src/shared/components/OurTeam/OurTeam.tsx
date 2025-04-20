@@ -5,9 +5,9 @@ import Image from 'next/image';
 import { team } from './teamMembers';
 
 
-const TeamSection = () => {
+const OurTeam = () => {
     return (
-        <section className="px-4 mt-6">
+        <div className=" my-8">
             <h3 className="text-xs font-semibold mb-4 uppercase text-[var(--main-dark-color)]">Наша творча команда</h3>
             <ul className="flex flex-col gap-4">
                 {team.map((member, idx) => (
@@ -36,8 +36,8 @@ const TeamSection = () => {
                     </li>
                 ))}
             </ul>
-        </section>
+        </div>
     );
 };
 
-export default TeamSection;
+export default OurTeam;

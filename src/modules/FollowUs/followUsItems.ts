@@ -12,7 +12,7 @@ type FollowUsItem = {
     text: string;
     icon: ReactElement
 };
-const followUsItems = [
+const followUsItems: FollowUsItem[] = [
     
     {
         
