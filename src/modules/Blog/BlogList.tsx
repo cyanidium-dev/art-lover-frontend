@@ -17,21 +17,27 @@ type Props = {
 
 const BlogList = ({ posts }: Props) => {
     return (
+
+        <div>
+
+
         <div className="flex flex-col gap-4">
             {posts.map((post) => (
                 <div
                     key={post.id}
                     className="bg-white rounded-lg p-4 shadow-md flex flex-col gap-2"
                 >
+                    <div className='h-[116px] w-full overflow-hidden rounded-md bg-[var(--main-light-color)]' >
                     <Image
                         src={post.image}
                         alt={post.title}
                         width={300}
-                        height={180}
-                        className="rounded-md object-cover w-full h-[180px]"
-                    />
+                            height={116}
+                            className="rounded-md object-cover w-full"
+                        />
+                    </div>
 
-                    <h3 className="text-[14px] font-semibold text-[var(--main-dark-color)] leading-tight">
+                    <h3 className="text-[14px] font-semibold text-[var(--main-orange)] leading-tight">
                         {post.title}
                     </h3>
 
@@ -48,6 +54,7 @@ const BlogList = ({ posts }: Props) => {
                     </div>
                 </div>
             ))}
+            </div>
         </div>
     );
 };

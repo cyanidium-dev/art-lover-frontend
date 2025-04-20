@@ -34,7 +34,7 @@ const CatalogProduct = (props: Props) => {
         key={props.item.id}
         className="w-[140px] flex flex-col gap-2 items-stretch rounded-md bg-white shadow-lg p-[12px] border-transparent"
     >
-        <div className="h-[131px] w-full overflow-hidden rounded-md bg-[var(--main-light-color)]">
+                <div className="h-[131px] w-full overflow-hidden rounded-md ">
             <Image
                 src={props.item.img}
                 alt={props.item.name}
