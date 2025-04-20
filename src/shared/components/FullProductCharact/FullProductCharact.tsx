@@ -17,7 +17,7 @@ const FullProductCharact = ({
 }: Props) => {
     return (
         <div className="text-[14px] text-[var(--main-dark-color)] space-y-2 font-light">
-            <h3 className="font-semibold uppercase text-[18px]">ХАРАКТЕРИСТИКА ТОВАРУ:</h3>
+            <h3 className="font-medium uppercase text-[18px]">ХАРАКТЕРИСТИКА ТОВАРУ:</h3>
             <p><span className="font-medium mr-4 text-[16px]">Вага:</span> {weight}</p>
             <p><span className="font-medium mr-4 text-[16px]">Розмір:</span> {size}</p>
             <p><span className="font-medium mr-4 text-[16px]">Матеріали:</span> {materials}</p>

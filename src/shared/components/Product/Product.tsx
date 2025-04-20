@@ -24,7 +24,8 @@ const Product = (props: Props) => {
     return (
         <>
         <li key={props.item.id} className="flex flex-col items-center gap-[12px] rounded-md bg-white shadow-lg p-[12px] ">
-            <Image src={props.item.img} alt={props.item.name} width={151} height={120} className="object-cover" />
+                <Image src={props.item.img} alt={props.item.name} width={151} height={120} className="w-full h-auto object-fill transition-transform duration-300 transform hover:scale-105"
+                />
             <div className="flex flex-col">
                 <p className="text-[14px] font-medium ">{props.item.price}</p>
                 <p className="text-[14px] font-medium">{props.item.name}</p>

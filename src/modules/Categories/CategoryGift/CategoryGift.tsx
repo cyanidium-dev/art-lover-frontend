@@ -31,7 +31,7 @@ const CategoryGift = (props: Props) => {
     ageRange: [15, 70],
     professions: [],
   });
-  const [sorted, setSorted] = useState<'За популярністю' | 'За зростанням ціни' | 'За зменшенням ціни' | 'За знижкою' | 'За найвищим рейтингу' | 'За наявністю'>('За популярністю');
+  const [sorted, setSorted] = useState<'За популярністю' | 'За зростанням ціни' | 'За зменшенням ціни' | 'За знижкою' | 'За рейтингом' | 'За наявністю'>('За популярністю');
 
   const filteredItems = giftItems.filter((item) => {
     const inGender = genderFilter ? item.gender === genderFilter : true;
@@ -67,11 +67,7 @@ const CategoryGift = (props: Props) => {
         <CategoryFilter values={filterValues} onChange={setFilterValues} />
         <CategorySort sorted={sorted} onChange={setSorted} />
       </div>
-
-
-
-      <CategoriesCatalog items={sortedItems} />
-
+      <CategoriesCatalog items={sortedItems.map(item => ({ ...item, id: item.id.toString() }))} />
       <SliderControllers prevClass="prev-gift-category" nextClass="next-gift-category" />
 
     </>

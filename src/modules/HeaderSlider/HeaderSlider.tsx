@@ -10,7 +10,6 @@ import { Navigation, Pagination } from 'swiper/modules';
 import LogoSymbol from "@/shared/components/LogoSymbol/LogoSymbol";
 import TextSubtitle from "@/shared/components/TextSubtitle.tsx/TextSubtitle";
 import TextTitle from "@/shared/components/TextTitle/TextTitle";
-import { CircleChevronLeft, CircleChevronRight } from "lucide-react";
 import SliderControllers from "@/shared/components/SliderControllers/SliderControllers";
 
 type Props = {}
@@ -24,11 +23,15 @@ const HeaderSlider = (props: Props) => {
                 className="w-full"
 
                 slidesPerView={1}
+                spaceBetween={0}
                 loop={true}
+
+                speed={1000}
                 navigation={
                     {
                         nextEl: '.swiper-hero-next',
                         prevEl: '.swiper-hero-prev',
+
 
 
                     }
@@ -37,9 +40,8 @@ const HeaderSlider = (props: Props) => {
                 pagination={{
                     clickable: true,
                     el: '.swiper-hero-pagination',
-                    bulletClass: 'swiper-hero-bullet',
+                    bulletClass: '.swiper-hero-bullet',
                     bulletActiveClass: 'active',
-
                     bulletElement: 'span',
 
 

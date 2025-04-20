@@ -12,7 +12,7 @@ body {
 }
 
 .custom-bullet,
-swiper-hero-bullet {
+.swiper-hero-bullet {
     padding: 2px;
     opacity: 0.5;
     transition: opacity 0.3s;
@@ -29,7 +29,7 @@ swiper-hero-bullet {
     opacity: 1;
 }
 
-.swiper-hero-next,
+/* .swiper-hero-next,
 .swiper-hero-prev {
     background-color: transparent;
     transition: background-color 0.3s, color 0.3s;
@@ -42,8 +42,27 @@ swiper-hero-bullet {
     display: block;
 }
 
+*/
+
 .swiper-hero-next:hover,
 .swiper-hero-prev:hover {
     background-color: var(--main-orange);
     color: var(--main-white);
+}
+.swiper-pagination-bullet {
+    background-color: var(--main-dark-color);
+    opacity: 0.5;
+    transition: opacity 0.3s;
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: var(--main-orange);
+    background: var(--main-orange);
+    opacity: 1;
+    color: var(--main-white);
+    opacity: 1;
 }

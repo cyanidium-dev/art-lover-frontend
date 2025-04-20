@@ -1,14 +1,14 @@
 'use client';
 
 import BasketProduct from '@/shared/components/BasketProduct/BasketProduct';
-import { BasketProductItem } from '@/types/basketProductItem';
-import { ShoppingCart, CircleX } from 'lucide-react';
+import { ShoppingCart, CircleX, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import items from './itemsInBasket';
 import itemsInBasket from './itemsInBasket';
 import FreeShipping from '@/shared/components/FreeShipping/FreeShipping';
 import ButtonOval from '@/shared/components/ButtonOval/ButtonOval';
 import { useRouter } from 'next/navigation';
+import ModalBackDrop from '@/shared/components/ModalBackdrop/ModalBackDrop';
+import { AnimatePresence, motion } from 'framer-motion';
 
 type Props = {
     open: boolean;
@@ -18,8 +18,8 @@ type Props = {
 const Basket = ({ open, onClose }: Props) => {
 
     const router = useRouter()
-
     const [basketItems, setBasketItems] = useState(itemsInBasket)
+    const [isEmpty, setIsEmpty] = useState(false)
     const updateItemQuantity = (quantity: number, id: string) => {
         setBasketItems((prevItems) =>
             prevItems.map((item) =>
@@ -32,6 +32,7 @@ const Basket = ({ open, onClose }: Props) => {
     }
     const totalQuantity = basketItems.reduce((sum, item) => sum + item.quantity, 0);
     const totalPrice = basketItems.reduce((sum, item) => sum + item.quantity * parseFloat(item.price), 0);
+
     useEffect(() => {
         setBasketItems(itemsInBasket)
     }, [])
@@ -47,20 +48,21 @@ const Basket = ({ open, onClose }: Props) => {
         }
 
     }
+    if (!open) return null;
+    if (basketItems.length === 0) {
+        setIsEmpty(true)
 
-
-
+    }
 
     return (
-        <div className="fixed inset-0 z-50">
-            {/* Backdrop */}
-            <div
-                className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-                onClick={onClose}
-            />
 
+
+        <ModalBackDrop onClose={onClose} direction='right'>
             {/* Drawer */}
-            <div className="absolute right-0 top-0 h-full w-full bg-[var(--main-dark-color)] flex flex-col justify-between shadow-lg animate-slide-in">
+            <div
+
+                className="absolute right-0 top-0 h-full w-full bg-[var(--main-dark-color)] flex flex-col justify-between shadow-lg z-50"
+            >
                 {/* Header */}
 
                 <div className="flex items-center justify-between px-8 py-8 text-white">
@@ -68,16 +70,30 @@ const Basket = ({ open, onClose }: Props) => {
                             <ShoppingCart size={20} />
                             <span className="text-sm font-semibold">КОШИК</span>
                         </div>
-                        <button onClick={onClose}>
-                            <CircleX size={20} />
+                    <button onClick={onClose} type="button" className="flex items-center justify-center rounded-full w-[32px] h-[32px] text-white bg-[var(--main-dark-color)] shadow border border-white transition duration-300 hover:bg-white hover:text-[var(--main-dark-color)]"
+
+
+                        aria-label="Close">
+                        <X size={20} />
                         </button>
                 </div>
                 {/* Items */}
+
+
+
                 <ul className="flex flex-col gap-3 px-[32px] mt-3 max-h-1/2 overflow-y-auto">
-                    {basketItems.map((item) => (
-                        <BasketProduct key={item.id} item={item} onUpdateQuantity={updateItemQuantity} onDelete={deleteItem} className='text-white' />
-                    ))}
+                    {isEmpty ? (
+                        <div className="flex flex-col items-center justify-center h-full text-white">
+                            <h2 className="text-lg font-semibold">Кошик порожній</h2>
+                            <p className="text-sm">Додайте товари до кошика, щоб продовжити.</p>
+                        </div>
+                    ) : (
+                        basketItems.map((item) => (
+                            <BasketProduct key={item.id} item={item} onUpdateQuantity={updateItemQuantity} onDelete={deleteItem} className='text-white' />
+                        ))
+                    )}
                 </ul>
+
                 <div>
                     <FreeShipping totalPrice={totalPrice} />
                 {/* Footer */}
@@ -96,21 +112,10 @@ const Basket = ({ open, onClose }: Props) => {
                 </div>
             </div>
 
-            {/* Animations */}
-            <style jsx>{`
-        @keyframes slide-in {
-          from {
-            transform: translateX(100%);
-          }
-          to {
-            transform: translateX(0%);
-          }
-        }
-        .animate-slide-in {
-          animation: slide-in 0.3s ease-out forwards;
-        }
-      `}</style>
-        </div>
+
+        </ModalBackDrop>
+
+
     );
 };
 

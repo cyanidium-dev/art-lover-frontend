@@ -6,18 +6,16 @@ import ButtonOval from "../ButtonOval/ButtonOval";
 import Image from "next/image";
 import { useState } from "react";
 import CartAddedModal from "../Modal/CartAddedModal";
-
+import { CategoryProductItem } from "@/types/categoryProductItem";
+import { useRouter } from "next/navigation";
 type Props = {
-    item: {
-        id: number;
-        img: string;
-        name: string;
-        price: string;
-    };
+    item: CategoryProductItem;
 }
 const CatalogProduct = (props: Props) => {
     const [addedToCart, setAddedToCart] = useState(false);
     const [showModal, setShowModal] = useState(false);
+
+    const router = useRouter();
 
 
     const handleAddToCart = () => {
@@ -29,19 +27,20 @@ const CatalogProduct = (props: Props) => {
 
 
 
+
     return (
         <>
     <li
         key={props.item.id}
         className="w-[140px] flex flex-col gap-2 items-stretch rounded-md bg-white shadow-lg p-[12px] border-transparent"
     >
-        <div className="h-[131px] w-full overflow-hidden rounded-md bg-[var(--main-light-color)]">
+                <div className="h-[131px] w-full overflow-hidden rounded-md ">
             <Image
                 src={props.item.img}
                 alt={props.item.name}
                 width={116}
                 height={131}
-                className="object-cover w-full h-full"
+                        className="w-full h-auto object-fill "
             />
         </div>
 
@@ -51,7 +50,8 @@ const CatalogProduct = (props: Props) => {
         </div>
 
         <div className="flex gap-1 items-center justify-center">
-            <ButtonOval
+                    <ButtonOval
+                        onClick={() => router.push(`/product/${props.item.id}`)} 
                 buttonText="Детальніше"
                 className="bg-[var(--main-dark-color)] text-white rounded"
                 style={{

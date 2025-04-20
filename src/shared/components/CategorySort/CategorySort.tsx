@@ -10,10 +10,7 @@ type Props = {
     onChange: (value: Option) => void;
 };
 const CategorySort = ({ sorted, onChange }: Props) => {
-    
-
     const [open, setOpen] = useState(false);
-    // const [selected, setSelected] = useState<Option>('За популярністю');
     const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
     const dropdownRef = useRef<HTMLDivElement>(null);
     useEffect(() => {

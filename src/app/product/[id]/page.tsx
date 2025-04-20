@@ -1,6 +1,5 @@
 import FullProduct from '@/modules/FullProduct/FullProduct';
 import productsWithFull from '@/modules/productsWithFull';
-import { Metadata } from 'next';
 interface ProductPageProps {
     params: Promise<{ id: string }>;
 }

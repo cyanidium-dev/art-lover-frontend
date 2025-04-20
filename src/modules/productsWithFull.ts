@@ -51,9 +51,35 @@ const productsWithFull = [
                 id: "3",
                 name: "Alice Johnson",
                 rating: 5,
-                comment: "Highly recommend this for anyone who loves crafting!"
+                comment: "Highly recommend this for anyone who loves crafting!!!!"
             },
         ],
+        similar: [
+            {
+                id: "2",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            },
+            {
+                id: "3",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            },
+        ]
 
     },
     {
@@ -111,6 +137,44 @@ const productsWithFull = [
                 comment: "Highly recommend this for anyone who loves crafting!"
             },
         ],
+        similar: [
+            {
+                id: "2",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            },
+            {
+                id: "3",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            },
+            {
+                id: "8",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            },
+        ]
 
     },
     {
@@ -168,6 +232,54 @@ const productsWithFull = [
                 comment: "Highly recommend this for anyone who loves crafting!"
             },
         ],
+        similar: [
+            {
+                id: "2",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            },
+            {
+                id: "3",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            }, {
+                id: "6",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            }, {
+                id: "8",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            },
+        ]
 
 
     },
@@ -229,6 +341,32 @@ const productsWithFull = [
                 comment: "Highly recommend this for anyone who loves crafting!"
             },
         ],
+        similar: [
+            {
+                id: "2",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            },
+            {
+                id: "3",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            },
+        ]
     },
     {
         id:"3",
@@ -285,6 +423,32 @@ const productsWithFull = [
                 comment: "Highly recommend this for anyone who loves crafting!"
             },
         ],
+        similar: [
+            {
+                id: "2",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            },
+            {
+                id: "3",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            },
+        ]
     },
     {
         id: "4",
@@ -343,6 +507,32 @@ const productsWithFull = [
                 comment: "Highly recommend this for anyone who loves crafting!"
             },
         ],
+        similar: [
+            {
+                id: "2",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            },
+            {
+                id: "3",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            },
+        ]
     
     },
     {
@@ -402,6 +592,32 @@ const productsWithFull = [
                 comment: "Highly recommend this for anyone who loves crafting!"
             },
         ],
+        similar: [
+            {
+                id: "2",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            },
+            {
+                id: "3",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            },
+        ]
     },
     {
         id: "6",
@@ -457,6 +673,32 @@ const productsWithFull = [
                 comment: "Highly recommend this for anyone who loves crafting!"
             },
         ],
+        similar: [
+            {
+                id: "2",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            },
+            {
+                id: "3",
+                img: "/products/product.png",
+                name: "String Art Portrait Kit",
+                price: 'USD 19.99',
+                hit: true,
+                new: false,
+                discount: false,
+                category: "String Art",
+                quantity: 1,
+                rating: 5,
+            },
+        ]
     }
     ]
     export default productsWithFull;
