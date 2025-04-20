@@ -24,7 +24,7 @@ const CategoryArt = () => {
         ageRange: [15, 70],
         professions: [],
     });
-    const [sorted, setSorted] = useState<'За популярністю' | 'За зростанням ціни' | 'За зменшенням ціни' | 'За знижкою' | 'За найвищим рейтингу' | 'За наявністю'>('За популярністю');
+    const [sorted, setSorted] = useState<'За популярністю' | 'За зростанням ціни' | 'За зменшенням ціни' | 'За знижкою' | 'За рейтингом' | 'За наявністю'>('За популярністю');
     const [selectedCategory, setSelectedCategory] = useState('String Art');
 
     const filteredItems = artItems.filter((item) => {
@@ -61,7 +61,7 @@ const CategoryArt = () => {
             <CategoryFilter values={filterValues} onChange={setFilterValues} />
                 <CategorySort sorted={sorted} onChange={setSorted} />
             </div>
-            <CategoriesCatalog items={sortedItems} />
+            <CategoriesCatalog items={sortedItems.map(item => ({ ...item, id: item.id.toString() }))} />
         </div>
     );
 };

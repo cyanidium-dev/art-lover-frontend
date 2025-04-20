@@ -1,10 +1,9 @@
 import CatalogProduct from "../CatalogProduct/CatalogProduct";
-import Product from "../Product/Product";
 
 
 type Props = {
     items: {
-        id: number | string;
+        id: string;
         name: string;
         price: number | string;
         img: string;
@@ -19,7 +18,7 @@ const CategoriesCatalog = ({ items }: Props) => (
             <CatalogProduct
                 key={item.id}
                 item={{
-                    id: typeof item.id === "string" ? parseInt(item.id, 10) : item.id,
+                    id: typeof item.id === "string" ? parseInt(item.id, 10).toString() : item.id,
                     img: item.img,
                     name: item.name,
                     price: typeof item.price === "string" ? item.price : item.price.toString(),

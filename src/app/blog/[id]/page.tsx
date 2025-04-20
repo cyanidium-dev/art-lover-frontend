@@ -1,6 +1,9 @@
 import { blogItems } from '@/modules/blogItems';
-import FullProduct from '@/modules/FullProduct/FullProduct';
-import productsWithFull from '@/modules/productsWithFull';
+
+import BlogItem from '@/shared/components/BlogItem/BlogItem';
+import PageHeader from '@/shared/components/PageHeader/PageHeader';
+
+
 interface BlogPostPageProps {
     params: Promise<{ id: string }>;
 }
@@ -19,10 +22,8 @@ export default async function BlogPostPage({
 
     return (
         <div>
-            {blogPost && (
-                
-                blogPost.id)
-        }
+            <PageHeader image={'/blog/categoryBlog.png'} className='mb-8' />
+            <BlogItem item={blogPost} />
            
         </div>
     );

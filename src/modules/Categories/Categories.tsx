@@ -16,7 +16,7 @@ const Categories = () => {
 
             ))}
         </ul>
-        {/* <SliderControllers /> */}
+        <SliderControllers />
     </div >
 }
 

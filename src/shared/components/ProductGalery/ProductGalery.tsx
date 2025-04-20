@@ -17,7 +17,9 @@ const ProductGalery = ({ images }: Props) => {
             <Swiper
                 modules={[Navigation, Pagination]}
                 slidesPerView={1}
-                effect={"cube"}
+                spaceBetween={10}
+                speed={1000}
+
                 loop
                 navigation={{
                     nextEl: '.gallery-next',

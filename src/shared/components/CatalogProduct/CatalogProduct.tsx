@@ -40,7 +40,7 @@ const CatalogProduct = (props: Props) => {
                 alt={props.item.name}
                 width={116}
                 height={131}
-                className="object-cover w-full h-full"
+                        className="w-full h-auto object-fill "
             />
         </div>
 
