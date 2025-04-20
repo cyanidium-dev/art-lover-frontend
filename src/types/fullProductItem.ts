@@ -1,3 +1,4 @@
+import { CategoryProductItem } from "./categoryProductItem";
 import { Review } from "./review";
 
 export interface fullProductItem {
@@ -17,4 +18,5 @@ export interface fullProductItem {
     reviews?: Review[];
     reviewsCount?: number;
     suitableFor?: string[];
+    similar?: CategoryProductItem[];
 }

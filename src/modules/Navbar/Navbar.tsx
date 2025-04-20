@@ -6,6 +6,7 @@ import NavBarCatalog from "./NavbarMenu/NavBarCatalog";
 import { useState } from "react";
 import Basket from "../Basket/Basket";
 import basketItems from "../Basket/itemsInBasket";
+import Link from "next/link";
 
 const Navbar = () => {
     const [basketOpen, setBasketOpen] = useState(false);
@@ -18,7 +19,9 @@ const Navbar = () => {
             <div className="wrapper flex justify-between items-center py-8">
 
                 <NavBarCatalog />
-                <Logo />
+                <Link href="/" className="inline-block">
+                    <Logo />
+                </Link>
                 <NavbarMenu onCartClick={openBasket} />
                 {basketOpen && (
                     <Basket

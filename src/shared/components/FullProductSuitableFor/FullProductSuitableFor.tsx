@@ -6,8 +6,8 @@ type Props = {
 const FullProductSuitableFor = (props: Props) => {
   return (
       <div className="text-left mx-auto">
-          <h3 className="text-[14px] font-medium mb-4 uppercase"></h3>
-          <TextTitle text="Ідеально підходить для:" className="text-[10px] font-light mb-2" />
+          <h3 className="text-[14px] font-normal mb-4 uppercase"></h3>
+          <TextTitle text="Ідеально підходить для:" className=" mb-2 uppercase font-medium" fontSize="18px" />
           
           
           <ul className="grid grid-cols-2 gap-x-3 gap-y-2 max-w-full mx-auto ">

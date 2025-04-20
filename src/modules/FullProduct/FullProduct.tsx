@@ -1,12 +1,15 @@
 'use client'
 
 import Button from "@/shared/components/Button/Button";
+import CatalogProduct from "@/shared/components/CatalogProduct/CatalogProduct";
 import FullProducAccordion from "@/shared/components/FullProductAccordeon/FullProductAccordeon";
 import FullProductBenefits from "@/shared/components/FullProductBenefits/FullProductBenefits";
 import FullProductCharact from "@/shared/components/FullProductCharact/FullProductCharact";
 import FullProductCounter from "@/shared/components/FullProductCounter/FullProductCounter";
 import FullProductReview from "@/shared/components/FullProductReview/FullProductReview";
 import FullProductSuitableFor from "@/shared/components/FullProductSuitableFor/FullProductSuitableFor";
+import Product from "@/shared/components/Product/Product";
+import ProductGalery from "@/shared/components/ProductGalery/ProductGalery";
 import Rating from "@/shared/components/Rating/Rating";
 import TextTitle from "@/shared/components/TextTitle/TextTitle"
 import { fullProductItem } from "@/types/fullProductItem";
@@ -22,10 +25,10 @@ interface FullProductProps {
 const FullProduct = (props: FullProductProps) => {
   return (
       <div>
-          <div>  Gallery</div>
-          <div className="flex flex-col gap-6 items-start w-full">
+          <ProductGalery images={props.item.gallery ?? []} />
+          <div className="flex flex-col gap-4 items-start w-full">
               <div className="flex gap-2 items-center justify-between w-full">
-                  <TextTitle text={props.item.name} className=" uppercase font-semibold mb-1" fontSize="16px" />
+                  <TextTitle text={props.item.name} className=" uppercase font-semibold" fontSize="16px" />
                   <div className="">
                       <Button className="bg-white text-[var(--main-orange)]" svg={<Share2Icon width={20} height={20} />} />
                   </div>
@@ -106,6 +109,20 @@ const FullProduct = (props: FullProductProps) => {
               <FullProductReview reviews={props.item.reviews || []} />
           </div>
           
+          {props.item.similar && (
+              props.item.similar.length > 0 && (
+                  <div className="flex flex-col gap-4 mt-8">
+                      <TextTitle text="Схожі товари" className="uppercase font-semibold mb-1" fontSize="18px" />
+                      <ul className="flex   gap-4 overflow-x-auto scrollbar-hide">
+                          {props.item.similar.map((item) =>
+
+                              <CatalogProduct key={item.id} item={item} />)}
+                      </ul>
+                  </div>
+              )
+          )}
+
+
       
           
 

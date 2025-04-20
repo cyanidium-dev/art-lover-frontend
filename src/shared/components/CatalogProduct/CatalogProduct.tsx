@@ -6,18 +6,16 @@ import ButtonOval from "../ButtonOval/ButtonOval";
 import Image from "next/image";
 import { useState } from "react";
 import CartAddedModal from "../Modal/CartAddedModal";
-
+import { CategoryProductItem } from "@/types/categoryProductItem";
+import { useRouter } from "next/navigation";
 type Props = {
-    item: {
-        id: number;
-        img: string;
-        name: string;
-        price: string;
-    };
+    item: CategoryProductItem;
 }
 const CatalogProduct = (props: Props) => {
     const [addedToCart, setAddedToCart] = useState(false);
     const [showModal, setShowModal] = useState(false);
+
+    const router = useRouter();
 
 
     const handleAddToCart = () => {
@@ -25,6 +23,7 @@ const CatalogProduct = (props: Props) => {
         setShowModal(true);
         console.log("Add to cart", props.item.id, showModal);
     };
+
 
 
 
@@ -51,7 +50,8 @@ const CatalogProduct = (props: Props) => {
         </div>
 
         <div className="flex gap-1 items-center justify-center">
-            <ButtonOval
+                    <ButtonOval
+                        onClick={() => router.push(`/product/${props.item.id}`)} 
                 buttonText="Детальніше"
                 className="bg-[var(--main-dark-color)] text-white rounded"
                 style={{

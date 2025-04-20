@@ -1,5 +1,6 @@
 import { Review } from "@/types/review";
 import Rating from "../Rating/Rating";
+import TextTitle from "../TextTitle/TextTitle";
 
 
 type Props = {
@@ -12,7 +13,7 @@ const FullProductReview = ({ reviews }: Props) => {
             <div className="flex items-center justify-between mb-2">
             
                 <div className="font-semibold uppercase text-[12px] flex">
-                    <h3 >ВІДГУКИ </h3>
+                    <TextTitle text={"ВІДГУКИ"} className="uppercase font-medium" fontSize="16px" /> 
                         <span className="text-zinc-400 ml-1">({reviews.length})</span>
                   
                    
