@@ -43,11 +43,13 @@ const BlogList = ({ posts }: Props) => {
 
                     <p className="text-[12px] text-gray-500">{post.excerpt}</p>
 
-                    <div className="flex justify-between items-center text-[11px] text-gray-400">
-                        <span>{post.readTime} хв читання</span>
+                    <div className="flex justify-between gap-2 items-center text-[11px] text-gray-400 px-3 py-1">
+                        <span className='p-2 border w-full'>{post.readTime} хв читання</span>
+
+
                         <Link
                             href={`/blog/${post.id}`}
-                            className="bg-[var(--main-orange)] text-white text-[12px] rounded-full px-3 py-1"
+                            className="bg-[var(--main-orange)] text-white text-[12px] rounded-lg w-[44px] h-[44px] "
                         >
                             →
                         </Link>
