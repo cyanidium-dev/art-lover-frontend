@@ -33,14 +33,22 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${denistina.variable} `}
       >
-        < GlobalWrapper className={"max-w-[360px] px-[32px] mx-auto"}>
+        < GlobalWrapper className={" px-[32px] mx-auto"}>
           <Navbar />
         </GlobalWrapper>
         {children}
-        <GlobalWrapper className={" max-w-[360px] mx-auto"}>
+
+
+        <div className="bg-[var(--main-orange-light)]">
+          <GlobalWrapper className={""}>
           <Subscribe />
+          </GlobalWrapper></div>
+        <div className="bg-[var(--main-dark-color)]">
+
+          < GlobalWrapper className={""}>
           <Footer />
-        </GlobalWrapper>
+          </GlobalWrapper>
+        </div>
 
       </body>
     </html >

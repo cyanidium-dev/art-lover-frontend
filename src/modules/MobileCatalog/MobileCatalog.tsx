@@ -30,10 +30,8 @@ const MobileCatalog = (props:Props) => {
 
         <ModalBackDrop onClose={props.onClose} direction='left'>
 
-            <div
+            <div className="absolute left-0 top-0 h-full w-full bg-white flex flex-col shadow-lg sm:max-w-[360px] sm:rounded-r-xl">
 
-                className="absolute left-0 top-0 h-full w-full bg-white flex flex-col shadow-lg"
-            >
                 <div className="flex items-center justify-between px-8 py-8 ">
                 
                       <TextTitle text="Каталог" className="text-[var(--main-orange)]" fontSize='20px'/>

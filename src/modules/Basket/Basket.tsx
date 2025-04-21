@@ -61,7 +61,7 @@ const Basket = ({ open, onClose }: Props) => {
             {/* Drawer */}
             <div
 
-                className="absolute right-0 top-0 h-full w-full bg-[var(--main-dark-color)] flex flex-col justify-between shadow-lg z-50"
+                className="absolute right-0 top-0 h-full w-full bg-[var(--main-dark-color)] flex flex-col justify-between shadow-lg z-50 sm:max-w-[360px] sm:rounded-l-xl"
             >
                 {/* Header */}
 
