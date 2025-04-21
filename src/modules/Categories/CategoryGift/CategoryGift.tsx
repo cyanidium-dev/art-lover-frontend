@@ -21,8 +21,8 @@ type FilterState = {
   professions: string[];
 };
 
-type Props = {}
-const CategoryGift = (props: Props) => {
+
+const CategoryGift = () => {
   const [genderFilter, setGenderFilter] = useState<Gender | null>(null);
   const [filterValues, setFilterValues] = useState<FilterState>({
     discounts: false,

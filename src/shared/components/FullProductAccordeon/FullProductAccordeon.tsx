@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react"
-import { ChevronDown, ChevronRight, Truck, Gift, Star, FolderCode, Clipboard, Globe, Award, AwardIcon } from "lucide-react"
+import { ChevronDown, ChevronRight, Clipboard, Globe } from "lucide-react"
 type Props = {
     itemDescription: string
 }

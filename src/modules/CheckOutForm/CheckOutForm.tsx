@@ -3,7 +3,8 @@
 import { useForm } from 'react-hook-form';
 import itemsInBasket from '../Basket/itemsInBasket';
 import TextTitle from '@/shared/components/TextTitle/TextTitle';
-import { Coins, Filter, GlobeIcon, Heart, IdCardIcon, PersonStanding, PersonStandingIcon, ShoppingBag, SmileIcon } from 'lucide-react';
+import { Coins, GlobeIcon, Heart, IdCardIcon, PersonStanding, ShoppingBag, SmileIcon } from 'lucide-react';
+import Image from 'next/image';
 import CheckOutStepTitle from '@/shared/components/CheckOutStepTitle/CheckOutStepTitle';
 import Hint from '@/shared/components/Hint/Hint';
 
@@ -46,7 +47,7 @@ const CheckoutForm = () => {
 
     return (
         <div className='py-4'>
-            <TextTitle text="Оформлення замовлення" className="uppercase text-center mb-4 font-semibold" fontSize="18px" />
+            <TextTitle text="Оформлення замовлення" className="uppercase text-center mb-4 font-semibold text-[18px]" />
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mb-4">
             {/* Tabs */}
                 <div className="flex gap-2 mb-8">
@@ -98,7 +99,7 @@ const CheckoutForm = () => {
                                 value="ukrposhta"
                                 className="hidden"
                             />
-                            <img src="/icons/ukrposhta.png" alt="Ukrposhta" className="h-6 w-auto" />
+                            <Image src="/icons/ukrposhta.png" alt="Ukrposhta" width={24} height={24} className="h-6 w-auto" />
                         </label>
 
                         <label className={`flex items-center gap-2 border rounded-lg p-2 cursor-pointer w-full  justify-center`}>
@@ -108,7 +109,7 @@ const CheckoutForm = () => {
                                 value="nova_poshta"
                                 className="hidden"
                             />
-                            <img src="/icons/noveposhta.png" alt="Nova Poshta" className="h-6 w-auto" />
+                            <Image src="/icons/noveposhta.png" alt="Nova Poshta" width={24} height={24} className="h-6 w-auto" />
                         </label></div>
             </div>
 

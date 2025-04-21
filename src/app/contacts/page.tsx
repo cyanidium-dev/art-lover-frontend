@@ -5,12 +5,13 @@ import PageHeader from "@/shared/components/PageHeader/PageHeader";
 export default function BlogPage() {
     return (
         <>
-            < GlobalWrapper className={"max-w-[360px] mx-auto px-[32px]"}>
+            <GlobalWrapper className={"px-[32px] lg:px-[64px] "}>
                 <PageHeader image={'/contactsPage.png'} className='mb-8' />
 
                 < Contacts />
         
             </GlobalWrapper >
+
         </>
 
     );

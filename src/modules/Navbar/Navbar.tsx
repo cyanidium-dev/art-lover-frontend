@@ -5,7 +5,7 @@ import NavbarMenu from "@/modules/Navbar/NavbarMenu/NavbarMenu";
 import NavBarCatalog from "./NavbarMenu/NavBarCatalog";
 import { useState } from "react";
 import Basket from "../Basket/Basket";
-import basketItems from "../Basket/itemsInBasket";
+
 import Link from "next/link";
 import MobileCatalog from "../MobileCatalog/MobileCatalog";
 import { AnimatePresence } from "framer-motion";

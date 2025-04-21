@@ -8,7 +8,7 @@ interface LayoutProps {
 
 export default async function ProductLayout({ children }: LayoutProps) {
     return <>
-        <GlobalWrapper className={"max-w-[360px] px-[32px] mx-auto"}>
+        <GlobalWrapper className={"max-w-[360px] px-[32px] mx-auto  lg:px-[64px]"}>
             {children}
         </GlobalWrapper>
 

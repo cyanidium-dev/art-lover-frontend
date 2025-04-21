@@ -1,12 +1,11 @@
 import TextTitle from "@/shared/components/TextTitle/TextTitle"
 import followUsItems from "./followUsItems"
 
-type Props = {}
-const FollowUs = (props: Props) => {
+const FollowUs = () => {
   return (
       <div className="py-8">
           
-          <TextTitle text="Стежте за нами в соціальних мережах" fontSize="20px" className="uppercase font-medium mb-[32px] text-center" />
+          <TextTitle text="Стежте за нами в соціальних мережах" className="uppercase text-[20px] font-medium mb-[32px] text-center" />
           <ul className="flex flex-wrap gap-3 justify-center items-center text-white ">
               {followUsItems.map((item, index) => (
                   <li

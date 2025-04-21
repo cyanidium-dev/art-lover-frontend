@@ -8,9 +8,9 @@ type Props = {
     continueShopping?: () => void;
 };
 
-const CartAddedModal = ({ open, proceedToCheckout, continueShopping  }: Props) => {
-    if (!open) return null;
+const CartAddedModal = ({ open, continueShopping }: Props) => {
     const router = useRouter();
+    if (!open) return null;
 
 
     return (
@@ -31,7 +31,6 @@ const CartAddedModal = ({ open, proceedToCheckout, continueShopping  }: Props) =
                     </button>
                     <button
                         className="text-[12px] py-2 w-full bg-[var(--main-orange)] text-white rounded-full  font-normal"
-                        // onClick={proceedToCheckout}
                         onClick={() => router.push('/checkout')}
 
                     >

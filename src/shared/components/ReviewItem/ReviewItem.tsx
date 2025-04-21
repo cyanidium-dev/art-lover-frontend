@@ -1,4 +1,3 @@
-import { Star } from "lucide-react";
 import Image from "next/image"
 import TextSubtitle from "../TextSubtitle.tsx/TextSubtitle";
 import Rating from "../Rating/Rating";
@@ -26,7 +25,7 @@ const ReviewItem = (props: Props) => {
         <p className="text-[14px] font-medium text-left">{props.item.product}</p>
       </div>
       <div className="max-h-[145px] overflow-auto">
-        <p className="font-normal text-[12px] text-left  leading-tight">"{props.item.comment}"</p>
+        <p className="font-normal text-[12px] text-left  leading-tight">&quot;{props.item.comment}&quot;</p>
 
       </div>
 

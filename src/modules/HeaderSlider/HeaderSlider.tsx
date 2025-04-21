@@ -12,8 +12,7 @@ import TextSubtitle from "@/shared/components/TextSubtitle.tsx/TextSubtitle";
 import TextTitle from "@/shared/components/TextTitle/TextTitle";
 import SliderControllers from "@/shared/components/SliderControllers/SliderControllers";
 
-type Props = {}
-const HeaderSlider = (props: Props) => {
+const HeaderSlider = () => {
 
     return (
 
@@ -69,8 +68,8 @@ const HeaderSlider = (props: Props) => {
                             />
                             <div className="px-[32px] ">
                                 <TextSubtitle text={'Створи шедевр вже сьогодні!'} className="mb-3 p-1 text-white" fontSize="16px" />
-                                <TextTitle text={image.description} fontSize="12px" className="mb-6 max-w-40 font-light text-white text-balance p-1 " />
-                                <TextTitle text="ТВОЯ ТВОРЧІСТЬ ПОЧИНАЄТЬСЯ ТУТ!" fontSize="16px" className="text-white max-w-44 text-balance p-1 m-auto text-center" /></div>
+                                <TextTitle text={image.description} className="mb-6 max-w-40 font-light text-white text-balance p-1 text-[16px] text-left " />
+                                <TextTitle text="ТВОЯ ТВОРЧІСТЬ ПОЧИНАЄТЬСЯ ТУТ!" className="text-white max-w-44 text-balance p-1 m-auto text-center text-[16px]" /></div>
                         </div>
 
 

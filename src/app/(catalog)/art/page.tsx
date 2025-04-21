@@ -4,7 +4,7 @@ import GlobalWrapper from "@/shared/components/GlobalWrapper/GlobalWrapper";
 export default function ArtPage() {
     return (
         <>
-            <GlobalWrapper className={"px-[32px] max-w-[360px] mx-auto "}>
+            <GlobalWrapper className={"px-[32px] lg:px-[64px] "}>
                 <CategoryArt/>
             </GlobalWrapper>
         </>

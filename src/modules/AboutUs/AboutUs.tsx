@@ -5,14 +5,14 @@ import Image from "next/image"
 import Counter from "@/shared/components/Counter/Counter"
 import counterItems from "./counterItems"
 
-type Props = {}
-const AboutUs = (props: Props) => {
+
+const AboutUs = () => {
   return (
       <div className="py-8">
           
           <div className="flex gap-4 ">
           <div className="w-[58px] h-[58px]">
-                  <TextTitle text="Про нас" fontSize="20px" className="uppercase font-medium" />
+                  <TextTitle text="Про нас" className="uppercase font-medium" />
           </div>
           <div>
                   <p className=" font-light text-balance  text-[14px] text-justify">
@@ -35,7 +35,7 @@ const AboutUs = (props: Props) => {
           
           <div>
               <ul className="flex gap-4 justify-center items-center ">
-                  {counterItems.map((item, index) => (
+                  {counterItems.map((item) => (
                       <Counter key={item.id} number={item.number} text={item.text} />
                   ))}
                     

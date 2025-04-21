@@ -4,11 +4,11 @@ import productItems from "../productItems"
 import Product from "@/shared/components/Product/Product"
 import SliderControllers from "@/shared/components/SliderControllers/SliderControllers"
 
-type Props = {}
-const Sale = (props: Props) => {
+
+const Sale = () => {
     return (
         <div className="py-8">
-            <TextTitle text="товари зі знижкою" className="uppercase text-left mb-3 font-medium" fontSize="20px" />
+            <TextTitle text="товари зі знижкою" className="uppercase text-left mb-3 font-medium" />
             <TextSubtitle text="Творчість, яка підкорила серця" className="text-left mb-6 font-normal" fontSize="14px" />
             <ul className="flex gap-4 overflow-auto mb-8" >
                 {productItems

@@ -25,7 +25,7 @@ const ContactForm = () => {
 
     return (
         <div className='text-center mb-8'>
-            <TextTitle text="Ваше повідомлення" className="mb-2 uppercase font-normal " fontSize='20px' />
+            <TextTitle text="Ваше повідомлення" className="mb-2 uppercase font-normal" />
             <p className="text-[14px] text-normal text-center mb-6">Заповніть форму – і ми з вами зв’яжемося</p>
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-1 max-w-sm mx-auto ">
                 <input

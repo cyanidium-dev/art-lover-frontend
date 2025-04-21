@@ -13,7 +13,7 @@ const BlogPostItem = (props: Props) => {
       
       <div className="flex flex-col gap-6">
           
-          <TextTitle text={props.item.title} className="font-medium" fontSize="14px" />
+            <TextTitle text={props.item.title} className="font-medium text-[14px]" />
           {props.item.text.split('\n').map((paragraph, idx) => (
               <p key={idx} className="mb-4 text-[12px] leading-relaxed text-justify">
                   {paragraph.trim()}

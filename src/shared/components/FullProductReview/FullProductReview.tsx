@@ -13,7 +13,7 @@ const FullProductReview = ({ reviews }: Props) => {
             <div className="flex items-center justify-between mb-2">
             
                 <div className="font-semibold uppercase text-[12px] flex">
-                    <TextTitle text={"ВІДГУКИ"} className="uppercase font-medium" fontSize="16px" /> 
+                    <TextTitle text={"ВІДГУКИ"} className="uppercase font-medium text-[16px]" /> 
                         <span className="text-zinc-400 ml-1">({reviews.length})</span>
                   
                    

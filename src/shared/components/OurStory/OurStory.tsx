@@ -3,18 +3,12 @@
 import Image from 'next/image';
 import TextTitle from '../TextTitle/TextTitle';
 
-type Props = {
-    content: {
-        title: string;
-        paragraphs: string[];
-        images: string[];
-    };
-};
+
 
 const OurStory = () => {
     return (
         <div className="py-6  text-[12px] leading-[1.6] tracking-wide text-justify">
-                      <TextTitle text={"Історія нашої команди"} className=" font-semibold uppercase mb-4" fontSize='18px' />
+            <TextTitle text={"Історія нашої команди"} className=" font-semibold uppercase mb-4 text-[18px]" />
 
             <div>
                         <div className="mb-3 rounded overflow-hidden">

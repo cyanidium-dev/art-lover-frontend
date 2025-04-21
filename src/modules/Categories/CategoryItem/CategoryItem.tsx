@@ -81,7 +81,7 @@ const CategoryItem = (props: Props) => {
 
 
             <div className={` flex flex-col justify-center z-30 `}>
-                <TextTitle text={props.item.text} className={`absolute flex text-center mb-2 font-medium uppercase  ${textPositions[props.index] || ''}`} fontSize="14px" />
+                    <TextTitle text={props.item.text} className={`absolute flex text-center mb-2 font-medium uppercase  ${textPositions[props.index] || ''}`} />
                 <TextSubtitle text={props.item.signature} className={`absolute flex text-center ${subtitlePositions[props.index] || ''}`} fontSize="12px" />
             </div>
             </li>

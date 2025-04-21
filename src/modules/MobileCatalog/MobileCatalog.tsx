@@ -1,16 +1,14 @@
 'use client';
 
-import { useState } from 'react';
 import {
  
-    CircleX,
+
     X,
 } from 'lucide-react';
 import ModalBackDrop from '@/shared/components/ModalBackdrop/ModalBackDrop';
 import TextTitle from '@/shared/components/TextTitle/TextTitle';
 import { catalogItems } from './catalogItems';
 import MobileCatalogItem from './MobileCatalogItem';
-import { motion, AnimatePresence } from 'framer-motion';
 
 type Props = {
     open: boolean;
@@ -19,12 +17,9 @@ type Props = {
 
 
 const MobileCatalog = (props:Props) => {
-    
-    const [openCategory, setOpenCategory] = useState<string | null>(null);
 
-    const toggleCategory = (category: string) => {
-        setOpenCategory(openCategory === category ? null : category);
-    };
+
+
 
     return (
 
@@ -34,7 +29,7 @@ const MobileCatalog = (props:Props) => {
 
                 <div className="flex items-center justify-between px-8 py-8 ">
                 
-                      <TextTitle text="Каталог" className="text-[var(--main-orange)]" fontSize='20px'/>
+                    <TextTitle text="Каталог" className="text-[var(--main-orange)] text-[20px]" />
             
                     <button
                         onClick={props.onClose}
