@@ -22,11 +22,16 @@ const Navbar = () => {
     return (
         <nav>
             <div className="wrapper flex justify-between items-center py-8">
-                <NavBarCatalog onCatalogClick={openCatalog} />
 
-                <Link href="/" className="inline-block">
+                <Link href="/" className=" hidden lg:block">
                     <Logo />
                 </Link>
+                <NavBarCatalog onCatalogClick={openCatalog} />
+                <Link href="/" className="inline-block lg:hidden">
+                    <Logo />
+                </Link>
+
+
                 <NavbarMenu onCartClick={openBasket} />
 
 

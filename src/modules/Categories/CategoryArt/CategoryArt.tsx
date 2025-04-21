@@ -1,8 +1,7 @@
 'use client';
 import { useState } from "react";
 import artItems from "./artItems";
-import CategoryBanner from "@/shared/components/CategoryBanner/CategoryBanner";
-import categoryArtPic from '@/assets/categoryArt.png';
+// import categoryArtPic from '@/assets/categoryArt.png';
 import CategoryArtFilter from "@/shared/components/CategoryArtFilter/CategoryArtFilter";
 import CategoriesCatalog from "@/shared/components/CategoriesCatalog/CategoriesCatalog";
 import CategoryFilter from "@/shared/components/CategoryFilter/CategoryFilter";
@@ -54,7 +53,7 @@ const CategoryArt = () => {
 
     return (
         <div>
-            <CategoryBanner src={categoryArtPic} alt="categoryArt" />
+            {/* <CategoryBanner src={categoryArtPic} alt="categoryArt" /> */}
             <CategoryArtFilter selected={selectedCategory} onSelect={setSelectedCategory} />
             
             <div className="flex items-center justify-between w-full  mx-auto mb-6">

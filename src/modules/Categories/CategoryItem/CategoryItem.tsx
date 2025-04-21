@@ -1,19 +1,28 @@
+
+'use client'
 import EllipseBackground from "@/shared/components/ElipseBackground/EllipseBackground"
 import TextSubtitle from "@/shared/components/TextSubtitle.tsx/TextSubtitle"
 import TextTitle from "@/shared/components/TextTitle/TextTitle"
-import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 type Props = {
     item: {
-        id: number
+        id: string
         img: string
         text: string
         signature: string
         path?: string
+        slug?: string
     }
     index: number
 }
 const CategoryItem = (props: Props) => {
+
+    const router = useRouter()
+    const handleClick = () => {
+        router.push(`/catalog/${props.item.slug}`);
+    };
+
     const ellipsePositions = [
         '-top-5 -left-3',
         '-bottom-5 -left-3',
@@ -52,8 +61,8 @@ const CategoryItem = (props: Props) => {
 
 
     return (
-        <Link href={`${props.item.path || '#'}`} className="w-full h-full flex items-center justify-center">
         <li
+            onClick={handleClick}
             key={props.item.id}
             className={`relative flex h-[100px] w-full max-w-4xl overflow-hidden rounded-lg border border-[var(--main-dark-color)] ${props.index % 2 === 0
                 ? 'bg-[var(--main-dark-color)] text-white flex-row-reverse'
@@ -84,8 +93,7 @@ const CategoryItem = (props: Props) => {
                     <TextTitle text={props.item.text} className={`absolute flex text-center mb-2 font-medium uppercase  ${textPositions[props.index] || ''}`} />
                 <TextSubtitle text={props.item.signature} className={`absolute flex text-center ${subtitlePositions[props.index] || ''}`} fontSize="12px" />
             </div>
-            </li>
-        </Link>
+        </li>
     )
 }
 export default CategoryItem

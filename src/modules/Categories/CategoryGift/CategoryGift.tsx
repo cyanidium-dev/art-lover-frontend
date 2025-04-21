@@ -1,7 +1,6 @@
 'use client'
 
-import categoryGifts from '@/assets/categoryGifts.png'
-import CategoryBanner from "../../../shared/components/CategoryBanner/CategoryBanner"
+// import categoryGifts from '@/assets/categoryGifts.png'
 import CategorySexFilter from "../../../shared/components/CategorySexFilter/CategorySexFilter"
 import CategoriesCatalog from "@/shared/components/CategoriesCatalog/CategoriesCatalog"
 import giftItems from "./giftItems"
@@ -60,7 +59,7 @@ const CategoryGift = () => {
   return (
     <>
 
-      <CategoryBanner src={categoryGifts} alt="categoryGifts" />
+      {/* <CategoryBanner src={categoryGifts} alt="categoryGifts" /> */}
       <CategorySexFilter selected={genderFilter} onSelect={setGenderFilter} />
 
       <div className="flex items-center justify-between w-full  mx-auto mb-6">
