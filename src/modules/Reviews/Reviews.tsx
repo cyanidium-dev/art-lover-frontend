@@ -2,12 +2,11 @@ import SliderControllers from "@/shared/components/SliderControllers/SliderContr
 import TextSubtitle from "@/shared/components/TextSubtitle.tsx/TextSubtitle"
 import TextTitle from "@/shared/components/TextTitle/TextTitle"
 import reviewsItems from "./reviewsItems"
-import Image from "next/image"
-import { Star, StarsIcon } from "lucide-react"
+
 import ReviewItem from "@/shared/components/ReviewItem/ReviewItem"
 
-type Props = {}
-const Reviews = (props: Props) => {
+
+const Reviews = () => {
   return (
       <div className="py-8">
           <TextTitle text="відгуки" className="uppercase text-left mb-3 font-medium" fontSize="20px" />

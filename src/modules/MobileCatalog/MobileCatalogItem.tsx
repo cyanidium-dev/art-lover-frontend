@@ -1,4 +1,3 @@
-import { CatalogItem } from "@/types/catalogItem";
 import Link from "next/link";
 import { ChevronDown, ChevronRight, LucideIcon } from "lucide-react";
 import { useState } from "react";

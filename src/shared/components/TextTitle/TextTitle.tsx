@@ -9,15 +9,15 @@ type Props = {
 const TextTitle = ({
     text,
     className = "",
-    fontSize = "12px",
+
     fontVariable = "--font-montserrat",
 
 }: Props) => {
     return (
         <div
-            className={` ${className}`}
+            className={` ${className} text-[20px]  md:text-[24px]   xl:text-[40px] text-center`}
             style={{
-                fontSize,
+                // fontSize,
                 fontFamily: `var(${fontVariable})`,
 
             }}

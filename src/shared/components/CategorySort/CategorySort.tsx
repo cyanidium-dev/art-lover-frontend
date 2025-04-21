@@ -45,7 +45,7 @@ const CategorySort = ({ sorted, onChange }: Props) => {
 
         document.addEventListener('keydown', handleKeyDown);
         return () => document.removeEventListener('keydown', handleKeyDown);
-    }, [open, focusedIndex]);
+    }, [open, focusedIndex, onChange]);
     
     return (
         <div ref={dropdownRef} className="relative inline-block  w-[248px]">

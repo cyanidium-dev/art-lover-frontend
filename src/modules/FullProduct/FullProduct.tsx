@@ -8,12 +8,10 @@ import FullProductCharact from "@/shared/components/FullProductCharact/FullProdu
 import FullProductCounter from "@/shared/components/FullProductCounter/FullProductCounter";
 import FullProductReview from "@/shared/components/FullProductReview/FullProductReview";
 import FullProductSuitableFor from "@/shared/components/FullProductSuitableFor/FullProductSuitableFor";
-import Product from "@/shared/components/Product/Product";
 import ProductGalery from "@/shared/components/ProductGalery/ProductGalery";
 import Rating from "@/shared/components/Rating/Rating";
 import TextTitle from "@/shared/components/TextTitle/TextTitle"
 import { fullProductItem } from "@/types/fullProductItem";
-import { Review } from "@/types/review";
 import { Heart, Share2Icon } from "lucide-react";
 
 
@@ -28,7 +26,7 @@ const FullProduct = (props: FullProductProps) => {
           <ProductGalery images={props.item.gallery ?? []} />
           <div className="flex flex-col gap-4 items-start w-full">
               <div className="flex gap-2 items-center justify-between w-full">
-                  <TextTitle text={props.item.name} className=" uppercase font-semibold" fontSize="16px" />
+                  <TextTitle text={props.item.name} className=" uppercase font-semibold text-[16px]" />
                   <div className="">
                       <Button className="bg-white text-[var(--main-orange)]" svg={<Share2Icon width={20} height={20} />} />
                   </div>
@@ -112,7 +110,7 @@ const FullProduct = (props: FullProductProps) => {
           {props.item.similar && (
               props.item.similar.length > 0 && (
                   <div className="flex flex-col gap-4 mt-8">
-                      <TextTitle text="Схожі товари" className="uppercase font-semibold mb-1" fontSize="18px" />
+                      <TextTitle text="Схожі товари" className="uppercase font-semibold mb-1 text-[18px]" />
                       <ul className="flex   gap-4 overflow-x-auto scrollbar-hide">
                           {props.item.similar.map((item) =>
 

@@ -1,5 +1,4 @@
 import Mono from "@/shared/components/Payments/Mono"
-import PayLogo from "@/shared/components/Payments/Mono"
 import Pay from "@/shared/components/Payments/Pay"
 import Facebook from "@/shared/components/Social/Facebook/Facebook"
 import Instagram from "@/shared/components/Social/Instagram/Instagram"

@@ -9,7 +9,7 @@ const LogoSymbol = ({
     width = 171,
     height = 145,
     className = ""
-}) => {
+}: Props) => {
     return (
         <div >
 

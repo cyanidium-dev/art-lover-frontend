@@ -1,7 +1,7 @@
 import { AwardIcon, Gift, LucideTruck } from "lucide-react"
 
-type Props = {}
-const FullProductBenefits = (props: Props) => {
+
+const FullProductBenefits = () => {
     return (
         < div className="flex flex-col w-full justify-between border rounded-lg text-[14px]" >
                 <div className="flex items-center gap-4 p-3 border-b  border-b-[var(--main-orange)]">

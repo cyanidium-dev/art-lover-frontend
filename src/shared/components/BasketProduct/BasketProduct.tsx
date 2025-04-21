@@ -1,7 +1,7 @@
 import Image from "next/image";
 import BasketCounter from "../BasketCounter/BasketCounter";
 import { BasketProductItem } from "@/types/basketProductItem";
-import { useState } from "react";
+
 import { Trash } from "lucide-react";
 
 interface Props {

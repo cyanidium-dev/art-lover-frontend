@@ -1,14 +1,13 @@
 'use client';
 
 import BasketProduct from '@/shared/components/BasketProduct/BasketProduct';
-import { ShoppingCart, CircleX, X } from 'lucide-react';
+import { ShoppingCart, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import itemsInBasket from './itemsInBasket';
 import FreeShipping from '@/shared/components/FreeShipping/FreeShipping';
 import ButtonOval from '@/shared/components/ButtonOval/ButtonOval';
 import { useRouter } from 'next/navigation';
 import ModalBackDrop from '@/shared/components/ModalBackdrop/ModalBackDrop';
-import { AnimatePresence, motion } from 'framer-motion';
 
 type Props = {
     open: boolean;

@@ -5,7 +5,7 @@ type Props = {
     fill?: string;
 
 }
-const CatalogLogo: React.FC<Props> = ({ className, width = "20", height = "20", fill = "#FFFFFF" }) => {
+const CatalogLogo: React.FC<Props> = ({ width = "20", height = "20", fill = "#FFFFFF" }) => {
     return (
         <div>
             <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 20 20" fill={fill}>

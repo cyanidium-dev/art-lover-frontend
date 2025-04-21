@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+
 import { Range } from 'react-range';
 
 
@@ -39,10 +39,9 @@ const CategoryFilterSlider = ({
                     </div>
                 )}
                 renderThumb={({ props, index }) => {
-                    const { key, ...safeProps } = props;
+                    const { ...safeProps } = props;
                     return (
                         <div
-                            key={index}
                             {...safeProps}
                             className="flex items-center justify-center h-[23px] rounded-sm bg-[var(--main-orange)] text-white text-xs font-normal p-1"
                             style={{ ...props.style }}

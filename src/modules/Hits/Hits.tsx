@@ -11,7 +11,7 @@ const Hits = () => {
     return (
 
         <div className="py-8">
-            <TextTitle text="хіти продажів " className="uppercase text-left mb-3 font-medium" fontSize="20px" />
+            <TextTitle text="хіти продажів " className="uppercase text-left mb-3 font-medium" />
             <TextSubtitle text="Творчість, яка підкорила серця" className="text-left font-normal mb-6" fontSize="14px" />
 
 

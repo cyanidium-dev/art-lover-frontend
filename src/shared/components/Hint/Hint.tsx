@@ -1,4 +1,4 @@
-import { Share, Share2Icon } from "lucide-react"
+import { Share2Icon } from "lucide-react"
 import Button from "../Button/Button"
 import TextTitle from "../TextTitle/TextTitle"
 
