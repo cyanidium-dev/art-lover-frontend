@@ -8,6 +8,9 @@ const productItems = [
         new: false,
         discount: false,
         category: "String Art",
+        gender: "male",
+        profession: "Дизайнер",
+        type: "StringArt картини нитками"
 
     },
     {
@@ -19,6 +22,9 @@ const productItems = [
         new: true,
         discount: false,
         category: "String Art",
+        gender: "male",
+        profession: "Дизайнер",
+        type: "StringArt картини нитками"
     },
     {
         id: "3",
@@ -29,6 +35,9 @@ const productItems = [
         new: false,
         discount: true,
         category: "String Art",
+        gender: "male",
+        profession: "Дизайнер",
+        type: "StringArt картини нитками"
     },
     {
         id: "4",
@@ -39,6 +48,9 @@ const productItems = [
         new: false,
         discount: false,
         category: "String Art",
+        gender: "male",
+        profession: "Дизайнер",
+        type: "StringArt картини нитками"
     },
     {
         id: "5",
@@ -49,6 +61,9 @@ const productItems = [
         new: false,
         discount: false,
         category: "Deco",
+        gender: "male",
+        profession: "Дизайнер",
+        type: "Картини з бісеру"
     },
     {
         id: "6",
@@ -59,6 +74,9 @@ const productItems = [
         new: false,
         discount: false,
         category: "Deco",
+        gender: "male",
+        profession: "Дизайнер",
+        type: "Картини з бісеру"
     },
     {
         id: "7",
@@ -69,6 +87,9 @@ const productItems = [
         new: false,
         discount: false,
         category: "Deco",
+        gender: "male",
+        profession: "Дизайнер",
+        type: "Картини з бісеру"
     },
 
     {
@@ -80,6 +101,9 @@ const productItems = [
         new: false,
         discount: false,
         category: "Deco",
+        gender: "male",
+        profession: "Дизайнер",
+        type: "Картини з бісеру"
     },
     {
         id: "9",
@@ -90,6 +114,9 @@ const productItems = [
         new: false,
         discount: false,
         category: "New",
+        gender: "male",
+        profession: "Дизайнер",
+        type: "Картини з бісеру"
     },
     {
         id: "10",
@@ -100,150 +127,13 @@ const productItems = [
         new: false,
         discount: false,
         category: "New",
-    },
-    {
-        id: "11",
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: false,
-        category: "New",
-    },
-    {
-        id: "12",
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: false,
-        category: "New",
+        gender: "male",
+        profession: "Дизайнер",
+        type: "Картини з бісеру"
     },
 
-    {
-        id: "14",
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: false,
-        category: "New",
-    },
 
-    {
-        id: "15",
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: true,
-        category: "Sale",
-    },
 
-    {
-        id: "19",
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: false,
-        category: "Gifts",
-    },
-    {
-        id: "20",
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: false,
-        category: "Gifts",
-    },
-    {
-        id: "21",
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: false,
-        category: "Gifts",
-    },
-    {
-        id: "22",
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: false,
-        category: "Gifts",
-    },
-    {
-        id: "23",
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: false,
-        category: "Hits",
-    },
-    {
-        id: "24",
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: false,
-        category: "Hits",
-    },
-    {
-        id: "25",
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: false,
-        category: "Hits",
-    },
-    {
-        id: "26",
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: false,
-        category: "Hits",
-    },
-    {
-        id: "27",
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: false,
-        category: "hits",
-    },
-    {
-        id: "28",
-        img: "/products/product.png",
-        name: "String Art Portrait Kit",
-        price: 'USD 19.99',
-        hit: false,
-        new: false,
-        discount: false,
-        category: "hits",
-    },
 ];
 
 export default productItems

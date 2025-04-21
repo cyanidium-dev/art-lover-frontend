@@ -7,4 +7,10 @@ export type CategoryProductItem = {
     new?: boolean;
     discount?: boolean;
     category?: string;
+    type?: string;
+    profession?: string;
+    description?: string;
+    rating?: number;
+    reviews?: number;
+    inStock?: boolean;
 };

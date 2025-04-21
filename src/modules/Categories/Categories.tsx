@@ -1,4 +1,4 @@
-import categoryItems from "@/modules/Categories/categoryItems";
+import categoryItems from "@/modules/categoryItems";
 
 import TextTitle from "@/shared/components/TextTitle/TextTitle";
 

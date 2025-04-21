@@ -13,7 +13,7 @@ type Props = {
 };
 
 const CategoriesCatalog = ({ items }: Props) => (
-    <ul className="flex flex-wrap gap-3">
+    <ul className="flex flex-wrap gap-3 justify-evenly">
         {items.map((item) => (
             <CatalogProduct
                 key={item.id}
