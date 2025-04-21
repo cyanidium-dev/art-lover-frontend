@@ -23,18 +23,21 @@ const Product = (props: Props) => {
     };
     return (
         <>
-        <li key={props.item.id} className="flex flex-col items-center gap-[12px] rounded-md bg-white shadow-lg p-[12px] ">
-                <Image src={props.item.img} alt={props.item.name} width={151} height={120} className="w-full h-auto object-fill transition-transform duration-300 transform hover:scale-105"
-                />
+            <li key={props.item.id} className="flex flex-col items-center gap-[12px] rounded-md bg-white shadow-lg p-[12px] lg:p-[20px]">
+
+                <div className="relative rounded-lg w-[151px] h-[120px] lg:w-[228px] lg:h-[300px]  overflow-hidden mb-2 lg:mb-4">
+                    <Image src={props.item.img} alt={props.item.name} fill className="object-cover" />
+                </div>
+
             <div className="flex flex-col">
                 <p className="text-[14px] font-medium ">{props.item.price}</p>
                 <p className="text-[14px] font-medium">{props.item.name}</p>
             </div>
 
 
-            <div className="flex gap-3 items-center justify-center">
+                <div className="flex gap-3 items-center justify-center  w-full lg:gap-4 lg:justify-between lg:w-[228px]">
 
-                    <ButtonOval buttonText="Детальніше" className="px-4 py-2 h-[36px] w-[102px] rounded-3xl text-[10px] border " style={
+                    <ButtonOval buttonText="Детальніше" className="flex items-center justify-center w-full px-4 py-2 rounded-3xl text-[10px] border " style={
                         {
 
                             backgroundColor: "#FFF",

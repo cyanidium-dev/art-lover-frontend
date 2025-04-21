@@ -7,7 +7,7 @@ const productItems = [
         hit: true,
         new: false,
         discount: false,
-        category: "String Art",
+        category: "sale",
         gender: "male",
         profession: "Дизайнер",
         type: "StringArt картини нитками"
@@ -34,7 +34,7 @@ const productItems = [
         hit: false,
         new: false,
         discount: true,
-        category: "String Art",
+        category: "sale",
         gender: "male",
         profession: "Дизайнер",
         type: "StringArt картини нитками"
@@ -47,7 +47,7 @@ const productItems = [
         hit: false,
         new: false,
         discount: false,
-        category: "String Art",
+        category: "sale",
         gender: "male",
         profession: "Дизайнер",
         type: "StringArt картини нитками"
@@ -60,7 +60,7 @@ const productItems = [
         hit: false,
         new: false,
         discount: false,
-        category: "Deco",
+        category: "New",
         gender: "male",
         profession: "Дизайнер",
         type: "Картини з бісеру"
@@ -73,7 +73,7 @@ const productItems = [
         hit: false,
         new: false,
         discount: false,
-        category: "Deco",
+        category: "sale",
         gender: "male",
         profession: "Дизайнер",
         type: "Картини з бісеру"
@@ -86,7 +86,7 @@ const productItems = [
         hit: false,
         new: false,
         discount: false,
-        category: "Deco",
+        category: "sale",
         gender: "male",
         profession: "Дизайнер",
         type: "Картини з бісеру"
@@ -127,10 +127,38 @@ const productItems = [
         new: false,
         discount: false,
         category: "New",
-        gender: "male",
+        gender: "female",
         profession: "Дизайнер",
         type: "Картини з бісеру"
     },
+    {
+        id: "11",
+        img: "/products/product.png",
+        name: "String Art Portrait Kit",
+        price: 'USD 19.99',
+        hit: false,
+        new: false,
+        discount: false,
+        category: "New",
+        gender: "female",
+        profession: "Дизайнер",
+        type: "Картини з бісеру"
+    },
+    {
+        id: "12",
+        img: "/products/product.png",
+        name: "String Art Portrait Kit",
+        price: 'USD 19.99',
+        hit: false,
+        new: false,
+        discount: false,
+        category: "New",
+        gender: "female",
+        profession: "Дизайнер",
+        type: "Картини з бісеру"
+    },
+
+
 
 
 

@@ -8,12 +8,13 @@ import SliderControllers from "@/shared/components/SliderControllers/SliderContr
 const New = () => {
     return (
         <div className="py-8">
+            <div className="flex flex-col lg:flex-row lg:justify-between">
             <TextTitle text="наші новинки " className="uppercase text-left mb-3 font-medium" />
-            <TextSubtitle text="Творчість, яка підкорила серця" className="text-left mb-6 font-normal" fontSize="14px" />
+                <TextSubtitle text="Творчість, яка підкорила серця" className="text-left mb-6 font-normal" fontSize="14px" color="[var(--main-dark-color)]" /></div>
 
             <ul className="flex gap-4 overflow-auto mb-8" >
                 {productItems
-                    .filter((item) => item.category === "Hits" || item.category === "hits")
+                    .filter((item) => item.category === "new" || item.category === "New")
                     .map((item, index) => (
                         <Product key={index} item={item} />
 

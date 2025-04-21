@@ -17,7 +17,7 @@ const SliderControllers = ({ prevClass, nextClass, paginationClass }: Props) => 
                 <button
                     className={`${nextClass} swiper-controller flex item-center justify-center bg-transparent transition-colors duration-300  rounded-[10px] cursor-pointer p-2  hover:bg-[var(--main-orange)] hover:text-[var(--main-white)]`}
                 >
-                    <   CircleChevronRight className="stroke-current" stroke="currentColor" />
+                    <CircleChevronRight className="stroke-current" stroke="currentColor" />
                 </button>
             </div>
         </div>

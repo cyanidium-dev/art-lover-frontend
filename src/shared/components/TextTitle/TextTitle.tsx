@@ -15,9 +15,9 @@ const TextTitle = ({
 }: Props) => {
     return (
         <div
-            className={` ${className} text-[20px]  md:text-[24px]   xl:text-[40px] text-center`}
+            className={` ${className} text-[20px]  md:text-[24px] lg:text-[40px] text-center`}
             style={{
-                // fontSize,
+
                 fontFamily: `var(${fontVariable})`,
 
             }}

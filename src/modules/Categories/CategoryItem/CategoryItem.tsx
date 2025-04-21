@@ -2,7 +2,6 @@
 'use client'
 import EllipseBackground from "@/shared/components/ElipseBackground/EllipseBackground"
 import TextSubtitle from "@/shared/components/TextSubtitle.tsx/TextSubtitle"
-import TextTitle from "@/shared/components/TextTitle/TextTitle"
 import { useRouter } from "next/navigation"
 
 type Props = {
@@ -15,6 +14,7 @@ type Props = {
         slug?: string
     }
     index: number
+    className?: string
 }
 const CategoryItem = (props: Props) => {
 
@@ -64,7 +64,7 @@ const CategoryItem = (props: Props) => {
         <li
             onClick={handleClick}
             key={props.item.id}
-            className={`relative flex h-[100px] w-full max-w-4xl overflow-hidden rounded-lg border border-[var(--main-dark-color)] ${props.index % 2 === 0
+            className={`${props.className} cursor-pointer relative overflow-hidden rounded-lg border border-[var(--main-dark-color)] ${props.index % 2 === 0
                 ? 'bg-[var(--main-dark-color)] text-white flex-row-reverse'
                 : 'bg-white text-black flex-row'
                 }`
@@ -90,8 +90,18 @@ const CategoryItem = (props: Props) => {
 
 
             <div className={` flex flex-col justify-center z-30 `}>
-                    <TextTitle text={props.item.text} className={`absolute flex text-center mb-2 font-medium uppercase  ${textPositions[props.index] || ''}`} />
-                <TextSubtitle text={props.item.signature} className={`absolute flex text-center ${subtitlePositions[props.index] || ''}`} fontSize="12px" />
+
+
+                <h3 className={`absolute flex text-center mb-2 font-medium uppercase text text-[14px]  ${textPositions[props.index] || ''}`}>
+                    {props.item.text}
+                </h3>
+                <TextSubtitle text={props.item.signature} className={`absolute flex text-center ${subtitlePositions[props.index] || ''}`} fontSize="12px"
+                    color={props.index % 2 === 0 ? 'white' : 'black'} />
+
+
+                {/* <TextSubtitle text={props.item.signature} className={`absolute flex text-center ${subtitlePositions[props.index] || ''}`} fontSize="12px"
+                
+                /> */}
             </div>
         </li>
     )
