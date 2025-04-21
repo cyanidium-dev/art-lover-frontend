@@ -21,12 +21,15 @@ const Navbar = () => {
 
     return (
         <nav>
-            <div className="wrapper flex justify-between items-center py-8">
+            <div className="wrapper flex justify-between items-center py-8 ">
 
-                <Link href="/" className=" hidden lg:block">
+                <div className="flex items-center lg:gap-8 lg:mr-8">
+                    <Link href="/" className=" hidden lg:block">
                     <Logo />
                 </Link>
                 <NavBarCatalog onCatalogClick={openCatalog} />
+                </div>
+
                 <Link href="/" className="inline-block lg:hidden">
                     <Logo />
                 </Link>

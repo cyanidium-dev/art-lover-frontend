@@ -6,7 +6,8 @@ const categoryItems = [
         signature: "Створи шедевр сьогодні",
         slug: "art",
         path: "/art",
-        headerImg:"/categories/headerImg/11.png"
+        headerImg: "/categories/headerImg/11.png"
+
     },
     {
         id: "2",
