@@ -36,8 +36,8 @@ const HeaderSlider = () => {
                 pagination={{
                     clickable: true,
                     el: '.swiper-hero-pagination',
+                    bulletActiveClass: 'swiper-hero-bullet-active',
                     bulletClass: '.swiper-hero-bullet',
-                    bulletActiveClass: 'active',
                     bulletElement: 'span',
                     renderBullet: (index, className) =>
                         `<span class="${className} custom-bullet">${index + 1}</span>`,

@@ -6,21 +6,27 @@ type Props = {
 };
 const SliderControllers = ({ prevClass, nextClass, paginationClass }: Props) => {
     return (
-        <div className="max-w-[120px] min-h-[72px] relative m-auto mt-8 ">
-            <div className=" flex justify-center items-center bottom-0 left-0 right-0 z-20  m-auto text-xs m-width-full">
+        <div className="max-w-[120px] min-h-[72px] relative mx-auto mt-8">
+            <div className="flex justify-center items-center text-xs w-full">
+                {/* Prev button */}
                 <button
-                    className={`${prevClass} swiper-controller flex item-center justify-center bg-transparent transition-colors duration-300  rounded-[10px] cursor-pointer p-2  hover:bg-[var(--main-orange)] hover:text-[var(--main-white)]`}
+                    className={`${prevClass} swiper-controller flex items-center justify-center bg-transparent transition-colors duration-300 rounded-[10px] cursor-pointer p-2 hover:bg-[var(--main-orange)] hover:text-[var(--main-white)]`}
                 >
                     <CircleChevronLeft className="stroke-current" stroke="currentColor" />
-                </button >
-                <div className={`${paginationClass} flex ml-2 mr-2`}></div>
+                </button>
+
+                {/* Pagination */}
+                <div className={`${paginationClass} flex mx-2 justify-center gap-1`} />
+
+                {/* Next button */}
                 <button
-                    className={`${nextClass} swiper-controller flex item-center justify-center bg-transparent transition-colors duration-300  rounded-[10px] cursor-pointer p-2  hover:bg-[var(--main-orange)] hover:text-[var(--main-white)]`}
+                    className={`${nextClass} swiper-controller flex items-center justify-center bg-transparent transition-colors duration-300 rounded-[10px] cursor-pointer p-2 hover:bg-[var(--main-orange)] hover:text-[var(--main-white)]`}
                 >
                     <CircleChevronRight className="stroke-current" stroke="currentColor" />
                 </button>
             </div>
         </div>
-    )
-}
+    );
+};
+
 export default SliderControllers

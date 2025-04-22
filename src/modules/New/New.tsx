@@ -1,8 +1,7 @@
 import TextSubtitle from "@/shared/components/TextSubtitle.tsx/TextSubtitle"
 import TextTitle from "@/shared/components/TextTitle/TextTitle"
 import productItems from "../productItems"
-import Product from "@/shared/components/Product/Product"
-import SliderControllers from "@/shared/components/SliderControllers/SliderControllers"
+import SwiperProductSlider from "@/shared/components/SwiperProducts/SwiperProducts"
 
 
 const New = () => {
@@ -16,19 +15,13 @@ const New = () => {
                 <TextSubtitle text="Творчість, яка підкорила серця" className="text-left font-normal" fontSize="14px" color="[var(--main-dark-color)]" />
             </div>
 
-            <ul
-                className="flex gap-4 overflow-x-auto mb-8 py-[2px] hide-scrollbar"
-            >
-                {productItems
-                    .filter((item) => item.category === "new" || item.category === "New")
-                    .map((item, index) => (
-                        <Product key={index} item={item} />
-
-                    ))}
-            </ul>
-            <SliderControllers
+            <SwiperProductSlider
+                items={productItems
+                    .filter(item => item.category.toLowerCase() === "new")
+                    .map(({ img, ...rest }) => ({ ...rest, image: img }))}
                 prevClass="prev-new"
                 nextClass="next-new"
+                paginationClass="new-pagination"
             />
         </section>
     )
