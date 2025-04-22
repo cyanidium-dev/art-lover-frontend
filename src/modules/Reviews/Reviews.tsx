@@ -15,7 +15,7 @@ const Reviews = () => {
   return (
     <section className="py-8">
       <TextTitle text="відгуки" className="uppercase text-left font-medium mb-[12px]" fontSize="20px" />
-      <TextSubtitle text="Враження про наш магазин" className="text-left font-normal mb-[24px]" fontSize="14px" color={"var(--main-dark-color)"} />
+      <TextSubtitle text="Враження про наш магазин!" className="text-left font-normal mb-[24px]" fontSize="14px" color={"var(--main-dark-color)"} />
 
 
       <Swiper
