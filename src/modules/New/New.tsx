@@ -6,6 +6,8 @@ import SwiperProductSlider from "@/shared/components/SwiperProducts/SwiperProduc
 
 const New = () => {
     // new items
+    // just for commit
+
     return (
         <section className="py-8">
             <div className="flex flex-col gap-[12px]
