@@ -1,7 +1,7 @@
 const categoryItems = [
     {
         id: "1",
-        img: "/categories/catalog5.png",
+        img: "/categories/catalog1.png",
         text: "Творчі набори",
         signature: "Створи шедевр сьогодні",
         slug: "art",
@@ -11,7 +11,7 @@ const categoryItems = [
     },
     {
         id: "2",
-        img: "/categories/catalog3.png",
+        img: "/categories/catalog2.png",
         text: "Декор",
         signature: "Створи шедевр сьогодні",
         slug: "decor",
@@ -20,7 +20,7 @@ const categoryItems = [
     },
     {
         id: "3",
-        img: "/categories/catalog1.png",
+        img: "/categories/catalog3.png",
         headerImg: "/categories/headerImg/12.png",
         text: "Подарунки",
         signature: "Даруйте натхнення",
@@ -38,7 +38,7 @@ const categoryItems = [
     },
     {
         id: "5",
-        img: "/categories/catalog2.png",
+        img: "/categories/catalog5.png",
         text: "Знижки",
         signature: "Вигідні пропозиції",
         slug: "sale",

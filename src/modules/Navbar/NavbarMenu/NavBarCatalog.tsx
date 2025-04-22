@@ -10,15 +10,16 @@ const NavBarCatalog = (props: Props) => {
 
         <button
             onClick={props.onCatalogClick}
-            className="bg-[var(--main-orange)] cursor-pointer border-0 rounded-[20px] px-4 h-[32px] flex justify-center items-center text-white text-[12px] font-medium
+            className="bg-[var(--main-orange)] cursor-pointer rounded-[20px] 
+            px-2 h-[32px] w-[44px] flex justify-center items-center text-white text-[12px] font-medium
              lg:px-6 lg:h-[46px] lg:text-[16px] lg:w-[264px] lg:gap-4"
         >
-            {/* Іконка для мобільних */}
+
             <span className="block">
-                <CatalogLogo />
+                <CatalogLogo className="h-[20px]  " />
             </span>
 
-            {/* Текст для десктопу */}
+
             <span className="hidden lg:block">Каталог</span>
         </button>
 

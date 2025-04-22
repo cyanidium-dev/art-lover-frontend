@@ -17,18 +17,29 @@ const Subscribe = () => {
     };
 
   return (
-    <div className="pt-8  ">
-      <div className="bg-[var(--main-orange-light)] p-[32px] flex flex-col gap-4 lg:flex-row lg:gap-6">
-        <TextTitle text="відстежуйте наші новини!" className="uppercase font-medium text-white text-left" />
-        <form className="flex gap-4 justify-between " onSubmit={handleSubmit(onSubmit)}>
-                  <label className="sr-only" htmlFor="email"></label>
-          <input id="email" type="email" placeholder="Email" className="w-full h-[40px] md:max-w-[312px]  text-white rounded-2xl   bg-[rgba(255,255,255,0.34)] p-2 border-transparent  outline-none placeholder:text-left placeholder:pl-2 placeholder:text-[12px] placeholder:font-light placeholder:text-white"
-                  {...register("email")}
-                  />
+    <section className="pt-8  ">
+      <div
+        className="bg-[var(--main-orange-light)] bg-[url('/subscribe.png')] bg-no-repeat bg-cover bg-center
+         
+             p-[32px] lg:flex-row lg:gap-6"
+      >
+        <TextTitle text="відстежуйте наші новини!" className="uppercase font-normal text-white text-left leading-[32px] mb-[24px]" />
+        <form className="flex gap-[13px] justify-between " onSubmit={handleSubmit(onSubmit)}>
+          <label className="sr-only" htmlFor="email"></label>
+          <input
+            id="email"
+            type="email"
+            placeholder="Email"
+            className="h-[44px] min-w-[177px] md:max-w-[312px] text-white text-[12px] rounded-[28px]
+             bg-[rgba(255,255,255,0.34)] px-[10px] py-[20px] border-transparent outline-none
+             placeholder:text-left placeholder:pl-2 placeholder:text-[12px]
+             placeholder:font-light placeholder:text-white text-justify"
+            {...register("email")}
+          />
           <ButtonOval
             buttonText={isSubmitting ? '...' : 'Надіслати'}
             type="submit"
-            className="w-[120px] h-[40px] bg-white text-[var(--main-dark-color)] font-light leading-2 text-[10px]"
+            className="w-[103px] h-[44px] px-[10px] py-[20px] bg-white text-[var(--main-dark-color)] font-light leading-[24px] text-[12px] rounded-[28px]"
             style={{ background: '#FFFFFF' }}
           />
         </form>
@@ -36,7 +47,7 @@ const Subscribe = () => {
           
         
 
-         </div>
+    </section>
   )
 }
 export default Subscribe

@@ -23,40 +23,42 @@ const Product = (props: Props) => {
     };
     return (
         <>
-            <li key={props.item.id} className="flex flex-col items-center gap-[12px] rounded-md bg-white shadow-lg p-[12px] lg:p-[20px]">
-
-                <div className="relative rounded-lg w-[151px] h-[120px] lg:w-[228px] lg:h-[300px]  overflow-hidden mb-2 lg:mb-4">
+            <li
+                key={props.item.id}
+                onClick={() => router.push(`/product/${props.item.id}`)}
+                className="
+                cursor-pointer
+                flex flex-col items-center rounded-lg bg-white
+                border-[1px] 
+                border-transparent
+             shadow-[0px_4px_6px_rgba(0,0,0,0.1),0px_2px_4px_rgba(0,0,0,0.1)]
+             
+             p-3 lg:p-5 transition-all duration-300 hover:shadow-[0px_6px_12px_rgba(0,0,0,0.15)]
+             hover:-translate-y-1"
+            >
+                <div className="relative rounded-lg w-[151px] h-[120px] lg:w-[228px] lg:h-[300px]  overflow-hidden mb-[12px]">
                     <Image src={props.item.img} alt={props.item.name} fill className="object-cover" />
                 </div>
 
-            <div className="flex flex-col">
+                <div className="flex flex-col mb-[16px] ">
                 <p className="text-[14px] font-medium ">{props.item.price}</p>
-                <p className="text-[14px] font-medium">{props.item.name}</p>
-            </div>
+                    <p className="text-[14px] font-medium">{props.item.name}</p>
+                </div>
 
 
-                <div className="flex gap-3 items-center justify-center  w-full lg:gap-4 lg:justify-between lg:w-[228px]">
+                <div className="flex gap-1 justify-between w-full lg:gap-4 lg:justify-between lg:w-[228px]">
+                    <ButtonOval
+                        buttonText="Детальніше"
+                        className="flex items-center justify-center w-[102px] h-[36px] rounded-3xl text-[10px] border border-[var(--main-dark-color)] text-[var(--main-dark-color)] bg-white"
+                        onClick={() => router.push(`/product/${props.item.id}`)}
+                    />
 
-                    <ButtonOval buttonText="Детальніше" className="flex items-center justify-center w-full px-4 py-2 rounded-3xl text-[10px] border " style={
-                        {
-
-                            backgroundColor: "#FFF",
-                            color: "var(--main-dark-color)",
-                            border: "1px solid var(--main-dark-color)",
-                        }
-
-
-
-                    } onClick={() => router.push(`/product/${props.item.id}`)} />
-
-                <div className="">
                     <Button
                         svg={<ShoppingCart width={24} height={24} strokeWidth="1.5" stroke="#FFF" />}
-                        className=" bg-[var(--main-orange)] flex items-center justify-center rounded-md h-[36px] w-[36px]"
-                            onClick={() => handleAddToCart()}
+                        className="bg-[var(--main-orange)] flex items-center justify-center w-[36px] h-[36px] rounded-md"
+                        onClick={() => handleAddToCart()}
                     />
                 </div>
-            </div>
         </li>
 
             <CartAddedModal open={showModal} continueShopping={() => setShowModal(false)} /></>

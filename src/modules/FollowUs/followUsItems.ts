@@ -11,6 +11,8 @@ type FollowUsItem = {
     link: string;
     text: string;
     icon: ReactElement
+    background?: string;
+    textColor?: string;
 };
 const followUsItems: FollowUsItem[] = [
     
@@ -18,17 +20,20 @@ const followUsItems: FollowUsItem[] = [
         
         id: 1,
         icon: React.createElement(Instagram),
-  
         social: 'Instagram',
         link: 'https://www.instagram.com/',
-        text:'421 тис. підписпиків',
+        text: '421 тис. підписпиків',
+        background: '/social/1.png',
+        textColor: 'white'
     },
     {
         id: 2,
         icon: React.createElement(YouTube),
         social: 'YouTube',
         link: 'https://www.youtube.com/',
-        text:'21 тис. підписпиків',
+        text: '21 тис. підписпиків',
+        background: '/social/2.png',
+        textColor:'var(--main-dark-color)'
     },
     {
         id: 3,
@@ -36,13 +41,19 @@ const followUsItems: FollowUsItem[] = [
         social: 'Facebook',
         link: 'https://www.instagram.com/',
         text: '100 тис. підписпиків',
+        background: '/social/3.png',
+        textColor:'var(--main-dark-color)'
+
     },
     {
         id: 4,
         icon: React.createElement(TikTok),
         social: 'TikTok',
         link: 'https://www.tiktok.com/',
-        text:'421 тис. підписпиків',
+        text: '421 тис. підписпиків',
+        background: '/social/4.png',
+        textColor: 'white'
+
     }
     
 ]

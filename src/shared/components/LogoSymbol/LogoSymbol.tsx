@@ -4,6 +4,8 @@ type Props = {
     height?: number | string;
     className?: string;
 }
+
+
 const LogoSymbol = ({
     fill = "#FFFFFF",
     width = 171,

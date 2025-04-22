@@ -17,7 +17,7 @@ export default function Home() {
 
 
       <div><GlobalWrapper className=""><HeaderSlider /></GlobalWrapper></div>
-      <GlobalWrapper className={"px-[16px] lg:px-[64px] "}>
+      <GlobalWrapper className={"px-[32px] lg:px-[64px] bg-[url('/bgBody.png')] bg-no-repeat bg-center"}>
         <Categories />
         <Gifts />
         <Hits />

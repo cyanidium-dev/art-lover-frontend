@@ -8,11 +8,11 @@ import ReviewItem from "@/shared/components/ReviewItem/ReviewItem"
 
 const Reviews = () => {
   return (
-      <div className="py-8">
-          <TextTitle text="відгуки" className="uppercase text-left mb-3 font-medium" fontSize="20px" />
-          <TextSubtitle text="Враження про наш магазин" className="text-left mb-6 font-normal" fontSize="14px" />
+    <section className="py-8">
+      <TextTitle text="відгуки" className="uppercase text-left font-medium mb-[12px]" fontSize="20px" />
+      <TextSubtitle text="Враження про наш магазин" className="text-left font-normal mb-[24px]" fontSize="14px" color={"var(--main-dark-color)"} />
 
-          <ul className="flex gap-4 overflow-auto mb-8" >
+      <ul className="flex gap-4 overflow-auto  hide-scrollbar mb-8 py-[1px]" >
               {reviewsItems.map((item) => (
                 <ReviewItem item={item} key={item.id} />
 
@@ -21,7 +21,7 @@ const Reviews = () => {
           </ul>
           
       <SliderControllers prevClass="prev-button-class" nextClass="next-button-class" />
-      </div>
+    </section>
   )
 }
 export default Reviews
