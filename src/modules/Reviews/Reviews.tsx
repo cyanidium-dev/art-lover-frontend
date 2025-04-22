@@ -49,8 +49,6 @@ const Reviews = () => {
         nextClass="next-reviews"
         paginationClass="reviews-pagination"
       />
-
-
     </section>
   )
 }
