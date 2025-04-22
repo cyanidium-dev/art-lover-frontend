@@ -7,7 +7,7 @@ import SliderControllers from "@/shared/components/SliderControllers/SliderContr
 
 const New = () => {
     return (
-        <div className="py-8">
+        <section className="py-8">
             <div className="flex flex-col gap-[12px]
             mb-[24px]
             lg:flex-row
@@ -16,7 +16,9 @@ const New = () => {
                 <TextSubtitle text="Творчість, яка підкорила серця" className="text-left font-normal" fontSize="14px" color="[var(--main-dark-color)]" />
             </div>
 
-            <ul className="flex gap-4 overflow-auto mb-8" >
+            <ul
+                className="flex gap-4 overflow-x-auto mb-8 py-[2px] hide-scrollbar"
+            >
                 {productItems
                     .filter((item) => item.category === "new" || item.category === "New")
                     .map((item, index) => (
@@ -28,7 +30,7 @@ const New = () => {
                 prevClass="prev-new"
                 nextClass="next-new"
             />
-        </div>
+        </section>
     )
 }
 export default New

@@ -31,9 +31,11 @@ export default function RootLayout({
   return (
     <html lang="en" >
       <body
-        className={`${montserrat.variable} ${denistina.variable} `}
+        className={`${montserrat.variable} ${denistina.variable}
+          `}
       >
-        < GlobalWrapper className={"px-[32px] sm:px-[32px] lg:px-[64px]"}>
+        <div >
+          < GlobalWrapper className={"px-[32px] sm:px-[32px] lg:px-[64px] bg-[url('/bgNav.png')] bg-no-repeat bg-cover bg-center"}>
           <Navbar />
         </GlobalWrapper>
         {children}
@@ -47,6 +49,7 @@ export default function RootLayout({
           < GlobalWrapper className={""}>
           <Footer />
           </GlobalWrapper>
+          </div>
         </div>
 
       </body>

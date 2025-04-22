@@ -11,16 +11,16 @@ const Hits = () => {
 
     return (
 
-        <div className="py-8">
+        <section className="py-8">
             <div className="flex flex-col gap-[12px]
             mb-[24px]
             lg:flex-row lg:justify-between">
                 <TextTitle text="хіти продажів " className="uppercase text-left font-medium" />
-                <TextSubtitle text="Творчість, яка підкорила серця" className="text-left text-[14px] font-normal" fontSize="14px" color="[var(--main-dark-color)]" />
+                <TextSubtitle text="Творчість, яка підкорила серця" className="text-left font-normal" fontSize="14px" color="[var(--main-dark-color)]" />
             </div>
-
-
-            <ul className="flex gap-4 overflow-auto mb-8" >
+            <ul
+                className="flex gap-4 overflow-x-auto mb-8 py-[2px] hide-scrollbar"
+            >
                 {productItems
                     .filter((item) => item.category === "New" || item.category === "new")
                     .map((item, index) => (
@@ -37,7 +37,7 @@ const Hits = () => {
 
             />
 
-        </div>
+        </section>
     )
 }
 export default Hits

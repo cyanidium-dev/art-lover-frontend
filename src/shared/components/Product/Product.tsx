@@ -23,8 +23,19 @@ const Product = (props: Props) => {
     };
     return (
         <>
-            <li key={props.item.id} className="flex flex-col items-center rounded-md bg-white shadow-lg p-[12px] lg:p-[20px]">
-
+            <li
+                key={props.item.id}
+                onClick={() => router.push(`/product/${props.item.id}`)}
+                className="
+                cursor-pointer
+                flex flex-col items-center rounded-lg bg-white
+                border-[1px] 
+                border-transparent
+             shadow-[0px_4px_6px_rgba(0,0,0,0.1),0px_2px_4px_rgba(0,0,0,0.1)]
+             
+             p-3 lg:p-5 transition-all duration-300 hover:shadow-[0px_6px_12px_rgba(0,0,0,0.15)]
+             hover:-translate-y-1"
+            >
                 <div className="relative rounded-lg w-[151px] h-[120px] lg:w-[228px] lg:h-[300px]  overflow-hidden mb-[12px]">
                     <Image src={props.item.img} alt={props.item.name} fill className="object-cover" />
                 </div>

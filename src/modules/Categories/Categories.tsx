@@ -16,7 +16,8 @@ const Categories = () => {
                 {categoryItems.map((item) => (
                     <li className="flex 
                     justify-center
-                    items-center"
+                    items-center
+                    cursor-pointer"
                         key={item.id}
                         onClick={() => {
                             router.push('/catalog/' + item.slug);
