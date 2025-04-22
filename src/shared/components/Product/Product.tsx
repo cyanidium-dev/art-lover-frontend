@@ -35,27 +35,19 @@ const Product = (props: Props) => {
                 </div>
 
 
-                <div className="flex gap-1 lg:gap-4 lg:justify-between lg:w-[228px]">
-                    <ButtonOval buttonText="Детальніше" className="flex items-center justify-center w-[102px] h-[36px] rounded-3xl text-[10px] border " style={
-                        {
-
-                            backgroundColor: "#FFF",
-                            color: "var(--main-dark-color)",
-                            border: "1px solid var(--main-dark-color)",
-                        }
-
-
-
-                    } onClick={() => router.push(`/product/${props.item.id}`)} />
-
+                <div className="flex gap-1 justify-between w-full lg:gap-4 lg:justify-between lg:w-[228px]">
+                    <ButtonOval
+                        buttonText="Детальніше"
+                        className="flex items-center justify-center w-[102px] h-[36px] rounded-3xl text-[10px] border border-[var(--main-dark-color)] text-[var(--main-dark-color)] bg-white"
+                        onClick={() => router.push(`/product/${props.item.id}`)}
+                    />
 
                     <Button
                         svg={<ShoppingCart width={24} height={24} strokeWidth="1.5" stroke="#FFF" />}
-                        className=" bg-[var(--main-orange)] flex items-center justify-center w-[36px] h-[36px] rounded-md "
-                            onClick={() => handleAddToCart()}
+                        className="bg-[var(--main-orange)] flex items-center justify-center w-[36px] h-[36px] rounded-md"
+                        onClick={() => handleAddToCart()}
                     />
-
-            </div>
+                </div>
         </li>
 
             <CartAddedModal open={showModal} continueShopping={() => setShowModal(false)} /></>
