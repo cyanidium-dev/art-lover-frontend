@@ -7,32 +7,13 @@ import SwiperProductSlider from "@/shared/components/SwiperProducts/SwiperProduc
 
 
 const Sale = () => {
-    interface ProductItem {
-        id: string;
-        name: string;
-        img: string;
-        price: string;
-        category: string;
-    }
 
-    interface SaleItem {
-        id: string;
-        name: string;
-        image: string;
-        price: string;
-        img: string;
-    }
 
-    const saleItems: SaleItem[] = productItems
-        .filter((item: ProductItem) => item.category.toLowerCase() === "sale")
-        .map((item: ProductItem) => ({
-            id: item.id,
-            name: item.name,
-            image: item.img,
-            price: parseFloat(item.price).toString(),
-            img: item.img,
-        }));
-    console.log(saleItems)
+
+    const saleItems = productItems
+        .filter(item => item.category.toLowerCase() === "sale")
+        .map(({ id, img, name, price }) => ({ id, image: img, name, price }));
+
     return (
         <section className="py-8">
             <div className="flex flex-col gap-[12px]
