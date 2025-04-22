@@ -29,8 +29,7 @@ const Product = (props: Props) => {
                 className="
                 cursor-pointer
                 flex flex-col items-center rounded-lg bg-white
-                border-[1px] 
-                border-transparent
+             
              shadow-[0px_4px_6px_rgba(0,0,0,0.1),0px_2px_4px_rgba(0,0,0,0.1)]
              
              p-3 lg:p-5 transition-all duration-300 hover:shadow-[0px_6px_12px_rgba(0,0,0,0.15)]
