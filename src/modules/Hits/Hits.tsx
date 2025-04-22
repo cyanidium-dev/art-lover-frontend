@@ -8,13 +8,16 @@ import SliderControllers from "@/shared/components/SliderControllers/SliderContr
 
 
 const Hits = () => {
-    console.log(productItems)
+
     return (
 
         <div className="py-8">
-            <div className="flex flex-col lg:flex-row lg:justify-between">
-                <TextTitle text="хіти продажів " className="uppercase text-left mb-3 font-medium " />
-                <TextSubtitle text="Творчість, яка підкорила серця" className="text-left font-normal mb-6" fontSize="14px" color="[var(--main-dark-color)]" /></div>
+            <div className="flex flex-col gap-[12px]
+            mb-[24px]
+            lg:flex-row lg:justify-between">
+                <TextTitle text="хіти продажів " className="uppercase text-left font-medium" />
+                <TextSubtitle text="Творчість, яка підкорила серця" className="text-left text-[14px] font-normal" fontSize="14px" color="[var(--main-dark-color)]" />
+            </div>
 
 
             <ul className="flex gap-4 overflow-auto mb-8" >

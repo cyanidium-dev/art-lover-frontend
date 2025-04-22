@@ -21,7 +21,7 @@ const Footer = () => {
                 <div className="mb-6">
                     <p className="text-[var(--main-orange)] font-semibold mb-2">Каталог</p>
                     <ul className="space-y-3 font-normal">
-                        <li><Link href="/gifts" className="hover:text-[var(--main-orange)] transition">Подарунки</Link></li>
+                        <li><Link href="catalog/gift" className="hover:text-[var(--main-orange)] transition">Подарунки</Link></li>
                         <li><Link href="/creative-products" className="hover:text-[var(--main-orange)] transition">Товари для творчості</Link></li>
                         <li><Link href="/kits" className="hover:text-[var(--main-orange)] transition">Творчі набори</Link></li>
                         <li><Link href="/art" className="hover:text-[var(--main-orange)] transition">Художні товари</Link></li>

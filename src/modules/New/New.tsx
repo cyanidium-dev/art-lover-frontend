@@ -8,9 +8,13 @@ import SliderControllers from "@/shared/components/SliderControllers/SliderContr
 const New = () => {
     return (
         <div className="py-8">
-            <div className="flex flex-col lg:flex-row lg:justify-between">
-            <TextTitle text="наші новинки " className="uppercase text-left mb-3 font-medium" />
-                <TextSubtitle text="Творчість, яка підкорила серця" className="text-left mb-6 font-normal" fontSize="14px" color="[var(--main-dark-color)]" /></div>
+            <div className="flex flex-col gap-[12px]
+            mb-[24px]
+            lg:flex-row
+            lg:justify-between">
+                <TextTitle text="наші новинки " className="uppercase text-left font-medium" />
+                <TextSubtitle text="Творчість, яка підкорила серця" className="text-left font-normal" fontSize="14px" color="[var(--main-dark-color)]" />
+            </div>
 
             <ul className="flex gap-4 overflow-auto mb-8" >
                 {productItems
@@ -19,7 +23,6 @@ const New = () => {
                         <Product key={index} item={item} />
 
                     ))}
-
             </ul>
             <SliderControllers
                 prevClass="prev-new"

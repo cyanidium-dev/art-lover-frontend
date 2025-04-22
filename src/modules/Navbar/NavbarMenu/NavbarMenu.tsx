@@ -7,8 +7,8 @@ type Props = {
 };
 const NavbarMenu = (props: Props) => {
 
-    return <div className="flex gap-1">
-        <Button className="  " svg={<Search strokeWidth="1.5" stroke="#3A3A3A" className="h-[20px] lg:h-[34px]" />} />
+    return <div className="flex gap-[10px]">
+        <Button svg={<Search strokeWidth="1.5" stroke="#3A3A3A" className="h-[20px] lg:h-[34px]" />} />
         <Button svg={<Heart strokeWidth="1.5" fill="#3A3A3A" stroke="#3A3A3A" className="h-[20px] lg:h-[34px]" />} />
         <Button onClick={props.onCartClick} svg={<ShoppingCart strokeWidth="1.5" fill="#3A3A3A" stroke="#3A3A3A" className="h-[20px] lg:h-[34px]" />} />
         <Button

@@ -21,18 +21,18 @@ const Navbar = () => {
 
     return (
         <nav>
-            <div className="wrapper flex justify-between items-center py-8 ">
+            <div className="wrapper flex justify-between items-center py-[32px] ">
 
-                <div className="flex items-center lg:gap-8 lg:mr-8">
+                <div className="flex items-center justify-center gap-[10px] ">
                     <Link href="/" className=" hidden lg:block">
-                    <Logo />
-                </Link>
-                <NavBarCatalog onCatalogClick={openCatalog} />
+                        <Logo />
+                    </Link>
+                    <NavBarCatalog onCatalogClick={openCatalog} />
+                    <Link href="/" className="inline-block lg:hidden">
+                        <Logo />
+                    </Link>
                 </div>
 
-                <Link href="/" className="inline-block lg:hidden">
-                    <Logo />
-                </Link>
 
 
                 <NavbarMenu onCartClick={openBasket} />
@@ -46,11 +46,11 @@ const Navbar = () => {
 
 
                 <AnimatePresence>
-                {basketOpen && (
+                    {basketOpen && (
                         <Basket
-                        open={basketOpen}
-                        onClose={() => setBasketOpen(false)}
-                    />
+                            open={basketOpen}
+                            onClose={() => setBasketOpen(false)}
+                        />
                     )}</AnimatePresence>
 
 
