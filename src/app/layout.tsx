@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
-import Navbar from "@/modules/Navbar/Navbar";
-import GlobalWrapper from "@/shared/components/GlobalWrapper/GlobalWrapper";
+
 import "../styles/style.css";
-import Footer from "@/modules/Footer/Footer";
-import Subscribe from "@/modules/Subscribe/Subscribe";
 
 const montserrat = Montserrat({
   weight: ["300", "400", "500", "600", "700", "800"],
@@ -32,26 +29,8 @@ export default function RootLayout({
     <html lang="en" >
       <body
         className={`${montserrat.variable} ${denistina.variable}
-          `}
-      >
-        <div >
-          < GlobalWrapper className={"px-[32px] sm:px-[32px] lg:px-[64px] bg-[url('/bgNav.png')] bg-no-repeat bg-cover bg-center"}>
-          <Navbar />
-        </GlobalWrapper>
+          `}>
         {children}
-        <div className="bg-[var(--main-orange-light)]">
-          <GlobalWrapper className={""}>
-          <Subscribe />
-          </GlobalWrapper>
-        </div>
-        <div className="bg-[var(--main-dark-color)]">
-
-          < GlobalWrapper className={""}>
-          <Footer />
-          </GlobalWrapper>
-          </div>
-        </div>
-
       </body>
     </html >
   );
