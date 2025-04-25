@@ -25,12 +25,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="uk" className="scroll-smooth">
       <body
-        className={`${montserrat.variable} ${denistina.variable}
+        className={`${montserrat.variable} ${denistina.variable} flex min-h-screen flex-col antialiased
           `}
       >
-        {children}
+        <main className="flex-1">{children}</main>
       </body>
     </html>
   );
