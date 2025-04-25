@@ -48,7 +48,7 @@ export default function SocialsList() {
   ];
 
   return (
-    <ul className="flex flex-wrap md:flex-nowrap gap-4">
+    <ul className="flex flex-wrap md:flex-nowrap gap-4 xl:gap-5">
       {socialList.map((social, idx) => (
         <SocialItem key={idx} social={social} />
       ))}
