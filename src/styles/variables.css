@@ -1,7 +1,7 @@
 :root {
-    --main-dark-color: #3A3A3A;
-    --main-white: #FFFFFF;
-    --main-gray-light: #545454;
-    --main-orange-light: #D88164;
-    --main-orange: #C65528;
+  --dark: #3a3a3a;
+  --white: #ffffff;
+  --gray-light: #545454;
+  --orange-light: #d88164;
+  --orange: #c65528;
 }
