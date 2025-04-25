@@ -1,3 +1,3 @@
 export default function HelpChooseGift() {
-  return <section>HelpChooseGift</section>;
+  return <section className="pt-20 xl:pt-[94px]">HelpChooseGift</section>;
 }
