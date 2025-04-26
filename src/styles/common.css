@@ -33,27 +33,29 @@
 
 .swiper {
   padding-bottom: 76px !important;
+
+  @media screen and (min-width: 1280px) {
+    padding-bottom: 102px !important;
+  }
 }
 
 .swiper-button-next,
 .swiper-button-prev {
   width: 44px !important;
   height: 44px !important;
-  padding: 10px;
+  padding: 10.5px;
   border-radius: 10px;
   background-color: var(--orange);
-  transition: filter 300ms ease-in-out;
-  top: calc(100% - 32px) !important;
-}
+  z-index: 20 !important;
+  transition: all 300ms ease-in-out;
+  top: calc(100% - 22px) !important;
 
-@media screen and (min-width: 1280px) {
-  .swiper-button-next,
-  .swiper-button-prev {
+  @media screen and (min-width: 1280px) {
     width: 66px !important;
     height: 66px !important;
     padding: 16.5px;
     border-radius: 19.8px;
-    top: calc(100% - 20px) !important;
+    top: calc(100% - 44px) !important;
   }
 }
 
@@ -70,11 +72,19 @@
 }
 
 .swiper-button-prev {
-  left: calc(50% - 59px) !important;
+  left: calc(50% - 98px) !important;
+
+  @media screen and (min-width: 1280px) {
+    left: calc(50% - 152px) !important;
+  }
 }
 
 .swiper-button-next {
-  right: calc(50% - 59px) !important;
+  right: calc(50% - 98px) !important;
+
+  @media screen and (min-width: 1280px) {
+    right: calc(50% - 152px) !important;
+  }
 }
 
 .swiper-button-prev::after {
@@ -93,4 +103,32 @@
   height: 100%;
   background: url('/images/icons/arrowInCircleRight.svg') center no-repeat;
   background-size: contain;
+}
+
+.swiper-pagination-custom {
+  bottom: 10px !important;
+  color: var(--dark) !important;
+  opacity: 1 !important;
+
+  @media screen and (min-width: 1280px) {
+    bottom: 18px !important;
+  }
+}
+
+.swiper-pagination-bullet {
+  margin-left: 2px;
+  margin-right: 2px;
+  opacity: 1 !important;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: transparent !important;
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+    margin-left: 9px;
+    margin-right: 9px;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  color: var(--orange);
 }
