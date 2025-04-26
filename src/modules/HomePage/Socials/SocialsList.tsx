@@ -26,7 +26,7 @@ export default function SocialsList() {
       link: youtube?.url || '',
       icon: <YoutubeIcon className="size-10 lg:size-23" />,
       qty: youtube?.qty || '',
-      bgImageMob: '/images/homePage/socials/imageTwoMob.svg',
+      bgImageMob: '/images/homePage/socials/imageTwoMobile.svg',
       bgImageDesk: '/images/homePage/socials/imageTwoDesk.svg',
     },
     {
@@ -34,7 +34,7 @@ export default function SocialsList() {
       link: tiktok?.url || '',
       icon: <TiktokIcon className="size-10 lg:size-23" />,
       qty: tiktok?.qty || '',
-      bgImageMob: '/images/homePage/socials/imageThreeMob.svg',
+      bgImageMob: '/images/homePage/socials/imageThreeMobile.svg',
       bgImageDesk: '/images/homePage/socials/imageThreeDesk.svg',
     },
     {
