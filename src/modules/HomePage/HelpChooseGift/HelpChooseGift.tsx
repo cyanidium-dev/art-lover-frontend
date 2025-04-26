@@ -50,7 +50,7 @@ export default function HelpChooseGift() {
             alt="girl with gifts"
             width="592"
             height="550"
-            className="xs:hidden absolute z-10 bottom-0 right-0 w-full max-w-[386px] h-auto"
+            className="xs:hidden absolute z-10 bottom-0 right-0 w-full max-w-[380px] h-auto"
           />
           <Image
             src="/images/homePage/helpChooseGifts/imageDesk.webp"
