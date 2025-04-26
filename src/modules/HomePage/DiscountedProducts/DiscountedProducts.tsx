@@ -1,4 +1,4 @@
-import Container from '@/shared/components/Container/Container';
+import Container from '@/shared/components/container/Container';
 
 export default function DiscountedProducts() {
   return (

@@ -1,14 +1,11 @@
-type Product = typeof productTemplate & {
-  bestseller?: boolean;
-  newProduct?: boolean;
-  discounted?: boolean;
-};
+import { Product } from '@/types/product';
 
 const productTemplate = {
   id: '1',
   slug: 'string-art-portrait-kit',
   title: 'String Art Portrait Kit',
   price: 85.74,
+  images: [{ url: '', alt: '' }],
 };
 
 const createProducts = (template: Product, count: number): Product[] => {
@@ -25,7 +22,7 @@ const createProducts = (template: Product, count: number): Product[] => {
     } else if ((i + 1) % 4 === 1) {
       product.newProduct = true;
     } else if ((i + 1) % 4 === 2) {
-      product.discounted = true;
+      product.discountedPrice = 70;
     }
 
     return product;

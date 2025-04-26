@@ -1,7 +1,17 @@
-import ProductCard from '@/shared/components/Cards/ProductCard/ProductCard';
-import Container from '@/shared/components/Container/Container';
+'use client';
+import { SwiperSlide } from 'swiper/react';
+import { productsList } from './mockedData';
+import ProductCard from '@/shared/components/cards/ProductCard/ProductCard';
+import Container from '@/shared/components/container/Container';
+import SwiperWrapper from '@/shared/components/swiper/SwiperWrapper';
 
 export default function Bestsellers() {
+  if (!productsList || !productsList.length) return null;
+
+  const bestsellersList = productsList.filter(product => product.bestseller);
+
+  if (!bestsellersList || !bestsellersList.length) return null;
+
   return (
     <section className="pt-20 xl:pt-[158px]">
       <Container>
@@ -13,7 +23,13 @@ export default function Bestsellers() {
             Творчість, яка підкорила серця
           </p>
         </div>
-        <ProductCard />
+        <SwiperWrapper>
+          {bestsellersList.map((bestseller, idx) => (
+            <SwiperSlide key={idx}>
+              <ProductCard product={bestseller} />
+            </SwiperSlide>
+          ))}
+        </SwiperWrapper>
       </Container>
     </section>
   );

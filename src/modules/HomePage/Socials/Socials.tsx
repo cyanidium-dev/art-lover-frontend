@@ -1,4 +1,4 @@
-import Container from '@/shared/components/Container/Container';
+import Container from '@/shared/components/container/Container';
 import SocialsList from './SocialsList';
 
 export default function Socials() {

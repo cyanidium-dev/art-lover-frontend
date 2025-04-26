@@ -1,8 +1,8 @@
 import { socials } from './mockedData';
-import InstagramIcon from '@/shared/components/Icons/InstagramIcon';
-import YoutubeIcon from '@/shared/components/Icons/YoutubeIcon';
-import TiktokIcon from '@/shared/components/Icons/TiktokIcon';
-import FacebookIcon from '@/shared/components/Icons/FacebookIcon';
+import InstagramIcon from '@/shared/components/icons/InstagramIcon';
+import YoutubeIcon from '@/shared/components/icons/YoutubeIcon';
+import TiktokIcon from '@/shared/components/icons/TiktokIcon';
+import FacebookIcon from '@/shared/components/icons/FacebookIcon';
 import SocialItem from './SocialItem';
 
 export default function SocialsList() {
