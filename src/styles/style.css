@@ -3,6 +3,8 @@
 @import './common.css';
 
 @theme {
+  --breakpoint-xs: 440px;
+
   --font-denistina: var(--font-denistina), sans-serif;
   --font-montserrat: var(--font-montserrat), sans-serif;
 
@@ -10,7 +12,11 @@
   --color-white: #ffffff;
   --color-gray-light: #545454;
   --color-orange-light: #d88164;
+  --color-orangeBright: #ff692d;
   --color-orange: #c65528;
+
+  --shadow-social: 0px 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0px 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
 @layer base {
