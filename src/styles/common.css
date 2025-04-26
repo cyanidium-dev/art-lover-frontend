@@ -63,7 +63,7 @@
 .swiper-button-prev:hover,
 .swiper-button-next:focus-visible,
 .swiper-button-prev:focus-visible {
-  filter: brightness(125%);
+  filter: brightness(110%);
 }
 
 .swiper-button-next:active,

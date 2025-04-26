@@ -5,7 +5,7 @@ const productTemplate = {
   slug: 'string-art-portrait-kit',
   title: 'String Art Portrait Kit',
   price: 85.74,
-  images: [{ url: '', alt: '' }],
+  images: [{ url: '/images/mockedData/productImageOne.webp', alt: '' }],
 };
 
 const createProducts = (template: Product, count: number): Product[] => {
