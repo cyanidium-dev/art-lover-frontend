@@ -5,11 +5,7 @@ interface CartButtonProps {
   onClick?: () => void;
 }
 
-export default function CartButton({
-  variant,
-  className,
-  onClick,
-}: CartButtonProps) {
+export default function CartButton({ className, onClick }: CartButtonProps) {
   return (
     <button
       id="cart-button"
