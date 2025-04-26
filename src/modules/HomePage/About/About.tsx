@@ -1,4 +1,4 @@
-import Container from '@/shared/components/container/Container';
+import Container from '@/shared/components/Container/Container';
 import Image from 'next/image';
 import BenefitsList from './BenefitsList';
 

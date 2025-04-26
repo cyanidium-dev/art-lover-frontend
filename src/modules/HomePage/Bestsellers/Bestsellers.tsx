@@ -1,4 +1,5 @@
-import Container from '@/shared/components/container/Container';
+import ProductCard from '@/shared/components/Cards/ProductCard/ProductCard';
+import Container from '@/shared/components/Container/Container';
 
 export default function Bestsellers() {
   return (
@@ -12,6 +13,7 @@ export default function Bestsellers() {
             Творчість, яка підкорила серця
           </p>
         </div>
+        <ProductCard />
       </Container>
     </section>
   );
