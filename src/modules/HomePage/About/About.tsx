@@ -53,7 +53,7 @@ export default function About() {
           </div>
           <div className="relative aspect-[296/169] mb-3 md:mb-0 rounded-[10px] xl:rounded-[16px] overflow-hidden shadow-social">
             <Image
-              src="/images/homePage/about/ImageOne.webp"
+              src="/images/homePage/about/imageOne.webp"
               alt="background"
               fill
               className="object-cover object-[center_63%]"
@@ -63,7 +63,7 @@ export default function About() {
         <div className="md:w-[40.6%]">
           <div className="hidden md:block relative mb-5 aspect-[447/385] xl:aspect-[447/445] rounded-[10px] xl:rounded-[16px] overflow-hidden">
             <Image
-              src="/images/homePage/about/ImageTwo.webp"
+              src="/images/homePage/about/imageTwo.webp"
               alt="background"
               fill
               className="object-cover"
