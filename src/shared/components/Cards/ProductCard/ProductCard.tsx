@@ -12,7 +12,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <div className="p-3 bg-white rounded-[8px] xl:rounded-[16px] shadow-social">
-      <div className="relative h-[120px] xl:h-[300px] mb-3 rounded-[8px] xl:rounded-[16px] overflow-hidden">
+      <div className="relative h-[120px] md:h-[180px] lg:h-[200px] xl:h-[300px] mb-3 rounded-[8px] xl:rounded-[16px] overflow-hidden">
         <Image
           src={images[0]?.url || ''}
           alt={images[0]?.url || 'product'}
