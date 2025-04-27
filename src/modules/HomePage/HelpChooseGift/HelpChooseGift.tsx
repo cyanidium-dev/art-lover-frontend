@@ -5,7 +5,14 @@ import Link from 'next/link';
 export default function HelpChooseGift() {
   return (
     <section className="pt-20 xl:pt-[94px]">
-      <Container>
+      <Container className="relative">
+        <Image
+          src="/images/homePage/helpChooseGifts/figureMob.svg"
+          alt="figure background"
+          width="102"
+          height="101"
+          className="xl:hidden absolute bottom-[-32px] left-1"
+        />
         <div className="relative z-10 rounded-[16px] xl:rounded-[20px] bg-orange overflow-hidden">
           <Image
             src="/images/homePage/helpChooseGifts/figureDesk.svg"
@@ -39,7 +46,8 @@ export default function HelpChooseGift() {
             <Link href="/">
               <button
                 className="cursor-pointer flex items-center justify-center px-4 py-2 w-[116px] sm:w-full max-w-[236px] md:max-w-[306px] xl:max-w-[456px] h-8 sm:h-12 xl:h-[58px] rounded-full 
-            text-[8px] sm:text-[12px] xl:text-[14px] font-normal leading-[120%] shadow-social bg-linear-[121deg,white_22.48%,#FF692D_337.32%] sm:bg-linear-[-186deg,#ffffff_11.19%,#ff692d_199.95%]"
+            text-[8px] sm:text-[12px] xl:text-[14px] font-normal leading-[120%] shadow-social bg-linear-[121deg,white_22.48%,#FF692D_337.32%] 
+             sm:bg-linear-[-186deg,#ffffff_11.19%,#ff692d_199.95%] xl:hover:brightness-105 focus-visible:brightness-105 active:scale-95 transition duration-300 ease-in-out"
               >
                 Обрати подарунок
               </button>

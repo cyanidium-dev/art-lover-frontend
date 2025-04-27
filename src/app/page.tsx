@@ -1,12 +1,14 @@
-import About from '@/modules/HomePage/About/About';
-import Bestsellers from '@/modules/HomePage/Bestsellers/Bestsellers';
-import Categories from '@/modules/HomePage/Categories/Categories';
-import DiscountedProducts from '@/modules/HomePage/DiscountedProducts/DiscountedProducts';
-import HelpChooseGift from '@/modules/HomePage/HelpChooseGift/HelpChooseGift';
-import Hero from '@/modules/HomePage/Hero/Hero';
-import NewProducts from '@/modules/HomePage/NewProducts/NewProducts';
-import Reviews from '@/modules/HomePage/Reviews/Reviews';
-import Socials from '@/modules/HomePage/Socials/Socials';
+import { Suspense } from 'react';
+import About from '@/modules/HomePage/about/About';
+import Bestsellers from '@/modules/HomePage/bestsellers/Bestsellers';
+import Categories from '@/modules/HomePage/categories/Categories';
+import DiscountedProducts from '@/modules/HomePage/discountedProducts/DiscountedProducts';
+import HelpChooseGift from '@/modules/HomePage/helpChooseGift/HelpChooseGift';
+import Hero from '@/modules/HomePage/hero/Hero';
+import NewProducts from '@/modules/HomePage/newProducts/NewProducts';
+import Reviews from '@/modules/HomePage/reviews/Reviews';
+import Socials from '@/modules/HomePage/socials/Socials';
+import Loader from '@/shared/components/loader/Loader';
 
 export default function Home() {
   return (
@@ -14,12 +16,20 @@ export default function Home() {
       <Hero />
       <Categories />
       <HelpChooseGift />
-      <Bestsellers />
-      <NewProducts />
-      <DiscountedProducts />
+      <Suspense fallback={<Loader />}>
+        <Bestsellers />
+      </Suspense>
+      <Suspense fallback={<Loader />}>
+        <NewProducts />
+      </Suspense>
+      <Suspense fallback={<Loader />}>
+        <DiscountedProducts />
+      </Suspense>
       <About />
       <Reviews />
-      <Socials />
+      <Suspense fallback={<Loader />}>
+        <Socials />
+      </Suspense>
     </>
   );
 }

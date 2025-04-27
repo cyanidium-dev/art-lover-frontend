@@ -61,7 +61,7 @@ export default function About() {
           </div>
         </div>
         <div className="md:w-[40.6%]">
-          <div className="hidden md:block relative mb-5 aspect-[447/385] xl:aspect-[447/445] rounded-[10px] xl:rounded-[16px] overflow-hidden">
+          <div className="hidden md:block relative mb-5 aspect-[447/385] xl:aspect-[447/445] rounded-[10px] xl:rounded-[16px] shadow-social overflow-hidden">
             <Image
               src="/images/homePage/about/imageTwo.webp"
               alt="background"
