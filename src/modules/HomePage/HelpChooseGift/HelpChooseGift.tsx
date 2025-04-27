@@ -5,7 +5,14 @@ import Link from 'next/link';
 export default function HelpChooseGift() {
   return (
     <section className="pt-20 xl:pt-[94px]">
-      <Container>
+      <Container className="relative">
+        <Image
+          src="/images/homePage/helpChooseGifts/figureMob.svg"
+          alt="figure background"
+          width="102"
+          height="101"
+          className="xl:hidden absolute bottom-[-32px] left-1"
+        />
         <div className="relative z-10 rounded-[16px] xl:rounded-[20px] bg-orange overflow-hidden">
           <Image
             src="/images/homePage/helpChooseGifts/figureDesk.svg"
