@@ -31,7 +31,8 @@
 
 /* Swiper */
 
-.swiper.bestsellers {
+.swiper.bestsellers,
+.swiper.newProducts {
   padding: 0px 0px 76px 0px !important;
 
   @media screen and (min-width: 768px) {
@@ -42,7 +43,8 @@
   }
 }
 
-.bestsellers .swiper-slide {
+.bestsellers .swiper-slide,
+.newProducts .swiper-slide {
   width: 175px !important;
   border-radius: 8px;
   @media screen and (min-width: 768px) {
