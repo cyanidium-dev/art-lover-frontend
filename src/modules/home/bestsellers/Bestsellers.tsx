@@ -4,7 +4,7 @@ import { SwiperSlide } from 'swiper/react';
 import { productsList } from './mockedData';
 import Container from '@/shared/components/container/Container';
 import SwiperWrapper from '@/shared/components/swiper/SwiperWrapper';
-import ProductCard from '@/shared/components/cards/productCard/ProductCard';
+import ProductCard from '@/shared/components/productCard/ProductCard';
 
 export default function Bestsellers() {
   if (!productsList || !productsList.length) return null;
