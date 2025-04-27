@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { SwiperSlide } from 'swiper/react';
 import { productsList } from '../bestsellers/mockedData';
 import ProductCard from '@/shared/components/cards/ProductCard/ProductCard';
@@ -16,7 +17,22 @@ export default function DiscountedProducts() {
 
   return (
     <section className="pt-20 xl:pt-[158px]">
-      <Container>
+      <Container className="relative">
+        <Image
+          src="/images/homePage/discountedProducts/figureRightMob.svg"
+          alt="figure background"
+          width="125"
+          height="179"
+          className="xl:hidden absolute top-[-49px] right-[-84px]"
+        />
+        <Image
+          src="/images/homePage/discountedProducts/figureLeftMob.svg"
+          alt="figure background"
+          width="120"
+          height="69"
+          className="xl:hidden absolute bottom-[-340px] left-[-82px]"
+        />
+
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-y-3 mb-6 xl:mb-12">
           <h2 className="text-[20px] xl:text-[40px] font-medium leading-[120%] uppercase">
             товари зі знижкою
