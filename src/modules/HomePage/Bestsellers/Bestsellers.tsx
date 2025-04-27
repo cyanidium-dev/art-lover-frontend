@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { SwiperSlide } from 'swiper/react';
 import { productsList } from './mockedData';
 import ProductCard from '@/shared/components/cards/ProductCard/ProductCard';
@@ -14,7 +15,14 @@ export default function Bestsellers() {
 
   return (
     <section className="pt-20 xl:pt-[158px]">
-      <Container className="flex flex-col md:flex-row md:justify-between md:items-center gap-y-3 mb-6 xl:mb-12">
+      <Container className="relative flex flex-col md:flex-row md:justify-between md:items-center gap-y-3 mb-6 xl:mb-12">
+        <Image
+          src="/images/homePage/bestsellers/figureMobile.svg"
+          alt="figure background"
+          width="94"
+          height="113"
+          className="xl:hidden absolute -top-4 -right-5"
+        />
         <h2 className="text-[20px] xl:text-[40px] font-medium leading-[120%] uppercase">
           хіти продажів
         </h2>
