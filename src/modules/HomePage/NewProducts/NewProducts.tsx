@@ -30,6 +30,13 @@ export default function NewProducts() {
           height="69"
           className="xl:hidden absolute bottom-[-384px] left-[-62px]"
         />
+        <Image
+          src="/images/homePage/newProducts/figureCenterDesk.svg"
+          alt="figure background"
+          width="470"
+          height="313"
+          className="hidden xl:block -z-10 absolute top-[-33px] left-[calc(50%-267px)]"
+        />
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-y-3 mb-6 xl:mb-12">
           <h2 className="text-[20px] xl:text-[40px] font-medium leading-[120%] uppercase">
             наші новинки

@@ -32,7 +32,13 @@ export default function DiscountedProducts() {
           height="69"
           className="xl:hidden absolute bottom-[-340px] left-[-82px]"
         />
-
+        <Image
+          src="/images/homePage/discountedProducts/figureDesk.svg"
+          alt="figure background"
+          width="456"
+          height="389"
+          className="hidden xl:block absolute -z-10 top-[-106px] right-[26px]"
+        />
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-y-3 mb-6 xl:mb-12">
           <h2 className="text-[20px] xl:text-[40px] font-medium leading-[120%] uppercase">
             товари зі знижкою
