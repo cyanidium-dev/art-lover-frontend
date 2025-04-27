@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { SwiperSlide } from 'swiper/react';
 import { productsList } from '../bestsellers/mockedData';
-import ProductCard from '@/shared/components/cards/ProductCard/ProductCard';
+import ProductCard from '@/shared/components/cards/productCard/ProductCard';
 import Container from '@/shared/components/container/Container';
 import SwiperWrapper from '@/shared/components/swiper/SwiperWrapper';
 

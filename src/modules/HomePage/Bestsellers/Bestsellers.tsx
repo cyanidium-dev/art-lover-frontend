@@ -2,9 +2,9 @@
 import Image from 'next/image';
 import { SwiperSlide } from 'swiper/react';
 import { productsList } from './mockedData';
-import ProductCard from '@/shared/components/cards/ProductCard/ProductCard';
 import Container from '@/shared/components/container/Container';
 import SwiperWrapper from '@/shared/components/swiper/SwiperWrapper';
+import ProductCard from '@/shared/components/cards/productCard/ProductCard';
 
 export default function Bestsellers() {
   if (!productsList || !productsList.length) return null;
