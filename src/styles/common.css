@@ -34,7 +34,8 @@
 .swiper.bestsellers,
 .swiper.newProducts,
 .swiper.discountedProducts,
-.swiper.reviews {
+.swiper.reviews,
+.swiper.hero {
   padding: 0px 0px 76px 0px !important;
 
   @media screen and (min-width: 768px) {
@@ -78,6 +79,10 @@
   @media screen and (min-width: 1280px) {
     width: 353px !important;
   }
+}
+
+.hero .swiper-slide {
+  width: 100vw !important;
 }
 
 .swiper-button-next,
@@ -172,4 +177,14 @@
 
 .swiper-pagination-bullet-active {
   color: var(--orange);
+}
+
+/* Gradients */
+
+.hero-gradient {
+  background: linear-gradient(
+    141deg,
+    rgba(0, 0, 0, 0) 55.75%,
+    rgba(0, 0, 0, 0.8) 93.83%
+  );
 }
