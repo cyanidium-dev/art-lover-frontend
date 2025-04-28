@@ -27,7 +27,7 @@ export default function SwiperWrapper({
       pagination={createPagination(4)}
       breakpoints={breakpoints}
       navigation={true}
-      loop={true}
+      // loop={true}
       speed={1000}
       modules={[Navigation, Pagination]}
       className={swiperClassName}
