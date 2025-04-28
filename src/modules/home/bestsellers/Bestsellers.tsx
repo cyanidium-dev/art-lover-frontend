@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Container from '@/shared/components/container/Container';
 import BestsellersSlider from './BestsellersSlider';
+import { Suspense } from 'react';
+import Loader from '@/shared/components/loader/Loader';
 
 export default function Bestsellers() {
   return (
@@ -20,7 +22,9 @@ export default function Bestsellers() {
           Творчість, яка підкорила серця
         </p>
       </Container>
-      <BestsellersSlider />
+      <Suspense fallback={<Loader />}>
+        <BestsellersSlider />
+      </Suspense>
     </section>
   );
 }

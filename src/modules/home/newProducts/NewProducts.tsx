@@ -1,6 +1,8 @@
 import Image from 'next/image';
+import { Suspense } from 'react';
 import Container from '@/shared/components/container/Container';
 import NewProductsSlider from './NewProductsSlider';
+import Loader from '@/shared/components/loader/Loader';
 
 export default function NewProducts() {
   return (
@@ -36,7 +38,9 @@ export default function NewProducts() {
           </p>
         </div>
       </Container>
-      <NewProductsSlider />
+      <Suspense fallback={<Loader />}>
+        <NewProductsSlider />
+      </Suspense>
     </section>
   );
 }

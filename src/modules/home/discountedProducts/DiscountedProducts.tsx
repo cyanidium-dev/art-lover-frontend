@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Container from '@/shared/components/container/Container';
 import DiscountedProductsSLider from './DiscountedProductsSLider';
+import { Suspense } from 'react';
+import Loader from '@/shared/components/loader/Loader';
 
 export default function DiscountedProducts() {
   return (
@@ -36,7 +38,9 @@ export default function DiscountedProducts() {
           </p>
         </div>
       </Container>
-      <DiscountedProductsSLider />
+      <Suspense fallback={<Loader />}>
+        <DiscountedProductsSLider />
+      </Suspense>
     </section>
   );
 }
