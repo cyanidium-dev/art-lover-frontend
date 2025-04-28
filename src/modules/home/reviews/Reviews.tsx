@@ -1,3 +1,4 @@
+'use client';
 import Container from '@/shared/components/container/Container';
 import ReviewsSlider from './ReviewsSlider';
 
