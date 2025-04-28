@@ -1,4 +1,5 @@
 import Container from '@/shared/components/container/Container';
+import ReviewsSlider from './ReviewsSlider';
 
 export default function Reviews() {
   return (
@@ -13,6 +14,7 @@ export default function Reviews() {
           </p>
         </div>
       </Container>
+      <ReviewsSlider />
     </section>
   );
 }
