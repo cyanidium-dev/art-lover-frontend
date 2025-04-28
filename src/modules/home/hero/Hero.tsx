@@ -1,9 +1,9 @@
-import HeroSlideOne from './HeroSlideOne';
+import HeroSlider from './HeroSlider';
 
 export default function Hero() {
   return (
-    <section className="">
-      <HeroSlideOne />
+    <section>
+      <HeroSlider />
     </section>
   );
 }

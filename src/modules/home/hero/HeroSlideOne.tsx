@@ -1,4 +1,3 @@
-import Container from '@/shared/components/container/Container';
 import Image from 'next/image';
 
 export default function HeroSlideOne() {
@@ -65,6 +64,14 @@ export default function HeroSlideOne() {
         width="164"
         height="104"
         className="md:hidden absolute bottom-[-31px] left-[-97px]"
+      />
+      <Image
+        src="/images/homePage/hero/figuresRightDesk.svg"
+        priority
+        alt="background figures"
+        width="468"
+        height="927"
+        className="hidden md:block absolute md:bottom-[-88px] lg:bottom-[-108px] right-[-110px] md:w-[388px] lg:w-[468px] h-auto"
       />
     </div>
   );
