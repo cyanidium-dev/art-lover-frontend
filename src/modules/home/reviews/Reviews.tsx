@@ -1,4 +1,8 @@
+'use client';
 import Container from '@/shared/components/container/Container';
+import ReviewsSlider from './ReviewsSlider';
+import { Suspense } from 'react';
+import Loader from '@/shared/components/loader/Loader';
 
 export default function Reviews() {
   return (
@@ -13,6 +17,9 @@ export default function Reviews() {
           </p>
         </div>
       </Container>
+      <Suspense fallback={<Loader />}>
+        <ReviewsSlider />
+      </Suspense>
     </section>
   );
 }

@@ -1,18 +1,10 @@
-'use client';
 import Image from 'next/image';
-import { SwiperSlide } from 'swiper/react';
-import { productsList } from './mockedData';
 import Container from '@/shared/components/container/Container';
-import SwiperWrapper from '@/shared/components/swiper/SwiperWrapper';
-import ProductCard from '@/shared/components/productCard/ProductCard';
+import BestsellersSlider from './BestsellersSlider';
+import { Suspense } from 'react';
+import Loader from '@/shared/components/loader/Loader';
 
 export default function Bestsellers() {
-  if (!productsList || !productsList.length) return null;
-
-  const bestsellersList = productsList.filter(product => product.bestseller);
-
-  if (!bestsellersList || !bestsellersList.length) return null;
-
   return (
     <section className="pt-20 xl:pt-[158px]">
       <Container className="relative flex flex-col md:flex-row md:justify-between md:items-center gap-y-3 mb-6 xl:mb-12">
@@ -30,29 +22,9 @@ export default function Bestsellers() {
           Творчість, яка підкорила серця
         </p>
       </Container>
-      <div className="md:max-w-[774px] lg:max-w-[1030px] xl:max-w-[1286px] md:px-8 xl:px-[90px] md:mx-auto">
-        <SwiperWrapper
-          swiperClassName="bestsellers"
-          breakpoints={{
-            0: {
-              spaceBetween: 16,
-              centeredSlides: true,
-            },
-            768: { spaceBetween: 16, centeredSlides: false },
-            1024: { spaceBetween: 20, centeredSlides: false },
-            1280: {
-              spaceBetween: 20,
-              centeredSlides: false,
-            },
-          }}
-        >
-          {bestsellersList.map((bestseller, idx) => (
-            <SwiperSlide key={idx}>
-              <ProductCard product={bestseller} />
-            </SwiperSlide>
-          ))}
-        </SwiperWrapper>
-      </div>
+      <Suspense fallback={<Loader />}>
+        <BestsellersSlider />
+      </Suspense>
     </section>
   );
 }
