@@ -1,0 +1,109 @@
+import { Category } from '@/types/category';
+import Image from 'next/image';
+import Link from 'next/link';
+
+interface CategorySlideOneDeskProps {
+  categories: Category[];
+}
+
+export default function CategorySlideOneDesk({
+  categories,
+}: CategorySlideOneDeskProps) {
+  return (
+    <div className="hidden md:flex gap-5">
+      <Link
+        href={`/products/${categories[0]?.slug}`}
+        className="flex flex-col justify-end relative z-10 w-[45.5%] p-5 aspect-square rounded-[16px] overflow-hidden"
+      >
+        <Image
+          src="/images/homePage/categories/slideOneDesk/imageOne.webp"
+          alt="background"
+          fill
+          sizes="50vw"
+          className="-z-10"
+        />
+        <p className="mb-2 lg:mb-3 xl:mb-5 ml-8 font-denistina text-[20px] lg:text-[32px] leading-none text-white">
+          {categories[0]?.description}
+        </p>
+        <h3 className="text-[18px] lg:text-[28px] font-semibold leading-none uppercase text-white">
+          {categories[0]?.title}
+        </h3>
+      </Link>
+      <div className="flex flex-col gap-y-5 w-[18.7%]">
+        <Link
+          href={`/products/${categories[1]?.slug}`}
+          className="flex flex-col justify-end items-end relative z-10 md:ml-[-150px] lg:ml-[-207px] xl:ml-[-239px] md:w-[221%] lg:w-[217%] p-5 md:aspect-[447/156] lg:aspect-[447/151] border-2 border-dark bg-white rounded-[16px] overflow-hidden"
+        >
+          <Image
+            src="/images/homePage/categories/slideOneDesk/imageTwo.webp"
+            alt="background"
+            className="-z-10 object-cover"
+            fill
+          />
+          <p className="mb-1 font-denistina text-[20px] lg:text-[32px] leading-none text-dark">
+            {categories[1]?.description}
+          </p>
+          <h3 className="text-[18px] lg:text-[28px] font-semibold leading-none uppercase text-dark">
+            {categories[1]?.title}
+          </h3>
+        </Link>
+        <Link
+          href={`/products/${categories[2]?.slug}`}
+          className="block relative z-10 md:ml-[-150px] lg:ml-[-207px] xl:ml-[-239px] md:w-[312.5%] lg:w-[307.3%] p-5 md:aspect-[633/154] lg:aspect-[633/165] bg-dark rounded-[16px] overflow-hidden"
+        >
+          <Image
+            src="/images/homePage/categories/slideOneDesk/imageThree.webp"
+            alt="background"
+            className="-z-10 object-cover"
+            fill
+          />
+          <h3 className="text-[18px] lg:text-[28px] font-semibold leading-none uppercase text-white">
+            {categories[2]?.title}
+          </h3>
+          <p className="ml-[140px] lg:ml-[214px] font-denistina text-[20px] lg:text-[32px] leading-none text-white">
+            {categories[2]?.description}
+          </p>
+        </Link>
+        <Link
+          href={`/products/${categories[3]?.slug}`}
+          className="block relative z-10 lg:ml-[2px] xl:ml-0 md:w-[291%] lg:w-[281%] p-5 md:aspect-[579/150] lg:aspect-[579/145] border-2 border-dark bg-white rounded-[16px] overflow-hidden"
+        >
+          <Image
+            src="/images/homePage/categories/slideOneDesk/imageFour.webp"
+            alt="background"
+            className="-z-10 object-cover"
+            fill
+          />
+          <h3 className="mb-1 text-[18px] lg:text-[28px] font-semibold leading-none uppercase text-dark">
+            {categories[3]?.title}
+          </h3>
+          <p className="ml-[39px] font-denistina text-[20px] lg:text-[32px] leading-none text-dark">
+            {categories[3]?.description}
+          </p>
+        </Link>
+      </div>
+      <div className="md:w-[33%] lg:w-[32%] rounded-[16px] overflow-hidden">
+        <Link
+          href={`/products/${categories[4]?.slug}`}
+          className="block relative z-10 p-5 aspect-[353/336]"
+        >
+          <Image
+            src="/images/homePage/categories/slideOneDesk/imageFive.webp"
+            alt="background"
+            className="-z-10 object-cover"
+            fill
+          />
+          <h3 className="mb-2 text-[18px] lg:text-[28px] font-semibold leading-none uppercase text-white">
+            {categories[4]?.title}
+          </h3>
+          <p className="font-denistina text-[20px] lg:text-[32px] leading-none text-white">
+            {categories[4]?.description?.split(' ')[0]}
+          </p>
+          <p className="ml-7 font-denistina text-[20px] lg:text-[32px] leading-none text-white">
+            {categories[4]?.description?.split(' ')[1]}
+          </p>
+        </Link>
+      </div>
+    </div>
+  );
+}
