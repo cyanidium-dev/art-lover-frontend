@@ -1,5 +1,6 @@
 import Container from '@/shared/components/container/Container';
 import ConditionItem from './ConditionItem';
+import ConditionImages from './ConditionImages';
 
 export default function Conditions() {
   const conditionsList = [
@@ -11,7 +12,8 @@ export default function Conditions() {
   ];
   return (
     <section className="pt-8 xl:pt-20">
-      <Container>
+      <Container className="relative">
+        <ConditionImages />
         <ul className="flex flex-col md:flex-wrap gap-y-6 xl:gap-y-10 gap-x-20 md:h-[216px] lg:h-[166px] xl:h-[332px]">
           {conditionsList.map((condition, idx) => (
             <ConditionItem key={idx} condition={condition} />

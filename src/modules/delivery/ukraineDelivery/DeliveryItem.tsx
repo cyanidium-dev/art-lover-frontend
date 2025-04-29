@@ -12,7 +12,7 @@ export default function DeliveryItem({ deliveryItem }: DeliveryItemProps) {
   const { title, description, image } = deliveryItem;
 
   return (
-    <li className="w-full md:w-[calc(33.33%-13.33px)] py-5 xl:py-6 px-4 xl:px-[39px] rounded-[16px] shadow-social">
+    <li className="w-full md:w-[calc(33.33%-13.33px)] py-5 xl:py-6 px-4 xl:px-[39px] rounded-[16px] shadow-social bg-white">
       <div className="relative w-50 h-25 overflow-hidden mb-6 xl:mb-10 mx-auto">
         <Image
           src={image?.url || ''}
