@@ -4,6 +4,8 @@ import { categories } from './mockedData';
 import SwiperWrapper from '@/shared/components/swiper/SwiperWrapper';
 import CategorySlideOneMob from './categoriesSlidesMob/CategorySlideOneMob';
 import CategorySlideTwoMob from './categoriesSlidesMob/CategorySlideTwoMob';
+import CategorySlideOneDesk from './categoriesSlidesDesk/CategorySlideOneDesk';
+import CategorySlideTwoDesk from './categoriesSlidesDesk/CategorySlideTwoDesk';
 
 export default function CategoriesSlider() {
   if (!categories || !categories.length) return null;
@@ -25,9 +27,11 @@ export default function CategoriesSlider() {
       >
         <SwiperSlide>
           <CategorySlideOneMob categories={categoriesPartOne} />
+          <CategorySlideOneDesk categories={categoriesPartOne} />
         </SwiperSlide>
         <SwiperSlide>
           <CategorySlideTwoMob categories={categoriesPartTwo} />
+          <CategorySlideTwoDesk categories={categoriesPartTwo} />
         </SwiperSlide>
       </SwiperWrapper>
     </div>

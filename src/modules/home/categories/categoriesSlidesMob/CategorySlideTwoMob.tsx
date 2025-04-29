@@ -10,7 +10,7 @@ export default function CategorySlideTwoMob({
   categories,
 }: CategorySlideTwoMobProps) {
   return (
-    <ul className="flex flex-col gap-y-4">
+    <ul className="flex md:hidden flex-col gap-y-4">
       <li>
         <Link
           href={`/products/${categories[0]?.slug}`}
