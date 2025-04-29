@@ -6,7 +6,7 @@ import HelpChooseGift from '@/modules/home/helpChooseGift/HelpChooseGift';
 import Hero from '@/modules/home/hero/Hero';
 import NewProducts from '@/modules/home/newProducts/NewProducts';
 import Reviews from '@/modules/home/reviews/Reviews';
-import Socials from '@/modules/home/socials/Socials';
+import Socials from '@/shared/components/socials/Socials';
 
 export default function Home() {
   return (
