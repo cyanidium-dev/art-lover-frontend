@@ -4,13 +4,14 @@ import { formatDate } from '@/shared/utils/formatDate';
 import { Review } from '@/types/review';
 import StarFilledIcon from '@/shared/components/icons/StarFilledIcon';
 import StarEmptyIcon from '@/shared/components/icons/StarEmptyIcon';
+import Link from 'next/link';
 
 interface ReviewCardProps {
   review: Review;
 }
 
 export default function ReviewCard({ review }: ReviewCardProps) {
-  const { images, title, author, text, rating, createdAt } = review;
+  const { images, title, author, text, rating, createdAt, slug } = review;
 
   const formattedDate = formatDate(createdAt);
 
@@ -24,21 +25,23 @@ export default function ReviewCard({ review }: ReviewCardProps) {
         className="hidden xl:block absolute top-0 right-0"
       />
       <div>
-        <div className="relative h-[85px] xl:h-[95px] mb-3 xl:mb-5 rounded-[8px]  xl:rounded-[16px] overflow-hidden">
-          <Image
-            src={images[0]?.url || ''}
-            alt={images[0]?.alt || 'product photo'}
-            fill
-            sizes="33vw"
-            className="object-cover"
-          />
-        </div>
-        <p className="mb-1.5 text-[12px] xl:text-[16px] font-normal leading-[120%]">
-          Товар:
-        </p>
-        <h3 className="mb-3 xl:mb-[14px] text-[14px] xl:text-[18px] font-medium leading-[120%] line-clamp-1">
-          {title}
-        </h3>
+        <Link href={`/products/${slug}`}>
+          <div className="relative h-[85px] xl:h-[95px] mb-3 xl:mb-5 rounded-[8px]  xl:rounded-[16px] overflow-hidden">
+            <Image
+              src={images[0]?.url || ''}
+              alt={images[0]?.alt || 'product photo'}
+              fill
+              sizes="33vw"
+              className="object-cover"
+            />
+          </div>
+          <p className="mb-1.5 text-[12px] xl:text-[16px] font-normal leading-[120%]">
+            Товар:
+          </p>
+          <h3 className="mb-3 xl:mb-[14px] text-[14px] xl:text-[18px] font-medium leading-[120%] line-clamp-1">
+            {title}
+          </h3>
+        </Link>
         <p className="mb-2 xl:mb-5 text-[12px] xl:text-[16px] font-normal xl:font-light leading-[125%] text-justify">
           &quot;{text}&quot;
         </p>

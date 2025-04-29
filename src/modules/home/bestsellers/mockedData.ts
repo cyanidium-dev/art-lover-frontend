@@ -2,7 +2,7 @@ import { Product } from '@/types/product';
 
 const productTemplate = {
   id: '1',
-  slug: 'products/string-art-portrait-kit',
+  slug: 'string-art-portrait-kit',
   title: 'String Art Portrait Kit',
   price: 85.74,
   images: [{ url: '/images/mockedData/productImageOne.webp', alt: '' }],
