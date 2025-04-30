@@ -81,17 +81,17 @@ export default function Pagination<T>({
   return (
     <>
       <div className={`${className}`}>{renderItems(currentItems)}</div>
-      <div className="flex justify-center items-center gap-[33px] mt-9 mx-auto">
+      <div className="flex justify-center items-center gap-3 xl:gap-[35px] mt-8 xl:mt-12 mx-auto">
         <button
           aria-label="left"
-          className={`flex justify-center items-center p-[10.5] size-[42px] rounded-[7.6px] 
-          shadow-pagination transition duration-300 ease-in-out
+          className={`enabled:cursor-pointer flex justify-center items-center p-[10px] size-[44px] xl:size-[66px] rounded-[10px] xl:rounded-[20px] 
+          shadow-social transition duration-300 ease-in-out
           enabled:hover:brightness-125 enabled:active:scale-95 enabled:focus-visible:brightness-125
-          ${page === 1 ? 'bg-white text-black' : 'bg-main text-white'}`}
+          ${page === 1 ? 'bg-white text-dark' : 'bg-orange text-white'}`}
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={page === 1}
         >
-          <ArrowInCircleIcon className="size-[21px] rotate-180" />
+          <ArrowInCircleIcon className="size-6 xl:size-[33px] rotate-180" />
         </button>
 
         <div>
@@ -99,8 +99,8 @@ export default function Pagination<T>({
             <button
               key={page}
               aria-label={page.toString()}
-              className={`px-[8px] py-2 text-16med transition duration-300 ease-in-out
-            ${page === currentPage ? 'text-main' : ' xl:hover:text-main'}`}
+              className={`enabled:cursor-pointer px-1 xl:px-[9px] py-2 text-[12px] xl:text-[20px] font-medium leading-[120%] transition duration-300 ease-in-out
+            ${page === currentPage ? 'text-orange' : ' xl:hover:text-orange'}`}
               onClick={() => handlePageChange(page)}
             >
               {page}
@@ -110,17 +110,18 @@ export default function Pagination<T>({
 
         <button
           aria-label="right"
-          className={`flex justify-center items-center p-[10.5px] size-[42px] rounded-[7.6px] transition duration-300 ease-in-out
-           shadow-pagination enabled:hover:brightness-125 enabled:active:scale-95 enabled:focus-visible:brightness-125
+          className={`enabled:cursor-pointer flex justify-center items-center p-[10px] size-[44px] xl:size-[66px] rounded-[10px] xl:rounded-[20px]
+             transition duration-300 ease-in-out
+           shadow-social enabled:hover:brightness-125 enabled:active:scale-95 enabled:focus-visible:brightness-125
           ${
             currentPage === totalPages
-              ? 'text-black bg-white'
-              : 'bg-main text-white'
+              ? 'text-dark bg-white'
+              : 'bg-orange text-white'
           }`}
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={page === totalPages}
         >
-          <ArrowInCircleIcon className="size-[21px]" />
+          <ArrowInCircleIcon className="size-6 xl:size-[33px]" />
         </button>
       </div>
     </>
