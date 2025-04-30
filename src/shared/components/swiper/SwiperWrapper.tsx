@@ -13,6 +13,7 @@ interface SwiperWrapperProps {
   slidesPerView?: number | 'auto' | undefined;
   breakpoints: SwiperOptions['breakpoints'];
   swiperClassName: string;
+  loop?: boolean;
 }
 
 export default function SwiperWrapper({
@@ -20,6 +21,7 @@ export default function SwiperWrapper({
   slidesPerView = 'auto',
   breakpoints,
   swiperClassName,
+  loop = false,
 }: SwiperWrapperProps) {
   return (
     <Swiper
@@ -27,7 +29,7 @@ export default function SwiperWrapper({
       pagination={createPagination(4)}
       breakpoints={breakpoints}
       navigation={true}
-      // loop={true}
+      loop={loop}
       speed={1000}
       modules={[Navigation, Pagination]}
       className={swiperClassName}

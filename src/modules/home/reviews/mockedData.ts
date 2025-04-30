@@ -3,6 +3,7 @@ import { Review } from '@/types/review';
 const reviewTemplate = {
   id: '1',
   title: 'String Art Portrait Kit',
+  slug: 'string-art-portrait-kit',
   images: [{ url: '/images/mockedData/productImageOne.webp', alt: '' }],
   rating: 4.5,
   author: 'Анна Ховавко',

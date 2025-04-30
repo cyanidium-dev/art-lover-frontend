@@ -5,20 +5,20 @@ export default function Hero() {
   return (
     <section>
       <Container className="relative">
-        {/* <Image
+        <Image
           src="/images/aboutPage/hero/figureLeftDesk.svg"
           alt="background"
-          width="151"
+          width="398"
           height="322"
-          className="hidden xl:block absolute top-[-83px] left-[-145px] -z-10"
+          className="hidden xl:block absolute top-[-23px] left-[-245px] -z-10"
         />
         <Image
           src="/images/aboutPage/hero/figureRightDesk.svg"
           alt="background"
           width="330"
           height="314"
-          className="hidden xl:block absolute bottom-0 right-0 -z-10"
-        /> */}
+          className="hidden xl:block absolute top-[-108px] right-[-62px] -z-10"
+        />
         <div
           className="relative z-10 flex flex-col items-end pt-[17px] pb-3 px-3 md:p-8 lg:py-10 lg:px-6 rounded-[8px] lg:rounded-[16px] bg-dark 
         text-white overflow-hidden"
