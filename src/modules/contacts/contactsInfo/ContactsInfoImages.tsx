@@ -11,7 +11,7 @@ export default function ContactsInfoImages() {
         className="xl:hidden absolute -z-10 top-[-62px] left-[-69px]"
       />
       <Image
-        src="/images/contactsPage/contactsInfo/figurerightMob.svg"
+        src="/images/contactsPage/contactsInfo/figureRightMob.svg"
         alt="background"
         width="114"
         height="92"
