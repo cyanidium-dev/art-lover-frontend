@@ -6,6 +6,7 @@ import ContactsInfoImages from './ContactsInfoImages';
 
 export default function ContactsInfo() {
   const { phone, emails } = contacts;
+
   return (
     <section className="pt-16 xl:pt-[106px]">
       <Container className="relative">
@@ -22,19 +23,21 @@ export default function ContactsInfo() {
             <h3 className="mb-3 xl:mb-5 text-[16px] xl:text-[20px] font-semibold leading-[160%] text-center">
               Телефон
             </h3>
-            <a
-              href={`tel:+${phone.replace(/\D/g, '')}`}
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              aria-label="phone number"
-              className="block mb-3 xl:mb-5 text-[14px] xl:text-[18px] font-medium leading-[120%] text-gray-light text-center xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
-            >
-              {phone
-                .replace(/^\+38/, '')
-                .replace(/^380/, '0')
-                .replace(/\D/g, '')
-                .replace(phoneRegex, '0 $1 $2 $3')}
-            </a>
+            {phone ? (
+              <a
+                href={`tel:+${phone.replace(/\D/g, '')}`}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                aria-label="phone number"
+                className="block mb-3 xl:mb-5 text-[14px] xl:text-[18px] font-medium leading-[120%] text-gray-light text-center xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
+              >
+                {phone
+                  .replace(/^\+38/, '')
+                  .replace(/^380/, '0')
+                  .replace(/\D/g, '')
+                  .replace(phoneRegex, '0 $1 $2 $3')}
+              </a>
+            ) : null}
             <p className="mb-2 text-[12px] xl:text-[14px] font-medium leading-[120%] text-center xl:text-left text-gray-light">
               Лінія 1 - інтернет магазин
             </p>
@@ -53,21 +56,23 @@ export default function ContactsInfo() {
             <h3 className="mb-3 xl:mb-5 text-[16px] xl:text-[20px] font-semibold leading-[160%] text-center">
               Електронна адреса
             </h3>
-            <ul className="flex flex-col gap-y-2 xl:gap-x-3 items-center mb-1 text-gray-light">
-              {emails.map((email, idx) => (
-                <li key={idx}>
-                  <a
-                    href={`mailto:${email}`}
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    className="text-[14px] xl:text-[18px] font-medium leading-[120%] text-center xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
-                    aria-label="email"
-                  >
-                    {email}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {emails && emails.length ? (
+              <ul className="flex flex-col gap-y-2 xl:gap-x-3 items-center mb-1 text-gray-light">
+                {emails.map((email, idx) => (
+                  <li key={idx}>
+                    <a
+                      href={`mailto:${email}`}
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                      className="text-[14px] xl:text-[18px] font-medium leading-[120%] text-center xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
+                      aria-label="email"
+                    >
+                      {email}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
             <p className="text-[14px] font-medium leading-[120%] text-center text-gray-light">
               (для корпоративних клієнтів)
             </p>
