@@ -13,9 +13,9 @@ export default function BlogCard({ article }: BlogCardProps) {
   const readingTime = calculateReadingTime(article);
 
   return (
-    <div className="p-4 bg-white rounded-[8px] shadow-social">
+    <div className="p-4 bg-white rounded-[8px] shadow-social h-full">
       <Link href={`/blog/${slug}`}>
-        <div className="relative h-[116px] xs:h-[180px] mb-4 rounded-[8px] overflow-hidden">
+        <div className="relative h-[116px] xs:h-[180px] lg:h-[213px] mb-4 rounded-[8px] xl:rounded-[16px] overflow-hidden">
           <Image
             src={images[0]?.url || ''}
             alt={images[0]?.alt || 'blog photo'}
@@ -25,28 +25,28 @@ export default function BlogCard({ article }: BlogCardProps) {
           />
         </div>
 
-        <h3 className="mb-2 text-[14px] font-medium leading-[120%] text-orange">
+        <h3 className="mb-2 text-[14px] xl:text-[18px] font-medium leading-[120%] text-orange">
           {title}: {subtitle.toLowerCase()}
         </h3>
       </Link>
-      <p className="mb-5 text-[12px] font-medium leading-[120%]">
+      <p className="mb-5 xl:mb-7 text-[12px] xl:text-[16px] font-medium leading-[120%]">
         {description}
       </p>
-      <div className="flex gap-x-4">
-        <div className="relative flex items-center justify-center shrink-0 w-[calc(100%-44px-16px)] border border-gray-light py-3 px-4 rounded-full">
+      <div className="flex gap-x-4 xl:gap-x-6">
+        <div className="relative flex items-center justify-center shrink-0 w-[calc(100%-44px-16px)] xl:w-[calc(100%-59px-24px)] border border-gray-light py-3 xl:py-5 px-4 xl:px-8 rounded-full">
           <Image
             src="/images/blogPage/blogList/clock.svg"
             alt="clock"
             width="20"
             height="20"
-            className="absolute left-4"
+            className="absolute left-4 xl:left-8 size-5 xl:size-6"
           />
-          <p className="text-[12px] font-normal leading-[120%] text-gray-light">
+          <p className="text-[12px] xl:text-[16px] font-normal leading-[120%] text-gray-light">
             {readingTime}&nbsp;хв читання
           </p>
         </div>
         <Link href={`/blog/${slug}`}>
-          <button className="cursor-pointer group flex items-center justify-center size-[44px] rounded-[10px] bg-orange">
+          <button className="cursor-pointer group flex items-center justify-center size-[44px] xl:size-[59px] rounded-[10px] xl:rounded-[14px] bg-orange">
             <Image
               src="/images/blogPage/blogList/arrow.svg"
               alt="arrow"
