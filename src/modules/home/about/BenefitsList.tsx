@@ -1,3 +1,5 @@
+import * as motion from 'motion/react-client';
+import { listVariants } from '@/shared/utils/animationVariants';
 import BenefitItem from './BenefitItem';
 
 export default function BenefitsList() {
@@ -8,10 +10,17 @@ export default function BenefitsList() {
   ];
 
   return (
-    <ul className="flex gap-x-4">
+    <motion.ul
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.4 }}
+      variants={listVariants({ staggerChildren: 0.4, delayChildren: 0.8 })}
+      className="flex gap-x-4"
+    >
       {benefitsList.map((benefit, idx) => (
         <BenefitItem key={idx} benefit={benefit} />
       ))}
-    </ul>
+    </motion.ul>
   );
 }
