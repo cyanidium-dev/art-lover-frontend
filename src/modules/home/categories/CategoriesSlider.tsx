@@ -1,5 +1,7 @@
 'use client';
 import { SwiperSlide } from 'swiper/react';
+import { motion } from 'motion/react';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import { categories } from './mockedData';
 import SwiperWrapper from '@/shared/components/swiper/SwiperWrapper';
 import CategorySlideOneMob from './categoriesSlidesMob/CategorySlideOneMob';
@@ -14,7 +16,13 @@ export default function CategoriesSlider() {
   const categoriesPartTwo = categories.slice(5, 10);
 
   return (
-    <div>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeInAnimation({ y: 30 })}
+    >
       <SwiperWrapper
         swiperClassName="categories"
         breakpoints={{
@@ -34,6 +42,6 @@ export default function CategoriesSlider() {
           <CategorySlideTwoDesk categories={categoriesPartTwo} />
         </SwiperSlide>
       </SwiperWrapper>
-    </div>
+    </motion.div>
   );
 }

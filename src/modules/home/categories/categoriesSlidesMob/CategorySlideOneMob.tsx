@@ -1,6 +1,11 @@
 import { Category } from '@/types/category';
 import Image from 'next/image';
 import Link from 'next/link';
+import * as motion from 'motion/react-client';
+import {
+  listVariants,
+  listItemVariants,
+} from '@/shared/utils/animationVariants';
 
 interface CategorySlideOneMobProps {
   categories: Category[];
@@ -10,8 +15,18 @@ export default function CategorySlideOneMob({
   categories,
 }: CategorySlideOneMobProps) {
   return (
-    <ul className="flex md:hidden flex-col gap-y-4">
-      <li>
+    <motion.ul
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.4 }}
+      variants={listVariants({ staggerChildren: 0.4, delayChildren: 0.8 })}
+      className="flex md:hidden flex-col gap-y-4"
+    >
+      <motion.li
+        viewport={{ once: true, amount: 0.2 }}
+        variants={listItemVariants}
+      >
         <Link
           href={`/products/${categories[0]?.slug}`}
           className="relative block z-10 w-full h-[100px] sm:h-[150px] border border-dark rounded-[8px] p-3 bg-dark overflow-hidden"
@@ -37,8 +52,11 @@ export default function CategorySlideOneMob({
             {categories[0]?.description}
           </p>
         </Link>
-      </li>
-      <li>
+      </motion.li>
+      <motion.li
+        viewport={{ once: true, amount: 0.2 }}
+        variants={listItemVariants}
+      >
         <Link
           href={`/products/${categories[1]?.slug}`}
           className="relative z-10 flex flex-col justify-end items-end h-[100px] sm:h-[150px] border border-dark rounded-[8px] p-3 bg-white overflow-hidden"
@@ -64,8 +82,11 @@ export default function CategorySlideOneMob({
             {categories[1]?.title}
           </h3>
         </Link>
-      </li>
-      <li>
+      </motion.li>
+      <motion.li
+        viewport={{ once: true, amount: 0.2 }}
+        variants={listItemVariants}
+      >
         <Link
           href={`/products/${categories[2]?.slug}`}
           className="relative z-10 block h-[100px] sm:h-[150px] border border-dark rounded-[8px] p-3 bg-dark overflow-hidden"
@@ -91,8 +112,11 @@ export default function CategorySlideOneMob({
             {categories[2]?.description}
           </p>
         </Link>
-      </li>
-      <li>
+      </motion.li>
+      <motion.li
+        viewport={{ once: true, amount: 0.2 }}
+        variants={listItemVariants}
+      >
         <Link
           href={`/products/${categories[3]?.slug}`}
           className="relative z-10 flex flex-col justify-end items-end h-[100px] sm:h-[150px] border border-dark rounded-[8px] p-3 bg-white overflow-hidden"
@@ -118,8 +142,11 @@ export default function CategorySlideOneMob({
             {categories[3]?.title}
           </h3>
         </Link>
-      </li>
-      <li>
+      </motion.li>
+      <motion.li
+        viewport={{ once: true, amount: 0.2 }}
+        variants={listItemVariants}
+      >
         <Link
           href={`/products/${categories[4]?.slug}`}
           className="relative z-10 flex flex-col justify-end h-[100px] sm:h-[150px] border border-dark rounded-[8px] p-3 bg-dark overflow-hidden"
@@ -150,7 +177,7 @@ export default function CategorySlideOneMob({
             {categories[4]?.title}
           </h3>
         </Link>
-      </li>
-    </ul>
+      </motion.li>
+    </motion.ul>
   );
 }
