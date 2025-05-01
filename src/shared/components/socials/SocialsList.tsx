@@ -1,3 +1,5 @@
+import * as motion from 'motion/react-client';
+import { listVariants } from '@/shared/utils/animationVariants';
 import { socials } from './mockedData';
 import InstagramIcon from '@/shared/components/icons/InstagramIcon';
 import YoutubeIcon from '@/shared/components/icons/YoutubeIcon';
@@ -48,10 +50,17 @@ export default function SocialsList() {
   ];
 
   return (
-    <ul className="flex flex-wrap md:flex-nowrap gap-4 xl:gap-5">
+    <motion.ul
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.4 }}
+      variants={listVariants({ staggerChildren: 0.4, delayChildren: 0.8 })}
+      className="flex flex-wrap md:flex-nowrap gap-4 xl:gap-5"
+    >
       {socialList.map((social, idx) => (
         <SocialItem key={idx} social={social} />
       ))}
-    </ul>
+    </motion.ul>
   );
 }

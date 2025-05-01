@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import { ReactNode } from 'react';
+import * as motion from 'motion/react-client';
+import { listItemVariants } from '@/shared/utils/animationVariants';
 
 interface SocialItemProps {
   social: {
@@ -16,7 +18,9 @@ export default function SocialItem({ social }: SocialItemProps) {
   const { title, link, icon, bgImageMob, bgImageDesk, qty } = social;
 
   return (
-    <li
+    <motion.li
+      viewport={{ once: true, amount: 0.2 }}
+      variants={listItemVariants}
       className="relative z-10 w-[calc(50%-8px)] md:w-[calc(25%-12px)] xl:w-[calc(25%-15px)] text-black first:text-white last:text-white md:odd:text-white md:even:text-black 
      bg-white first:bg-orange last:bg-orange  md:odd:bg-orange md:even:bg-white shadow-social rounded-[12px] overflow-hidden"
     >
@@ -50,6 +54,6 @@ export default function SocialItem({ social }: SocialItemProps) {
           {qty} тис. підписників
         </p>
       </a>
-    </li>
+    </motion.li>
   );
 }
