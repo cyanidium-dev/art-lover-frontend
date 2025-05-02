@@ -1,3 +1,5 @@
+import * as motion from 'motion/react-client';
+import { listItemVariants } from '@/shared/utils/animationVariants';
 import { Teammate } from '@/types/teammate';
 import Image from 'next/image';
 
@@ -9,7 +11,9 @@ export default function TeamCard({ teammate }: TeamCardProps) {
   const { name, role, image } = teammate;
 
   return (
-    <li
+    <motion.li
+      viewport={{ once: true, amount: 0.2 }}
+      variants={listItemVariants}
       className="group relative z-10 max-w-[412px] mx-auto md:max-w-full w-full md:mx-0 md:w-[calc(33.33%-10.67px)] 
     xl:md:w-[calc(33.33%-13.33px)] rounded-[8px] xl:rounded-[16px] odd:bg-white even:bg-orange shadow-social overflow-hidden"
     >
@@ -71,6 +75,6 @@ export default function TeamCard({ teammate }: TeamCardProps) {
           {role}
         </p>
       </div>
-    </li>
+    </motion.li>
   );
 }

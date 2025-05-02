@@ -1,5 +1,10 @@
 'use client';
 import { Suspense } from 'react';
+import * as motion from 'motion/react-client';
+import {
+  listVariants,
+  listItemVariants,
+} from '@/shared/utils/animationVariants';
 import { articlesList } from './mockedData';
 import Loader from '@/shared/components/loader/Loader';
 import Pagination from '@/shared/components/pagination/Pagination';
@@ -22,19 +27,29 @@ export default function BlogList() {
             scrollTargetId={SECTION_ID}
             useItemsPerPage={() => ITEMS_PER_PAGE}
             renderItems={currentItems => (
-              <ul
+              <motion.ul
+                initial="hidden"
+                whileInView="visible"
+                exit="exit"
+                viewport={{ once: true, amount: 0.4 }}
+                variants={listVariants({
+                  staggerChildren: 0.4,
+                  delayChildren: 0.8,
+                })}
                 id={SECTION_ID}
                 className="flex flex-col sm:flex-row sm:flex-wrap gap-6 md:gap-y-12"
               >
                 {currentItems.map(article => (
-                  <li
+                  <motion.li
+                    viewport={{ once: true, amount: 0.2 }}
+                    variants={listItemVariants}
                     key={article?.id}
                     className="h-full sm:w-[calc(50%-12px)]"
                   >
                     <BlogCard article={article} />
-                  </li>
+                  </motion.li>
                 ))}
-              </ul>
+              </motion.ul>
             )}
           />
         </Suspense>

@@ -10,13 +10,28 @@ export default function HeroImages() {
         whileInView="visible"
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
-        variants={fadeInAnimation({ delay: 0.8, duration: 2 })}
+        variants={fadeInAnimation({})}
         className="md:hidden absolute -z-10 top-0 left-0"
       >
         <Image
-          src="/images/contactsPage/hero/figureLeftMob.svg"
+          src="/images/blogPage/hero/figureLeftMob.svg"
           alt="background"
-          width="140"
+          width="224"
+          height="152"
+        />
+      </motion.div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeInAnimation({ delay: 0.8, duration: 2 })}
+        className="md:hidden absolute -z-20 top-0 right-0"
+      >
+        <Image
+          src="/images/blogPage/hero/figureRightMob.svg"
+          alt="background"
+          width="296"
           height="154"
         />
       </motion.div>
@@ -26,13 +41,14 @@ export default function HeroImages() {
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInAnimation({})}
-        className="md:hidden absolute -z-10 top-0 right-0"
+        className="hidden md:block absolute -z-10 top-0 md:left-[-120px] lg:left-[-70px] xl:left-0"
       >
         <Image
-          src="/images/contactsPage/hero/figureRightMob.svg"
+          src="/images/blogPage/hero/figureLeftDesk.svg"
           alt="background"
-          width="275"
-          height="122"
+          width="550"
+          height="305"
+          className=" w-auto h-full"
         />
       </motion.div>
       <motion.div
@@ -41,30 +57,14 @@ export default function HeroImages() {
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInAnimation({ delay: 0.8, duration: 2 })}
-        className="hidden md:block absolute -z-10 top-[14px] left-6"
+        className="hidden md:block absolute -z-20 top-[14px] right-0"
       >
         <Image
-          src="/images/contactsPage/hero/figureLeftDesk.svg"
+          src="/images/blogPage/hero/figureRightDesk.svg"
           alt="background"
-          width="418"
-          height="277"
-          className=" md:w-[300px] lg:w-[330px] xl:w-[418px] h-auto"
-        />
-      </motion.div>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        exit="exit"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeInAnimation({})}
-        className="hidden md:block absolute -z-10 top-0 right-0"
-      >
-        <Image
-          src="/images/contactsPage/hero/figureRightDesk.svg"
-          alt="background"
-          width="671"
-          height="236"
-          className=" md:w-[460px] lg:w-[520px] xl:w-[671px] h-auto"
+          width="1100"
+          height="279"
+          className=" w-auto md:h-[249px] lg:h-[259px] xl:h-[279px] object-cover"
         />
       </motion.div>
     </>

@@ -1,3 +1,5 @@
+import * as motion from 'motion/react-client';
+import { listVariants } from '@/shared/utils/animationVariants';
 import DeliveryItem from './DeliveryItem';
 
 export default function DeliveryList() {
@@ -56,10 +58,17 @@ export default function DeliveryList() {
   ];
 
   return (
-    <ul className="flex flex-col md:flex-row md:flex-wrap gap-y-6 md:gap-5">
+    <motion.ul
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={listVariants({ staggerChildren: 0.4, delayChildren: 0.8 })}
+      className="flex flex-col md:flex-row md:flex-wrap gap-y-6 md:gap-5"
+    >
       {deliveryList.map((deliveryItem, idx) => (
         <DeliveryItem key={idx} deliveryItem={deliveryItem} />
       ))}
-    </ul>
+    </motion.ul>
   );
 }
