@@ -1,6 +1,8 @@
 'use client';
 import { useState, useEffect, ReactNode } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
+import { motion } from 'motion/react';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import ArrowInCircleIcon from '../icons/ArrowInCircleIcon';
 
 interface PaginationProps<T> {
@@ -81,7 +83,14 @@ export default function Pagination<T>({
   return (
     <>
       <div className={`${className}`}>{renderItems(currentItems)}</div>
-      <div className="flex justify-center items-center gap-3 xl:gap-[35px] mt-8 xl:mt-12 mx-auto">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeInAnimation({ y: 30 })}
+        className="flex justify-center items-center gap-3 xl:gap-[35px] mt-8 xl:mt-12 mx-auto"
+      >
         <button
           aria-label="left"
           className={`enabled:cursor-pointer flex justify-center items-center p-[10px] size-[44px] xl:size-[66px] rounded-[10px] xl:rounded-[20px] 
@@ -123,7 +132,7 @@ export default function Pagination<T>({
         >
           <ArrowInCircleIcon className="size-6 xl:size-[33px]" />
         </button>
-      </div>
+      </motion.div>
     </>
   );
 }
