@@ -14,13 +14,13 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <div className="relative p-3 xl:px-5 xl:py-4 bg-white rounded-[8px] xl:rounded-[16px] shadow-social overflow-hidden">
       {discountedPrice && discountedPrice < price ? (
-        <div
-          className="flex items-center gap-x-[11px] absolute z-10 top-0 md:top-[-12px] left-[19px] rotate-[29deg] w-[233px] xl:w-[278px] py-[5px] xl:py-[7px] pl-[44px] xl:pl-[25px] bg-orange 
-        text-white text-[8px] xl:text-[12px] font-semibold leading-[120%] uppercase"
-        >
-          <span>Акція</span> <span>Акція</span> <span>Акція</span>
-          <span>Акція</span> <span>Акція</span>
-        </div>
+        <Image
+          src="/images/icons/promotion.svg"
+          alt="promotion label"
+          width="169"
+          height="109"
+          className="absolute z-10 top-0 right-0"
+        />
       ) : null}
       <Link href={`/products/${slug}`}>
         <div className="relative h-[120px] md:h-[180px] lg:h-[200px] xl:h-[300px] mb-3 xl:mb-4 rounded-[8px] xl:rounded-[16px] overflow-hidden">
@@ -32,11 +32,14 @@ export default function ProductCard({ product }: ProductCardProps) {
           />
         </div>
         {discountedPrice && discountedPrice < price ? (
-          <p className="mb-1.5 xl:mb-2 ">
+          <p className="mb-1.5 xl:mb-2 h-auto leading-none">
             <span className="text-[14px] xl:text-[16px] font-medium leading-[120%] text-orange">
               {discountedPrice} грн
             </span>
-            &nbsp;
+            <span className="text-[14px] xl:text-[16px] font-medium leading-[120%]">
+              {' '}
+              &nbsp;
+            </span>
             <span className="text-[12px] xl:text-[14px] font-normal leading-[120%] line-through">
               {price} грн
             </span>
@@ -50,9 +53,11 @@ export default function ProductCard({ product }: ProductCardProps) {
           {title}
         </h3>
       </Link>
-      <div className="flex gap-x-4.5 xl:gap-x-2">
+      <div className="flex justify-between xs:gap-x-3 xl:gap-x-2">
         <Link href={`/products/${slug}`} className="block w-full">
-          <SecondaryButton className="h-9 xl:h-10">Детальніше</SecondaryButton>
+          <SecondaryButton className="max-w-[102px] xs:max-w-full h-9 xl:h-10">
+            Детальніше
+          </SecondaryButton>
         </Link>
         <CartButton className="shrink-0" />
       </div>
