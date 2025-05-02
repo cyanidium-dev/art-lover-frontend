@@ -10,7 +10,7 @@ export default function HeroImages() {
         whileInView="visible"
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
-        variants={fadeInAnimation({ duration: 2 })}
+        variants={fadeInAnimation({ delay: 0.8, duration: 2 })}
         className="md:hidden absolute -z-10 top-0 left-0"
       >
         <Image
@@ -26,7 +26,7 @@ export default function HeroImages() {
         whileInView="visible"
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
-        variants={fadeInAnimation({ duration: 2 })}
+        variants={fadeInAnimation({})}
         className="md:hidden absolute -z-10 bottom-0 left-[calc(50%-132px)]"
       >
         <Image
@@ -42,7 +42,7 @@ export default function HeroImages() {
         whileInView="visible"
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
-        variants={fadeInAnimation({ duration: 2 })}
+        variants={fadeInAnimation({ delay: 0.8, duration: 2 })}
         className="md:hidden absolute -z-20 right-2 top-5"
       >
         <Image
@@ -58,7 +58,7 @@ export default function HeroImages() {
         whileInView="visible"
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
-        variants={fadeInAnimation({ duration: 2 })}
+        variants={fadeInAnimation({ delay: 0.8, duration: 2 })}
         className="hidden md:block absolute -z-10 top-0 xl:top-[14px] left-0 "
       >
         <Image
@@ -74,7 +74,7 @@ export default function HeroImages() {
         whileInView="visible"
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
-        variants={fadeInAnimation({ duration: 2 })}
+        variants={fadeInAnimation({})}
         className="hidden md:block absolute -z-10 bottom-0 md:left-[calc(50%-192px)] xl:left-[calc(50%-377px)]"
       >
         <Image
@@ -90,7 +90,7 @@ export default function HeroImages() {
         whileInView="visible"
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
-        variants={fadeInAnimation({ duration: 2 })}
+        variants={fadeInAnimation({ duration: 2, delay: 0.8 })}
         className="hidden md:block absolute -z-20 right-2 md:right-[18px] top-5 md:top-[18px]"
       >
         <Image
