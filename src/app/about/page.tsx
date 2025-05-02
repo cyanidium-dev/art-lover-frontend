@@ -3,7 +3,7 @@ import History from '@/modules/about/history/History';
 import Team from '@/modules/about/team/Team';
 import Socials from '@/shared/components/socials/Socials';
 
-export default function About() {
+export default function AboutPage() {
   return (
     <>
       <Hero />

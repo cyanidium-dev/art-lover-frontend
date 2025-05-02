@@ -8,7 +8,7 @@ import NewProducts from '@/modules/home/newProducts/NewProducts';
 import Reviews from '@/modules/home/reviews/Reviews';
 import Socials from '@/shared/components/socials/Socials';
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <Hero />

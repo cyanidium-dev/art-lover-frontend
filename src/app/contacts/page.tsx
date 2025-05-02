@@ -5,7 +5,7 @@ import Loader from '@/shared/components/loader/Loader';
 import Socials from '@/shared/components/socials/Socials';
 import { Suspense } from 'react';
 
-export default function page() {
+export default function ContactsPage() {
   return (
     <>
       <Hero />
