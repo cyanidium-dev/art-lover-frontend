@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import { motion } from 'motion/react';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import CallBackForm from '@/shared/components/forms/CallbackForm';
 import NotificationPopUp from '@/shared/components/pop-ups/NotificationPopUp';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
@@ -17,11 +19,20 @@ export default function CallBackFormWithNotifications({
 
   return (
     <>
-      <CallBackForm
-        setIsError={setIsError}
-        setIsNotificationShown={setIsNotificationShown}
-        className={className}
-      />
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeInAnimation({ y: 30, delay: 0.8 })}
+        className="w-full md:w-[calc(68%-20px)]"
+      >
+        <CallBackForm
+          setIsError={setIsError}
+          setIsNotificationShown={setIsNotificationShown}
+          className={className}
+        />
+      </motion.div>
       <NotificationPopUp
         title={
           isError ? 'На жаль, щось пішло не так' : 'Дякуємо за повідомлення!'
