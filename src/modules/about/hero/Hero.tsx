@@ -100,7 +100,6 @@ export default function Hero() {
             variants={fadeInAnimation({ duration: 2 })}
             className="hidden md:block absolute bottom-0 right-0 -z-10"
           >
-            {' '}
             <Image
               src="/images/aboutPage/hero/imageRightDesk.svg"
               alt="background"
