@@ -13,7 +13,7 @@ export default function CategorySlideTwoDesk({
     <div className="hidden md:flex gap-5">
       <Link
         href={`/products/${categories[0]?.slug}`}
-        className="flex flex-col justify-between relative z-10 w-[45.5%] p-5 aspect-square rounded-[16px] overflow-hidden"
+        className="flex flex-col justify-between relative z-10 w-[45.5%] p-5 aspect-square md:rounded-[12px] lg:rounded-[16px] overflow-hidden"
       >
         <Image
           src="/images/homePage/categories/slideTwoDesk/imageOne.webp"
@@ -34,10 +34,10 @@ export default function CategorySlideTwoDesk({
           </p>
         </div>
       </Link>
-      <div className="flex flex-col gap-y-5 w-[18.7%]">
+      <div className="flex flex-col gap-y-4 lg:gap-y-5 w-[18.7%]">
         <Link
           href={`/products/${categories[1]?.slug}`}
-          className="flex flex-col relative z-10 md:ml-[-150px] lg:ml-[-207px] xl:ml-[-239px] md:w-[221%] lg:w-[217%] p-5 md:aspect-[447/156] lg:aspect-[447/151] border-2 border-dark bg-white rounded-[16px] overflow-hidden"
+          className="flex flex-col relative z-10 md:ml-[-150px] lg:ml-[-207px] xl:ml-[-239px] md:w-[221%] lg:w-[217%] p-5 md:aspect-[447/158] lg:aspect-[447/151] border-2 border-dark bg-white md:rounded-[12px] lg:rounded-[16px] overflow-hidden"
         >
           <Image
             src="/images/homePage/categories/slideTwoDesk/imageTwo.webp"
@@ -54,7 +54,7 @@ export default function CategorySlideTwoDesk({
         </Link>
         <Link
           href={`/products/${categories[2]?.slug}`}
-          className="block relative z-10 md:ml-[-150px] lg:ml-[-207px] xl:ml-[-239px] md:w-[312.5%] lg:w-[307.3%] p-5 md:aspect-[633/154] lg:aspect-[633/165] bg-dark rounded-[16px] overflow-hidden"
+          className="block relative z-10 md:ml-[-150px] lg:ml-[-207px] xl:ml-[-239px] md:w-[312.5%] lg:w-[307.3%] p-5 md:aspect-[633/161] lg:aspect-[633/165] bg-dark md:rounded-[12px] lg:rounded-[16px] overflow-hidden"
         >
           <Image
             src="/images/homePage/categories/slideTwoDesk/imageThree.webp"
@@ -71,7 +71,7 @@ export default function CategorySlideTwoDesk({
         </Link>
         <Link
           href={`/products/${categories[3]?.slug}`}
-          className="block relative z-10 lg:ml-[2px] xl:ml-0 md:w-[291%] lg:w-[281%] p-5 md:aspect-[579/150] lg:aspect-[579/145] border-2 border-dark bg-white rounded-[16px] overflow-hidden"
+          className="block relative z-10 md:ml-[-2px] lg:ml-[2px] xl:ml-0 md:w-[291%] lg:w-[281%] p-5 md:aspect-[579/150] lg:aspect-[579/145] border-2 border-dark bg-white md:rounded-[12px] lg:rounded-[16px] overflow-hidden"
         >
           <Image
             src="/images/homePage/categories/slideTwoDesk/imageFour.webp"
@@ -87,7 +87,7 @@ export default function CategorySlideTwoDesk({
           </p>
         </Link>
       </div>
-      <div className="md:w-[33%] lg:w-[32%] rounded-[16px] overflow-hidden">
+      <div className="md:w-[36%] lg:w-[32%] md:rounded-[12px] lg:rounded-[16px] overflow-hidden">
         <Link
           href={`/products/${categories[4]?.slug}`}
           className="block relative z-10 p-5 aspect-[353/336]"
