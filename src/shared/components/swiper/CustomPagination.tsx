@@ -16,7 +16,7 @@ export const createPagination = (maxVisibleBullets = 4) => ({
 
     for (let i = start; i <= end; i++) {
       bullets += `
-              <span class="swiper-pagination-bullet ${
+              <span class="swiper-pagination-bullet cursor-pointer ${
                 i === current ? 'swiper-pagination-bullet-active' : ''
               }" 
                 data-index="${i - 1}">
