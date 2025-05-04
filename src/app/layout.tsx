@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import localFont from 'next/font/local';
 
+import SubscribeNews from '@/modules/subscribeNews/SubscribeNews';
+import Footer from '@/modules/footer/Footer';
+
 import '../styles/style.css';
 
 const montserrat = Montserrat({
@@ -31,6 +34,8 @@ export default function RootLayout({
           `}
       >
         <main className="flex-1">{children}</main>
+        <SubscribeNews />
+      <Footer />
       </body>
     </html>
   );
