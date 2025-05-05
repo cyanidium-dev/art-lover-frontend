@@ -1,3 +1,4 @@
+'use client';
 import { Dispatch, SetStateAction } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useScreenWidth } from '@/shared/hooks/useScreenWidth';
@@ -35,7 +36,7 @@ export default function TabMenu({ activeTab, setActiveTab }: TabMenuProps) {
   };
 
   return (
-    <ul className="flex gap-4 lg:gap-[30px] lg:w-[620px] xl:w-[820px] lg:mx-auto">
+    <ul className="flex gap-4 lg:gap-[30px] lg:w-[620px] xl:w-[820px] lg:mx-auto mb-10 xl:mb-9">
       {menuList.map((menuItem, idx) => (
         <TabMenuItem
           key={idx}
