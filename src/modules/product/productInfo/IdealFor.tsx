@@ -5,13 +5,14 @@ interface IdealForProps {
 }
 
 export default function IdealFor({ currentProduct }: IdealForProps) {
-  const { idealFor } = currentProduct;
+  if (!currentProduct?.idealFor || !currentProduct?.idealFor.length)
+    return null;
 
-  if (!idealFor || !idealFor.length) return null;
+  const { idealFor } = currentProduct;
 
   return (
     <div className="pb-20 xl:pb-[70px]">
-      <h2 className="mb-8 text-[32px] font-medium leading-[120%] uppercase">
+      <h2 className="mb-6 xl:mb-8 text-[18px] xl:text-[32px] font-medium leading-[120%] uppercase">
         Ідеально підходить для:
       </h2>
       <ul className="flex gap-3 flex-wrap">

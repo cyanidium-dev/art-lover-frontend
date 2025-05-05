@@ -7,6 +7,28 @@ const productTemplate = {
   title: 'String Art Portrait Kit',
   price: 85.74,
   images: [{ url: '/images/mockedData/productImageOne.webp', alt: '' }],
+  characteristics: [
+    { title: 'Вага:', description: '500 г' },
+    { title: 'Розмір:', description: '30 x 40 см' },
+    {
+      title: 'Матеріали:',
+      description:
+        "дерев'яна основа (МДФ або фанера), цвяхи, нитки з бавовни або поліестеру",
+    },
+    { title: 'Виробник:', description: 'ArtLine, Україна' },
+    {
+      title: 'Що входить у набір:',
+      description: [
+        "Дерев'яна основа з нанесеною схемою",
+        'Комплект цвяхів',
+        'Нитки для створення портрета',
+        'Молоточок (опціонально, залежно від комплекту)',
+        'Інструкція з покроковим керівництвом',
+        'Шаблон з дизайном для натягування ниток',
+      ],
+    },
+    { title: 'Артикул:', description: '10987656' },
+  ],
   idealFor: [
     'Творчого часу з родиною',
     'Антистрес-терапії',

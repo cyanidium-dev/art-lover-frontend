@@ -1,5 +1,10 @@
 import { Category } from './category';
 
+type Characteristic = {
+  title: string;
+  description: string | string[];
+};
+
 export interface Product {
   id: string;
   category: Category;
@@ -11,4 +16,5 @@ export interface Product {
   bestseller?: boolean;
   newProduct?: boolean;
   idealFor: string[];
+  characteristics: Characteristic[];
 }

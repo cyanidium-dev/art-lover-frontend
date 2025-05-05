@@ -19,7 +19,7 @@ export default function ProductInfo({ currentProduct }: ProductInfoProps) {
           <ImagePicker />
           <Benefits />
           <IdealFor currentProduct={currentProduct} />
-          <Characteristics />
+          <Characteristics currentProduct={currentProduct} />
         </Suspense>
       </Container>
     </section>
