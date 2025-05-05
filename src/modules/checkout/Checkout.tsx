@@ -7,7 +7,7 @@ import TabMenu from './TabMenu';
 export default function Checkout() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const menu = searchParams.get('menu') || 'orders';
+  const menu = searchParams.get('delivery') || 'ukraine';
   const [activeTab, setActiveTab] = useState(menu);
 
   useEffect(() => {
