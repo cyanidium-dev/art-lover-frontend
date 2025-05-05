@@ -16,7 +16,7 @@ export default function Benefits({ currentProduct }: BenefitsProps) {
       {benefits.map((benefit, idx) => (
         <li
           key={idx}
-          className="flex items-center gap-x-6 px-5 py-3 xl:py-8 not-last:border-b not-last:border-orange"
+          className="flex items-center gap-x-6 px-5 py-3 not-last:border-b not-last:border-orange"
         >
           <Image
             src={benefit?.icon || ''}

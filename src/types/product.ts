@@ -10,6 +10,8 @@ export interface Product {
   category: Category;
   slug: string;
   title: string;
+  description: string;
+  delivery: string;
   price: number;
   discountedPrice?: number;
   images: { url: string; alt: string }[];

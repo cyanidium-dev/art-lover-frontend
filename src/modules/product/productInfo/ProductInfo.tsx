@@ -21,8 +21,8 @@ export default function ProductInfo({ currentProduct }: ProductInfoProps) {
         <Suspense fallback={<Loader />}>
           <ImagePicker />
           <OrderProduct />
-          <FullDescription />
-          <DeliveryInfo />
+          <FullDescription currentProduct={currentProduct} />
+          <DeliveryInfo currentProduct={currentProduct} />
           <Benefits currentProduct={currentProduct} />
           <IdealFor currentProduct={currentProduct} />
           <Characteristics currentProduct={currentProduct} />

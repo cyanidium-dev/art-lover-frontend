@@ -5,6 +5,10 @@ const productTemplate = {
   category: { slug: 'gifts', title: 'Подарунки', description: '' },
   slug: 'string-art-portrait-kit',
   title: 'String Art Portrait Kit',
+  description:
+    'Create a masterpiece with our Custom Thread Portrait Kit, perfect for DIY wall decor. This personalized string art portrait gift offers a unique and creative way to express your artistic side. Each kit includes everything you need to craft a handmade, one-of-a-kind piece of wall art, making it an ideal gift for art enthusiasts and those who appreciate personalized decor. Whether for yourself or as a special gift, this creative art kit promises to add a touch of elegance and individuality to any space.',
+  delivery:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam leo massa, rhoncus eget nibh sit amet, lacinia condimentum odio. Fusce tellus justo, facilisis et risus id, gravida molestie sem. Maecenas faucibus, lectus at suscipit viverra, lorem ante molestie erat, a convallis ex velit et mi.',
   price: 85.74,
   images: [{ url: '/images/mockedData/productImageOne.webp', alt: '' }],
   characteristics: [
@@ -30,12 +34,13 @@ const productTemplate = {
     { title: 'Артикул:', description: '10987656' },
   ],
   idealFor: [
-    'Творчого часу з родиною',
+    'Розвитку моторики',
     'Антистрес-терапії',
     'Заняття на вечір',
     'Хобі для дозвілля',
     'Релаксу та медитації',
     'Розвитку моторики',
+    'Хобі для дозвілля',
   ],
   benefits: [
     {
