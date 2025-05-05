@@ -17,7 +17,10 @@ export default function Breadcrumbs({
 }: BreadcrumbsProps) {
   return (
     <Container className={className}>
-      <nav aria-label="breadcrumbs" className={`flex items-center xl:pt-3`}>
+      <nav
+        aria-label="breadcrumbs"
+        className={`flex items-center pb-7 xl:pb-17 xl:pt-3`}
+      >
         <ul className="flex items-center flex-wrap">
           {crumbs.map((crumb, index) => (
             <li
