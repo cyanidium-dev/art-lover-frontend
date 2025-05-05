@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Container from '@/shared/components/container/Container';
 import TabMenu from './TabMenu';
+import CheckoutFormWithNotifications from './CheckoutFormWithNotifications';
 
 export default function Checkout() {
   const router = useRouter();
@@ -25,6 +26,7 @@ export default function Checkout() {
           Оформлення замовлення
         </h1>
         <TabMenu activeTab={activeTab} setActiveTab={setActiveTab} />
+        <CheckoutFormWithNotifications />
       </Container>
     </section>
   );
