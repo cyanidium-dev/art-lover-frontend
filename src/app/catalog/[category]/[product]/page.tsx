@@ -18,6 +18,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
     productItem => productItem?.slug === product
   );
 
+  if (!currentProduct) return null;
+
   const crumbs = [
     { label: 'Головна', href: '/' },
     {
