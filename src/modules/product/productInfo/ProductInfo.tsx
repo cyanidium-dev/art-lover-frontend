@@ -20,7 +20,7 @@ export default function ProductInfo({ currentProduct }: ProductInfoProps) {
       <Container>
         <Suspense fallback={<Loader />}>
           <ImagePicker />
-          <OrderProduct />
+          <OrderProduct currentProduct={currentProduct} />
           <FullDescription currentProduct={currentProduct} />
           <DeliveryInfo currentProduct={currentProduct} />
           <Benefits currentProduct={currentProduct} />

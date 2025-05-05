@@ -12,9 +12,9 @@ export default function FullDescription({
 }: FullDescriptionProps) {
   const [isShownMore, setIsShownMore] = useState(false);
   const toggleShowMore = () => setIsShownMore(!isShownMore);
-  if (!currentProduct?.description) return null;
+  if (!currentProduct?.fullDescription) return null;
 
-  const { description } = currentProduct;
+  const { fullDescription } = currentProduct;
 
   return (
     <div
@@ -50,7 +50,7 @@ export default function FullDescription({
         <p
           className={`pt-4 xl:pt-6 xl:pb-3 text-[12px] xl:text-[14px] font-light leading-[120%] text-justify`}
         >
-          {description}
+          {fullDescription}
         </p>
       </div>
     </div>

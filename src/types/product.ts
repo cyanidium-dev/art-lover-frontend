@@ -10,7 +10,9 @@ export interface Product {
   category: Category;
   slug: string;
   title: string;
+  available: boolean;
   description: string;
+  fullDescription: string;
   delivery: string;
   price: number;
   discountedPrice?: number;
