@@ -5,7 +5,7 @@ import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 
 import Container from '@/shared/components/container/Container';
-import Logo from "@/shared/components/Logo/Logo";
+import Logo from '@/shared/components/Logo/Logo';
 import MobileLogo from '@/shared/components/MobileLogo/MobileLogo';
 
 import NavbarCatalog from '@/modules/navbar/NavbarCatalog/NavbarCatalog';
@@ -15,9 +15,9 @@ import NavbarCart from '@/modules/navbar/NavbarCart/NavbarCart';
 import NavbarMenu from '@/modules/navbar/NavbarMenu/NavbarMenu';
 // import NavbarBurgerMenu from '@/modules/navbar/NavbarBurgerMenu/NavbarBurgerMenu';
 
-import styles from "./Navbar.module.scss";
+import styles from './Navbar.module.scss';
 
-const Navbar = ()=> {
+const Navbar = () => {
   return (
     <nav className="pt-[32px] xl:pt-[26px] pb-[28px] z-999 relative overflow-hidden">
       <motion.div
@@ -26,7 +26,7 @@ const Navbar = ()=> {
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInAnimation({ delay: 1.2, scale: 0.9 })}
-        className="hidden xl:block z-10 absolute top-0 left-[50%] transform -translate-x-[50%] z-10"
+        className="hidden xl:block z-10 absolute top-0 left-[50%] transform -translate-x-[50%]"
       >
         <Image
           src="/images/navbar/figureCenterDesk.svg"
@@ -41,7 +41,7 @@ const Navbar = ()=> {
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInAnimation({ delay: 1.2, scale: 0.9 })}
-        className="xl:hidden z-10 absolute top-0 left-0 z-10"
+        className="xl:hidden z-10 absolute top-0 left-0"
       >
         <Image
           src="/images/navbar/figureLeftMob.svg"
@@ -56,7 +56,7 @@ const Navbar = ()=> {
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInAnimation({ delay: 1.2, scale: 0.9 })}
-        className="xl:hidden z-10 absolute top-0  left-[50%] transform -translate-x-[50%] z-10"
+        className="xl:hidden z-10 absolute top-0  left-[50%] transform -translate-x-[50%]"
       >
         <Image
           src="/images/navbar/figureCenterMob.svg"
@@ -91,7 +91,7 @@ const Navbar = ()=> {
         </motion.div>
       </Container>
     </nav>
-  )
-}
+  );
+};
 
 export default Navbar;
