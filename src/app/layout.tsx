@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import localFont from 'next/font/local';
 
+import Navbar from '@/modules/navbar/Navbar';
 import SubscribeNews from '@/modules/subscribeNews/SubscribeNews';
 import Footer from '@/modules/footer/Footer';
 
@@ -33,6 +34,8 @@ export default function RootLayout({
         className={`${montserrat.variable} ${denistina.variable} flex min-h-screen flex-col antialiased
           `}
       >
+      <div id="modal" style={{zIndex: 999}}></div>
+      <Navbar />
         <main className="flex-1">{children}</main>
         <SubscribeNews />
       <Footer />
