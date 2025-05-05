@@ -12,17 +12,11 @@ interface ProductPageProps {
 export default async function ProductPage({ params }: ProductPageProps) {
   const { category, product } = await params;
 
-  console.log(product);
-
   if (!productsList || !productsList.length) return null;
-
-  console.log(productsList);
 
   const currentProduct = productsList.find(
     productItem => productItem?.slug === product
   );
-
-  console.log(currentProduct);
 
   const crumbs = [
     { label: 'Головна', href: '/' },

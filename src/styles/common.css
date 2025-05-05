@@ -37,7 +37,8 @@
 .swiper.reviews,
 .swiper.hero,
 .swiper.categories,
-.swiper.similar-products {
+.swiper.similar-products,
+.swiper.reviewed-products {
   padding: 0px 0px 80px 0px !important;
 
   @media screen and (min-width: 768px) {
