@@ -6,6 +6,9 @@ import IdealFor from './IdealFor';
 import { Product } from '@/types/product';
 import { Suspense } from 'react';
 import Loader from '@/shared/components/loader/Loader';
+import FullDescription from './FullDescription';
+import DeliveryInfo from './DeliveryInfo';
+import OrderProduct from './OrderProduct';
 
 interface ProductInfoProps {
   currentProduct: Product;
@@ -17,7 +20,10 @@ export default function ProductInfo({ currentProduct }: ProductInfoProps) {
       <Container>
         <Suspense fallback={<Loader />}>
           <ImagePicker />
-          <Benefits />
+          <OrderProduct />
+          <FullDescription />
+          <DeliveryInfo />
+          <Benefits currentProduct={currentProduct} />
           <IdealFor currentProduct={currentProduct} />
           <Characteristics currentProduct={currentProduct} />
         </Suspense>
