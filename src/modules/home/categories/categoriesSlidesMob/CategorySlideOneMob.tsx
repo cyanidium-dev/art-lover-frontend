@@ -28,7 +28,7 @@ export default function CategorySlideOneMob({
         variants={listItemVariants}
       >
         <Link
-          href={`/products/${categories[0]?.slug}`}
+          href={`/catalog/${categories[0]?.slug}`}
           className="relative block z-10 w-full h-[100px] sm:h-[150px] border border-dark rounded-[8px] p-3 bg-dark overflow-hidden"
         >
           <Image
@@ -58,7 +58,7 @@ export default function CategorySlideOneMob({
         variants={listItemVariants}
       >
         <Link
-          href={`/products/${categories[1]?.slug}`}
+          href={`/catalog/${categories[1]?.slug}`}
           className="relative z-10 flex flex-col justify-end items-end h-[100px] sm:h-[150px] border border-dark rounded-[8px] p-3 bg-white overflow-hidden"
         >
           <Image
@@ -88,7 +88,7 @@ export default function CategorySlideOneMob({
         variants={listItemVariants}
       >
         <Link
-          href={`/products/${categories[2]?.slug}`}
+          href={`/catalog/${categories[2]?.slug}`}
           className="relative z-10 block h-[100px] sm:h-[150px] border border-dark rounded-[8px] p-3 bg-dark overflow-hidden"
         >
           <Image
@@ -118,7 +118,7 @@ export default function CategorySlideOneMob({
         variants={listItemVariants}
       >
         <Link
-          href={`/products/${categories[3]?.slug}`}
+          href={`/catalog/${categories[3]?.slug}`}
           className="relative z-10 flex flex-col justify-end items-end h-[100px] sm:h-[150px] border border-dark rounded-[8px] p-3 bg-white overflow-hidden"
         >
           <Image
@@ -148,7 +148,7 @@ export default function CategorySlideOneMob({
         variants={listItemVariants}
       >
         <Link
-          href={`/products/${categories[4]?.slug}`}
+          href={`/catalog/${categories[4]?.slug}`}
           className="relative z-10 flex flex-col justify-end h-[100px] sm:h-[150px] border border-dark rounded-[8px] p-3 bg-dark overflow-hidden"
         >
           <Image

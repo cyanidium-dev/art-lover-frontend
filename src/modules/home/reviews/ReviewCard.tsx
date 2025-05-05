@@ -25,7 +25,7 @@ export default function ReviewCard({ review }: ReviewCardProps) {
         className="hidden xl:block absolute top-0 right-0"
       />
       <div>
-        <Link href={`/products/${slug}`}>
+        <Link href={`/catalog/${slug}`}>
           <div className="relative h-[85px] xl:h-[95px] mb-3 xl:mb-5 rounded-[8px]  xl:rounded-[16px] overflow-hidden">
             <Image
               src={images[0]?.url || ''}

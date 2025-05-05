@@ -12,7 +12,7 @@ export default function CategorySlideTwoDesk({
   return (
     <div className="hidden md:flex gap-5">
       <Link
-        href={`/products/${categories[0]?.slug}`}
+        href={`/catalog/${categories[0]?.slug}`}
         className="flex flex-col justify-between relative z-10 w-[45.5%] p-5 aspect-square md:rounded-[12px] lg:rounded-[16px] overflow-hidden"
       >
         <Image
@@ -36,7 +36,7 @@ export default function CategorySlideTwoDesk({
       </Link>
       <div className="flex flex-col gap-y-4 lg:gap-y-5 w-[18.7%]">
         <Link
-          href={`/products/${categories[1]?.slug}`}
+          href={`/catalog/${categories[1]?.slug}`}
           className="flex flex-col relative z-10 md:ml-[-150px] lg:ml-[-207px] xl:ml-[-239px] md:w-[221%] lg:w-[217%] p-5 md:aspect-[447/158] lg:aspect-[447/151] border-2 border-dark bg-white md:rounded-[12px] lg:rounded-[16px] overflow-hidden"
         >
           <Image
@@ -53,7 +53,7 @@ export default function CategorySlideTwoDesk({
           </p>
         </Link>
         <Link
-          href={`/products/${categories[2]?.slug}`}
+          href={`/catalog/${categories[2]?.slug}`}
           className="block relative z-10 md:ml-[-150px] lg:ml-[-207px] xl:ml-[-239px] md:w-[312.5%] lg:w-[307.3%] p-5 md:aspect-[633/161] lg:aspect-[633/165] bg-dark md:rounded-[12px] lg:rounded-[16px] overflow-hidden"
         >
           <Image
@@ -70,7 +70,7 @@ export default function CategorySlideTwoDesk({
           </p>
         </Link>
         <Link
-          href={`/products/${categories[3]?.slug}`}
+          href={`/catalog/${categories[3]?.slug}`}
           className="block relative z-10 md:ml-[-2px] lg:ml-[2px] xl:ml-0 md:w-[291%] lg:w-[281%] p-5 md:aspect-[579/150] lg:aspect-[579/145] border-2 border-dark bg-white md:rounded-[12px] lg:rounded-[16px] overflow-hidden"
         >
           <Image
@@ -89,7 +89,7 @@ export default function CategorySlideTwoDesk({
       </div>
       <div className="md:w-[36%] lg:w-[32%] md:rounded-[12px] lg:rounded-[16px] overflow-hidden">
         <Link
-          href={`/products/${categories[4]?.slug}`}
+          href={`/catalog/${categories[4]?.slug}`}
           className="block relative z-10 p-5 aspect-[353/336]"
         >
           <Image
