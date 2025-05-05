@@ -1,13 +1,44 @@
+import { productsList } from '@/modules/home/bestsellers/mockedData';
 import Breadcrumbs from '@/modules/product/breadcrumbs/Breadcrumbs';
 import ProductInfo from '@/modules/product/productInfo/ProductInfo';
 import ReviewedProducts from '@/modules/product/reviewedProducts/ReviewedProducts';
 import Reviews from '@/modules/product/reviews/Reviews';
 import SimilarProducts from '@/modules/product/similarProducts/SimilarProducts';
 
-export default function ProductPage() {
+interface ProductPageProps {
+  params: Promise<{ category: string; product: string }>;
+}
+
+export default async function ProductPage({ params }: ProductPageProps) {
+  const { category, product } = await params;
+
+  console.log(product);
+
+  if (!productsList || !productsList.length) return null;
+
+  console.log(productsList);
+
+  const currentProduct = productsList.find(
+    productItem => productItem?.slug === product
+  );
+
+  console.log(currentProduct);
+
+  const crumbs = [
+    { label: 'Головна', href: '/' },
+    {
+      label: currentProduct?.category?.title || '',
+      href: `/catalog/${category}`,
+    },
+    {
+      label: currentProduct?.title || '',
+      href: `/catalog//${category}/${currentProduct?.slug}` || '',
+    },
+  ];
+
   return (
     <>
-      <Breadcrumbs />
+      <Breadcrumbs crumbs={crumbs} />
       <ProductInfo />
       <Reviews />
       <SimilarProducts />

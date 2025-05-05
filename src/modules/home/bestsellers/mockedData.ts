@@ -2,6 +2,7 @@ import { Product } from '@/types/product';
 
 const productTemplate = {
   id: '1',
+  category: { slug: 'gifts', title: 'Подарунки', description: '' },
   slug: 'string-art-portrait-kit',
   title: 'String Art Portrait Kit',
   price: 85.74,
