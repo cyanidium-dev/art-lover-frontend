@@ -17,4 +17,5 @@ export interface Product {
   newProduct?: boolean;
   idealFor: string[];
   characteristics: Characteristic[];
+  benefits: { icon: string; description: string }[];
 }

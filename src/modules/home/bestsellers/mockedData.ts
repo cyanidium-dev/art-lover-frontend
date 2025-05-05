@@ -37,6 +37,20 @@ const productTemplate = {
     'Релаксу та медитації',
     'Розвитку моторики',
   ],
+  benefits: [
+    {
+      icon: '/images/mockedData/productBenefitOne.svg',
+      description: 'Швидка доставка',
+    },
+    {
+      icon: '/images/mockedData/productBenefitTwo.svg',
+      description: 'Висока якість',
+    },
+    {
+      icon: '/images/mockedData/productBenefitThree.svg',
+      description: 'Відмінний подарунок',
+    },
+  ],
 };
 
 const createProducts = (template: Product, count: number): Product[] => {
