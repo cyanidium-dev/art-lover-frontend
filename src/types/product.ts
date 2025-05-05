@@ -1,4 +1,4 @@
-import { Category } from "./category";
+import { Category } from './category';
 
 export interface Product {
   id: string;
@@ -10,4 +10,5 @@ export interface Product {
   images: { url: string; alt: string }[];
   bestseller?: boolean;
   newProduct?: boolean;
+  idealFor: string[];
 }

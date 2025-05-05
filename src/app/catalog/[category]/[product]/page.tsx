@@ -33,7 +33,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   return (
     <>
       <Breadcrumbs crumbs={crumbs} />
-      <ProductInfo />
+      <ProductInfo currentProduct={currentProduct} />
       <Reviews />
       <SimilarProducts />
       <ReviewedProducts />

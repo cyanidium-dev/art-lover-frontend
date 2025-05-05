@@ -3,15 +3,24 @@ import ImagePicker from './ImagePicker';
 import Characteristics from './Characteristics';
 import Benefits from './Benefits';
 import IdealFor from './IdealFor';
+import { Product } from '@/types/product';
+import { Suspense } from 'react';
+import Loader from '@/shared/components/loader/Loader';
 
-export default function ProductInfo() {
+interface ProductInfoProps {
+  currentProduct: Product;
+}
+
+export default function ProductInfo({ currentProduct }: ProductInfoProps) {
   return (
     <section className="pb-20 xl:pb-30">
       <Container>
-        <ImagePicker />
-        <Benefits />
-        <IdealFor />
-        <Characteristics />
+        <Suspense fallback={<Loader />}>
+          <ImagePicker />
+          <Benefits />
+          <IdealFor currentProduct={currentProduct} />
+          <Characteristics />
+        </Suspense>
       </Container>
     </section>
   );

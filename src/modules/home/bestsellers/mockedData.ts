@@ -7,6 +7,14 @@ const productTemplate = {
   title: 'String Art Portrait Kit',
   price: 85.74,
   images: [{ url: '/images/mockedData/productImageOne.webp', alt: '' }],
+  idealFor: [
+    'Творчого часу з родиною',
+    'Антистрес-терапії',
+    'Заняття на вечір',
+    'Хобі для дозвілля',
+    'Релаксу та медитації',
+    'Розвитку моторики',
+  ],
 };
 
 const createProducts = (template: Product, count: number): Product[] => {
