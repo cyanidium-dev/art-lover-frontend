@@ -51,7 +51,7 @@ export default function ImagePicker({ currentProduct }: ImagePickerProps) {
       {/* Навігація */}
       <button
         onClick={prev}
-        className="absolute top-[calc(50%-48px)] xl:top-[calc(50%-80px)] left-2 xl:left-5 flex items-center justify-center size-8 xl:size-10 p-1.5 bg-white rounded-[8px] xl:rounded-[12px] cursor-pointer active:scale-95 transition duration-300 ease-in-out"
+        className="absolute top-[calc(50%-64px)] xl:top-[calc(50%-80px)] left-2 xl:left-5 flex items-center justify-center size-8 xl:size-10 p-1.5 bg-white rounded-[8px] xl:rounded-[12px] cursor-pointer active:scale-95 transition duration-300 ease-in-out"
       >
         <Image
           src="/images/productPage/imagePicker/arrow.svg"
@@ -62,7 +62,7 @@ export default function ImagePicker({ currentProduct }: ImagePickerProps) {
       </button>
       <button
         onClick={next}
-        className="absolute top-[calc(50%-48px)] xl:top-[calc(50%-80px)] right-2 xl:right-5 flex items-center justify-center size-8 xl:size-10 p-1.5 bg-white rounded-[8px] xl:rounded-[12px] cursor-pointer active:scale-95 transition duration-300 ease-in-out"
+        className="absolute top-[calc(50%-64px)] xl:top-[calc(50%-80px)] right-2 xl:right-5 flex items-center justify-center size-8 xl:size-10 p-1.5 bg-white rounded-[8px] xl:rounded-[12px] cursor-pointer active:scale-95 transition duration-300 ease-in-out"
       >
         <Image
           src="/images/productPage/imagePicker/arrow.svg"
