@@ -2,6 +2,11 @@
 @import './variables.css';
 @import './common.css';
 
+@plugin 'tailwind-scrollbar' {
+  preferredstrategy: 'pseudoelements';
+  nocompatible: true;
+}
+
 @theme {
   --breakpoint-xs: 440px;
 
