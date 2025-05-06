@@ -19,7 +19,7 @@ export default function ProductInfo({ currentProduct }: ProductInfoProps) {
     <section className="pb-20 xl:pb-30">
       <Container>
         <Suspense fallback={<Loader />}>
-          <ImagePicker />
+          <ImagePicker currentProduct={currentProduct} />
           <OrderProduct currentProduct={currentProduct} />
           <FullDescription currentProduct={currentProduct} />
           <DeliveryInfo currentProduct={currentProduct} />

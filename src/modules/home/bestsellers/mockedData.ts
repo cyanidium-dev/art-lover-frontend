@@ -17,7 +17,14 @@ const productTemplate = {
     { title: 'Бобіна з нитками', price: 100 },
     { title: 'Підставка для схеми', price: 200 },
   ],
-  images: [{ url: '/images/mockedData/productImageOne.webp', alt: '' }],
+  images: [
+    { url: '/images/mockedData/productImageOne.webp', alt: '' },
+    { url: '/images/mockedData/productImageTwo.webp', alt: '' },
+    { url: '/images/mockedData/productImageThree.webp', alt: '' },
+    { url: '/images/mockedData/productImageFour.webp', alt: '' },
+    { url: '/images/mockedData/productImageFive.webp', alt: '' },
+    { url: '/images/mockedData/productImageSix.webp', alt: '' },
+  ],
   characteristics: [
     { title: 'Вага:', description: '500 г' },
     { title: 'Розмір:', description: '30 x 40 см' },
