@@ -9,7 +9,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const { title, price, discountedPrice, images, slug } = product;
+  const { title, price, discountedPrice, images, slug, category } = product;
 
   return (
     <div className="relative p-3 xl:px-5 xl:py-4 bg-white rounded-[8px] xl:rounded-[16px] shadow-social overflow-hidden">
@@ -22,7 +22,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           className="absolute z-10 top-0 right-0"
         />
       ) : null}
-      <Link href={`/products/${slug}`}>
+      <Link href={`/catalog/${category?.slug}/${slug}`}>
         <div className="relative h-[120px] md:h-[180px] lg:h-[200px] xl:h-[300px] mb-3 xl:mb-4 rounded-[8px] xl:rounded-[16px] overflow-hidden">
           <Image
             src={images[0]?.url || ''}
@@ -53,8 +53,8 @@ export default function ProductCard({ product }: ProductCardProps) {
           {title}
         </h3>
       </Link>
-      <div className="flex justify-between xs:gap-x-3 xl:gap-x-2">
-        <Link href={`/products/${slug}`} className="block w-full">
+      <div className="flex justify-between gap-x-0.5 xs:gap-x-3 xl:gap-x-2">
+        <Link href={`/catalog/${slug}`} className="block w-full">
           <SecondaryButton className="max-w-[102px] xs:max-w-full h-9 xl:h-10">
             Детальніше
           </SecondaryButton>
