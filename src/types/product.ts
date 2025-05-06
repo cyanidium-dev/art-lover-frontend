@@ -22,4 +22,5 @@ export interface Product {
   idealFor: string[];
   characteristics: Characteristic[];
   benefits: { icon: string; description: string }[];
+  addons: { title: string; price: number }[];
 }

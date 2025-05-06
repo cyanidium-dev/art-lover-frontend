@@ -13,6 +13,10 @@ const productTemplate = {
   delivery:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam leo massa, rhoncus eget nibh sit amet, lacinia condimentum odio. Fusce tellus justo, facilisis et risus id, gravida molestie sem. Maecenas faucibus, lectus at suscipit viverra, lorem ante molestie erat, a convallis ex velit et mi.',
   price: 85.74,
+  addons: [
+    { title: 'Бобіна з нитками', price: 100 },
+    { title: 'Підставка для схеми', price: 200 },
+  ],
   images: [{ url: '/images/mockedData/productImageOne.webp', alt: '' }],
   characteristics: [
     { title: 'Вага:', description: '500 г' },

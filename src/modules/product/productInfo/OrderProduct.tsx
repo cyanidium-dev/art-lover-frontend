@@ -8,13 +8,14 @@ import { Product } from '@/types/product';
 import { reviewsList } from '@/modules/home/reviews/mockedData';
 import { getAverageRating } from '@/shared/utils/getAverageRating';
 import Image from 'next/image';
+import AddonsList from './AddonsList';
 
 interface OrderProductProps {
   currentProduct: Product;
 }
 
 export default function OrderProduct({ currentProduct }: OrderProductProps) {
-  const { title, description, available } = currentProduct;
+  const { title, description, available, addons } = currentProduct;
   const rating = getAverageRating(reviewsList);
 
   return (
@@ -59,6 +60,9 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
       <p className="mb-6 xl:mb-[26.5px] text-right text-[10px] xl:text-[14px] font-light leading-[120%]">
         ({reviewsList?.length} відгуків)
       </p>
+      {!addons || !addons.length ? null : (
+       <AddonsList options={addons} />
+      )}
       <div className="flex items-center gap-x-4">
         <MainButton
           className="h-[49px]"
