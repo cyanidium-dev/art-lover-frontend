@@ -11,7 +11,8 @@ interface ImagePickerProps {
 }
 
 export default function ImagePicker({ currentProduct }: ImagePickerProps) {
-  const { images } = currentProduct;
+  const { images, price, discountedPrice } = currentProduct;
+
   const [currentIdx, setCurrentIdx] = useState(0);
 
   const next = () => {
@@ -46,32 +47,47 @@ export default function ImagePicker({ currentProduct }: ImagePickerProps) {
             className="absolute top-0 left-0 w-full h-full object-cover"
           />
         </AnimatePresence>
-      </div>
 
-      {/* Навігація */}
-      <button
-        onClick={prev}
-        className="absolute top-[calc(50%-64px)] xl:top-[calc(50%-80px)] left-2 xl:left-5 flex items-center justify-center size-8 xl:size-10 p-1.5 bg-white rounded-[8px] xl:rounded-[12px] cursor-pointer active:scale-95 transition duration-300 ease-in-out"
-      >
-        <Image
-          src="/images/productPage/imagePicker/arrow.svg"
-          alt="arrow icon"
-          width={20}
-          height={20}
-        />
-      </button>
-      <button
-        onClick={next}
-        className="absolute top-[calc(50%-64px)] xl:top-[calc(50%-80px)] right-2 xl:right-5 flex items-center justify-center size-8 xl:size-10 p-1.5 bg-white rounded-[8px] xl:rounded-[12px] cursor-pointer active:scale-95 transition duration-300 ease-in-out"
-      >
-        <Image
-          src="/images/productPage/imagePicker/arrow.svg"
-          alt="arrow icon"
-          width={20}
-          height={20}
-          className="rotate-180"
-        />
-      </button>
+        {discountedPrice && discountedPrice < price ? (
+          <div className="absolute z-10 top-3 xl:top-6 right-3 xl:right-6 flex items-center justify-center size-14 xl:size-25">
+            <Image
+              src="/images/productPage/imagePicker/star.svg"
+              alt="star"
+              width={100}
+              height={100}
+              className="absolute top-0 left-0 -z-10 w-full h-auto"
+            />
+            <span className="mt-1 xl:mt-1.5 text-[16px] xl:text-[24px] font-semibold leading-none text-white">
+              {Math.round(((discountedPrice - price) / price) * 100)}%
+            </span>
+          </div>
+        ) : null}
+
+        {/* Навігація */}
+        <button
+          onClick={prev}
+          className="absolute top-[calc(50%-16px)] xl:top-[calc(50%-20px)] left-2 xl:left-5 flex items-center justify-center size-8 xl:size-10 p-1.5 bg-white rounded-[8px] xl:rounded-[12px] cursor-pointer active:scale-95 transition duration-300 ease-in-out"
+        >
+          <Image
+            src="/images/productPage/imagePicker/arrow.svg"
+            alt="arrow icon"
+            width={20}
+            height={20}
+          />
+        </button>
+        <button
+          onClick={next}
+          className="absolute top-[calc(50%-16px)] xl:top-[calc(50%-20px)] right-2 xl:right-5 flex items-center justify-center size-8 xl:size-10 p-1.5 bg-white rounded-[8px] xl:rounded-[12px] cursor-pointer active:scale-95 transition duration-300 ease-in-out"
+        >
+          <Image
+            src="/images/productPage/imagePicker/arrow.svg"
+            alt="arrow icon"
+            width={20}
+            height={20}
+            className="rotate-180"
+          />
+        </button>
+      </div>
 
       {/* Прев’юшки */}
       <div
