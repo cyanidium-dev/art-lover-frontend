@@ -23,4 +23,5 @@ export interface Product {
   characteristics: Characteristic[];
   benefits: { icon: string; description: string }[];
   addons: { title: string; price: number }[];
+  colors: { title: string; hex: string }[];
 }

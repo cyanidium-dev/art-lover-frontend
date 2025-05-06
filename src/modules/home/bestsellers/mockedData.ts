@@ -63,6 +63,10 @@ const productTemplate = {
       description: 'Відмінний подарунок',
     },
   ],
+  colors: [
+    { title: 'бежевий', hex: '#D88164' },
+    { title: 'чорний', hex: '#545454' },
+  ],
 };
 
 const createProducts = (template: Product, count: number): Product[] => {
