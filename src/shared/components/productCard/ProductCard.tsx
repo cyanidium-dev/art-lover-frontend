@@ -54,7 +54,10 @@ export default function ProductCard({ product }: ProductCardProps) {
         </h3>
       </Link>
       <div className="flex justify-between gap-x-0.5 xs:gap-x-3 xl:gap-x-2">
-        <Link href={`/catalog/${slug}`} className="block w-full">
+        <Link
+          href={`/catalog/${category?.slug}/${slug}`}
+          className="block w-full"
+        >
           <SecondaryButton className="max-w-[102px] xs:max-w-full h-9 xl:h-10">
             Детальніше
           </SecondaryButton>
