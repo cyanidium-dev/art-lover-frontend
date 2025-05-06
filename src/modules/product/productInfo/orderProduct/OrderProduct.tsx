@@ -29,7 +29,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
   const rating = getAverageRating(reviewsList);
 
   return (
-    <div className="mb-20">
+    <div className="mb-20 md:mb-8">
       <div className="flex items-center justify-between mb-4">
         <h1 className="text-[16px] xl:text-[32px] font-semibold leading-[120%] uppercase">
           {title}
@@ -92,14 +92,14 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
       </div>
       <div className="flex items-center gap-x-4">
         <MainButton
-          className="h-[49px]"
+          className="h-[49px] xl:h-[58px]"
           textStyles="text-[14px] xl:text-[16px]"
         >
           Додати товар до кошику
         </MainButton>
         <button
           aria-label="add to favorites"
-          className="cursor-pointer flex items-center justify-center shrink-0 size-12 rounded-[8px] bg-dark xl:hover:brightness-125 
+          className="cursor-pointer flex items-center justify-center shrink-0 size-12 xl:w-[63px] xl:h-[58px] rounded-[8px] bg-dark xl:hover:brightness-125 
           focus-visible:brightness-125 active:scale-95 transition duration-300 ease-in-out"
         >
           <Image
@@ -107,6 +107,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
             alt="heart icon"
             width={24}
             height={24}
+            className="size-6 xl:size-[34px]"
           />
         </button>
       </div>

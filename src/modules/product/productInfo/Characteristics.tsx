@@ -16,11 +16,11 @@ export default function Characteristics({
   const { characteristics } = currentProduct;
 
   return (
-    <div className="pb-20 xl:pb-30">
+    <div>
       <h2 className="mb-6 text-[18px] xl:text-[32px] font-medium leading-[120%] uppercase">
         Характеристика товару:
       </h2>
-      <ul className="flex flex-col gap-y-4 xl:gap-y-6">
+      <ul className="flex flex-col gap-y-4 xl:gap-y-3">
         {characteristics.map((characteristic, idx) => (
           <li
             key={idx}

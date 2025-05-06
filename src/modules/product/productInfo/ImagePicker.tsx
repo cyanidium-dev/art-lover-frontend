@@ -31,10 +31,10 @@ export default function ImagePicker({ currentProduct }: ImagePickerProps) {
 
   return (
     <div
-      className="relative w-full max-w-[600px] xl:w-[540px] mx-auto mb-6"
+      className="relative w-full max-w-[600px] md:w-[320px] lg:w-[480px] xl:w-[540px] mx-auto mb-6 md:mb-14 xl:mb-20"
       {...swipeHandlers}
     >
-      <div className="relative overflow-hidden rounded-[6px] xl:rounded-[10px] h-[289px] xs:h-[349px] xl:h-[528px]">
+      <div className="relative overflow-hidden rounded-[6px] xl:rounded-[10px] h-[289px] xs:h-[349px] md:h-[300px] lg:h-[420px] xl:h-[528px]">
         <AnimatePresence>
           <motion.img
             key={images[currentIdx].url}

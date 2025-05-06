@@ -11,7 +11,7 @@ export default function IdealFor({ currentProduct }: IdealForProps) {
   const { idealFor } = currentProduct;
 
   return (
-    <div className="pb-20 xl:pb-[70px]">
+    <div className="pb-20 md:pb-14 xl:pb-[70px]">
       <h2 className="mb-6 xl:mb-8 text-[18px] xl:text-[32px] font-medium leading-[120%] uppercase">
         Ідеально підходить для:
       </h2>

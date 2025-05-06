@@ -18,7 +18,7 @@ export default function DeliveryInfo({ currentProduct }: DeliveryInfoProps) {
   return (
     <div
       onClick={toggleShowMore}
-      className="cursor-pointer mb-6 px-4 xl:p-7 py-6 rounded-[6px] xl:rounded-[8px] border border-dark"
+      className="cursor-pointer mb-6 xl:mb-16 px-4 xl:p-7 py-6 rounded-[6px] xl:rounded-[8px] border border-dark"
     >
       <div className="flex items-center">
         <Image
