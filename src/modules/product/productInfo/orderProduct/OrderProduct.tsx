@@ -10,19 +10,28 @@ import { getAverageRating } from '@/shared/utils/getAverageRating';
 import Image from 'next/image';
 import AddonsList from './AddonsList';
 import ColorPicker from './ColorPicker';
+import Counter from './Counter';
 
 interface OrderProductProps {
   currentProduct: Product;
 }
 
 export default function OrderProduct({ currentProduct }: OrderProductProps) {
-  const { title, description, available, addons, colors } = currentProduct;
+  const {
+    title,
+    description,
+    available,
+    addons,
+    colors,
+    price,
+    discountedPrice,
+  } = currentProduct;
   const rating = getAverageRating(reviewsList);
 
   return (
     <div className="mb-20">
       <div className="flex items-center justify-between mb-4">
-        <h1 className="text-[16px] font-semibold leading-[120%] uppercase">
+        <h1 className="text-[16px] xl:text-[32px] font-semibold leading-[120%] uppercase">
           {title}
         </h1>
         <IconButton>
@@ -31,15 +40,16 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
             alt="share icon"
             width={20}
             height={20}
+            className="size-5 xl:size-8"
           />
         </IconButton>
       </div>
-      <p className="mb-6 text-[14px] font-light leading-[120%] text-justify">
+      <p className="mb-6 xl:mb-[25.5px] text-[14px] xl:text-[16px] font-light leading-[120%] text-justify">
         {description}
       </p>
       <div className="flex justify-between items-center">
         <p
-          className={`text-[12px] font-normal leading-[120%] ${
+          className={`text-[12px] xl:text-[16px] font-normal leading-[120%] ${
             available ? 'text-green' : 'text-red-500'
           }`}
         >
@@ -63,6 +73,23 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
       </p>
       {!addons || !addons.length ? null : <AddonsList options={addons} />}
       {!colors || !colors.length ? null : <ColorPicker colors={colors} />}
+      <div className="flex items-center justify-between mb-4 xl:mb-5">
+        <Counter />
+        {discountedPrice && discountedPrice < price ? (
+          <div>
+            <span className="text-[16px] xl:text-[24px] font-semibold leading-[120%] text-orange">
+              {discountedPrice} грн{' '}
+            </span>
+            <span className="text-[12px] xl:text-[16px] font-normal leading-[120%] line-through">
+              {price} грн
+            </span>
+          </div>
+        ) : (
+          <span className="text-[16px] xl:text-[24px] font-semibold leading-[120%]">
+            {price} грн
+          </span>
+        )}
+      </div>
       <div className="flex items-center gap-x-4">
         <MainButton
           className="h-[49px]"

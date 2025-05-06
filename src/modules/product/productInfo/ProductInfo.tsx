@@ -8,7 +8,7 @@ import { Suspense } from 'react';
 import Loader from '@/shared/components/loader/Loader';
 import FullDescription from './FullDescription';
 import DeliveryInfo from './DeliveryInfo';
-import OrderProduct from './OrderProduct';
+import OrderProduct from './orderProduct/OrderProduct';
 
 interface ProductInfoProps {
   currentProduct: Product;
