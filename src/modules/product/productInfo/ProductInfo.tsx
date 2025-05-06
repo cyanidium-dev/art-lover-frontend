@@ -12,7 +12,7 @@ interface ProductInfoProps {
 export default function ProductInfo({ currentProduct }: ProductInfoProps) {
   return (
     <section className="pb-20 xl:pb-30">
-      <Container>
+      <Container className="relative">
         <Suspense fallback={<Loader />}>
           <ProductInfoMob currentProduct={currentProduct} />
           <ProductInfoDesk currentProduct={currentProduct} />

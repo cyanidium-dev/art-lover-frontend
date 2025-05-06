@@ -35,6 +35,36 @@ export default function SimilarProductsImages() {
           height="92"
         />
       </motion.div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeInAnimation({ delay: 1.2, scale: 0.9 })}
+        className="hidden xl:block absolute -z-10 top-[-258px] right-[-87px]"
+      >
+        <Image
+          src="/images/productPage/similarProducts/figureRightDesk.svg"
+          alt="background"
+          width="235"
+          height="232"
+        />
+      </motion.div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeInAnimation({ delay: 1.2, scale: 0.9 })}
+        className="hidden xl:block absolute -z-10 top-[-98px] left-[-30px]"
+      >
+        <Image
+          src="/images/productPage/similarProducts/figureLeftDesk.svg"
+          alt="background"
+          width="222"
+          height="126"
+        />
+      </motion.div>
     </>
   );
 }
