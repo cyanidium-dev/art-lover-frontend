@@ -1,6 +1,8 @@
 'use client';
 import { Product } from '@/types/product';
 import { useState } from 'react';
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import Image from 'next/image';
 
 interface FullDescriptionProps {
@@ -17,7 +19,12 @@ export default function FullDescription({
   const { fullDescription } = currentProduct;
 
   return (
-    <div
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.5 }}
+      variants={fadeInAnimation({ x: 30 })}
       onClick={toggleShowMore}
       className="cursor-pointer mb-6 px-4 xl:p-7 py-6 rounded-[6px] xl:rounded-[8px] border border-dark"
     >
@@ -53,6 +60,6 @@ export default function FullDescription({
           {fullDescription}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }

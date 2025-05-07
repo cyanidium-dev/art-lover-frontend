@@ -1,3 +1,5 @@
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import Container from '@/shared/components/container/Container';
 import Link from 'next/link';
 
@@ -17,7 +19,12 @@ export default function Breadcrumbs({
 }: BreadcrumbsProps) {
   return (
     <Container className={className}>
-      <nav
+      <motion.nav
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={fadeInAnimation({ x: -30 })}
         aria-label="breadcrumbs"
         className={`flex items-center pb-7 xl:pb-17 xl:pt-3`}
       >
@@ -47,7 +54,7 @@ export default function Breadcrumbs({
             </li>
           ))}
         </ul>
-      </nav>
+      </motion.nav>
     </Container>
   );
 }

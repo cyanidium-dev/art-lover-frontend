@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import { Product } from '@/types/product';
 
 interface BenefitsProps {
@@ -12,7 +14,14 @@ export default function Benefits({ currentProduct }: BenefitsProps) {
   const { benefits } = currentProduct;
 
   return (
-    <ul className="mb-20 xl:mb-0 rounded-[8px] border border-dark">
+    <motion.ul
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.5 }}
+      variants={fadeInAnimation({ y: 30, delay: 1 })}
+      className="mb-20 xl:mb-0 rounded-[8px] border border-dark"
+    >
       {benefits.map((benefit, idx) => (
         <li
           key={idx}
@@ -30,6 +39,6 @@ export default function Benefits({ currentProduct }: BenefitsProps) {
           </p>
         </li>
       ))}
-    </ul>
+    </motion.ul>
   );
 }

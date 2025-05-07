@@ -1,4 +1,6 @@
 'use client';
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import { Rating } from 'react-simple-star-rating';
 import IconButton from '@/shared/components/buttons/IconButton';
 import MainButton from '@/shared/components/buttons/MainButton';
@@ -30,7 +32,14 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
 
   return (
     <div className="mb-20 md:mb-8">
-      <div className="flex items-center justify-between mb-4">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={fadeInAnimation({ y: 30, delay: 0.2 })}
+        className="flex items-center justify-between mb-4"
+      >
         <h1 className="text-[16px] xl:text-[32px] font-semibold leading-[120%] uppercase">
           {title}
         </h1>
@@ -43,11 +52,25 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
             className="size-5 xl:size-8"
           />
         </IconButton>
-      </div>
-      <p className="mb-6 xl:mb-[25.5px] text-[14px] xl:text-[16px] font-light leading-[120%] text-justify">
+      </motion.div>
+      <motion.p
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={fadeInAnimation({ y: 30, delay: 0.4 })}
+        className="mb-6 xl:mb-[25.5px] text-[14px] xl:text-[16px] font-light leading-[120%] text-justify"
+      >
         {description}
-      </p>
-      <div className="flex justify-between items-center">
+      </motion.p>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={fadeInAnimation({ y: 30, delay: 0.6 })}
+        className="flex justify-between items-center"
+      >
         <p
           className={`text-[12px] xl:text-[16px] font-normal leading-[120%] ${
             available ? 'text-green' : 'text-red-500'
@@ -67,13 +90,27 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
             <StarFilledIcon className="inline-block mx-0.5 size-4 xl:size-5" />
           }
         />
-      </div>
-      <p className="mb-6 xl:mb-[26.5px] text-right text-[10px] xl:text-[14px] font-light leading-[120%]">
+      </motion.div>
+      <motion.p
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={fadeInAnimation({ y: 30, delay: 0.6 })}
+        className="mb-6 xl:mb-[26.5px] text-right text-[10px] xl:text-[14px] font-light leading-[120%]"
+      >
         ({reviewsList?.length} відгуків)
-      </p>
+      </motion.p>
       {!addons || !addons.length ? null : <AddonsList options={addons} />}
       {!colors || !colors.length ? null : <ColorPicker colors={colors} />}
-      <div className="flex items-center justify-between mb-4 xl:mb-5">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={fadeInAnimation({ y: 30, delay: 1.2 })}
+        className="flex items-center justify-between mb-4 xl:mb-5"
+      >
         <Counter />
         {discountedPrice && discountedPrice < price ? (
           <div>
@@ -89,8 +126,15 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
             {price} грн
           </span>
         )}
-      </div>
-      <div className="flex items-center gap-x-4">
+      </motion.div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={fadeInAnimation({ y: 30, delay: 1.4 })}
+        className="flex items-center gap-x-4"
+      >
         <MainButton
           className="h-[49px] xl:h-[58px]"
           textStyles="text-[14px] xl:text-[16px]"
@@ -110,7 +154,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
             className="size-6 xl:size-[34px]"
           />
         </button>
-      </div>
+      </motion.div>
     </div>
   );
 }
