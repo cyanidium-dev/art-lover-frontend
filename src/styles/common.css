@@ -49,6 +49,13 @@
   }
 }
 
+.swiper.product-reviews {
+  padding: 44px 0px 0px 0px !important;
+  @media screen and (min-width: 1280px) {
+    padding: 70px 0px 0px 0px !important;
+  }
+}
+
 .bestsellers .swiper-slide,
 .newProducts .swiper-slide {
   width: 175px !important;
@@ -108,6 +115,22 @@
   }
 }
 
+.product-reviews .swiper-button-next,
+.product-reviews .swiper-button-prev {
+  width: 20px !important;
+  height: 20px !important;
+  padding: 0px;
+  border-radius: 0px;
+  background-color: transparent;
+  top: 20px !important;
+
+  @media screen and (min-width: 1280px) {
+    width: 32px !important;
+    height: 32px !important;
+    top: 26px !important;
+  }
+}
+
 .swiper-button-next:hover,
 .swiper-button-prev:hover,
 .swiper-button-next:focus-visible,
@@ -138,12 +161,25 @@
   }
 }
 
+.product-reviews .swiper-button-prev {
+  left: auto !important;
+  right: 52px !important;
+  @media screen and (min-width: 1280px) {
+    right: 64px !important;
+  }
+}
+
 .swiper-button-next {
   right: calc(50% - 98px) !important;
 
   @media screen and (min-width: 1280px) {
     right: calc(50% - 152px) !important;
   }
+}
+
+.product-reviews .swiper-button-next {
+  left: auto !important;
+  right: 0px !important;
 }
 
 .swiper-button-prev::after {
@@ -162,6 +198,32 @@
   height: 100%;
   background: url('/images/icons/arrowInCircleRight.svg') center no-repeat;
   background-size: contain;
+}
+
+.product-reviews .swiper-button-prev::after {
+  content: '' !important;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: url('/images/productPage/reviews/arrowLeft.svg') center no-repeat !important;
+  background-size: contain;
+  @media screen and (min-width: 1280px) {
+    background: url('/images/productPage/reviews/arrowLeftDesk.svg') center
+      no-repeat !important;
+  }
+}
+
+.product-reviews .swiper-button-next::after {
+  content: '' !important;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: url('/images/productPage/reviews/arrowRight.svg') center no-repeat !important;
+  background-size: contain;
+  @media screen and (min-width: 1280px) {
+    background: url('/images/productPage/reviews/arrowRightDesk.svg') center
+      no-repeat !important;
+  }
 }
 
 .swiper-pagination-custom {

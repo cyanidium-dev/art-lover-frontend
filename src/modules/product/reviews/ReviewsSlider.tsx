@@ -16,7 +16,7 @@ function chunkArray<T>(arr: T[], size: number): T[][] {
 }
 
 export default function ReviewsSlider() {
-  const chunkedReviews = chunkArray(reviewsList, 3); // по 3 у слайді
+  const chunkedReviews = chunkArray(reviewsList, 3);
 
   return (
     <motion.div
@@ -25,11 +25,23 @@ export default function ReviewsSlider() {
       exit="exit"
       viewport={{ once: true, amount: 0.2 }}
       variants={fadeInAnimation({ y: 30, delay: 0.4 })}
-      className="md:max-w-[774px] lg:max-w-[1030px] xl:max-w-[1286px] md:px-8 xl:px-[90px] md:mx-auto"
+      className="relative"
     >
+      <div className="absolute top-0 left-0 flex items-center gap-x-6 w-[calc(100%-72px-24px)] xl:w-[calc(100%-96px-24px)]">
+        <div className="flex items-center gap-x-3">
+          <h2 className="text-[16px] xl:text-[32px] font-medium leading-[120%] uppercase">
+            відгуки
+          </h2>
+          <p className="mt-[1px] text-[10px] xl:text-[16px] font-normal leading-none">
+            ({reviewsList.length})
+          </p>
+        </div>
+        <div className="w-[calc(100%-105px-24px)] h-[0.5px] opacity-50 bg-dark"></div>
+      </div>
       <SwiperWrapper
         swiperClassName="product-reviews"
         loop
+        isPagination={false}
         breakpoints={{
           0: {
             slidesPerView: 1,
