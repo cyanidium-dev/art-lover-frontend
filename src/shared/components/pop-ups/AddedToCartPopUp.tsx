@@ -21,7 +21,7 @@ export default function AddedToCartPopUp({
         isPopUpShown
           ? ' -translate-y-[calc(50dvh-50%)] opacity-100 scale-100'
           : 'pointer-events-none opacity-0 scale-90'
-      } fixed left-1/2 bottom-0 transform -translate-x-1/2 transition duration-[600ms] ease-out z-[60] w-[275px] xl:w-[562px] max-h-[calc(100dvh-90px)] 
+      } fixed left-1/2 bottom-0 transform -translate-x-1/2 transition duration-[600ms] ease-out z-[70] w-[275px] xl:w-[562px] max-h-[calc(100dvh-90px)] 
       xl:max-h-[calc(100dvh-188px)] p-5 xl:px-[75px] xl:py-[43px] overflow-y-auto bg-white rounded-[6px] xl:rounded-[8px] scrollbar scrollbar-w-[3px] scrollbar-thumb-rounded-full 
       scrollbar-track-rounded-full scrollbar-thumb-transparent scrollbar-track-main popup-scroll ${className}`}
     >
@@ -30,14 +30,14 @@ export default function AddedToCartPopUp({
         alt="background"
         width="137"
         height="65"
-        className="absolute top-0 left-0"
+        className="hidden xl:block absolute top-0 left-0"
       />
       <Image
         src="/images/popUps/addedToCart/figureRightDesk.svg"
         alt="background"
         width="57"
         height="57"
-        className="absolute bottom-0 right-0"
+        className="hidden xl:block absolute bottom-0 right-0"
       />
       <h3 className="mb-1.5 text-[20px] xl:text-[28px] font-medium leading-[120%] text-center text-orange">
         Товар додано до кошика!

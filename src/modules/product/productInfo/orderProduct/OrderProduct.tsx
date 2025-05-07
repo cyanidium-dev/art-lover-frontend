@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import { Rating } from 'react-simple-star-rating';
@@ -13,12 +14,16 @@ import Image from 'next/image';
 import AddonsList from './AddonsList';
 import ColorPicker from './ColorPicker';
 import Counter from './Counter';
+import AddedToCartPopUp from '@/shared/components/pop-ups/AddedToCartPopUp';
+import Backdrop from '@/shared/components/backdrop/Backdrop';
 
 interface OrderProductProps {
   currentProduct: Product;
 }
 
 export default function OrderProduct({ currentProduct }: OrderProductProps) {
+  const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
+
   const {
     title,
     description,
@@ -30,6 +35,9 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
   } = currentProduct;
   const rating = getAverageRating(reviewsList);
 
+  const handleAddToCartClick = () => {
+    setIsAddedToCartPopUpShown(true);
+  };
   return (
     <div className="mb-20 md:mb-8">
       <motion.div
@@ -136,6 +144,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
         className="flex items-center gap-x-4"
       >
         <MainButton
+          onClick={handleAddToCartClick}
           className="h-[49px] xl:h-[58px]"
           textStyles="text-[14px] xl:text-[16px]"
         >
@@ -155,6 +164,14 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
           />
         </button>
       </motion.div>
+      <AddedToCartPopUp
+        isPopUpShown={isAddedToCartPopUpShown}
+        setIsPopUpShown={setIsAddedToCartPopUpShown}
+      />
+      <Backdrop
+        isVisible={isAddedToCartPopUpShown}
+        onClick={() => setIsAddedToCartPopUpShown(false)}
+      />
     </div>
   );
 }

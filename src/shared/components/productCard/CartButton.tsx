@@ -1,18 +1,17 @@
-'use client';
-import { useState } from 'react';
-import Backdrop from '../backdrop/Backdrop';
+import { Dispatch, SetStateAction } from 'react';
 import CartIcon from '../icons/CartIcon';
-import AddedToCartPopUp from '../pop-ups/AddedToCartPopUp';
 
 interface CartButtonProps {
+  setIsAddedToCartPopUpShown: Dispatch<SetStateAction<boolean>>;
   className?: string;
 }
 
-export default function CartButton({ className }: CartButtonProps) {
-  const [isPopUpShown, setIsPopUpShown] = useState(false);
-
+export default function CartButton({
+  setIsAddedToCartPopUpShown,
+  className,
+}: CartButtonProps) {
   const handleClick = () => {
-    setIsPopUpShown(true);
+    setIsAddedToCartPopUpShown(true);
   };
 
   return (
@@ -25,14 +24,6 @@ export default function CartButton({ className }: CartButtonProps) {
       >
         <CartIcon />
       </button>
-      <AddedToCartPopUp
-        isPopUpShown={isPopUpShown}
-        setIsPopUpShown={setIsPopUpShown}
-      />
-      <Backdrop
-        isVisible={isPopUpShown}
-        onClick={() => setIsPopUpShown(false)}
-      />
     </>
   );
 }
