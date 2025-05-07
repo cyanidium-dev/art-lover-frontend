@@ -36,7 +36,9 @@ export default function ReviewsSlider() {
             ({reviewsList.length})
           </p>
         </div>
-        <div className="w-[calc(100%-105px-24px)] h-[0.5px] opacity-50 bg-dark"></div>
+        {reviewsList && reviewsList.length ? (
+          <div className="w-[calc(100%-105px-24px)] h-[0.5px] opacity-50 bg-dark"></div>
+        ) : null}
       </div>
       <SwiperWrapper
         swiperClassName="product-reviews"
