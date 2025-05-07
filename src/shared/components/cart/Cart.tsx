@@ -22,7 +22,7 @@ export default function CartModal({
   setIsPopUpShown,
 }: CartModalProps) {
   const cartItems = productsList
-    .slice(0, 3)
+    .slice(0, 4)
     .map(item => ({ ...item, quantity: 1 }));
 
   return (
@@ -75,7 +75,7 @@ export default function CartModal({
                 </button>
               </motion.div>
               <CartList cartItems={cartItems} />
-              <FreeDelivery />
+              <FreeDelivery cartItems={cartItems} />
             </div>
           </div>
           <CartTotal cartItems={cartItems} setIsPopUpShown={setIsPopUpShown} />

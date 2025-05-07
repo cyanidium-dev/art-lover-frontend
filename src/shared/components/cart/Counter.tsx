@@ -32,7 +32,7 @@ export default function Counter({ className = '' }: CounterProps) {
       >
         <MinusIcon />
       </button>
-      <div className="flex items-center justify-center w-[29px xl:w-[38px] h-[23px] xl:h-7 border border-white rounded-[4px] text-[12px] xl:text-[]14px font-semibold leading-[120%]">
+      <div className="flex items-center justify-center w-[29px] xl:w-[38px] h-[23px] xl:h-7 border border-white rounded-[4px] text-[12px] xl:text-[]14px font-semibold leading-[120%]">
         {count}
       </div>
       <button

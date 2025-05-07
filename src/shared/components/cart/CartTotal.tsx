@@ -3,6 +3,7 @@ import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import Link from 'next/link';
 import MainButton from '../buttons/MainButton';
 import { motion } from 'framer-motion';
+import { getTotalSum } from '@/shared/utils/getTotalSum';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import { CartItem } from '@/types/cartItem';
 
@@ -17,17 +18,7 @@ export default function CartTotal({
 }: CartTotalProps) {
   const [total, setTotal] = useState(0);
 
-  const sum = Math.round(
-    cartItems.reduce(
-      (acc, cartItem) =>
-        acc +
-        (cartItem?.discountedPrice &&
-        cartItem?.discountedPrice < cartItem?.price
-          ? cartItem.quantity * cartItem?.discountedPrice
-          : cartItem.quantity * cartItem?.price),
-      0
-    )
-  );
+  const sum = getTotalSum(cartItems);
 
   useEffect(() => {
     setTotal(sum);
@@ -39,7 +30,7 @@ export default function CartTotal({
       whileInView="visible"
       exit="exit"
       viewport={{ once: true, amount: 0.5 }}
-      variants={fadeInAnimation({ y: 30, delay: 1.2 })}
+      variants={fadeInAnimation({ y: 30, delay: 1.5 })}
       className="fixed bottom-0 right-0 w-full max-w-[515px] px-8 xl:px-9 py-4 xl:py-[26px] bg-white rounded-tr-[16px] rounded-tl-[16px]"
     >
       <div className="flex flex-row items-center justify-between mb-2 xl:mb-3">
