@@ -24,7 +24,6 @@ export default function DiscountedProductsSLider() {
 
   return (
     <>
-      {' '}
       <motion.div
         initial="hidden"
         whileInView="visible"
