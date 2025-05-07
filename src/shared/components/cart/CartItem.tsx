@@ -8,11 +8,11 @@ interface CartItemProps {
 }
 
 export default function CartListItem({ cartItem }: CartItemProps) {
-  const { title, price, images } = cartItem;
+  const { title, price, discountedPrice, images } = cartItem;
 
   return (
     <>
-      <div className="relative aspect-[73/91] lg:aspect-[90/106] w-[73px] lg:w-[90px] overflow-hidden rounded-[6px]">
+      <div className="relative shrink-0 aspect-[90/101] w-[90px] overflow-hidden rounded-[6px]">
         <Image
           src={images[0]?.url || ''}
           alt={images[0]?.alt || 'product photo'}
@@ -21,22 +21,22 @@ export default function CartListItem({ cartItem }: CartItemProps) {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="ml-[14px] w-[54.3%]">
-        <p className="mb-2 lg:mb-3 text-12med lg:text-14med leading-[123%] line-clamp-1">
+      <div>
+        <p className="mb-[17px] xl:mb-3 text-[12px] xl:text-[14px] font-medium leading-[120%] line-clamp-2 xl:line-clamp-1 text-white">
           {title}
         </p>
-        <p className="mb-[17px] text-14semi lg:text-16semi leading-[123%]">
-          {price}&nbsp;грн
+        <p className="mb-[17px] text-[16px] font-semibold leading-[120%] text-white">
+          {discountedPrice && discountedPrice < price ? discountedPrice : price}
+          &nbsp;грн
         </p>
-        <Counter className="w-[124px] px-4" />
+        <Counter className="w-[98px]" />
       </div>
-      <IconButton className="size-[18px] lg:size-6 ml-auto">
+      <IconButton className="size-5 xl:size-6 ml-auto shrink-0">
         <Image
           src="/images/icons/trash.svg"
           alt="trash icon"
-          width="18"
-          height="18"
-          className="size-[18px] lg:size-6"
+          width="24"
+          height="24"
         />
       </IconButton>
     </>

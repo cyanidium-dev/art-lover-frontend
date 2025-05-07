@@ -23,20 +23,20 @@ export default function Counter({ className = '' }: CounterProps) {
   };
 
   return (
-    <div
-      className={`flex items-center justify-between py-[7px] lg:py-[9px] border-[1.5px] border-black rounded-full ${className}`}
-    >
+    <div className={`flex items-center gap-x-[14px] text-white ${className}`}>
       <button
-        className="group flex items-center justify-center size-5"
+        className="group flex items-center justify-center size-3 text-white"
         onClick={onMinusClick}
-        disabled={count === 0}
+        disabled={count === 1}
         aria-label="minus"
       >
         <MinusIcon />
       </button>
-      <span className="">{count}</span>
+      <div className="flex items-center justify-center w-[29px xl:w-[38px] h-[23px] xl:h-7 border border-white rounded-[4px] text-[12px] xl:text-[]14px font-semibold leading-[120%]">
+        {count}
+      </div>
       <button
-        className="flex items-center justify-center size-5"
+        className="flex items-center justify-center size-3 xl:size-4"
         onClick={onPlusClick}
         aria-label="plus"
       >

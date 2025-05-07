@@ -17,9 +17,21 @@ export default function CartTotal({
 }: CartTotalProps) {
   const [total, setTotal] = useState(0);
 
+  const sum = Math.round(
+    cartItems.reduce(
+      (acc, cartItem) =>
+        acc +
+        (cartItem?.discountedPrice &&
+        cartItem?.discountedPrice < cartItem?.price
+          ? cartItem.quantity * cartItem?.discountedPrice
+          : cartItem.quantity * cartItem?.price),
+      0
+    )
+  );
+
   useEffect(() => {
-    setTotal(0);
-  }, []);
+    setTotal(sum);
+  }, [sum]);
 
   return (
     <motion.div
@@ -28,16 +40,30 @@ export default function CartTotal({
       exit="exit"
       viewport={{ once: true, amount: 0.5 }}
       variants={fadeInAnimation({ y: 30, delay: 1.2 })}
-      className="fixed bottom-0 right-0 w-full max-w-[515px] px-[30px] lg:px-9 py-9 bg-black rounded-tr-[16px] rounded-tl-[16px]"
+      className="fixed bottom-0 right-0 w-full max-w-[515px] px-8 xl:px-9 py-4 xl:py-[26px] bg-white rounded-tr-[16px] rounded-tl-[16px]"
     >
-      <div className="flex flex-row items-center justify-between mb-8 lg:mb-7 text-white">
-        <p>Загальна вартість</p>
-        <p className="text-20med lg:text-24med leading-[123%]">
+      <div className="flex flex-row items-center justify-between mb-2 xl:mb-3">
+        <p className="text-[12px] xl:text-[16px] font-normal leading-[120%]">
+          Кількість товарів у кошику
+        </p>
+        <p className="text-[12px] xl:text-[20px] font-normal xl:font-medium leading-[120%]">
+          {cartItems?.length}
+        </p>
+      </div>
+      <div className="flex flex-row items-center justify-between mb-3 xl:mb-6">
+        <p className="text-[12px] xl:text-[16px] font-medium xl:font-normal leading-[120%]">
+          Загальна вартість
+        </p>
+        <p className="text-[12px] xl:text-[24px] font-medium leading-[120%]">
           {total}&nbsp;грн
         </p>
       </div>
       <Link href="/checkout" onClick={() => setIsPopUpShown(false)}>
-        <MainButton disabled={!cartItems?.length} className="w-full">
+        <MainButton
+          disabled={!cartItems?.length}
+          className="w-full h-9 xl:h-12"
+          textStyles="text-[12px] xl:text-[14px] font-medium"
+        >
           Оформити замовлення
         </MainButton>
       </Link>
