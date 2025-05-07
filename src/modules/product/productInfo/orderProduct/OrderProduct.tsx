@@ -15,6 +15,7 @@ import AddonsList from './AddonsList';
 import ColorPicker from './ColorPicker';
 import Counter from './Counter';
 import AddedToCartPopUp from '@/shared/components/pop-ups/AddedToCartPopUp';
+import CartModal from '@/shared/components/cart/Cart';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
 
 interface OrderProductProps {
@@ -23,6 +24,7 @@ interface OrderProductProps {
 
 export default function OrderProduct({ currentProduct }: OrderProductProps) {
   const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
+  const [isCartModalShown, setIsCartModalShown] = useState(false);
 
   const {
     title,
@@ -167,10 +169,18 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
       <AddedToCartPopUp
         isPopUpShown={isAddedToCartPopUpShown}
         setIsPopUpShown={setIsAddedToCartPopUpShown}
+        setIsCartModalShown={setIsCartModalShown}
+      />
+      <CartModal
+        isPopUpShown={isCartModalShown}
+        setIsPopUpShown={setIsCartModalShown}
       />
       <Backdrop
-        isVisible={isAddedToCartPopUpShown}
-        onClick={() => setIsAddedToCartPopUpShown(false)}
+        isVisible={isAddedToCartPopUpShown || isCartModalShown}
+        onClick={() => {
+          setIsAddedToCartPopUpShown(false);
+          setIsCartModalShown(false);
+        }}
       />
     </div>
   );

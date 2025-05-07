@@ -8,9 +8,11 @@ import SwiperWrapper from '@/shared/components/swiper/SwiperWrapper';
 import ProductCard from '@/shared/components/productCard/ProductCard';
 import AddedToCartPopUp from '@/shared/components/pop-ups/AddedToCartPopUp';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
+import CartModal from '@/shared/components/cart/Cart';
 
 export default function BestsellersSlider() {
   const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
+  const [isCartModalShown, setIsCartModalShown] = useState(false);
 
   if (!productsList || !productsList.length) return null;
 
@@ -57,10 +59,18 @@ export default function BestsellersSlider() {
       <AddedToCartPopUp
         isPopUpShown={isAddedToCartPopUpShown}
         setIsPopUpShown={setIsAddedToCartPopUpShown}
+        setIsCartModalShown={setIsCartModalShown}
+      />
+      <CartModal
+        isPopUpShown={isCartModalShown}
+        setIsPopUpShown={setIsCartModalShown}
       />
       <Backdrop
-        isVisible={isAddedToCartPopUpShown}
-        onClick={() => setIsAddedToCartPopUpShown(false)}
+        isVisible={isAddedToCartPopUpShown || isCartModalShown}
+        onClick={() => {
+          setIsAddedToCartPopUpShown(false);
+          setIsCartModalShown(false);
+        }}
       />
     </>
   );

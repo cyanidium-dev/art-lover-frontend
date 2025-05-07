@@ -3,12 +3,14 @@ import { useState } from 'react';
 
 import ProductCard from '../../../shared/components/productCard/ProductCard';
 import AddedToCartPopUp from '@/shared/components/pop-ups/AddedToCartPopUp';
+import CartModal from '@/shared/components/cart/Cart';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
 
 import { productsList } from './items';
 
 const CatalogProducts = () => {
   const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
+  const [isCartModalShown, setIsCartModalShown] = useState(false);
 
   const elements = productsList.map((item, idx) => (
     <ProductCard
@@ -26,10 +28,18 @@ const CatalogProducts = () => {
       <AddedToCartPopUp
         isPopUpShown={isAddedToCartPopUpShown}
         setIsPopUpShown={setIsAddedToCartPopUpShown}
+        setIsCartModalShown={setIsCartModalShown}
+      />
+      <CartModal
+        isPopUpShown={isCartModalShown}
+        setIsPopUpShown={setIsCartModalShown}
       />
       <Backdrop
-        isVisible={isAddedToCartPopUpShown}
-        onClick={() => setIsAddedToCartPopUpShown(false)}
+        isVisible={isAddedToCartPopUpShown || isCartModalShown}
+        onClick={() => {
+          setIsAddedToCartPopUpShown(false);
+          setIsCartModalShown(false);
+        }}
       />
     </>
   );
