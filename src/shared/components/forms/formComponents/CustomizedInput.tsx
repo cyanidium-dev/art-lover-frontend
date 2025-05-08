@@ -60,7 +60,7 @@ export default function CustomizedInput({
         onChange={onChange || handleChange}
         onFocus={onFocus}
         className={`${fieldStyles} ${
-          as === 'textarea' ? 'h-[99px] md:h-[150px]' : ''
+          as === 'textarea' ? 'h-[99px] md:h-[150px] py-3' : ''
         } ${fieldClassName} ${fieldFontSize} ${
           isError && isTouched ? 'border-red-500 ' : 'border-dark'
         }`}

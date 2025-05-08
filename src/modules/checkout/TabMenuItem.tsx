@@ -17,7 +17,7 @@ export default function TabMenuItem({
         className={`cursor-pointer flex items-center justify-center w-full h-[35px] xl:h-[75px] px-5 py-[2.5] border rounded-[8px] xl:rounded-[12px]
             text-[12px] xl:text-[18px] font-medium leading-none uppercase xl:hover:bg-orange-light
              xl:hover:border-orange-light xl:hover:text-white focus-visible:bg-orange-light focus-visible:order-orange-light 
-             focus-visible:hover:text-white active:scale-95 transition duration-300 ease-in-out ${
+             focus-visible:hover:text-white active:scale-[99%] transition duration-300 ease-in-out ${
                value === activeTab
                  ? 'bg-orange border-orange text-white'
                  : 'bg-white border-gray-light text-dark'

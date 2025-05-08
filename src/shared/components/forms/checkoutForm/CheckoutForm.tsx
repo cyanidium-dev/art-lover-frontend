@@ -63,7 +63,7 @@ export default function CheckoutForm({
     >
       {({ errors, touched, dirty, isValid }) => (
         <Form className={`flex flex-col w-full gap-y-6 ${className}`}>
-          <div className="py-5 px-4 rounded-[6px] border border-dark">
+          <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
             <CheckoutSubTitle
               icon="emoji"
               title="Крок 1"
@@ -101,7 +101,7 @@ export default function CheckoutForm({
             </div>
           </div>
 
-          <div className="py-5 px-4 rounded-[6px] border border-dark">
+          <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
             <CheckoutSubTitle
               icon="globe"
               title="Крок 2"
@@ -109,7 +109,7 @@ export default function CheckoutForm({
             />
           </div>
 
-          <div className="py-5 px-4 rounded-[6px] border border-dark">
+          <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
             <CheckoutSubTitle
               icon="card"
               title="Крок 3"
@@ -117,7 +117,7 @@ export default function CheckoutForm({
             />
           </div>
 
-          <div className="py-5 px-4 rounded-[6px] border border-dark">
+          <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
             <CheckoutSubTitle
               icon="users"
               title="Крок 4"
@@ -125,31 +125,44 @@ export default function CheckoutForm({
             />
           </div>
 
-          <div className="py-5 px-4 rounded-[6px] border border-dark">
+          <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
             <CheckoutSubTitle
               icon="users"
               title="Крок 5"
               description="Додати коментар"
             />
+            <CustomizedInput
+              fieldName="message"
+              as="textarea"
+              placeholder="Додайте коментар, якщо потрібно"
+              errors={errors}
+              touched={touched}
+            />
           </div>
 
-          <div className="py-5 px-4 rounded-[6px] border border-dark">
+          <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
             <CheckoutSubTitle icon="shopping" title="Ваше замовлення" />
             <CheckoutSubTitle icon="gift" title="Додати пакування?" />
           </div>
 
-          <div className="py-5 px-4 rounded-[6px] border border-dark">
+          <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
             <CheckoutSubTitle icon="heart" title="Промокод" />
+            <CustomizedInput
+              fieldName="promocode"
+              placeholder="Введіть свій промокод"
+              errors={errors}
+              touched={touched}
+            />
           </div>
 
-          <div className="py-5 px-4 rounded-[6px] border border-dark">
+          <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
             <CheckoutSubTitle
               icon="money"
               title="Залишити чайові нашим пакувальникам"
             />
           </div>
 
-          <div className="flex flex-col gap-y-3 py-5 px-4 rounded-[6px] border border-dark">
+          <div className="flex flex-col gap-y-3 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
             <SubmitButton
               dirty={dirty}
               isValid={isValid}
