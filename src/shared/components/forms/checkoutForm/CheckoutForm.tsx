@@ -2,6 +2,7 @@
 import { Form, Formik, FormikHelpers } from 'formik';
 import { Dispatch, SetStateAction, useState } from 'react';
 import MaskedInput from 'react-text-mask';
+import Image from 'next/image';
 
 import { callBackValidation } from '@/shared/schemas/callbackFormValidation';
 import { handleSubmitForm } from '@/shared/utils/handleSubmitForm';
@@ -133,16 +134,31 @@ export default function CheckoutForm({
             </div>
 
             <div className="flex flex-col gap-y-3 xl:gap-y-6 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
-              <CheckoutSubTitle
-                icon="card"
-                title="Крок 3"
-                description="Спосіб оплати"
-              />
-              <RadioButtonInput
-                fieldName="payment"
-                label="Картою на сайті"
-                value="Картою на сайті"
-              />
+              <div>
+                {' '}
+                <CheckoutSubTitle
+                  icon="card"
+                  title="Крок 3"
+                  description="Спосіб оплати"
+                />
+                <RadioButtonInput
+                  fieldName="payment"
+                  label="Картою на сайті"
+                  value="Картою на сайті"
+                />
+              </div>
+              <div className="flex items-center justify-between px-3 xl:px-5 py-2.5 xl:py-[13px] rounded-[6px] border border-gray-light">
+                <p className="text-[12px] xl:text-[14px] font-normal leading-[120%]">
+                  Сплатити за допомогою
+                </p>
+                <Image
+                  src="/images/checkoutPage/monoPay.svg"
+                  alt="mono pay"
+                  width="64"
+                  height="19"
+                  className="w-16 xl:w-[76px] h-auto"
+                />
+              </div>
               <RadioButtonInput
                 fieldName="payment"
                 label="Сплатити при отриманні"
