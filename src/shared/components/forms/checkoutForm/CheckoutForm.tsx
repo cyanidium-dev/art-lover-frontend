@@ -200,18 +200,18 @@ export default function CheckoutForm({
               <CartItemsList />
               <CheckoutSubTitle icon="gift" title="Додати пакування?" />
               <AdditionalOptions />
-              <label className="relative">
+              <label className="relative block mt-5 xl:mt-6">
                 <Field
                   name="postcard"
                   placeholder="Бажаєте підписати листівку?"
-                  className="w-full h-10 xl:h-11 mt-5 pl-12 xl:pl-15 placeholder:xl:pl-[42px] pr-3 xl:pr-6 py-[9px] xl:py-[12.5px] text-[11px] xl:text-[14px] font-medium leading-none placeholder-orange rounded-full border border-orange outline-none"
+                  className="w-full h-10 xl:h-11 pl-12 xl:pl-15 placeholder:xl:pl-[42px] pr-3 xl:pr-6 py-[9px] xl:py-[12.5px] text-[11px] xl:text-[14px] font-medium leading-none text-orange placeholder-orange rounded-full border border-orange outline-none"
                 />
                 <Image
                   src="/images/checkoutPage/envelope.svg"
                   alt="envelope"
                   width="20"
                   height="20"
-                  className="absolute top-[2.5px] xl:top-[1.5px] left-3 xl:left-6"
+                  className="absolute top-[11px] xl:top-[13px] left-3 xl:left-6"
                 />
               </label>
             </div>
