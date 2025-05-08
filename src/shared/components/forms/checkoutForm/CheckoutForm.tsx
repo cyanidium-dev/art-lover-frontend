@@ -10,12 +10,16 @@ import { phoneMask } from '@/shared/regex/regex';
 import CustomizedInput from '../formComponents/CustomizedInput';
 import SubmitButton from '../formComponents/SubmitButton';
 import CheckoutSubTitle from './CheckoutSubTitle';
+import TipsInputBlock from './TipsInputBlock';
 
 export interface ValuesCheckoutFormType {
   name: string;
   surname: string;
   email: string;
+  phone: string;
   message: string;
+  promocode: string;
+  tips: string;
 }
 
 interface CheckoutFormProps {
@@ -37,7 +41,10 @@ export default function CheckoutForm({
     name: '',
     surname: '',
     email: '',
+    phone: '',
     message: '',
+    promocode: '',
+    tips: '',
   };
 
   const validationSchema = callBackValidation();
@@ -160,6 +167,7 @@ export default function CheckoutForm({
               icon="money"
               title="Залишити чайові нашим пакувальникам"
             />
+            <TipsInputBlock errors={errors} touched={touched} />
           </div>
 
           <div className="flex flex-col gap-y-3 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
