@@ -6,7 +6,7 @@ interface CustomizedInputProps {
   label: string | ReactNode;
   value: string;
   fieldClassName?: string;
-  onClick?: ()=> void
+  onClick?: () => void;
 }
 
 const labelStyles =
@@ -19,7 +19,7 @@ export default function RadioButtonInput({
   label = '',
   value = '',
   fieldClassName = '',
-  onClick
+  onClick,
 }: CustomizedInputProps) {
   return (
     <label className={labelStyles}>
@@ -29,7 +29,7 @@ export default function RadioButtonInput({
         onClick={onClick}
         value={value}
         autoComplete="on"
-        className={`${fieldStyles} ${fieldClassName} border border-dark checked:bg-orange checked:border-orange transition duration-300 ease-in-out`}
+        className={`${fieldStyles} ${fieldClassName} shrink-0 border border-dark checked:bg-orange checked:border-orange transition duration-300 ease-in-out`}
       ></Field>
       <p>{label}</p>
     </label>

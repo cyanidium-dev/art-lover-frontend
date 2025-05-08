@@ -88,7 +88,7 @@ export default function DeliveryBlock() {
               key={city}
               type="button"
               onClick={() => setFieldValue('city', city)}
-              className="text-[12px] xl:text-[16px] font-medium leading-[120%] text-black transition"
+              className="cursor-pointer text-[12px] xl:text-[16px] font-medium leading-[120%] text-black transition"
             >
               {city}
             </button>

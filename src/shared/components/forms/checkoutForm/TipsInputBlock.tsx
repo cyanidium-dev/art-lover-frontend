@@ -63,7 +63,6 @@ export default function TipsInputBlock({
 
       <CustomizedInput
         fieldName="tips"
-        inputType="number"
         placeholder="Вписати суму"
         errors={errors}
         touched={touched}
