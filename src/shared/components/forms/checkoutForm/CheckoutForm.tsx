@@ -19,12 +19,18 @@ import RadioButtonInput from '../formComponents/RadioButtonInput';
 import RecipientBlock from './RecipientBlock';
 import CartItemsList from './CartItemsList';
 import AdditionalOptions from './AdditionalOptions';
+import DeliveryBlock from './DeliveryBlock';
 
 export interface ValuesCheckoutFormType {
   name: string;
   surname: string;
   email: string;
   phone: string;
+  deliveryService: string;
+  deliveryType: string;
+  city: string;
+  branchNumber: string;
+  address: string;
   payment: string;
   recipientOption: string;
   recipientName: string;
@@ -67,6 +73,11 @@ export default function CheckoutForm({
     surname: '',
     email: '',
     phone: '',
+    deliveryService: '',
+    deliveryType: 'Відділення',
+    city: '',
+    branchNumber: '',
+    address: '',
     payment: 'Сплатити при отриманні',
     recipientOption: 'Я одержувач',
     recipientName: '',
@@ -148,6 +159,7 @@ export default function CheckoutForm({
                 title="Крок 2"
                 description="Оплата та доставка"
               />
+              <DeliveryBlock />
             </div>
 
             <div className="flex flex-col gap-y-3 xl:gap-y-6 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
