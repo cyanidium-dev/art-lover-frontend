@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import NotificationPopUp from '@/shared/components/pop-ups/NotificationPopUp';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
-import CheckoutForm from '@/shared/components/forms/CheckoutForm';
+import CheckoutForm from '@/shared/components/forms/checkoutForm/CheckoutForm';
 import GiftHint from './GiftHint';
 
 interface CheckoutFormWithNotificationsProps {

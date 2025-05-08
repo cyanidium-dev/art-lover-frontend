@@ -1,12 +1,14 @@
 'use client';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { Dispatch, SetStateAction, useState } from 'react';
+import MaskedInput from 'react-text-mask';
 
 import { callBackValidation } from '@/shared/schemas/callbackFormValidation';
 import { handleSubmitForm } from '@/shared/utils/handleSubmitForm';
+import { phoneMask } from '@/shared/regex/regex';
 
-import CustomizedInput from './formComponents/CustomizedInput';
-import SubmitButton from './formComponents/SubmitButton';
+import CustomizedInput from '../formComponents/CustomizedInput';
+import SubmitButton from '../formComponents/SubmitButton';
 
 export interface ValuesCheckoutFormType {
   name: string;
@@ -81,11 +83,13 @@ export default function CheckoutForm({
               touched={touched}
             />
             <CustomizedInput
-              fieldName="message"
-              as="textarea"
-              placeholder="* Поділіться своєю думкою"
+              fieldName="phone"
+              inputType="tel"
+              placeholder="* Номер телефону"
               errors={errors}
               touched={touched}
+              as={MaskedInput}
+              mask={phoneMask}
             />
           </div>
 
@@ -94,7 +98,7 @@ export default function CheckoutForm({
               dirty={dirty}
               isValid={isValid}
               isLoading={isLoading}
-              text="Надіслати"
+              text="Оформити замовлення"
               className="h-10 md:h-12"
             />
           </div>
