@@ -71,7 +71,7 @@ const Navbar = () => {
           whileInView="visible"
           exit="exit"
           viewport={{ once: true, amount: 0.2 }}
-          variants={fadeInAnimation({ y: 30, delay: 0.4 })}
+          variants={fadeInAnimation({})}
           className="flex justify-between items-center"
         >
           <div className="flex items-center gap-[10px] xl:gap-[24px] flex-row-reverse xl:flex-row">
