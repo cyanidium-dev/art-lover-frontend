@@ -15,6 +15,7 @@ import TipsInputBlock from './TipsInputBlock';
 import GiftHint from '@/modules/checkout/GiftHint';
 import RadioButtonInput from '../formComponents/RadioButtonInput';
 import RecipientBlock from './RecipientBlock';
+import CartItemsList from './CartItemsList';
 
 export interface ValuesCheckoutFormType {
   name: string;
@@ -194,6 +195,7 @@ export default function CheckoutForm({
           <div className="flex flex-col gap-y-6 xl:gap-y-7 xl:w-[454px]">
             <div className="xl:mb-3 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
               <CheckoutSubTitle icon="shopping" title="Ваше замовлення" />
+              <CartItemsList />
               <CheckoutSubTitle icon="gift" title="Додати пакування?" />
             </div>
             <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">

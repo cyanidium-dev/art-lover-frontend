@@ -5,9 +5,13 @@ import IconButton from '../buttons/IconButton';
 
 interface CartItemProps {
   cartItem: CartItem;
+  variant?: 'dark' | 'white';
 }
 
-export default function CartListItem({ cartItem }: CartItemProps) {
+export default function CartListItem({
+  cartItem,
+  variant = 'white',
+}: CartItemProps) {
   const { title, price, discountedPrice, images } = cartItem;
 
   return (
@@ -21,24 +25,36 @@ export default function CartListItem({ cartItem }: CartItemProps) {
           className="w-full h-full object-cover"
         />
       </div>
-      <div>
-        <p className="mb-[17px] xl:mb-3 text-[12px] xl:text-[14px] font-medium leading-[120%] line-clamp-2 xl:line-clamp-1 text-white">
-          {title}
-        </p>
-        <p className="mb-[17px] text-[16px] font-semibold leading-[120%] text-white">
-          {discountedPrice && discountedPrice < price ? discountedPrice : price}
-          &nbsp;грн
-        </p>
-        <Counter className="w-[98px]" />
+      <div className="w-full flex justify-between">
+        <div>
+          <p
+            className={`mb-2 xl:mb-3 text-[12px] xl:text-[14px] font-medium leading-[120%] line-clamp-2 xl:line-clamp-1 ${
+              variant === 'white' ? 'text-white' : 'text-dark'
+            }`}
+          >
+            {title}
+          </p>
+          <p
+            className={`mb-[17px] text-[13px] xl:text-[16px] font-semibold leading-[120%] ${
+              variant === 'white' ? 'text-white' : 'text-dark'
+            }`}
+          >
+            {discountedPrice && discountedPrice < price
+              ? discountedPrice
+              : price}
+            &nbsp;грн
+          </p>
+          <Counter className="w-[98px]" variant={variant} />
+        </div>
+        <IconButton className="size-5 xl:size-6 ml-auto shrink-0">
+          <Image
+            src="/images/icons/trash.svg"
+            alt="trash icon"
+            width="24"
+            height="24"
+          />
+        </IconButton>
       </div>
-      <IconButton className="size-5 xl:size-6 ml-auto shrink-0">
-        <Image
-          src="/images/icons/trash.svg"
-          alt="trash icon"
-          width="24"
-          height="24"
-        />
-      </IconButton>
     </>
   );
 }
