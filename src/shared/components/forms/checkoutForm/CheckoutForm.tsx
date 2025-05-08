@@ -12,12 +12,19 @@ import SubmitButton from '../formComponents/SubmitButton';
 import CheckoutSubTitle from './CheckoutSubTitle';
 import TipsInputBlock from './TipsInputBlock';
 import GiftHint from '@/modules/checkout/GiftHint';
+import RadioButtonInput from '../formComponents/RadioButtonInput';
+import RecipientBlock from './RecipientBlock';
 
 export interface ValuesCheckoutFormType {
   name: string;
   surname: string;
   email: string;
   phone: string;
+  payment: string;
+  recipientOption: string;
+  recipientName: string;
+  recipientSurname: string;
+  recipientPhone: string;
   message: string;
   promocode: string;
   tips: string;
@@ -43,6 +50,11 @@ export default function CheckoutForm({
     surname: '',
     email: '',
     phone: '',
+    payment: 'Сплатити при отриманні',
+    recipientOption: 'Я одержувач',
+    recipientName: '',
+    recipientSurname: '',
+    recipientPhone: '',
     message: '',
     promocode: '',
     tips: '',
@@ -80,7 +92,7 @@ export default function CheckoutForm({
                 title="Крок 1"
                 description="Особисті дані"
               />
-              <div className="flex flex-col gap-y-3">
+              <div className="flex flex-col gap-y-3 xl:gap-y-[14px]">
                 <CustomizedInput
                   fieldName="name"
                   placeholder="* Ім’я"
@@ -120,11 +132,21 @@ export default function CheckoutForm({
               />
             </div>
 
-            <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+            <div className="flex flex-col gap-y-3 xl:gap-y-6 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
               <CheckoutSubTitle
                 icon="card"
                 title="Крок 3"
                 description="Спосіб оплати"
+              />
+              <RadioButtonInput
+                fieldName="payment"
+                label="Картою на сайті"
+                value="Картою на сайті"
+              />
+              <RadioButtonInput
+                fieldName="payment"
+                label="Сплатити при отриманні"
+                value="Сплатити при отриманні"
               />
             </div>
 
@@ -134,6 +156,7 @@ export default function CheckoutForm({
                 title="Крок 4"
                 description="Одержувач"
               />
+              <RecipientBlock errors={errors} touched={touched} />
             </div>
 
             <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
