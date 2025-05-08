@@ -19,7 +19,7 @@ export default function CheckoutSubTitle({
           alt="icon"
           width={20}
           height={20}
-          className="size-5 xl:size-[35px]"
+          className="size-5 xl:size-[29px]"
         />
         <h2 className="text-[16px] xl:text-[24px] font-medium leading-[120%]">
           {title}

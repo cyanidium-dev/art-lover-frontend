@@ -11,6 +11,7 @@ import CustomizedInput from '../formComponents/CustomizedInput';
 import SubmitButton from '../formComponents/SubmitButton';
 import CheckoutSubTitle from './CheckoutSubTitle';
 import TipsInputBlock from './TipsInputBlock';
+import GiftHint from '@/modules/checkout/GiftHint';
 
 export interface ValuesCheckoutFormType {
   name: string;
@@ -69,115 +70,119 @@ export default function CheckoutForm({
       validationSchema={validationSchema}
     >
       {({ errors, touched, dirty, isValid }) => (
-        <Form className={`flex flex-col w-full gap-y-6 ${className}`}>
-          <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
-            <CheckoutSubTitle
-              icon="emoji"
-              title="Крок 1"
-              description="Особисті дані"
-            />
-            <div className="flex flex-col gap-y-3">
-              <CustomizedInput
-                fieldName="name"
-                placeholder="* Ім’я"
-                errors={errors}
-                touched={touched}
+        <Form
+          className={`flex flex-col xl:flex-row w-full gap-y-6 xl:gap-x-15 ${className}`}
+        >
+          <div className="flex flex-col gap-y-6 xl:gap-y-7 xl:w-[586px]">
+            <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+              <CheckoutSubTitle
+                icon="emoji"
+                title="Крок 1"
+                description="Особисті дані"
+              />
+              <div className="flex flex-col gap-y-3">
+                <CustomizedInput
+                  fieldName="name"
+                  placeholder="* Ім’я"
+                  errors={errors}
+                  touched={touched}
+                />
+                <CustomizedInput
+                  fieldName="surname"
+                  placeholder="* Прізвище"
+                  errors={errors}
+                  touched={touched}
+                />
+                <CustomizedInput
+                  fieldName="email"
+                  inputType="email"
+                  placeholder="* Електронна пошта"
+                  errors={errors}
+                  touched={touched}
+                />
+                <CustomizedInput
+                  fieldName="phone"
+                  inputType="tel"
+                  placeholder="* Номер телефону"
+                  errors={errors}
+                  touched={touched}
+                  as={MaskedInput}
+                  mask={phoneMask}
+                />
+              </div>
+            </div>
+
+            <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+              <CheckoutSubTitle
+                icon="globe"
+                title="Крок 2"
+                description="Оплата та доставка"
+              />
+            </div>
+
+            <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+              <CheckoutSubTitle
+                icon="card"
+                title="Крок 3"
+                description="Спосіб оплати"
+              />
+            </div>
+
+            <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+              <CheckoutSubTitle
+                icon="users"
+                title="Крок 4"
+                description="Одержувач"
+              />
+            </div>
+
+            <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+              <CheckoutSubTitle
+                icon="pencil"
+                title="Крок 5"
+                description="Додати коментар"
               />
               <CustomizedInput
-                fieldName="surname"
-                placeholder="* Прізвище"
+                fieldName="message"
+                as="textarea"
+                placeholder="Додайте коментар, якщо потрібно"
                 errors={errors}
                 touched={touched}
-              />
-              <CustomizedInput
-                fieldName="email"
-                inputType="email"
-                placeholder="* Електронна пошта"
-                errors={errors}
-                touched={touched}
-              />
-              <CustomizedInput
-                fieldName="phone"
-                inputType="tel"
-                placeholder="* Номер телефону"
-                errors={errors}
-                touched={touched}
-                as={MaskedInput}
-                mask={phoneMask}
               />
             </div>
           </div>
 
-          <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
-            <CheckoutSubTitle
-              icon="globe"
-              title="Крок 2"
-              description="Оплата та доставка"
-            />
-          </div>
-
-          <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
-            <CheckoutSubTitle
-              icon="card"
-              title="Крок 3"
-              description="Спосіб оплати"
-            />
-          </div>
-
-          <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
-            <CheckoutSubTitle
-              icon="users"
-              title="Крок 4"
-              description="Одержувач"
-            />
-          </div>
-
-          <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
-            <CheckoutSubTitle
-              icon="users"
-              title="Крок 5"
-              description="Додати коментар"
-            />
-            <CustomizedInput
-              fieldName="message"
-              as="textarea"
-              placeholder="Додайте коментар, якщо потрібно"
-              errors={errors}
-              touched={touched}
-            />
-          </div>
-
-          <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
-            <CheckoutSubTitle icon="shopping" title="Ваше замовлення" />
-            <CheckoutSubTitle icon="gift" title="Додати пакування?" />
-          </div>
-
-          <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
-            <CheckoutSubTitle icon="heart" title="Промокод" />
-            <CustomizedInput
-              fieldName="promocode"
-              placeholder="Введіть свій промокод"
-              errors={errors}
-              touched={touched}
-            />
-          </div>
-
-          <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
-            <CheckoutSubTitle
-              icon="money"
-              title="Залишити чайові нашим пакувальникам"
-            />
-            <TipsInputBlock errors={errors} touched={touched} />
-          </div>
-
-          <div className="flex flex-col gap-y-3 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
-            <SubmitButton
-              dirty={dirty}
-              isValid={isValid}
-              isLoading={isLoading}
-              text="Оформити замовлення"
-              className="h-10 md:h-12"
-            />
+          <div className="flex flex-col gap-y-6 xl:gap-y-7 xl:w-[454px]">
+            <div className="xl:mb-3 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+              <CheckoutSubTitle icon="shopping" title="Ваше замовлення" />
+              <CheckoutSubTitle icon="gift" title="Додати пакування?" />
+            </div>
+            <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+              <CheckoutSubTitle icon="heart" title="Промокод" />
+              <CustomizedInput
+                fieldName="promocode"
+                placeholder="Введіть свій промокод"
+                errors={errors}
+                touched={touched}
+              />
+            </div>
+            <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+              <CheckoutSubTitle
+                icon="money"
+                title="Залишити чайові нашим пакувальникам"
+              />
+              <TipsInputBlock errors={errors} touched={touched} />
+            </div>
+            <div className="flex flex-col gap-y-3 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+              <SubmitButton
+                dirty={dirty}
+                isValid={isValid}
+                isLoading={isLoading}
+                text="Оформити замовлення"
+                className="h-10 md:h-12"
+              />
+            </div>
+            <GiftHint />
           </div>
         </Form>
       )}

@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function GiftHint() {
   return (
-    <div className="relative z-10 flex justify-between p-4 xl:py-[26px] xl:px-6 mt-6 xl:mt-10 rounded-[8px] bg-dark text-white overflow-hidden">
+    <div className="relative z-10 flex justify-between p-4 xl:py-[26px] xl:px-6 mt-6 xl:mt-3 rounded-[8px] bg-dark text-white overflow-hidden">
       <div>
         <h3 className="mb-2 text-[14px] xl:text-[24px] font-medium leading-[120%] uppercase">
           Відправити натяк

@@ -6,7 +6,6 @@ import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import NotificationPopUp from '@/shared/components/pop-ups/NotificationPopUp';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
 import CheckoutForm from '@/shared/components/forms/checkoutForm/CheckoutForm';
-import GiftHint from './GiftHint';
 
 interface CheckoutFormWithNotificationsProps {
   className?: string;
@@ -33,7 +32,6 @@ export default function CheckoutFormWithNotifications({
           className={className}
         />
       </motion.div>
-      <GiftHint />
       <NotificationPopUp
         title={
           isError ? 'На жаль, щось пішло не так' : 'Дякуємо за повідомлення!'
