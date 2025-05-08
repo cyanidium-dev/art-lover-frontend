@@ -1,5 +1,5 @@
 'use client';
-import { Form, Formik, FormikHelpers } from 'formik';
+import { Field, Form, Formik, FormikHelpers } from 'formik';
 import { Dispatch, SetStateAction, useState } from 'react';
 import MaskedInput from 'react-text-mask';
 import Image from 'next/image';
@@ -16,6 +16,7 @@ import GiftHint from '@/modules/checkout/GiftHint';
 import RadioButtonInput from '../formComponents/RadioButtonInput';
 import RecipientBlock from './RecipientBlock';
 import CartItemsList from './CartItemsList';
+import AdditionalOptions from './AdditionalOptions';
 
 export interface ValuesCheckoutFormType {
   name: string;
@@ -28,6 +29,7 @@ export interface ValuesCheckoutFormType {
   recipientSurname: string;
   recipientPhone: string;
   message: string;
+  postcard: string;
   promocode: string;
   tips: string;
 }
@@ -58,6 +60,7 @@ export default function CheckoutForm({
     recipientSurname: '',
     recipientPhone: '',
     message: '',
+    postcard: '',
     promocode: '',
     tips: '',
   };
@@ -136,7 +139,6 @@ export default function CheckoutForm({
 
             <div className="flex flex-col gap-y-3 xl:gap-y-6 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
               <div>
-                {' '}
                 <CheckoutSubTitle
                   icon="card"
                   title="Крок 3"
@@ -197,6 +199,21 @@ export default function CheckoutForm({
               <CheckoutSubTitle icon="shopping" title="Ваше замовлення" />
               <CartItemsList />
               <CheckoutSubTitle icon="gift" title="Додати пакування?" />
+              <AdditionalOptions />
+              <label className="relative">
+                <Field
+                  name="postcard"
+                  placeholder="Бажаєте підписати листівку?"
+                  className="w-full h-10 xl:h-11 mt-5 pl-12 xl:pl-15 placeholder:xl:pl-[42px] pr-3 xl:pr-6 py-[9px] xl:py-[12.5px] text-[11px] xl:text-[14px] font-medium leading-none placeholder-orange rounded-full border border-orange outline-none"
+                />
+                <Image
+                  src="/images/checkoutPage/envelope.svg"
+                  alt="envelope"
+                  width="20"
+                  height="20"
+                  className="absolute top-[2.5px] xl:top-[1.5px] left-3 xl:left-6"
+                />
+              </label>
             </div>
             <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
               <CheckoutSubTitle icon="heart" title="Промокод" />

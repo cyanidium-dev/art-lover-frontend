@@ -33,7 +33,7 @@ export default function Counter({
       } ${className}`}
     >
       <button
-        className={`group flex items-center justify-center size-3 ${
+        className={`cursor-pointer flex items-center justify-center size-3 ${
           variant === 'white' ? 'text-white' : 'text-dark'
         }`}
         onClick={onMinusClick}
@@ -50,7 +50,7 @@ export default function Counter({
         {count}
       </div>
       <button
-        className={`flex items-center justify-center size-3 xl:size-4 ${
+        className={`cursor-pointer flex items-center justify-center size-3 xl:size-4 ${
           variant === 'white' ? 'text-white' : 'text-dark'
         }`}
         onClick={onPlusClick}
