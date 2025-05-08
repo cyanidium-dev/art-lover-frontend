@@ -1,5 +1,5 @@
 'use client';
-import { Suspense } from 'react';
+import { useState, Suspense } from 'react';
 import * as motion from 'motion/react-client';
 import {
   listVariants,
@@ -9,6 +9,9 @@ import Loader from '@/shared/components/loader/Loader';
 import ProductCard from '@/shared/components/productCard/ProductCard';
 import Pagination from '@/shared/components/pagination/Pagination';
 import { Product } from '@/types/product';
+import AddedToCartPopUp from '@/shared/components/pop-ups/AddedToCartPopUp';
+import CartModal from '@/shared/components/cart/Cart';
+import Backdrop from '@/shared/components/backdrop/Backdrop';
 
 interface FavoritesListProps {
   favoritesList: Product[];
@@ -18,6 +21,9 @@ const SECTION_ID = 'favorites-page-list';
 const ITEMS_PER_PAGE = 4;
 
 export default function FavoritesList({ favoritesList }: FavoritesListProps) {
+  const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
+  const [isCartModalShown, setIsCartModalShown] = useState(false);
+
   return (
     <Suspense fallback={<Loader />}>
       <Pagination
@@ -43,11 +49,30 @@ export default function FavoritesList({ favoritesList }: FavoritesListProps) {
                 key={idx}
                 className="w-[calc(50%-8px)] md:w-[calc(25%-12px)] xl:w-[calc(25%-15px)]"
               >
-                <ProductCard product={favoriteItem} />
+                <ProductCard
+                  setIsAddedToCartPopUpShown={setIsAddedToCartPopUpShown}
+                  product={favoriteItem}
+                />
               </motion.li>
             ))}
           </motion.ul>
         )}
+      />
+      <AddedToCartPopUp
+        isPopUpShown={isAddedToCartPopUpShown}
+        setIsPopUpShown={setIsAddedToCartPopUpShown}
+        setIsCartModalShown={setIsCartModalShown}
+      />
+      <CartModal
+        isPopUpShown={isCartModalShown}
+        setIsPopUpShown={setIsCartModalShown}
+      />
+      <Backdrop
+        isVisible={isAddedToCartPopUpShown || isCartModalShown}
+        onClick={() => {
+          setIsAddedToCartPopUpShown(false);
+          setIsCartModalShown(false);
+        }}
       />
     </Suspense>
   );

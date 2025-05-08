@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react';
 import { Product } from '@/types/product';
 import Image from 'next/image';
 import SecondaryButton from '../buttons/SecondaryButton';
@@ -6,9 +7,13 @@ import Link from 'next/link';
 
 interface ProductCardProps {
   product: Product;
+  setIsAddedToCartPopUpShown: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({
+  product,
+  setIsAddedToCartPopUpShown,
+}: ProductCardProps) {
   const { title, price, discountedPrice, images, slug, category } = product;
 
   return (
@@ -62,7 +67,10 @@ export default function ProductCard({ product }: ProductCardProps) {
             Детальніше
           </SecondaryButton>
         </Link>
-        <CartButton className="shrink-0" />
+        <CartButton
+          setIsAddedToCartPopUpShown={setIsAddedToCartPopUpShown}
+          className="shrink-0"
+        />
       </div>
     </div>
   );
