@@ -1,12 +1,14 @@
 'use client';
 import { Field, Form, Formik, FormikHelpers } from 'formik';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useState, useEffect } from 'react';
 import MaskedInput from 'react-text-mask';
 import Image from 'next/image';
 
+import { getTotalSum } from '@/shared/utils/getTotalSum';
 import { callBackValidation } from '@/shared/schemas/callbackFormValidation';
 import { handleSubmitForm } from '@/shared/utils/handleSubmitForm';
 import { phoneMask } from '@/shared/regex/regex';
+import { productsList } from '@/modules/home/bestsellers/mockedData';
 
 import CustomizedInput from '../formComponents/CustomizedInput';
 import SubmitButton from '../formComponents/SubmitButton';
@@ -48,6 +50,17 @@ export default function CheckoutForm({
   className = '',
 }: CheckoutFormProps) {
   const [isLoading, setIsLoading] = useState(false);
+  const [total, setTotal] = useState(0);
+
+  const cartItems = productsList
+    .slice(0, 4)
+    .map(item => ({ ...item, quantity: 1 }));
+
+  const sum = getTotalSum(cartItems);
+
+  useEffect(() => {
+    setTotal(sum);
+  }, [sum]);
 
   const initialValues = {
     name: '',
@@ -231,7 +244,15 @@ export default function CheckoutForm({
               />
               <TipsInputBlock errors={errors} touched={touched} />
             </div>
-            <div className="flex flex-col gap-y-3 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+            <div className="flex flex-col gap-y-5 xl:gap-y-4 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+              <div className="flex items-center justify-between">
+                <h3 className="text-[12px] xl:text-[16px] font-medium leading-[120%]">
+                  Загальна вартість
+                </h3>
+                <p className="text-[16px] xl:text-[24px] font-medium leading-[120%]">
+                  {total} грн
+                </p>
+              </div>
               <SubmitButton
                 dirty={dirty}
                 isValid={isValid}
