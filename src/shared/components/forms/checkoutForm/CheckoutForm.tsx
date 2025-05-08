@@ -9,6 +9,7 @@ import { phoneMask } from '@/shared/regex/regex';
 
 import CustomizedInput from '../formComponents/CustomizedInput';
 import SubmitButton from '../formComponents/SubmitButton';
+import CheckoutSubTitle from './CheckoutSubTitle';
 
 export interface ValuesCheckoutFormType {
   name: string;
@@ -62,35 +63,42 @@ export default function CheckoutForm({
     >
       {({ errors, touched, dirty, isValid }) => (
         <Form className={`flex flex-col w-full gap-y-6 ${className}`}>
-          <div className="flex flex-col gap-y-3 py-5 px-4 rounded-[6px] border border-dark">
-            <CustomizedInput
-              fieldName="name"
-              placeholder="* Ім’я"
-              errors={errors}
-              touched={touched}
+          <div className=" py-5 px-4 rounded-[6px] border border-dark">
+            <CheckoutSubTitle
+              icon="emoji"
+              title="Крок 1"
+              description="Особисті дані"
             />
-            <CustomizedInput
-              fieldName="surname"
-              placeholder="* Прізвище"
-              errors={errors}
-              touched={touched}
-            />
-            <CustomizedInput
-              fieldName="email"
-              inputType="email"
-              placeholder="* Електронна пошта"
-              errors={errors}
-              touched={touched}
-            />
-            <CustomizedInput
-              fieldName="phone"
-              inputType="tel"
-              placeholder="* Номер телефону"
-              errors={errors}
-              touched={touched}
-              as={MaskedInput}
-              mask={phoneMask}
-            />
+            <div className="flex flex-col gap-y-3">
+              <CustomizedInput
+                fieldName="name"
+                placeholder="* Ім’я"
+                errors={errors}
+                touched={touched}
+              />
+              <CustomizedInput
+                fieldName="surname"
+                placeholder="* Прізвище"
+                errors={errors}
+                touched={touched}
+              />
+              <CustomizedInput
+                fieldName="email"
+                inputType="email"
+                placeholder="* Електронна пошта"
+                errors={errors}
+                touched={touched}
+              />
+              <CustomizedInput
+                fieldName="phone"
+                inputType="tel"
+                placeholder="* Номер телефону"
+                errors={errors}
+                touched={touched}
+                as={MaskedInput}
+                mask={phoneMask}
+              />
+            </div>
           </div>
 
           <div className="flex flex-col gap-y-3 py-5 px-4 rounded-[6px] border border-dark">
