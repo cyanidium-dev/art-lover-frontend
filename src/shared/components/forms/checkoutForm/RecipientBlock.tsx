@@ -23,9 +23,13 @@ export default function RecipientBlock({
 
   useEffect(() => {
     if (values.recipientOption === 'Я одержувач') {
-      setFieldValue('recipientName', values.name);
-      setFieldValue('recipientSurname', values.surname);
-      setFieldValue('recipientPhone', values.phone);
+      const timeout = setTimeout(() => {
+        setFieldValue('recipientName', values.name);
+        setFieldValue('recipientSurname', values.surname);
+        setFieldValue('recipientPhone', values.phone);
+      }, 500);
+
+      return () => clearTimeout(timeout);
     }
   }, [
     values.name,
@@ -36,9 +40,11 @@ export default function RecipientBlock({
   ]);
 
   const autoFill = () => {
-    setFieldValue('recipientName', values.name);
-    setFieldValue('recipientSurname', values.surname);
-    setFieldValue('recipientPhone', values.phone);
+    setTimeout(() => {
+      setFieldValue('recipientName', values.name);
+      setFieldValue('recipientSurname', values.surname);
+      setFieldValue('recipientPhone', values.phone);
+    }, 500);
   };
 
   return (
@@ -63,7 +69,7 @@ export default function RecipientBlock({
       </div>
 
       <div
-        className={`flex flex-col gap-3 xl:gap-3.5 overflow-hidden transition-[max-height] duration-700 ${
+        className={`flex flex-col gap-3 xl:gap-3.5 overflow-hidden transition-[max-height] duration-500 ${
           isOther ? 'max-h-[500px] ease-in' : 'max-h-0 ease-out'
         }`}
       >
