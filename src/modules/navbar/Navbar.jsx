@@ -19,7 +19,7 @@ import styles from './Navbar.module.scss';
 
 const Navbar = () => {
   return (
-    <nav className="pt-[32px] xl:pt-[26px] pb-[28px] z-999 relative overflow-hidden">
+    <nav className="pt-[32px] xl:pt-[26px] pb-[28px] z-50 relative overflow-hidden">
       <motion.div
         initial="hidden"
         whileInView="visible"

@@ -264,6 +264,8 @@
   );
 }
 
+/* Animations */
+
 @keyframes rotation {
   0% {
     transform: rotate(0deg);
@@ -275,4 +277,11 @@
 
 .rotation {
   animation: rotation 1600ms linear infinite;
+}
+
+/* Scroll styles */
+
+.popup-scroll::-webkit-scrollbar-track {
+  margin-top: 9px;
+  margin-bottom: 9px;
 }
