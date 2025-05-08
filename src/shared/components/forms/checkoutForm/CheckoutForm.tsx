@@ -63,7 +63,7 @@ export default function CheckoutForm({
     >
       {({ errors, touched, dirty, isValid }) => (
         <Form className={`flex flex-col w-full gap-y-6 ${className}`}>
-          <div className=" py-5 px-4 rounded-[6px] border border-dark">
+          <div className="py-5 px-4 rounded-[6px] border border-dark">
             <CheckoutSubTitle
               icon="emoji"
               title="Крок 1"
@@ -99,6 +99,54 @@ export default function CheckoutForm({
                 mask={phoneMask}
               />
             </div>
+          </div>
+
+          <div className="py-5 px-4 rounded-[6px] border border-dark">
+            <CheckoutSubTitle
+              icon="globe"
+              title="Крок 2"
+              description="Оплата та доставка"
+            />
+          </div>
+
+          <div className="py-5 px-4 rounded-[6px] border border-dark">
+            <CheckoutSubTitle
+              icon="card"
+              title="Крок 3"
+              description="Спосіб оплати"
+            />
+          </div>
+
+          <div className="py-5 px-4 rounded-[6px] border border-dark">
+            <CheckoutSubTitle
+              icon="users"
+              title="Крок 4"
+              description="Одержувач"
+            />
+          </div>
+
+          <div className="py-5 px-4 rounded-[6px] border border-dark">
+            <CheckoutSubTitle
+              icon="users"
+              title="Крок 5"
+              description="Додати коментар"
+            />
+          </div>
+
+          <div className="py-5 px-4 rounded-[6px] border border-dark">
+            <CheckoutSubTitle icon="shopping" title="Ваше замовлення" />
+            <CheckoutSubTitle icon="gift" title="Додати пакування?" />
+          </div>
+
+          <div className="py-5 px-4 rounded-[6px] border border-dark">
+            <CheckoutSubTitle icon="heart" title="Промокод" />
+          </div>
+
+          <div className="py-5 px-4 rounded-[6px] border border-dark">
+            <CheckoutSubTitle
+              icon="money"
+              title="Залишити чайові нашим пакувальникам"
+            />
           </div>
 
           <div className="flex flex-col gap-y-3 py-5 px-4 rounded-[6px] border border-dark">
