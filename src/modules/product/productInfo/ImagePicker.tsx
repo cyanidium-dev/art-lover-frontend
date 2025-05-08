@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import { Product } from '@/types/product';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSwipeable } from 'react-swipeable';
@@ -30,7 +31,12 @@ export default function ImagePicker({ currentProduct }: ImagePickerProps) {
   });
 
   return (
-    <div
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.5 }}
+      variants={fadeInAnimation({ y: 30 })}
       className="relative w-full max-w-[600px] md:w-[320px] lg:w-[480px] xl:w-[540px] mx-auto mb-6 md:mb-14 xl:mb-20"
       {...swipeHandlers}
     >
@@ -115,6 +121,6 @@ export default function ImagePicker({ currentProduct }: ImagePickerProps) {
           </button>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

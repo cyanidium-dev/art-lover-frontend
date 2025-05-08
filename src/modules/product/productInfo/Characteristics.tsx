@@ -1,3 +1,9 @@
+import * as motion from 'motion/react-client';
+import {
+  fadeInAnimation,
+  listItemVariants,
+  listVariants,
+} from '@/shared/utils/animationVariants';
 import { Product } from '@/types/product';
 
 interface CharacteristicsProps {
@@ -17,12 +23,28 @@ export default function Characteristics({
 
   return (
     <div>
-      <h2 className="mb-6 text-[18px] xl:text-[32px] font-medium leading-[120%] uppercase">
+      <motion.h2
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={fadeInAnimation({ y: 30 })}
+        className="mb-6 text-[18px] xl:text-[32px] font-medium leading-[120%] uppercase"
+      >
         Характеристика товару:
-      </h2>
-      <ul className="flex flex-col gap-y-4 xl:gap-y-3">
+      </motion.h2>
+      <motion.ul
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: true, amount: 0.4 }}
+        variants={listVariants({ staggerChildren: 0.2, delayChildren: 0.2 })}
+        className="flex flex-col gap-y-4 xl:gap-y-3"
+      >
         {characteristics.map((characteristic, idx) => (
-          <li
+          <motion.li
+            viewport={{ once: true, amount: 0.2 }}
+            variants={listItemVariants}
             key={idx}
             className="grid grid-cols-[100px_1fr] xl:grid-cols-[144px_1fr] gap-x-4 xl:gap-x-[86px]"
           >
@@ -46,9 +68,9 @@ export default function Characteristics({
                 {characteristic?.description}
               </span>
             )}
-          </li>
+          </motion.li>
         ))}
-      </ul>
+      </motion.ul>
     </div>
   );
 }

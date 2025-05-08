@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
 
 interface ColorPickerProps {
   colors: { title: string; hex: string }[];
@@ -10,7 +12,14 @@ export default function ColorPicker({ colors }: ColorPickerProps) {
   const [selectedColor, setSelectedColor] = useState(colors[0]?.title || '');
 
   return (
-    <div className="mb-6 xl:mb-[25.5px]">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.5 }}
+      variants={fadeInAnimation({ y: 30, delay: 1 })}
+      className="mb-6 xl:mb-[25.5px]"
+    >
       <h3 className="mb-3 text-[14px] xl:text-[16px] font-medium leading-[120%] uppercase">
         КОЛІР
       </h3>
@@ -45,6 +54,6 @@ export default function ColorPicker({ colors }: ColorPickerProps) {
           </li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 }

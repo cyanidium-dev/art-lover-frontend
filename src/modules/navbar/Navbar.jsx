@@ -19,7 +19,7 @@ import styles from './Navbar.module.scss';
 
 const Navbar = () => {
   return (
-    <nav className="pt-[32px] xl:pt-[26px] pb-[28px] z-999 relative overflow-hidden">
+    <nav className="pt-[32px] xl:pt-[26px] pb-[28px] z-50 relative overflow-hidden">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -71,7 +71,7 @@ const Navbar = () => {
           whileInView="visible"
           exit="exit"
           viewport={{ once: true, amount: 0.2 }}
-          variants={fadeInAnimation({ y: 30, delay: 0.4 })}
+          variants={fadeInAnimation({})}
           className="flex justify-between items-center"
         >
           <div className="flex items-center gap-[10px] xl:gap-[24px] flex-row-reverse xl:flex-row">

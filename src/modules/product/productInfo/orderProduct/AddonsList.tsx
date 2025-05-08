@@ -1,5 +1,7 @@
 'use client';
 import { useState } from 'react';
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
 
 interface Option {
   title: string;
@@ -24,7 +26,12 @@ export default function AddonsList({ options }: AddonsListProps) {
   };
 
   return (
-    <ul
+    <motion.ul
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.5 }}
+      variants={fadeInAnimation({ y: 30, delay: 0.8 })}
       className="relative flex flex-col gap-y-3 py-6 xl:py-5 mb-6 xl:mb-[25.5px] before:content-[''] before:absolute before:top-0 
   before:left-0 before:h-[0.5px] before:w-full before:bg-dark before:opacity-50 after:content-[''] after:absolute after:bottom-0 
   after:left-0 after:h-[0.5px] after:w-full after:bg-dark after:opacity-50"
@@ -63,6 +70,6 @@ export default function AddonsList({ options }: AddonsListProps) {
           </li>
         );
       })}
-    </ul>
+    </motion.ul>
   );
 }

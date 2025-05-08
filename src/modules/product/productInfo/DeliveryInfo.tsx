@@ -1,6 +1,8 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import { Product } from '@/types/product';
 
 interface DeliveryInfoProps {
@@ -16,7 +18,12 @@ export default function DeliveryInfo({ currentProduct }: DeliveryInfoProps) {
   const { delivery } = currentProduct;
 
   return (
-    <div
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.5 }}
+      variants={fadeInAnimation({ x: 30, delay: 0.2 })}
       onClick={toggleShowMore}
       className="cursor-pointer mb-6 xl:mb-16 px-4 xl:p-7 py-6 rounded-[6px] xl:rounded-[8px] border border-dark"
     >
@@ -52,6 +59,6 @@ export default function DeliveryInfo({ currentProduct }: DeliveryInfoProps) {
           {delivery}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }
