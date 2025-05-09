@@ -25,7 +25,7 @@ interface CustomizedInputProps {
 
 const labelStyles = 'relative flex flex-col w-full';
 const fieldStyles =
-  'relative w-full px-5 py-2 md:py-[13px] text-[12px] md:text-[16px] font-normal leading-none text-dark bg-white placeholder-placeholder border rounded-[6px] outline-none resize-none transition duration-300 ease-out';
+  'relative w-full px-5 py-2 md:py-[13px] text-[12px] xl:text-[16px] font-normal leading-none text-dark bg-white placeholder-placeholder border rounded-[6px] outline-none resize-none transition duration-300 ease-out';
 const errorStyles =
   'absolute bottom-[-11px] left-2 text-[9px] font-normal leading-none text-red-500';
 
@@ -47,8 +47,6 @@ export default function CustomizedInput({
 
   const isError = (errors as Record<string, unknown>)[fieldName];
   const isTouched = (touched as Record<string, unknown>)[fieldName];
-
-  console.log(errors);
 
   return (
     <label className={`${labelStyles} ${labelClassName}`}>

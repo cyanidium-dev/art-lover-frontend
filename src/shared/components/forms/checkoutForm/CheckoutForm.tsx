@@ -117,9 +117,9 @@ export default function CheckoutForm({
     >
       {({ errors, touched, dirty, isValid }) => (
         <Form
-          className={`flex flex-col xl:flex-row w-full gap-y-6 xl:gap-x-15 ${className}`}
+          className={`flex flex-col md:flex-row w-full gap-y-6 md:gap-x-4 lg:gap-10 xl:gap-x-15 ${className}`}
         >
-          <div className="flex flex-col gap-y-6 xl:gap-y-7 xl:w-[586px]">
+          <div className="flex flex-col gap-y-6 xl:gap-y-7 md:w-[344px] lg:w-[516px] xl:w-[586px]">
             <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
               <CheckoutSubTitle
                 icon="emoji"
@@ -228,7 +228,7 @@ export default function CheckoutForm({
             </div>
           </div>
 
-          <div className="flex flex-col gap-y-6 xl:gap-y-7 xl:w-[454px]">
+          <div className="flex flex-col gap-y-6 xl:gap-y-7 md:w-[344px] lg:w-[404px] xl::w-[454px]">
             <div className="xl:mb-3 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
               <CheckoutSubTitle icon="shopping" title="Ваше замовлення" />
               <CartItemsList />

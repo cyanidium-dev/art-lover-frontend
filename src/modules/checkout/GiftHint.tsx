@@ -11,7 +11,10 @@ export default function GiftHint() {
           Відправ посилання на кошик друзям
         </p>
       </div>
-      <button className="cursor-pointer flex items-center justify-center size-12 xl:size-[58px] rounded-[10px] bg-white">
+      <button
+        type="button"
+        className="cursor-pointer flex items-center justify-center size-12 xl:size-[58px] rounded-[10px] bg-white"
+      >
         <Image
           src={`/images/checkoutPage/share.svg`}
           alt="icon"
