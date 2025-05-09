@@ -225,6 +225,7 @@ export default function CheckoutForm({
                 placeholder="Додайте коментар, якщо потрібно"
                 errors={errors}
                 touched={touched}
+                fieldClassName="h-[99px] xl:h-[93px] py-3"
               />
             </div>
           </div>

@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { useFormikContext } from 'formik';
-import CustomizedInput from '../formComponents/CustomizedInput';
 import TextareaWithCounter from '../formComponents/TextAreaWithCounter';
 
 interface Values {
