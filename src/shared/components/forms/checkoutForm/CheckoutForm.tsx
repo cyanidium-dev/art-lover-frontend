@@ -1,5 +1,5 @@
 'use client';
-import { Field, Form, Formik, FormikHelpers } from 'formik';
+import { Form, Formik, FormikHelpers } from 'formik';
 import { Dispatch, SetStateAction, useState, useEffect } from 'react';
 import MaskedInput from 'react-text-mask';
 import Image from 'next/image';
@@ -21,6 +21,7 @@ import CartItemsList from './CartItemsList';
 import AdditionalOptions from './AdditionalOptions';
 import DeliveryBlockUkraine from './DeliveryBlockUkraine';
 import DeliveryBlockWorldwide from './DeliveryBlockWorldwide';
+import PostcardBlock from './PostcardBlock';
 
 export interface ValuesCheckoutFormType {
   name: string;
@@ -234,20 +235,7 @@ export default function CheckoutForm({
               <CartItemsList />
               <CheckoutSubTitle icon="gift" title="Додати пакування?" />
               <AdditionalOptions />
-              <label className="relative block mt-5 xl:mt-6">
-                <Field
-                  name="postcard"
-                  placeholder="Бажаєте підписати листівку?"
-                  className="w-full h-10 xl:h-11 pl-12 xl:pl-15 placeholder:xl:pl-[42px] pr-3 xl:pr-6 py-[9px] xl:py-[12.5px] text-[11px] xl:text-[14px] font-medium leading-none text-orange placeholder-orange rounded-full border border-orange outline-none"
-                />
-                <Image
-                  src="/images/checkoutPage/envelope.svg"
-                  alt="envelope"
-                  width="20"
-                  height="20"
-                  className="absolute top-[11px] xl:top-[13px] left-3 xl:left-6"
-                />
-              </label>
+              <PostcardBlock />
             </div>
             <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
               <CheckoutSubTitle icon="heart" title="Промокод" />
