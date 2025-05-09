@@ -1,7 +1,7 @@
 'use client';
-
+import { useEffect } from 'react';
 import Image from 'next/image';
-import { useFormikContext } from 'formik';
+import { useFormikContext, ErrorMessage } from 'formik';
 import CustomizedInput from '../formComponents/CustomizedInput';
 import RadioButtonInput from '../formComponents/RadioButtonInput';
 
@@ -27,36 +27,47 @@ const cities = ['Київ', 'Дніпро', 'Харків', 'Одеса', 'Ль�
 export default function DeliveryBlockUkraine() {
   const { values, setFieldValue, errors, touched } = useFormikContext<Values>();
 
+  useEffect(() => {
+    setFieldValue('deliveryType', 'Відділення');
+  }, [setFieldValue]);
+
   const isDeliveryChecked = !!values.deliveryService;
 
   return (
     <>
       {/* Служби доставки */}
-      <div className="flex gap-4">
-        {deliveryServices.map(service => (
-          <button
-            type="button"
-            key={service.label}
-            onClick={() => setFieldValue('deliveryService', service.label)}
-            className={`cursor-pointer w-1/2 h-14 xl:h-[125px] border rounded-[6px] p-3 flex items-center justify-center ${
-              values.deliveryService === service.label
-                ? 'border-orange'
-                : 'border-gray-light'
-            }`}
-          >
-            <Image
-              src={service.logo}
-              alt={service.label}
-              width={92}
-              height={36}
-              className="w-[92px] xl:w-[207px] h-auto object-contain"
-            />
-          </button>
-        ))}
+      <div className="relative">
+        <div className="flex gap-4">
+          {deliveryServices.map(service => (
+            <button
+              type="button"
+              key={service.label}
+              onClick={() => setFieldValue('deliveryService', service.label)}
+              className={`cursor-pointer w-1/2 h-14 xl:h-[125px] border rounded-[6px] p-3 flex items-center justify-center ${
+                values.deliveryService === service.label
+                  ? 'border-orange'
+                  : 'border-gray-light'
+              }`}
+            >
+              <Image
+                src={service.logo}
+                alt={service.label}
+                width={92}
+                height={36}
+                className="w-[92px] xl:w-[207px] h-auto object-contain"
+              />
+            </button>
+          ))}
+        </div>
+        <ErrorMessage
+          name={'deliveryService'}
+          component="p"
+          className="absolute bottom-[-11px] left-2 text-[9px] font-normal leading-none text-red-500"
+        />
       </div>
 
       <div
-        className={`overflow-hidden transition-[max-height] duration-500 ${
+        className={`pb-3 overflow-hidden transition-[max-height] duration-500 ${
           isDeliveryChecked ? 'max-h-[500px] ease-in' : 'max-h-0 ease-out'
         }`}
       >
@@ -104,9 +115,14 @@ export default function DeliveryBlockUkraine() {
           {values.deliveryType !== 'Доставка кур’єром' ? (
             <CustomizedInput
               fieldName="branchNumber"
-              placeholder="* Номер відділення"
+              placeholder={
+                values.deliveryType === 'Відділення'
+                  ? '* Номер відділення'
+                  : '* Номер поштомату'
+              }
               errors={errors}
               touched={touched}
+              labelClassName="mb-0"
             />
           ) : (
             <CustomizedInput

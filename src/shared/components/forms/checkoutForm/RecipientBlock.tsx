@@ -48,7 +48,7 @@ export default function RecipientBlock({
   };
 
   return (
-    <div className="flex flex-col gap-y-4 xl:gap-y-6">
+    <>
       <div className="flex flex-col gap-3 xl:gap-y-6">
         <RadioButtonInput
           fieldName="recipientOption"
@@ -69,32 +69,35 @@ export default function RecipientBlock({
       </div>
 
       <div
-        className={`flex flex-col gap-3 xl:gap-3.5 overflow-hidden transition-[max-height] duration-500 ${
+        className={` pb-3 overflow-hidden transition-[max-height] duration-500 ${
           isOther ? 'max-h-[500px] ease-in' : 'max-h-0 ease-out'
         }`}
       >
-        <CustomizedInput
-          fieldName="recipientName"
-          placeholder="* Ім’я"
-          errors={errors}
-          touched={touched}
-        />
-        <CustomizedInput
-          fieldName="recipientSurname"
-          placeholder="* Прізвище"
-          errors={errors}
-          touched={touched}
-        />
-        <CustomizedInput
-          fieldName="recipientPhone"
-          inputType="tel"
-          placeholder="* Номер телефону"
-          errors={errors}
-          touched={touched}
-          as={MaskedInput}
-          mask={phoneMask}
-        />
+        <div className="flex flex-col gap-3 xl:gap-3.5 mt-4 xl:mt-6 ">
+          {' '}
+          <CustomizedInput
+            fieldName="recipientName"
+            placeholder="* Ім’я"
+            errors={errors}
+            touched={touched}
+          />
+          <CustomizedInput
+            fieldName="recipientSurname"
+            placeholder="* Прізвище"
+            errors={errors}
+            touched={touched}
+          />
+          <CustomizedInput
+            fieldName="recipientPhone"
+            inputType="tel"
+            placeholder="* Номер телефону"
+            errors={errors}
+            touched={touched}
+            as={MaskedInput}
+            mask={phoneMask}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 }

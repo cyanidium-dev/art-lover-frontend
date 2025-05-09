@@ -5,7 +5,7 @@ import MaskedInput from 'react-text-mask';
 import Image from 'next/image';
 
 import { getTotalSum } from '@/shared/utils/getTotalSum';
-import { callBackValidation } from '@/shared/schemas/callbackFormValidation';
+import { checkoutValidation } from '@/shared/schemas/checkoutFormValidation';
 import { handleSubmitForm } from '@/shared/utils/handleSubmitForm';
 import { phoneMask } from '@/shared/regex/regex';
 import { productsList } from '@/modules/home/bestsellers/mockedData';
@@ -20,7 +20,7 @@ import RecipientBlock from './RecipientBlock';
 import CartItemsList from './CartItemsList';
 import AdditionalOptions from './AdditionalOptions';
 import DeliveryBlockUkraine from './DeliveryBlockUkraine';
-import DeliveryBlockWorldwise from './DeliveryBlockWorldwise';
+import DeliveryBlockWorldwide from './DeliveryBlockWorldwide';
 
 export interface ValuesCheckoutFormType {
   name: string;
@@ -94,7 +94,7 @@ export default function CheckoutForm({
     tips: '',
   };
 
-  const validationSchema = callBackValidation();
+  const validationSchema = checkoutValidation(activeTab);
 
   const submitForm = async (
     values: ValuesCheckoutFormType,
@@ -158,7 +158,7 @@ export default function CheckoutForm({
               </div>
             </div>
 
-            <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+            <div className="pt-5 pb-2 px-4 xl:px-7 xl:pt-7 xl:pb-4 rounded-[6px] xl:rounded-[8px] border border-dark">
               <CheckoutSubTitle
                 icon="globe"
                 title="Крок 2"
@@ -167,7 +167,7 @@ export default function CheckoutForm({
               {activeTab === 'ukraine' ? (
                 <DeliveryBlockUkraine />
               ) : (
-                <DeliveryBlockWorldwise />
+                <DeliveryBlockWorldwide />
               )}
             </div>
 
@@ -203,7 +203,7 @@ export default function CheckoutForm({
               />
             </div>
 
-            <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+            <div className="pt-5 pb-2 px-4 xl:px-7 xl:pt-7 xl:pb-4 rounded-[6px] xl:rounded-[8px] border border-dark">
               <CheckoutSubTitle
                 icon="users"
                 title="Крок 4"
