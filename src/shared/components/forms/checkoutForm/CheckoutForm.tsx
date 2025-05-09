@@ -3,6 +3,8 @@ import { Form, Formik, FormikHelpers } from 'formik';
 import { Dispatch, SetStateAction, useState, useEffect } from 'react';
 import MaskedInput from 'react-text-mask';
 import Image from 'next/image';
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
 
 import { getTotalSum } from '@/shared/utils/getTotalSum';
 import { checkoutValidation } from '@/shared/schemas/checkoutFormValidation';
@@ -119,8 +121,23 @@ export default function CheckoutForm({
     >
       {({ errors, touched, dirty, isValid }) => (
         <Form
-          className={`flex flex-col md:flex-row w-full gap-y-6 md:gap-x-4 lg:gap-10 xl:gap-x-15 ${className}`}
+          className={`relative flex flex-col md:flex-row w-full gap-y-6 md:gap-x-4 lg:gap-10 xl:gap-x-15 ${className}`}
         >
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            exit="exit"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInAnimation({ scale: 0.9, delay: 1.2 })}
+            className="xl:hidden absolute -z-10 top-[167px] left-[-99px]"
+          >
+            <Image
+              src="/images/aboutPage/history/figureLeftMob.svg"
+              alt="background"
+              width="114"
+              height="92"
+            />
+          </motion.div>
           <div className="flex flex-col gap-y-6 xl:gap-y-7 md:w-[344px] lg:w-[516px] xl:w-[586px]">
             <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
               <CheckoutSubTitle
@@ -230,7 +247,6 @@ export default function CheckoutForm({
               />
             </div>
           </div>
-
           <div className="flex flex-col gap-y-6 xl:gap-y-7 md:w-[344px] lg:w-[404px] xl::w-[454px]">
             <div className="xl:mb-3 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
               <CheckoutSubTitle icon="shopping" title="Ваше замовлення" />
