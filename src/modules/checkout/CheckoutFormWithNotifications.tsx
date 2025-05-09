@@ -1,8 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'motion/react';
-import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import NotificationPopUp from '@/shared/components/pop-ups/NotificationPopUp';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
 import CheckoutForm from '@/shared/components/forms/checkoutForm/CheckoutForm';
@@ -21,20 +19,13 @@ export default function CheckoutFormWithNotifications({
 
   return (
     <>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        exit="exit"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeInAnimation({ y: 30, delay: 0.8 })}
-      >
-        <CheckoutForm
-          activeTab={activeTab}
-          setIsError={setIsError}
-          setIsNotificationShown={setIsNotificationShown}
-          className={className}
-        />
-      </motion.div>
+      <CheckoutForm
+        activeTab={activeTab}
+        setIsError={setIsError}
+        setIsNotificationShown={setIsNotificationShown}
+        className={className}
+      />
+
       <NotificationPopUp
         title={
           isError ? 'На жаль, щось пішло не так' : 'Дякуємо за повідомлення!'

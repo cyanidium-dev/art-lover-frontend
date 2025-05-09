@@ -4,7 +4,11 @@ import { Dispatch, SetStateAction, useState, useEffect } from 'react';
 import MaskedInput from 'react-text-mask';
 import Image from 'next/image';
 import * as motion from 'motion/react-client';
-import { fadeInAnimation } from '@/shared/utils/animationVariants';
+import {
+  fadeInAnimation,
+  listVariants,
+  listItemVariants,
+} from '@/shared/utils/animationVariants';
 
 import { getTotalSum } from '@/shared/utils/getTotalSum';
 import { checkoutValidation } from '@/shared/schemas/checkoutFormValidation';
@@ -138,8 +142,22 @@ export default function CheckoutForm({
               height="92"
             />
           </motion.div>
-          <div className="flex flex-col gap-y-6 xl:gap-y-7 md:w-[344px] lg:w-[516px] xl:w-[586px]">
-            <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            exit="exit"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={listVariants({
+              staggerChildren: 0.2,
+              delayChildren: 0.4,
+            })}
+            className="flex flex-col gap-y-6 xl:gap-y-7 md:w-[344px] lg:w-[516px] xl:w-[586px]"
+          >
+            <motion.div
+              viewport={{ once: true, amount: 0.2 }}
+              variants={listItemVariants}
+              className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark"
+            >
               <CheckoutSubTitle
                 icon="emoji"
                 title="Крок 1"
@@ -175,9 +193,13 @@ export default function CheckoutForm({
                   mask={phoneMask}
                 />
               </div>
-            </div>
+            </motion.div>
 
-            <div className="pt-5 pb-2 px-4 xl:px-7 xl:pt-7 xl:pb-4 rounded-[6px] xl:rounded-[8px] border border-dark">
+            <motion.div
+              viewport={{ once: true, amount: 0.2 }}
+              variants={listItemVariants}
+              className="pt-5 pb-2 px-4 xl:px-7 xl:pt-7 xl:pb-4 rounded-[6px] xl:rounded-[8px] border border-dark"
+            >
               <CheckoutSubTitle
                 icon="globe"
                 title="Крок 2"
@@ -188,9 +210,13 @@ export default function CheckoutForm({
               ) : (
                 <DeliveryBlockWorldwide />
               )}
-            </div>
+            </motion.div>
 
-            <div className="flex flex-col gap-y-3 xl:gap-y-6 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+            <motion.div
+              viewport={{ once: true, amount: 0.2 }}
+              variants={listItemVariants}
+              className="flex flex-col gap-y-3 xl:gap-y-6 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark"
+            >
               <div>
                 <CheckoutSubTitle
                   icon="card"
@@ -220,18 +246,26 @@ export default function CheckoutForm({
                 label="Сплатити при отриманні"
                 value="Сплатити при отриманні"
               />
-            </div>
+            </motion.div>
 
-            <div className="pt-5 pb-2 px-4 xl:px-7 xl:pt-7 xl:pb-4 rounded-[6px] xl:rounded-[8px] border border-dark">
+            <motion.div
+              viewport={{ once: true, amount: 0.2 }}
+              variants={listItemVariants}
+              className="pt-5 pb-2 px-4 xl:px-7 xl:pt-7 xl:pb-4 rounded-[6px] xl:rounded-[8px] border border-dark"
+            >
               <CheckoutSubTitle
                 icon="users"
                 title="Крок 4"
                 description="Одержувач"
               />
               <RecipientBlock errors={errors} touched={touched} />
-            </div>
+            </motion.div>
 
-            <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+            <motion.div
+              viewport={{ once: true, amount: 0.2 }}
+              variants={listItemVariants}
+              className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark"
+            >
               <CheckoutSubTitle
                 icon="pencil"
                 title="Крок 5"
@@ -245,17 +279,36 @@ export default function CheckoutForm({
                 touched={touched}
                 fieldClassName="h-[99px] xl:h-[93px] py-3"
               />
-            </div>
-          </div>
-          <div className="flex flex-col gap-y-6 xl:gap-y-7 md:w-[344px] lg:w-[404px] xl::w-[454px]">
-            <div className="xl:mb-3 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            exit="exit"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={listVariants({
+              staggerChildren: 0.2,
+              delayChildren: 0.4,
+            })}
+            className="flex flex-col gap-y-6 xl:gap-y-7 md:w-[344px] lg:w-[404px] xl::w-[454px]"
+          >
+            <motion.div
+              viewport={{ once: true, amount: 0.2 }}
+              variants={listItemVariants}
+              className="xl:mb-3 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark"
+            >
               <CheckoutSubTitle icon="shopping" title="Ваше замовлення" />
               <CartItemsList />
               <CheckoutSubTitle icon="gift" title="Додати пакування?" />
               <AdditionalOptions />
               <PostcardBlock />
-            </div>
-            <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+            </motion.div>
+            <motion.div
+              viewport={{ once: true, amount: 0.2 }}
+              variants={listItemVariants}
+              className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark"
+            >
               <CheckoutSubTitle icon="heart" title="Промокод" />
               <CustomizedInput
                 fieldName="promocode"
@@ -263,15 +316,23 @@ export default function CheckoutForm({
                 errors={errors}
                 touched={touched}
               />
-            </div>
-            <div className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+            </motion.div>
+            <motion.div
+              viewport={{ once: true, amount: 0.2 }}
+              variants={listItemVariants}
+              className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark"
+            >
               <CheckoutSubTitle
                 icon="money"
                 title="Залишити чайові нашим пакувальникам"
               />
               <TipsInputBlock errors={errors} touched={touched} />
-            </div>
-            <div className="flex flex-col gap-y-5 xl:gap-y-4 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">
+            </motion.div>
+            <motion.div
+              viewport={{ once: true, amount: 0.2 }}
+              variants={listItemVariants}
+              className="flex flex-col gap-y-5 xl:gap-y-4 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark"
+            >
               <div className="flex items-center justify-between">
                 <h3 className="text-[12px] xl:text-[16px] font-medium leading-[120%]">
                   Загальна вартість
@@ -287,9 +348,14 @@ export default function CheckoutForm({
                 text="Оформити замовлення"
                 className="h-10 md:h-12"
               />
-            </div>
-            <GiftHint />
-          </div>
+            </motion.div>
+            <motion.div
+              viewport={{ once: true, amount: 0.2 }}
+              variants={listItemVariants}
+            >
+              <GiftHint />
+            </motion.div>
+          </motion.div>
         </Form>
       )}
     </Formik>
