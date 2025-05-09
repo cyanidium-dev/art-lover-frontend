@@ -19,7 +19,8 @@ import RadioButtonInput from '../formComponents/RadioButtonInput';
 import RecipientBlock from './RecipientBlock';
 import CartItemsList from './CartItemsList';
 import AdditionalOptions from './AdditionalOptions';
-import DeliveryBlock from './DeliveryBlock';
+import DeliveryBlockUkraine from './DeliveryBlockUkraine';
+import DeliveryBlockWorldwise from './DeliveryBlockWorldwise';
 
 export interface ValuesCheckoutFormType {
   name: string;
@@ -29,6 +30,7 @@ export interface ValuesCheckoutFormType {
   deliveryService: string;
   deliveryType: string;
   city: string;
+  country: string;
   branchNumber: string;
   address: string;
   payment: string;
@@ -46,6 +48,7 @@ interface CheckoutFormProps {
   setIsError: Dispatch<SetStateAction<boolean>>;
   setIsNotificationShown: Dispatch<SetStateAction<boolean>>;
   setIsPopUpShown?: Dispatch<SetStateAction<boolean>>;
+  activeTab: string;
   className?: string;
 }
 
@@ -53,6 +56,7 @@ export default function CheckoutForm({
   setIsError,
   setIsNotificationShown,
   setIsPopUpShown,
+  activeTab,
   className = '',
 }: CheckoutFormProps) {
   const [isLoading, setIsLoading] = useState(false);
@@ -74,10 +78,11 @@ export default function CheckoutForm({
     email: '',
     phone: '',
     deliveryService: '',
-    deliveryType: 'Відділення',
+    deliveryType: activeTab === 'ukraine' ? 'Відділення' : 'Доставка кур’єром',
     city: '',
     branchNumber: '',
     address: '',
+    country: '',
     payment: 'Сплатити при отриманні',
     recipientOption: 'Я одержувач',
     recipientName: '',
@@ -159,7 +164,11 @@ export default function CheckoutForm({
                 title="Крок 2"
                 description="Оплата та доставка"
               />
-              <DeliveryBlock />
+              {activeTab === 'ukraine' ? (
+                <DeliveryBlockUkraine />
+              ) : (
+                <DeliveryBlockWorldwise />
+              )}
             </div>
 
             <div className="flex flex-col gap-y-3 xl:gap-y-6 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark">

@@ -26,7 +26,7 @@ export default function Checkout() {
           Оформлення замовлення
         </h1>
         <TabMenu activeTab={activeTab} setActiveTab={setActiveTab} />
-        <CheckoutFormWithNotifications />
+        <CheckoutFormWithNotifications activeTab={activeTab} />
       </Container>
     </section>
   );

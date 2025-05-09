@@ -8,10 +8,12 @@ import Backdrop from '@/shared/components/backdrop/Backdrop';
 import CheckoutForm from '@/shared/components/forms/checkoutForm/CheckoutForm';
 
 interface CheckoutFormWithNotificationsProps {
+  activeTab: string;
   className?: string;
 }
 
 export default function CheckoutFormWithNotifications({
+  activeTab,
   className,
 }: CheckoutFormWithNotificationsProps) {
   const [isError, setIsError] = useState(false);
@@ -27,6 +29,7 @@ export default function CheckoutFormWithNotifications({
         variants={fadeInAnimation({ y: 30, delay: 0.8 })}
       >
         <CheckoutForm
+          activeTab={activeTab}
           setIsError={setIsError}
           setIsNotificationShown={setIsNotificationShown}
           className={className}

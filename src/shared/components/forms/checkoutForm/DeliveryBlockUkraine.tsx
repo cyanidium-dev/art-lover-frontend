@@ -5,6 +5,10 @@ import { useFormikContext } from 'formik';
 import CustomizedInput from '../formComponents/CustomizedInput';
 import RadioButtonInput from '../formComponents/RadioButtonInput';
 
+interface Values {
+  [fieldName: string]: string;
+}
+
 const deliveryServices = [
   {
     label: 'Укрпошта',
@@ -20,13 +24,8 @@ const deliveryTypes = ['Відділення', 'Доставка кур’єро
 
 const cities = ['Київ', 'Дніпро', 'Харків', 'Одеса', 'Львів'];
 
-export default function DeliveryBlock() {
-  const { values, setFieldValue, errors, touched } = useFormikContext<{
-    deliveryService: string;
-    deliveryType: string;
-    city: string;
-    branchNumber: string;
-  }>();
+export default function DeliveryBlockUkraine() {
+  const { values, setFieldValue, errors, touched } = useFormikContext<Values>();
 
   const isDeliveryChecked = !!values.deliveryService;
 
