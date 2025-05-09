@@ -106,7 +106,8 @@ export default function CheckoutForm({
       setIsLoading,
       setIsError,
       setIsNotificationShown,
-      setIsPopUpShown
+      setIsPopUpShown,
+      false
     );
   };
 
