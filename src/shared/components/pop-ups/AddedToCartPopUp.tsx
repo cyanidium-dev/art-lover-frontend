@@ -51,7 +51,7 @@ export default function AddedToCartPopUp({
           <SecondaryButton
             onClick={() => setIsPopUpShown(false)}
             textStyles="text-[12px] font-normal"
-            className="h-10 xl:w-[calc(50%-8px)]"
+            className="w-full h-10 xl:w-[calc(50%-8px)]"
           >
             Продовжити покупки
           </SecondaryButton>

@@ -57,7 +57,7 @@ export default function Confirmation() {
           >
             <Link href="/">
               <SecondaryButton
-                className="lg:max-w-[345px] lg:mx-auto h-9 lg:h-12"
+                className="w-full lg:max-w-[345px] lg:mx-auto h-9 lg:h-12"
                 textStyles="text-[12px] lg:text-[14px] font-medium"
               >
                 Переглянути інші наші товари

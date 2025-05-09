@@ -25,9 +25,9 @@ interface CustomizedInputProps {
 
 const labelStyles = 'relative flex flex-col w-full';
 const fieldStyles =
-  'relative w-full px-5 py-2 md:py-[13px] text-[12px] md:text-[16px] font-normal leading-none text-dark bg-white placeholder-placeholder border rounded-[6px] outline-none resize-none transition duration-300 ease-out';
+  'relative w-full px-5 py-2 md:py-[13px] text-[12px] xl:text-[16px] font-normal leading-none text-dark bg-white placeholder-placeholder border rounded-[6px] outline-none resize-none transition duration-300 ease-out';
 const errorStyles =
-  'absolute bottom-[-10px] left-2 text-[9px] font-normal leading-none text-red-500';
+  'absolute bottom-[-11px] left-2 text-[9px] font-normal leading-none text-red-500';
 
 export default function CustomizedInput({
   errors,
@@ -59,9 +59,7 @@ export default function CustomizedInput({
         placeholder={placeholder}
         onChange={onChange || handleChange}
         onFocus={onFocus}
-        className={`${fieldStyles} ${
-          as === 'textarea' ? 'h-[99px] md:h-[150px]' : ''
-        } ${fieldClassName} ${fieldFontSize} ${
+        className={`${fieldStyles} ${fieldClassName} ${fieldFontSize} ${
           isError && isTouched ? 'border-red-500 ' : 'border-dark'
         }`}
       />

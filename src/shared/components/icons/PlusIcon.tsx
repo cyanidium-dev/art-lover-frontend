@@ -13,8 +13,12 @@ export default function PlusIcon({ className }: PlusIconProps) {
       aria-label="icon plus"
       className={className}
     >
-      <path d="M1 6.68457H13" stroke="white" strokeLinecap="round" />
-      <path d="M7.31543 13L7.31543 1" stroke="white" strokeLinecap="round" />
+      <path d="M1 6.68457H13" stroke="currentColor" strokeLinecap="round" />
+      <path
+        d="M7.31543 13L7.31543 1"
+        stroke="currentColor"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }

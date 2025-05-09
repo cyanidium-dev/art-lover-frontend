@@ -6,19 +6,27 @@ export const handleSubmitForm = async <T>(
   setIsLoading: Dispatch<SetStateAction<boolean>>,
   setIsError: Dispatch<SetStateAction<boolean>>,
   setIsNotificationShown: Dispatch<SetStateAction<boolean>>,
-  setIsPopUpShown?: Dispatch<SetStateAction<boolean>>
+  setIsPopUpShown?: Dispatch<SetStateAction<boolean>>,
+  showSuccessNotification?: boolean
 ) => {
   try {
     setIsLoading(true);
     resetForm();
+
     if (setIsPopUpShown) {
       setIsPopUpShown(false);
     }
+
+    if (showSuccessNotification) {
+      setIsNotificationShown(true);
+    } else {
+      window.location.assign('/confirmation');
+    }
   } catch (error) {
     setIsError(true);
+    setIsNotificationShown(true);
     return error;
   } finally {
     setIsLoading(false);
-    setIsNotificationShown(true);
   }
 };

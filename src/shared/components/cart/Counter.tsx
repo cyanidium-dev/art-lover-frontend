@@ -5,9 +5,13 @@ import MinusIcon from '../icons/MinusIcon';
 
 interface CounterProps {
   className?: string;
+  variant?: 'dark' | 'white';
 }
 
-export default function Counter({ className = '' }: CounterProps) {
+export default function Counter({
+  className = '',
+  variant = 'white',
+}: CounterProps) {
   const [count, setCount] = useState(1);
 
   useEffect(() => {
@@ -23,20 +27,32 @@ export default function Counter({ className = '' }: CounterProps) {
   };
 
   return (
-    <div className={`flex items-center gap-x-[14px] text-white ${className}`}>
+    <div
+      className={`flex items-center gap-x-[14px] ${
+        variant === 'white' ? 'text-white' : 'text-dark'
+      } ${className}`}
+    >
       <button
-        className="group flex items-center justify-center size-3 text-white"
+        className={`cursor-pointer flex items-center justify-center size-3 ${
+          variant === 'white' ? 'text-white' : 'text-dark'
+        }`}
         onClick={onMinusClick}
         disabled={count === 1}
         aria-label="minus"
       >
         <MinusIcon />
       </button>
-      <div className="flex items-center justify-center w-[29px] xl:w-[38px] h-[23px] xl:h-7 border border-white rounded-[4px] text-[12px] xl:text-[]14px font-semibold leading-[120%]">
+      <div
+        className={`flex items-center justify-center w-[29px] xl:w-[38px] h-[23px] xl:h-7 border ${
+          variant === 'white' ? 'border-white' : 'border-dark'
+        } rounded-[4px] text-[12px] xl:text-[]14px font-semibold leading-[120%]`}
+      >
         {count}
       </div>
       <button
-        className="flex items-center justify-center size-3 xl:size-4"
+        className={`cursor-pointer flex items-center justify-center size-3 xl:size-4 ${
+          variant === 'white' ? 'text-white' : 'text-dark'
+        }`}
         onClick={onPlusClick}
         aria-label="plus"
       >

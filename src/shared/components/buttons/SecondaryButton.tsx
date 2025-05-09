@@ -16,7 +16,7 @@ export default function SecondaryButton({
   return (
     <button
       onClick={onClick}
-      className={`cursor-pointer flex items-center justify-center w-full px-[10px] py-[5.5px] rounded-full border-[1.5px] border-black bg-white 
+      className={`cursor-pointer flex items-center justify-center px-[10px] py-[5.5px] rounded-full border-[1.5px] border-black bg-white 
          leading-none xl:hover:text-white xl:hover:bg-dark focus-visible:text-white focus-visible:bg-dark transition 
         duration-300 ease-in-out ${className} ${textStyles}`}
     >

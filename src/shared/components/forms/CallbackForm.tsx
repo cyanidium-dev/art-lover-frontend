@@ -93,6 +93,7 @@ export default function CallBackForm({
               placeholder="* Поділіться своєю думкою"
               errors={errors}
               touched={touched}
+              fieldClassName="h-[99px] md:h-[150px] py-3"
             />
           </div>
           <SubmitButton

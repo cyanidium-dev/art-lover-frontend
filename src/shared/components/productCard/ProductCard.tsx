@@ -63,7 +63,7 @@ export default function ProductCard({
           href={`/catalog/${category?.slug}/${slug}`}
           className="block w-full"
         >
-          <SecondaryButton className="max-w-[102px] xs:max-w-full h-9 xl:h-10">
+          <SecondaryButton className="w-full max-w-[102px] xs:max-w-full h-9 xl:h-10">
             Детальніше
           </SecondaryButton>
         </Link>
