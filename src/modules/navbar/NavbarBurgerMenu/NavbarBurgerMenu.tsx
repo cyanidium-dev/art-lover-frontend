@@ -1,5 +1,5 @@
-"use client";
-import {useState, useRef, useEffect, useCallback} from "react";
+'use client';
+import { useState, useRef, useEffect, useCallback } from 'react';
 
 import NavbarBurgerMenuButton from './NavbarBurgerMenuButton/NavbarBurgerMenuButton';
 import NavbarBurgerMenuContent from './NavbarBurgerMenuContent/NavbarBurgerMenuContent';
@@ -9,17 +9,17 @@ const NavbarBurgerMenu = () => {
   const modalRef = useRef(null);
 
   useEffect(() => {
-    modalRef.current = document?.getElementById("modal");
+    modalRef.current = document?.getElementById('modal');
   }, []);
 
-  const toggleOpen = useCallback(()=> setIsOpen(prevState => !prevState), []);
+  const toggleOpen = useCallback(() => setIsOpen(prevState => !prevState), []);
 
   return (
     <>
-    <NavbarBurgerMenuButton isOpen={isOpen} toggleOpen={toggleOpen} />
-      <NavbarBurgerMenuContent isOpen={isOpen} toggleOpen={toggleOpen} />
+      <NavbarBurgerMenuButton onOpen={() => setIsOpen(true)} />
+      <NavbarBurgerMenuContent isOpen={isOpen} onClose={toggleOpen} />
     </>
-  )
-}
+  );
+};
 
 export default NavbarBurgerMenu;

@@ -13,13 +13,13 @@ import NavbarSearch from '@/modules/navbar/NavbarSearch/NavbarSearch';
 import NavbarFavorite from '@/modules/navbar/NavbarFavorite/NavbarFavorite';
 import NavbarCart from '@/modules/navbar/NavbarCart/NavbarCart';
 import NavbarMenu from '@/modules/navbar/NavbarMenu/NavbarMenu';
-// import NavbarBurgerMenu from '@/modules/navbar/NavbarBurgerMenu/NavbarBurgerMenu';
+import NavbarBurgerMenu from '@/modules/navbar/NavbarBurgerMenu/NavbarBurgerMenu';
 
 import styles from './Navbar.module.scss';
 
 const Navbar = () => {
   return (
-    <nav className="pt-[32px] xl:pt-[26px] pb-[28px] z-50 relative overflow-hidden">
+    <nav className="pt-8 pb-6 xl:py-[26px] z-50 relative overflow-hidden">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -66,7 +66,7 @@ const Navbar = () => {
         />
       </motion.div>
       <Container className="z-20 relative">
-        <motion.div
+        <div
           initial="hidden"
           whileInView="visible"
           exit="exit"
@@ -81,14 +81,13 @@ const Navbar = () => {
             </Link>
             <NavbarCatalog />
           </div>
-          <div className="flex items-center gap-[10px] xl:gap-[20px]">
-            <NavbarMenu />
+          <div className="flex items-center gap-[10px] xl:gap-4">
             <NavbarSearch />
             <NavbarFavorite />
-            {/*<NavbarCart />*/}
-            {/*<NavbarBurgerMenu />*/}
+            <NavbarCart />
+            <NavbarBurgerMenu />
           </div>
-        </motion.div>
+        </div>
       </Container>
     </nav>
   );

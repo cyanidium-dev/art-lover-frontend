@@ -3,9 +3,18 @@ import { useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 
+import CrossInCircleIcon from '@/shared/components/icons/CrossInCircleIcon';
 import NavbarNav from '@/modules/navbar/NavbarBurgerMenu/NavbarBurgerMenuContent/NavbarNav/NavbarNav';
 
-const NavbarBurgerMenuContent = ({ isOpen, toggleOpen }) => {
+interface NavbarBurgerMenuContentProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const NavbarBurgerMenuContent = ({
+  isOpen,
+  onClose,
+}: NavbarBurgerMenuContentProps) => {
   const modalRef = useRef(null);
 
   useEffect(() => {
@@ -24,8 +33,15 @@ const NavbarBurgerMenuContent = ({ isOpen, toggleOpen }) => {
           exit="exit"
           className={`${
             isOpen ? 'no-doc-scroll' : ''
-          } z-50 top-0 right-0 left-0 w-[100vw] h-[100vh] bg-[#0000005C] overflow-y-auto flex justify-end`}
+          } absolute z-50 top-22 right-0 left-0 w-[100vw] h-[calc(100dvh-88px)] bg-dark overflow-y-auto flex justify-end`}
         >
+          <button
+            type="button"
+            onClick={onClose}
+            className="cursor-pointer flex items-center justify-center size-[32px] p-1 xl:p-0"
+          >
+            {<CrossInCircleIcon className="size-full text-white" />}
+          </button>
           <NavbarNav />
         </motion.div>
       </AnimatePresence>,

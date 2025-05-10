@@ -29,7 +29,7 @@ export default function CartListItem({
           />
         </div>
       </Link>
-      <div className="w-full flex justify-between">
+      <div className="w-full flex gap-x-2 justify-between">
         <div>
           <Link href={`/catalog/${category?.slug}/${slug}`}>
             <p

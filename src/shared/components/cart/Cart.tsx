@@ -68,10 +68,11 @@ export default function CartModal({
                   </h3>
                 </div>
                 <button
+                  type="button"
                   onClick={() => setIsPopUpShown(false)}
                   className="cursor-pointer flex items-center justify-center size-[32px] p-1 xl:p-0"
                 >
-                  {<CrossInCircleIcon className="size-full" />}
+                  {<CrossInCircleIcon className="size-full text-white" />}
                 </button>
               </motion.div>
               <CartList cartItems={cartItems} />
