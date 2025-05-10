@@ -17,9 +17,9 @@ export default function BurgerIcon({ className }: BurgerIconProps) {
         <path
           d="M3.33325 15H16.6666M3.33325 5H16.6666H3.33325ZM3.33325 10H16.6666H3.33325Z"
           stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
       <svg
@@ -34,9 +34,9 @@ export default function BurgerIcon({ className }: BurgerIconProps) {
           d="M6.66669 30H33.3334M6.66669 10H33.3334H6.66669ZM6.66669 20H33.3334H6.66669Z"
           aria-label="burger icon"
           stroke="currentColor"
-          stroke-width="3.33333"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="3.33333"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </>

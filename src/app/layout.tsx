@@ -34,11 +34,11 @@ export default function RootLayout({
         className={`${montserrat.variable} ${denistina.variable} flex min-h-screen flex-col antialiased
           `}
       >
-      <div id="modal" style={{zIndex: 999}}></div>
-      <Navbar />
+        <div id="modal" style={{ zIndex: 100 }}></div>
+        <Navbar />
         <main className="flex-1">{children}</main>
         <SubscribeNews />
-      <Footer />
+        <Footer />
       </body>
     </html>
   );

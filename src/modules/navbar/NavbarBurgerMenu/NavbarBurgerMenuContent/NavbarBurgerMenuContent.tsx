@@ -3,50 +3,96 @@ import { useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 
+import { headerPhoneRegex } from '@/shared/regex/regex';
+import { burgerMenuVariants } from '@/shared/utils/animationVariants';
 import CrossInCircleIcon from '@/shared/components/icons/CrossInCircleIcon';
-import NavbarNav from '@/modules/navbar/NavbarBurgerMenu/NavbarBurgerMenuContent/NavbarNav/NavbarNav';
+import NavbarNav from '@/modules/navbar/NavbarBurgerMenu/NavbarBurgerMenuContent/NavbarNav/NavbarMenu';
+import MainButton from '@/shared/components/buttons/MainButton';
+import Backdrop from '@/shared/components/backdrop/Backdrop';
 
 interface NavbarBurgerMenuContentProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+const PHONE = '+380-97-006-84-08';
+
 const NavbarBurgerMenuContent = ({
   isOpen,
   onClose,
 }: NavbarBurgerMenuContentProps) => {
-  const modalRef = useRef(null);
+  const modalRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     modalRef.current = document?.getElementById('modal');
-    console.log(modalRef.current);
   }, []);
 
-  return (
-    isOpen &&
-    createPortal(
+  useEffect(() => {
+    const body = document.body;
+    if (isOpen) {
+      body.classList.add('no-scroll');
+    } else {
+      body.classList.remove('no-scroll');
+    }
+
+    return () => body.classList.remove('no-scroll');
+  }, [isOpen]);
+
+  if (!modalRef.current) return null;
+
+  return createPortal(
+    <>
       <AnimatePresence mode="wait">
-        <motion.div
-          viewport={{ once: true, amount: 0.2 }}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          className={`${
-            isOpen ? 'no-doc-scroll' : ''
-          } absolute z-50 top-22 right-0 left-0 w-[100vw] h-[calc(100dvh-88px)] bg-dark overflow-y-auto flex justify-end`}
-        >
-          <button
-            type="button"
-            onClick={onClose}
-            className="cursor-pointer flex items-center justify-center size-[32px] p-1 xl:p-0"
+        {isOpen && (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={burgerMenuVariants}
+            className={`absolute z-[70] top-22 md:top-0 right-0 w-[100vw] md:w-[495px] h-[calc(100dvh-88px)] md:h-[100dvh] bg-dark md:bg-white overflow-y-auto scrollbar scrollbar-w-[2.5px] scrollbar-thumb-rounded-full 
+      scrollbar-track-rounded-full scrollbar-thumb-orange scrollbar-track-transparent`}
           >
-            {<CrossInCircleIcon className="size-full text-white" />}
-          </button>
-          <NavbarNav />
-        </motion.div>
-      </AnimatePresence>,
-      modalRef.current
-    )
+            <div className="w-full px-8 md:px-[50px] pt-4 md:pt-7 pb-[46px] md:pb-8">
+              <button
+                type="button"
+                onClick={onClose}
+                className="cursor-pointer flex items-center justify-center size-[32px] p-1 md:p-0 mb-2 md:mb-10 ml-auto text-white md:text-dark md:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
+              >
+                {<CrossInCircleIcon className="size-full" />}
+              </button>
+              <h2 className="max-w-[264px] md:max-w-full mb-4.5 text-[20px] md:text-[36px] font-semibold md:font-medium leading-[160%] md:leading-[120%] md:text-center uppercasec text-white md:text-dark">
+                ЗАЛИШИЛИСЯ ПИТАННЯ?
+              </h2>
+              <p className="hidden md:block mb-8 text-[16px] font-light leading-[120%] text-justify">
+                Переглянь наші контакти та зв’яжися! Наш менеджер зможе надати
+                консультацію по всім товарам та питанням, які вас цікавлять.
+              </p>
+              <a
+                href={`tel:+${PHONE.replace(/\D/g, '')}`}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                aria-label="phone number"
+                className="block w-fit min-w-[264px] md:min-w-[218px] md:mx-auto"
+              >
+                <MainButton
+                  className="max-w-[264px] md:w-[218px] h-9 md:h-11 mb-2"
+                  textStyles="text-[12px] md:text-[16px] font-medium md:font-normal"
+                >
+                  {PHONE.replace(headerPhoneRegex, '$1-$2-$3-$4-$5')}
+                </MainButton>
+              </a>
+              <NavbarNav onClose={onClose} />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <Backdrop
+        className="hidden md:block"
+        isVisible={isOpen}
+        onClick={onClose}
+      />
+    </>,
+    modalRef.current
   );
 };
 

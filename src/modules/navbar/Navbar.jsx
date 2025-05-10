@@ -65,15 +65,8 @@ const Navbar = () => {
           height="43"
         />
       </motion.div>
-      <Container className="z-20 relative">
-        <div
-          initial="hidden"
-          whileInView="visible"
-          exit="exit"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeInAnimation({})}
-          className="flex justify-between items-center"
-        >
+      <Container className=" relative">
+        <div className="flex justify-between items-center">
           <div className="flex items-center gap-[10px] xl:gap-[24px] flex-row-reverse xl:flex-row">
             <Link href="/">
               <Logo className={`${styles.logo} hidden xl:block`} />
