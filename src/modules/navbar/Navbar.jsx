@@ -18,14 +18,14 @@ import styles from './Navbar.module.scss';
 
 const Navbar = () => {
   return (
-    <nav className="pt-8 pb-6 xl:py-[26px] z-50 relative overflow-hidden">
+    <nav className="pt-8 pb-6 xl:py-[26px] z-50 relative">
       <motion.div
         initial="hidden"
         whileInView="visible"
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInAnimation({ delay: 1.2, scale: 0.9 })}
-        className="hidden xl:block z-10 absolute top-0 left-[50%] transform -translate-x-[50%]"
+        className="hidden xl:block -z-10 absolute top-0 left-[50%] h-full transform -translate-x-[50%] overflow-hidden"
       >
         <Image
           src="/images/navbar/figureCenterDesk.svg"
@@ -40,7 +40,7 @@ const Navbar = () => {
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInAnimation({ delay: 1.2, scale: 0.9 })}
-        className="xl:hidden z-10 absolute top-0 left-0"
+        className="xl:hidden -z-10 absolute top-0 left-0"
       >
         <Image
           src="/images/navbar/figureLeftMob.svg"
@@ -55,7 +55,7 @@ const Navbar = () => {
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInAnimation({ delay: 1.2, scale: 0.9 })}
-        className="xl:hidden z-10 absolute top-0  left-[50%] transform -translate-x-[50%]"
+        className="xl:hidden -z-10 absolute top-0  left-[50%] transform -translate-x-[50%]"
       >
         <Image
           src="/images/navbar/figureCenterMob.svg"
@@ -64,7 +64,7 @@ const Navbar = () => {
           height="43"
         />
       </motion.div>
-      <Container className=" relative">
+      <Container className="relative">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-[10px] xl:gap-[24px] flex-row-reverse xl:flex-row">
             <Link href="/">
