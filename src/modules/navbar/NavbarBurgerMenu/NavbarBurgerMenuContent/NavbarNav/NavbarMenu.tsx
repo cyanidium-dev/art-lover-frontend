@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import { listVariants } from '@/shared/utils/animationVariants';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import { motion } from 'framer-motion';
 import NavMenuItem from './NavMenuItem';
 
@@ -17,8 +17,11 @@ const navMenuList = [
 export default function NavMenu({ onClose }: NavMenuProps) {
   return (
     <motion.ul
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
       viewport={{ once: true, amount: 0.2 }}
-      variants={listVariants({ staggerChildren: 0.2, delayChildren: 0.15 })}
+      variants={fadeInAnimation({ y: 30, delay: 0.8 })}
       className="flex flex-col"
     >
       {navMenuList.map((menuItem, idx) => (

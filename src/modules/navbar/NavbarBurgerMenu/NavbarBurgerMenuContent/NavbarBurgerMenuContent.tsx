@@ -4,7 +4,10 @@ import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import { headerPhoneRegex } from '@/shared/regex/regex';
-import { burgerMenuVariants } from '@/shared/utils/animationVariants';
+import {
+  burgerMenuVariants,
+  fadeInAnimation,
+} from '@/shared/utils/animationVariants';
 import CrossInCircleIcon from '@/shared/components/icons/CrossInCircleIcon';
 import NavbarNav from '@/modules/navbar/NavbarBurgerMenu/NavbarBurgerMenuContent/NavbarNav/NavbarMenu';
 import MainButton from '@/shared/components/buttons/MainButton';
@@ -60,27 +63,43 @@ const NavbarBurgerMenuContent = ({
               >
                 {<CrossInCircleIcon className="size-full" />}
               </button>
-              <h2 className="max-w-[264px] md:max-w-full mb-4.5 text-[20px] md:text-[36px] font-semibold md:font-medium leading-[160%] md:leading-[120%] md:text-center uppercasec text-white md:text-dark">
-                ЗАЛИШИЛИСЯ ПИТАННЯ?
-              </h2>
-              <p className="hidden md:block mb-8 text-[16px] font-light leading-[120%] text-justify">
-                Переглянь наші контакти та зв’яжися! Наш менеджер зможе надати
-                консультацію по всім товарам та питанням, які вас цікавлять.
-              </p>
-              <a
-                href={`tel:+${PHONE.replace(/\D/g, '')}`}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                aria-label="phone number"
-                className="block w-fit min-w-[264px] md:min-w-[218px] md:mx-auto"
+              <motion.h2
+                initial="hidden"
+                whileInView="visible"
+                exit="exit"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeInAnimation({ y: 30, delay: 0.4 })}
+                className="max-w-[264px] md:max-w-full mb-4.5 text-[20px] md:text-[36px] font-semibold md:font-medium leading-[160%] md:leading-[120%] md:text-center uppercasec text-white md:text-dark"
               >
-                <MainButton
-                  className="max-w-[264px] md:w-[218px] h-9 md:h-11 mb-2"
-                  textStyles="text-[12px] md:text-[16px] font-medium md:font-normal"
+                ЗАЛИШИЛИСЯ ПИТАННЯ?
+              </motion.h2>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                exit="exit"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeInAnimation({ y: 30, delay: 0.6 })}
+              >
+                {' '}
+                <p className="hidden md:block mb-8 text-[16px] font-light leading-[120%] text-justify">
+                  Переглянь наші контакти та зв’яжися! Наш менеджер зможе надати
+                  консультацію по всім товарам та питанням, які вас цікавлять.
+                </p>
+                <a
+                  href={`tel:+${PHONE.replace(/\D/g, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="phone number"
+                  className="block w-fit min-w-[264px] md:min-w-[218px] md:mx-auto"
                 >
-                  {PHONE.replace(headerPhoneRegex, '$1-$2-$3-$4-$5')}
-                </MainButton>
-              </a>
+                  <MainButton
+                    className="max-w-[264px] md:w-[218px] h-9 md:h-11 mb-2"
+                    textStyles="text-[12px] md:text-[16px] font-medium md:font-normal"
+                  >
+                    {PHONE.replace(headerPhoneRegex, '$1-$2-$3-$4-$5')}
+                  </MainButton>
+                </a>
+              </motion.div>
               <NavbarNav onClose={onClose} />
             </div>
           </motion.div>
