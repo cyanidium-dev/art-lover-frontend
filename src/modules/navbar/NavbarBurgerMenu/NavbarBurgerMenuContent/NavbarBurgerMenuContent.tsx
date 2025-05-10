@@ -59,7 +59,7 @@ const NavbarBurgerMenuContent = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="cursor-pointer flex items-center justify-center size-[32px] p-1 md:p-0 mb-2 md:mb-10 ml-auto text-white md:text-dark md:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
+                className="cursor-pointer flex items-center justify-center size-[32px] p-1 md:p-0 mb-2 md:mb-10 ml-auto text-white md:text-dark xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
               >
                 {<CrossInCircleIcon className="size-full" />}
               </button>

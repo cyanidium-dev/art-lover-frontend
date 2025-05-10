@@ -12,7 +12,6 @@ import NavbarCatalog from '@/modules/navbar/NavbarCatalog/NavbarCatalog';
 import NavbarSearch from '@/modules/navbar/NavbarSearch/NavbarSearch';
 import NavbarFavorite from '@/modules/navbar/NavbarFavorite/NavbarFavorite';
 import NavbarCart from '@/modules/navbar/NavbarCart/NavbarCart';
-import NavbarMenu from '@/modules/navbar/NavbarMenu/NavbarMenu';
 import NavbarBurgerMenu from '@/modules/navbar/NavbarBurgerMenu/NavbarBurgerMenu';
 
 import styles from './Navbar.module.scss';
