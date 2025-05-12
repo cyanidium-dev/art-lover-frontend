@@ -42,6 +42,21 @@ export const listVariants = ({
   },
 });
 
+export const headerVariants = {
+  hidden: { opacity: 0, y: 0 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 2, ease: 'easeOut' },
+  },
+  exit: {
+    opacity: 0,
+    y: 0,
+    scale: 0.95,
+    transition: { duration: 0.3, ease: 'easeOut' },
+  },
+};
+
 export const listItemVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: {

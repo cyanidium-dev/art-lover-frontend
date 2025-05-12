@@ -5,7 +5,7 @@ const NavbarCatalog = () => {
   return (
     <Link href="/catalog">
       <button
-        className="cursor-pointer justify-center xl:justify-start bg-orange hover:bg-orange-light focus-visible:bg-orange-light rounded-[20px] 
+        className="cursor-pointer justify-center xl:justify-start bg-orange xl:hover:brightness-125 focus-visible:brightness-125 rounded-[20px] 
       xl:px-[27px] h-[32px] xl:h-[46px] w-[44px] xl:w-[220px] flex items-center gap-[32px] transition duration-300 ease-in-out"
       >
         <Image
