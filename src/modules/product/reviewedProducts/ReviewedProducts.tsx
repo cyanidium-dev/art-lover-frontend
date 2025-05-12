@@ -14,7 +14,7 @@ export default function ReviewedProducts() {
           exit="exit"
           viewport={{ once: true, amount: 0.2 }}
           variants={fadeInAnimation({ delay: 1.2, scale: 0.9 })}
-          className="hidden xl:block absolute -z-10 top-[-72px] right-[-37px]"
+          className="hidden xl:block absolute top-[-72px] right-[-37px]"
         >
           <Image
             src="/images/productPage/reviewedProducts/figureRightDesk.svg"

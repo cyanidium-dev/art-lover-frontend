@@ -11,7 +11,7 @@ export default function SimilarProductsImages() {
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInAnimation({ delay: 1.2, scale: 0.9 })}
-        className="xl:hidden absolute -z-10 top-[82px] left-[-56px]"
+        className="xl:hidden absolute top-[82px] left-[-56px]"
       >
         <Image
           src="/images/productPage/similarProducts/figureLeftMob.svg"
@@ -26,7 +26,7 @@ export default function SimilarProductsImages() {
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInAnimation({ delay: 1.2, scale: 0.9 })}
-        className="xl:hidden absolute -z-10 top-[-108px] right-[-20px]"
+        className="xl:hidden absolute top-[-108px] right-[-20px]"
       >
         <Image
           src="/images/productPage/similarProducts/figureRightMob.svg"
@@ -41,7 +41,7 @@ export default function SimilarProductsImages() {
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInAnimation({ delay: 1.2, scale: 0.9 })}
-        className="hidden xl:block absolute -z-10 top-[-258px] right-[-87px]"
+        className="hidden xl:block absolute top-[-258px] right-[-87px]"
       >
         <Image
           src="/images/productPage/similarProducts/figureRightDesk.svg"
@@ -56,7 +56,7 @@ export default function SimilarProductsImages() {
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInAnimation({ delay: 1.2, scale: 0.9 })}
-        className="hidden xl:block absolute -z-10 top-[-98px] left-[-30px]"
+        className="hidden xl:block absolute top-[-98px] left-[-30px]"
       >
         <Image
           src="/images/productPage/similarProducts/figureLeftDesk.svg"
