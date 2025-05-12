@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+.no-scroll {
+  overflow: hidden;
+}
+
 /* Loader */
 
 .loader {
@@ -135,7 +139,7 @@
 .swiper-button-prev:hover,
 .swiper-button-next:focus-visible,
 .swiper-button-prev:focus-visible {
-  filter: brightness(110%);
+  filter: brightness(125%);
 }
 
 .swiper-button-next:active,

@@ -46,7 +46,7 @@ export default function BlogCard({ article }: BlogCardProps) {
           </p>
         </div>
         <Link href={`/blog/${slug}`}>
-          <button className="cursor-pointer group flex items-center justify-center size-[44px] xl:size-[59px] rounded-[10px] xl:rounded-[14px] bg-orange">
+          <button className="cursor-pointer group flex items-center justify-center size-[44px] xl:size-[59px] rounded-[10px] xl:rounded-[14px] bg-orange xl:hover:brightness-125 focus-visible:brightness-125 transition duration-300 ease-in-out">
             <Image
               src="/images/blogPage/blogList/arrow.svg"
               alt="arrow"

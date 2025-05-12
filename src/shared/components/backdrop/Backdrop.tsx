@@ -3,11 +3,13 @@ import { useEffect } from 'react';
 interface BackdropProps {
   isVisible: boolean;
   onClick: () => void;
+  className?: string;
 }
 
 export default function Backdrop({
   isVisible = false,
   onClick,
+  className = '',
 }: BackdropProps) {
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
@@ -29,7 +31,7 @@ export default function Backdrop({
         isVisible
           ? 'opacity-100 no-doc-scroll'
           : 'opacity-0 pointer-events-none'
-      }`}
+      } ${className}`}
       onClick={onClick}
     />
   );

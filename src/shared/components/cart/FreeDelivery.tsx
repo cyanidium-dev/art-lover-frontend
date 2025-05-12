@@ -23,7 +23,7 @@ export default function FreeDelivery({ cartItems }: FreeDeliveryProps) {
       whileInView="visible"
       exit="exit"
       viewport={{ once: true, amount: 0.5 }}
-      variants={fadeInAnimation({ y: 30, delay: 1.2 })}
+      variants={fadeInAnimation({ y: 30, delay: 0.9 })}
       className="py-[23px]"
     >
       <div className="flex items-center justify-between mb-3 text-white">

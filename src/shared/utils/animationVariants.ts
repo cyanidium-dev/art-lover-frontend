@@ -42,6 +42,21 @@ export const listVariants = ({
   },
 });
 
+export const headerVariants = {
+  hidden: { opacity: 0, y: 0 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 2, ease: 'easeOut' },
+  },
+  exit: {
+    opacity: 0,
+    y: 0,
+    scale: 0.95,
+    transition: { duration: 0.3, ease: 'easeOut' },
+  },
+};
+
 export const listItemVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -78,5 +93,15 @@ export const cartItemVariants = {
     opacity: 0,
     x: 30,
     transition: { duration: 0.3, ease: 'easeIn' },
+  },
+};
+
+export const burgerMenuVariants = {
+  hidden: { x: '100%', opacity: 0 },
+  visible: { x: 0, opacity: 1, transition: { duration: 0.8, ease: 'easeOut' } },
+  exit: {
+    x: '100%',
+    opacity: 0,
+    transition: { duration: 0.5, ease: 'easeIn' },
   },
 };
