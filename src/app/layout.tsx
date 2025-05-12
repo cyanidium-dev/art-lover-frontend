@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="uk" className="scroll-smooth">
       <body
-        className={`${montserrat.variable} ${denistina.variable} flex min-h-screen flex-col antialiased
+        className={`${montserrat.variable} ${denistina.variable} relative z-[1] flex min-h-screen flex-col antialiased
           `}
       >
         <div id="modal" style={{ zIndex: 100 }}></div>
