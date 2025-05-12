@@ -14,15 +14,18 @@ export const createPagination = (maxVisibleBullets = 4) => ({
       start = Math.max(1, end - maxVisibleBullets + 1);
     }
 
-    for (let i = start; i <= end; i++) {
+    for (let i = 1; i <= total; i++) {
+      const isVisible = i >= start && i <= end;
+
       bullets += `
-              <span class="swiper-pagination-bullet cursor-pointer ${
-                i === current ? 'swiper-pagination-bullet-active' : ''
-              }" 
-                data-index="${i - 1}">
-                ${i}
-              </span>
-            `;
+        <span 
+          class="swiper-pagination-bullet cursor-pointer ${
+            i === current ? 'swiper-pagination-bullet-active' : ''
+          } ${!isVisible ? '!hidden' : ''}" 
+          data-index="${i - 1}">
+          ${i}
+        </span>
+      `;
     }
 
     return bullets;
