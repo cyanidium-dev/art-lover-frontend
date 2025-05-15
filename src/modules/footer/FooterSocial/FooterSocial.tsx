@@ -9,7 +9,7 @@ const FooterSocial = () => {
   return (
     <FooterColumn title="Наші соц. мережі">
       <ul className="flex gap-[16px] items-center xl:block">
-        <li className="mb-[16px] xl:mb-[20px]">
+        <li className="xl:mb-[20px]">
           <a
             href="https://www.instagram.com/"
             target="_blank"
@@ -19,7 +19,7 @@ const FooterSocial = () => {
             <span className="hidden xl:block">Instagram</span>
           </a>
         </li>
-        <li className="mb-[16px] xl:mb-[20px]">
+        <li className="xl:mb-[20px]">
           <a
             href="https://www.youtube.com/"
             target="_blank"
@@ -29,7 +29,7 @@ const FooterSocial = () => {
             <span className="hidden xl:block ">Youtube</span>
           </a>
         </li>
-        <li className="mb-[16px] xl:mb-[20px]">
+        <li className="xl:mb-[20px]">
           <a
             href="https://www.tiktok.com/"
             target="_blank"
@@ -39,7 +39,7 @@ const FooterSocial = () => {
             <span className="hidden xl:block">Tik Tok</span>
           </a>
         </li>
-        <li className="mb-[16px] xl:mb-[20px]">
+        <li className="xl:mb-[20px]">
           <a
             href="https://facebook.com/"
             target="_blank"
@@ -49,7 +49,7 @@ const FooterSocial = () => {
             <span className="hidden xl:block">Facebook</span>
           </a>
         </li>
-        <li className="mb-[16px] xl:mb-[20px]">
+        <li>
           <a
             href="https://monobank.ua/"
             target="_blank"
