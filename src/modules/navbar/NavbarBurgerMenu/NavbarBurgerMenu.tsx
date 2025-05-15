@@ -8,12 +8,14 @@ interface NavbarBurgerMenuProps {
   isOpenBurgerMenu: boolean;
   setIsOpenBurgerMenu: Dispatch<SetStateAction<boolean>>;
   setIsOpenCatalogMenu: Dispatch<SetStateAction<boolean>>;
+  setIsCartModalOpened: Dispatch<SetStateAction<boolean>>;
 }
 
 const NavbarBurgerMenu = ({
   isOpenBurgerMenu,
   setIsOpenBurgerMenu,
   setIsOpenCatalogMenu,
+  setIsCartModalOpened,
 }: NavbarBurgerMenuProps) => {
   const modalRef = useRef<HTMLElement | null>(null);
 
@@ -27,6 +29,7 @@ const NavbarBurgerMenu = ({
         onOpen={() => {
           setIsOpenBurgerMenu(true);
           setIsOpenCatalogMenu(false);
+          setIsCartModalOpened(false);
         }}
       />
       <NavbarBurgerMenuContent

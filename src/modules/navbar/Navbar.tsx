@@ -24,6 +24,7 @@ import styles from './Navbar.module.scss';
 const Navbar = () => {
   const [isOpenBurgerMenu, setIsOpenBurgerMenu] = useState(false);
   const [isOpenCatalogMenu, setIsOpenCatalogMenu] = useState(false);
+  const [isCartModalOpened, setIsCartModalOpened] = useState(false);
 
   return (
     <header>
@@ -64,16 +65,23 @@ const Navbar = () => {
                 isOpenCatalogMenu={isOpenCatalogMenu}
                 setIsOpenCatalogMenu={setIsOpenCatalogMenu}
                 setIsOpenBurgerMenu={setIsOpenBurgerMenu}
+                setIsCartModalOpened={setIsCartModalOpened}
               />
             </div>
             <div className="flex items-center gap-[10px] xl:gap-4">
               <NavbarSearch />
               <NavbarFavorite />
-              <NavbarCart />
+              <NavbarCart
+                isCartModalOpened={isCartModalOpened}
+                setIsCartModalOpened={setIsCartModalOpened}
+                setIsOpenBurgerMenu={setIsOpenBurgerMenu}
+                setIsOpenCatalogMenu={setIsOpenCatalogMenu}
+              />
               <NavbarBurgerMenu
                 isOpenBurgerMenu={isOpenBurgerMenu}
                 setIsOpenBurgerMenu={setIsOpenBurgerMenu}
                 setIsOpenCatalogMenu={setIsOpenCatalogMenu}
+                setIsCartModalOpened={setIsCartModalOpened}
               />
             </div>
           </motion.div>

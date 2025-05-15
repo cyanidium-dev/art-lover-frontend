@@ -76,7 +76,7 @@ export const cartModalVariants = {
   hidden: { x: '100%', opacity: 0 },
   visible: { x: 0, opacity: 1, transition: { duration: 0.8, ease: 'easeOut' } },
   exit: {
-    x: '100%',
+    x: 0,
     opacity: 0,
     transition: { duration: 0.5, ease: 'easeIn' },
   },
@@ -100,7 +100,7 @@ export const burgerMenuVariants = {
   hidden: { x: '100%', opacity: 0 },
   visible: { x: 0, opacity: 1, transition: { duration: 0.8, ease: 'easeOut' } },
   exit: {
-    x: '100%',
+    x: 0,
     opacity: 0,
     transition: { duration: 0.5, ease: 'easeIn' },
   },
