@@ -1,10 +1,10 @@
 'use client';
 import { useState } from 'react';
-import Image from 'next/image';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import * as motion from 'motion/react-client';
 import CartModal from '@/shared/components/cart/Cart';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
+import CartIcon from '@/shared/components/icons/CartIcon';
 
 const FooterContacts = () => {
   const [isCartModalOpened, setIsCartModalOpened] = useState(false);
@@ -37,14 +37,9 @@ const FooterContacts = () => {
           type="button"
           onClick={() => setIsCartModalOpened(true)}
           className="hidden xl:flex cursor-pointer bg-white w-[167px] py-[8px] px-[14px] rounded-[20px] gap-[25px] items-center 
-          xl:hover:bg-orange-light focus-visible:bg-orange-light transition duration-300 ease-in-out"
+          xl:hover:bg-orange xl:hover:text-white focus-visible:bg-orange focus-visible:text-white transition duration-300 ease-in-out"
         >
-          <Image
-            src="/images/footer/footerContacts/cartIcon.svg"
-            alt="background"
-            width="18"
-            height="18"
-          />
+          <CartIcon className="w-6 h-auto" strokeWidth="1" />
           <span className="text-[14px] font-semibold">Кошик</span>
         </button>
       </motion.div>

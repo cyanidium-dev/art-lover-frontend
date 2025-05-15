@@ -13,8 +13,13 @@ import styles from './Footer.module.scss';
 
 const Footer = () => {
   return (
-    <footer
-      className={`${styles.footer} pt-[40px] xl:pt-[64px] pb-[8px] xl:pb-[79px]`}
+    <motion.footer
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeInAnimation({})}
+      className={`${styles.footer} pt-[40px] xl:pt-[64px] pb-[8px] xl:pb-[79px] overflow-hidden`}
     >
       <Container>
         <div className="hidden md:flex justify-between mb-[76px]">
@@ -50,7 +55,7 @@ const Footer = () => {
           </div>
         </div>
       </Container>
-    </footer>
+    </motion.footer>
   );
 };
 
