@@ -13,7 +13,7 @@ export default function DiscountsIcon({ className = '' }: DiscountsIconProps) {
       aria-label="discounts icon"
       className={className}
     >
-      <g clip-path="url(#clip0_691_3011)">
+      <g clipPath="url(#clip0_691_3011)">
         <path
           d="M10.6582 18.0983L2.49988 9.93994V11.6066C2.49988 12.0483 2.67488 12.4733 2.99154 12.7816L9.48321 19.2733C10.1332 19.9233 11.1915 19.9233 11.8415 19.2733L17.0165 14.0983C17.6665 13.4483 17.6665 12.3899 17.0165 11.7399L10.6582 18.0983Z"
           fill="currentColor"

@@ -268,6 +268,14 @@
   );
 }
 
+.catalog-gradient:not(:last-child)::after {
+  background: linear-gradient(
+    90deg,
+    rgba(167, 167, 167, 0.5) 0%,
+    rgba(102, 102, 102, 0.35) 100%
+  );
+}
+
 /* Animations */
 
 @keyframes rotation {

@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { burgerMenuVariants } from '@/shared/utils/animationVariants';
 import CrossInCircleIcon from '@/shared/components/icons/CrossInCircleIcon';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
+import NavBarCategoriesList from './NavBarCategoriesList';
 
 interface NavbarCatalogMenuProps {
   isOpen: boolean;
@@ -43,11 +44,11 @@ export default function NavbarCatalogMenu({
             animate="visible"
             exit="exit"
             variants={burgerMenuVariants}
-            className={`absolute z-[70] top-22 md:top-0 right-0 w-[100vw] md:w-[495px] h-[calc(100dvh-88px)] md:h-[100dvh] bg-white md:bg-dark 
+            className={`absolute z-[70] top-22 md:top-0 right-0 w-[100vw] md:w-[495px] h-[calc(100dvh-88px)] md:h-[100dvh] pr-1 bg-white md:bg-dark 
               overflow-y-auto scrollbar scrollbar-w-[2.5px] scrollbar-thumb-rounded-full 
       scrollbar-track-rounded-full scrollbar-thumb-orange scrollbar-track-transparent`}
           >
-            <div className="flex items-center justify-between w-full px-8 md:px-[50px] pt-4 md:pt-7 pb-[46px] md:pb-8">
+            <div className="flex items-center justify-between w-full pl-8 pr-7 md:px-[50px] pt-4 md:pt-7 pb-[46px] md:pb-8">
               <h2 className="text-[20px] font-semibold leading-[120% text-orange">
                 Каталог
               </h2>
@@ -59,6 +60,7 @@ export default function NavbarCatalogMenu({
                 {<CrossInCircleIcon className="size-full" />}
               </button>
             </div>
+            <NavBarCategoriesList onClose={onClose} />
           </motion.div>
         )}
       </AnimatePresence>
