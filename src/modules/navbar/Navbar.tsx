@@ -1,3 +1,5 @@
+'use client';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as motion from 'motion/react-client';
@@ -5,7 +7,6 @@ import * as motion from 'motion/react-client';
 import {
   fadeInAnimation,
   headerVariants,
-  listItemVariants,
 } from '@/shared/utils/animationVariants';
 
 import Container from '@/shared/components/container/Container';
@@ -21,6 +22,9 @@ import NavbarBurgerMenu from '@/modules/navbar/NavbarBurgerMenu/NavbarBurgerMenu
 import styles from './Navbar.module.scss';
 
 const Navbar = () => {
+  const [isOpenBurgerMenu, setIsOpenBurgerMenu] = useState(false);
+  const [isOpenCatalogMenu, setIsOpenCatalogMenu] = useState(false);
+
   return (
     <header>
       <nav className="pt-8 pb-6 xl:py-[26px] z-50 relative">
@@ -56,13 +60,21 @@ const Navbar = () => {
                 <Logo className={`${styles.logo} hidden xl:block`} />
                 <MobileLogo className={`${styles.logo} xl:hidden`} />
               </Link>
-              <NavbarCatalog />
+              <NavbarCatalog
+                isOpenCatalogMenu={isOpenCatalogMenu}
+                setIsOpenCatalogMenu={setIsOpenCatalogMenu}
+                setIsOpenBurgerMenu={setIsOpenBurgerMenu}
+              />
             </div>
             <div className="flex items-center gap-[10px] xl:gap-4">
               <NavbarSearch />
               <NavbarFavorite />
               <NavbarCart />
-              <NavbarBurgerMenu />
+              <NavbarBurgerMenu
+                isOpenBurgerMenu={isOpenBurgerMenu}
+                setIsOpenBurgerMenu={setIsOpenBurgerMenu}
+                setIsOpenCatalogMenu={setIsOpenCatalogMenu}
+              />
             </div>
           </motion.div>
         </Container>
