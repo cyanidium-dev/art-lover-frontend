@@ -20,7 +20,7 @@ const FooterContacts = () => {
       >
         <a
           href="tel:0 800 550 130"
-          className="text-orange text-[14px] xl:text-[16px] font-semibold mb-[8px]"
+          className="text-orange text-[14px] xl:text-[16px] font-semibold mb-[8px] xl:hover:brightness-125 focus-visible:brightness-125 transition duration-300 ease-in-out"
         >
           0 800 550 130
         </a>
@@ -36,7 +36,8 @@ const FooterContacts = () => {
         <button
           type="button"
           onClick={() => setIsCartModalOpened(true)}
-          className="hidden xl:flex cursor-pointer bg-white w-[167px] py-[8px] px-[14px] rounded-[20px] gap-[25px] items-center"
+          className="hidden xl:flex cursor-pointer bg-white w-[167px] py-[8px] px-[14px] rounded-[20px] gap-[25px] items-center 
+          xl:hover:bg-orange-light focus-visible:bg-orange-light transition duration-300 ease-in-out"
         >
           <Image
             src="/images/footer/footerContacts/cartIcon.svg"
