@@ -101,7 +101,7 @@ export default function HelpChooseGift() {
               Наш сайт допоможе обрати подарунок для будь-якого свята та події
               за допомогою фільтрів
             </motion.p>
-            <Link href="/">
+            <Link href="/catalog/gifts">
               <motion.button
                 initial="hidden"
                 whileInView="visible"

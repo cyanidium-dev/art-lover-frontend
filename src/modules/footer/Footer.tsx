@@ -6,7 +6,10 @@ import FooterAboutCompany from '@/modules/footer/FooterAboutCompany/FooterAboutC
 import FooterSocial from '@/modules/footer/FooterSocial/FooterSocial';
 import FooterContacts from '@/modules/footer/FooterContacts/FooterContacts';
 
-import { fadeInAnimation } from '@/shared/utils/animationVariants';
+import {
+  fadeInAnimation,
+  headerVariants,
+} from '@/shared/utils/animationVariants';
 import * as motion from 'motion/react-client';
 
 import styles from './Footer.module.scss';
@@ -18,8 +21,8 @@ const Footer = () => {
       whileInView="visible"
       exit="exit"
       viewport={{ once: true, amount: 0.2 }}
-      variants={fadeInAnimation({})}
-      className={`${styles.footer} pt-[40px] xl:pt-[64px] pb-[8px] xl:pb-[79px] overflow-hidden`}
+      variants={headerVariants}
+      className={`${styles.footer} pt-[40px] xl:pt-[64px] pb-[8px] xl:pb-[79px]`}
     >
       <Container>
         <div className="hidden md:flex justify-between mb-[76px]">
