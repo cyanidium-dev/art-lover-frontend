@@ -9,6 +9,7 @@ import {
 } from 'formik';
 import MaskedInput from 'react-text-mask';
 import { useId } from 'react';
+import Image from 'next/image';
 
 interface Values {
   [fieldName: string]: string;
@@ -30,6 +31,7 @@ interface CustomizedInputProps {
   isLoading?: boolean;
   inputType?: string;
   fieldFontSize?: string;
+  showIcon?: boolean;
 }
 
 const labelStyles = 'relative flex flex-col w-full';
@@ -52,6 +54,7 @@ export default function CustomizedInput({
   onChange,
   onFocus,
   inputType = 'text',
+  showIcon,
 }: CustomizedInputProps) {
   const { handleChange, values } = useFormikContext<Values>();
   const isError = (errors as Record<string, unknown>)[fieldName];
@@ -75,18 +78,30 @@ export default function CustomizedInput({
           className={`${fieldStyles} ${fieldClassName} ${fieldFontSize} ${
             isError && isTouched ? 'border-red-500' : 'border-dark'
           }`}
-        />
-
-        {showPlaceholder && (
-          <span
-            className={`pointer-events-none absolute left-5 ${
-              as === 'textarea' ? 'top-3' : 'top-1/2 -translate-y-1/2'
-            } text-placeholder text-[12px] xl:text-[16px] whitespace-nowrap`}
-          >
-            {isRequired && <span className="text-red-500"> *</span>}{' '}
-            <span className="text-placeholder">{placeholder}</span>
-          </span>
-        )}
+        />{' '}
+        <span
+          className={`pointer-events-none absolute left-5 ${
+            as === 'textarea' ? 'top-3' : 'top-1/2 -translate-y-1/2'
+          } text-placeholder text-[12px] xl:text-[16px] whitespace-nowrap`}
+        >
+          {showIcon ? (
+            <Image
+              src="/images/checkoutPage/flag.svg"
+              alt="ukrainian flag"
+              width="41"
+              height="29"
+              className="w-[23px] xl:w-[41px] h-auto inline-block mr-1"
+            />
+          ) : null}
+          {showPlaceholder && (
+            <>
+              <span>
+                {isRequired && <span className="text-red-500 mr-1"> *</span>}
+              </span>
+              <span className="text-placeholder">{placeholder}</span>
+            </>
+          )}
+        </span>
       </div>
 
       <ErrorMessage name={fieldName} component="p" className={errorStyles} />

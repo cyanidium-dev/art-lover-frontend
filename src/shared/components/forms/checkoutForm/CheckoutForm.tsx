@@ -195,6 +195,10 @@ export default function CheckoutForm({
                   touched={touched}
                   as={MaskedInput}
                   mask={phoneMask}
+                  showIcon={activeTab === 'worldwide'}
+                  fieldClassName={`${
+                    activeTab === 'worldwide' ? 'pl-12 xl:pl-17' : ''
+                  }`}
                 />
               </div>
             </motion.div>
