@@ -13,7 +13,7 @@ export default function GiftHint() {
       </div>
       <button
         type="button"
-        className="cursor-pointer flex items-center justify-center size-12 xl:size-[58px] rounded-[10px] bg-white"
+        className="cursor-pointer flex items-center justify-center size-12 xl:size-[58px] rounded-[10px] bg-white xl:hover:brightness-125 focus-visible:brightness-125 transition duration-300 ease-in-out"
       >
         <Image
           src={`/images/checkoutPage/share.svg`}
