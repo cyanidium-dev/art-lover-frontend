@@ -166,27 +166,31 @@ export default function CheckoutForm({
               <div className="flex flex-col gap-y-3 xl:gap-y-[14px]">
                 <CustomizedInput
                   fieldName="name"
-                  placeholder="* Ім’я"
+                  placeholder="Ім’я"
+                  isRequired
                   errors={errors}
                   touched={touched}
                 />
                 <CustomizedInput
                   fieldName="surname"
-                  placeholder="* Прізвище"
+                  placeholder="Прізвище"
+                  isRequired
                   errors={errors}
                   touched={touched}
                 />
                 <CustomizedInput
                   fieldName="email"
                   inputType="email"
-                  placeholder="* Електронна пошта"
+                  placeholder="Електронна пошта"
+                  isRequired
                   errors={errors}
                   touched={touched}
                 />
                 <CustomizedInput
                   fieldName="phone"
                   inputType="tel"
-                  placeholder="* Номер телефону"
+                  placeholder="Номер телефону"
+                  isRequired
                   errors={errors}
                   touched={touched}
                   as={MaskedInput}

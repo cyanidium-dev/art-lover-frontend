@@ -20,13 +20,15 @@ export default function DeliveryBlockWorldwide() {
       <div className="flex flex-col gap-3 xl:gap-3.5">
         <CustomizedInput
           fieldName="country"
-          placeholder="* Оберіть країну"
+          placeholder="Оберіть країну"
+          isRequired
           errors={errors}
           touched={touched}
         />
         <CustomizedInput
           fieldName="address"
-          placeholder="* Введіть адресу"
+          placeholder="Введіть адресу"
+          isRequired
           errors={errors}
           touched={touched}
         />
