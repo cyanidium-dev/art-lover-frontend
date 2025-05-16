@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+
+import { Dispatch, SetStateAction } from 'react';
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 
@@ -10,18 +11,24 @@ interface Option {
 
 interface AddonsListProps {
   options: Option[];
+  selectedAddons: Option[];
+  setSelectedAddons: Dispatch<SetStateAction<Option[]>>;
 }
 
-export default function AddonsList({ options }: AddonsListProps) {
-  const [selectedLabels, setSelectedLabels] = useState<string[]>([]);
-
-  const toggleOption = (label: string) => {
-    setSelectedLabels(prev => {
-      const updated = prev.includes(label)
-        ? prev.filter(item => item !== label)
-        : [...prev, label];
-
-      return updated;
+export default function AddonsList({
+  options,
+  selectedAddons,
+  setSelectedAddons,
+}: AddonsListProps) {
+  const toggleOption = (selectedTitle: string) => {
+    setSelectedAddons(prev => {
+      const exists = prev.some(opt => opt.title === selectedTitle);
+      if (exists) {
+        return prev.filter(opt => opt.title !== selectedTitle);
+      } else {
+        const newOption = options.find(opt => opt.title === selectedTitle);
+        return newOption ? [...prev, newOption] : prev;
+      }
     });
   };
 
@@ -37,7 +44,7 @@ export default function AddonsList({ options }: AddonsListProps) {
   after:left-0 after:h-[0.5px] after:w-full after:bg-dark after:opacity-50"
     >
       {options.map((addon, idx) => {
-        const isChecked = selectedLabels.includes(addon?.title);
+        const isChecked = selectedAddons.some(opt => opt.title === addon.title);
         return (
           <li key={idx}>
             <label className="cursor-pointer flex items-center justify-between">

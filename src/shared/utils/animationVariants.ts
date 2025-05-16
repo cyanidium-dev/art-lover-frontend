@@ -107,7 +107,7 @@ export const cartItemVariants = {
   exit: {
     opacity: 0,
     x: 30,
-    transition: { duration: 0.3, ease: 'easeIn' },
+    transition: { duration: 0.4, ease: 'easeIn' },
   },
 };
 

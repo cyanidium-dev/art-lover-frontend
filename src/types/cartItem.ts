@@ -8,5 +8,7 @@ export interface CartItem {
   price: number;
   discountedPrice?: number;
   images: { url: string; alt: string }[];
+  addons?: { title: string; price: number }[];
+  color?: { title: string; hex: string };
   quantity: number;
 }

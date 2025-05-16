@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import * as motion from 'motion/react-client';
+import { useCartStore } from '@/shared/store/cartStore';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import { Rating } from 'react-simple-star-rating';
 import IconButton from '@/shared/components/buttons/IconButton';
@@ -25,19 +26,49 @@ interface OrderProductProps {
 export default function OrderProduct({ currentProduct }: OrderProductProps) {
   const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
   const [isCartModalShown, setIsCartModalShown] = useState(false);
+  const [count, setCount] = useState(1);
+  const { addToCart } = useCartStore();
+
+  console.log(count);
 
   const {
+    id,
     title,
     description,
     available,
     addons,
     colors,
     price,
+    images,
+    category,
+    slug,
     discountedPrice,
   } = currentProduct;
+
+  const [selectedColor, setSelectedColor] = useState({
+    title: colors[0]?.title || '',
+    hex: colors[0]?.hex || '',
+  });
+  const [selectedAddons, setSelectedAddons] = useState<
+    {
+      title: string;
+      price: number;
+    }[]
+  >([]);
+
   const rating = getAverageRating(reviewsList);
 
   const handleAddToCartClick = () => {
+    addToCart({
+      id,
+      title,
+      price,
+      images,
+      category,
+      slug,
+      quantity: count,
+      color: selectedColor,
+    });
     setIsAddedToCartPopUpShown(true);
   };
   return (
@@ -111,8 +142,20 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
       >
         ({reviewsList?.length} відгуків)
       </motion.p>
-      {!addons || !addons.length ? null : <AddonsList options={addons} />}
-      {!colors || !colors.length ? null : <ColorPicker colors={colors} />}
+      {!addons || !addons.length ? null : (
+        <AddonsList
+          options={addons}
+          selectedAddons={selectedAddons}
+          setSelectedAddons={setSelectedAddons}
+        />
+      )}
+      {!colors || !colors.length ? null : (
+        <ColorPicker
+          colors={colors}
+          selectedColor={selectedColor}
+          setSelectedColor={setSelectedColor}
+        />
+      )}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -121,7 +164,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
         variants={fadeInAnimation({ y: 30, delay: 1.2 })}
         className="flex items-center justify-between mb-4 xl:mb-5"
       >
-        <Counter />
+        <Counter count={count} setCount={setCount} />
         {discountedPrice && discountedPrice < price ? (
           <div>
             <span className="text-[16px] xl:text-[24px] font-semibold leading-[120%] text-orange">

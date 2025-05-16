@@ -1,16 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 
 interface ColorPickerProps {
   colors: { title: string; hex: string }[];
+  selectedColor: { title: string; hex: string };
+  setSelectedColor: Dispatch<SetStateAction<{ title: string; hex: string }>>;
 }
 
-export default function ColorPicker({ colors }: ColorPickerProps) {
-  const [selectedColor, setSelectedColor] = useState(colors[0]?.title || '');
-
+export default function ColorPicker({
+  colors,
+  selectedColor,
+  setSelectedColor,
+}: ColorPickerProps) {
   return (
     <motion.div
       initial="hidden"
@@ -27,7 +31,9 @@ export default function ColorPicker({ colors }: ColorPickerProps) {
         {colors.map((color, idx) => (
           <li key={idx}>
             <button
-              onClick={() => setSelectedColor(color?.title)}
+              onClick={() =>
+                setSelectedColor({ title: color?.title, hex: color?.hex })
+              }
               style={{ color: color?.hex }}
               className="cursor-pointer"
             >
@@ -41,7 +47,7 @@ export default function ColorPicker({ colors }: ColorPickerProps) {
                 <path
                   d="M11 1.07129C16.6609 1.07129 21.25 5.66037 21.25 11.3213C21.25 16.9822 16.6609 21.5713 11 21.5713C5.33908 21.5713 0.75 16.9822 0.75 11.3213C0.75 5.66037 5.33908 1.07129 11 1.07129Z"
                   stroke={`${
-                    selectedColor === color?.title
+                    selectedColor.title === color?.title
                       ? 'currentColor'
                       : 'transparent'
                   } `}

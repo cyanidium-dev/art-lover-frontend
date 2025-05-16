@@ -1,9 +1,12 @@
 'use client';
-import { useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
-export default function Counter() {
-  const [count, setCount] = useState(1);
+interface CounterProps {
+  count: number;
+  setCount: Dispatch<SetStateAction<number>>;
+}
 
+export default function Counter({ count, setCount }: CounterProps) {
   const onMinusClick = () => {
     setCount(count - 1);
   };

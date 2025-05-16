@@ -3,12 +3,12 @@ import Image from 'next/image';
 import CartList from './CartList';
 import CartTotal from './CartTotal';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useCartStore } from '@/shared/store/cartStore';
 import {
   fadeInAnimation,
   cartModalVariants,
 } from '@/shared/utils/animationVariants';
 import CrossInCircleIcon from '../icons/CrossInCircleIcon';
-import { productsList } from '@/modules/home/bestsellers/mockedData';
 import CartIcon from '../icons/CartIcon';
 import FreeDelivery from './FreeDelivery';
 
@@ -21,9 +21,7 @@ export default function CartModal({
   isPopUpShown,
   setIsPopUpShown,
 }: CartModalProps) {
-  const cartItems = productsList
-    .slice(0, 4)
-    .map(item => ({ ...item, quantity: 1 }));
+  const { cartItems } = useCartStore();
 
   return (
     <AnimatePresence>
@@ -75,7 +73,7 @@ export default function CartModal({
                   {<CrossInCircleIcon className="size-full" />}
                 </button>
               </motion.div>
-              <CartList cartItems={cartItems} />
+              <CartList />
               <FreeDelivery cartItems={cartItems} />
             </div>
           </div>
