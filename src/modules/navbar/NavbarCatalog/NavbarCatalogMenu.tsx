@@ -2,10 +2,14 @@
 import { useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { burgerMenuVariants } from '@/shared/utils/animationVariants';
+import {
+  burgerMenuVariants,
+  fadeInAnimation,
+} from '@/shared/utils/animationVariants';
 import CrossInCircleIcon from '@/shared/components/icons/CrossInCircleIcon';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
 import NavBarCategoriesList from './NavBarCategoriesList';
+import Image from 'next/image';
 
 interface NavbarCatalogMenuProps {
   isOpen: boolean;
@@ -44,11 +48,12 @@ export default function NavbarCatalogMenu({
             animate="visible"
             exit="exit"
             variants={burgerMenuVariants}
-            className={`absolute z-[70] top-22 md:top-0 right-0 w-[100vw] md:w-[495px] h-[calc(100dvh-88px)] md:h-[100dvh] pr-1 bg-white md:bg-dark 
-              overflow-y-auto scrollbar scrollbar-w-[2.5px] scrollbar-thumb-rounded-full 
-      scrollbar-track-rounded-full scrollbar-thumb-orange scrollbar-track-transparent`}
+            style={{ scrollbarGutter: 'stable' }}
+            className={`absolute z-[70] top-22 md:top-0 right-0 w-[100vw] md:w-[495px] bg-white md:bg-dark h-[calc(100dvh-88px)] overflow-y-auto overflow-x-hidden scrollbar scrollbar-w-[2.5px] scrollbar-thumb-rounded-full 
+      scrollbar-track-rounded-full scrollbar-thumb-orange scrollbar-track-transparent
+                `}
           >
-            <div className="flex items-center justify-between w-full pl-8 pr-7 md:px-[50px] pt-4 md:pt-7 pb-[46px] md:pb-8">
+            <div className="flex items-center justify-between w-full pl-8 pr-8 pt-4 pb-5">
               <h2 className="text-[20px] font-semibold leading-[120% text-orange">
                 Каталог
               </h2>
@@ -61,6 +66,21 @@ export default function NavbarCatalogMenu({
               </button>
             </div>
             <NavBarCategoriesList onClose={onClose} />
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              exit="exit"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeInAnimation({ delay: 1.2, scale: 0.9 })}
+              className="w-[360px] h-[131px] ml-auto -mt-[22px]"
+            >
+              <Image
+                src="/images/navbar/catalogMenuFigureMob.svg"
+                width="360"
+                height="131"
+                alt="background"
+              />
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -76,11 +76,13 @@ const categoriesList = [
   },
 ];
 
-export default function NavBarCategoriesList({}: NavBarCategoriesListProps) {
+export default function NavBarCategoriesList({
+  onClose,
+}: NavBarCategoriesListProps) {
   return (
     <ul className="flex flex-col gap-3 pl-8 pr-7">
       {categoriesList.map((category, idx) => (
-        <NavBarCategoryItem key={idx} category={category} />
+        <NavBarCategoryItem key={idx} category={category} onClose={onClose} />
       ))}
     </ul>
   );

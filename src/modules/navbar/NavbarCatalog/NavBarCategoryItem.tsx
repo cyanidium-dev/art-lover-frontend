@@ -10,10 +10,12 @@ interface NavBarCategoryItemProps {
     slug: string;
     subCategories: { title: string; slug: string }[];
   };
+  onClose: () => void;
 }
 
 export default function NavBarCategoryItem({
   category,
+  onClose,
 }: NavBarCategoryItemProps) {
   const [isSubCategoriesShown, setIsSubCategoriesShown] = useState(false);
 
@@ -23,17 +25,32 @@ export default function NavBarCategoryItem({
 
   return (
     <li className="group text-grey-light">
-      <div className="relative flex gap-[9px] justify-between items-center pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] group-last:after:hidden after:bg-[linear-gradient(90deg,rgba(167,167,167,0.5)_0%,rgba(102,102,102,0.35)_100%)]">
-        <Link
-          href={`/catalog/${category?.slug}`}
-          className="w-full flex gap-[9px] items-center"
-        >
-          {icon}
-          <h2 className="text-[16px] font-medium leading-[120%]">{title}</h2>
-        </Link>
+      <div
+        onClick={toggleShowMore}
+        className="relative flex gap-[9px] justify-between items-center group-not-last:pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] group-last:after:hidden after:bg-[linear-gradient(90deg,rgba(167,167,167,0.5)_0%,rgba(102,102,102,0.35)_100%)]"
+      >
         {subCategories?.length > 0 ? (
           <>
-            <button onClick={toggleShowMore} type="button" className="ml-auto">
+            <div className="w-full flex gap-[9px] items-center">
+              {icon}
+              <h2 className="text-[16px] font-medium leading-[120%]">
+                {title}
+              </h2>
+            </div>
+          </>
+        ) : (
+          <Link
+            onClick={onClose}
+            href={`/catalog/${category?.slug}`}
+            className="w-full flex gap-[9px] items-center"
+          >
+            {icon}
+            <h2 className="text-[16px] font-medium leading-[120%]">{title}</h2>
+          </Link>
+        )}
+        {subCategories?.length > 0 ? (
+          <>
+            <button type="button" className="ml-auto">
               <ArrowIcon
                 className={`${
                   isSubCategoriesShown ? 'rotate-90' : ''
@@ -51,9 +68,13 @@ export default function NavBarCategoryItem({
         {subCategories.map(({ title, slug }, idx) => (
           <li
             key={idx}
-            className="relative first:pt-4 pb-3 text-[14px] font-normal leading-[120%] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-[linear-gradient(90deg,rgba(167,167,167,0.5)_0%,rgba(102,102,102,0.35)_100%)]"
+            className="relative first:pt-4 text-[14px] font-normal leading-[120%] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-[linear-gradient(90deg,rgba(167,167,167,0.5)_0%,rgba(102,102,102,0.35)_100%)]"
           >
-            <Link href={`/catalog/${category?.slug}?subcategory=${slug}`}>
+            <Link
+              onClick={onClose}
+              href={`/catalog/${category?.slug}?subcategory=${slug}`}
+              className="block w-full pb-3"
+            >
               {title}
             </Link>
           </li>
