@@ -3,7 +3,7 @@ import ArrowIcon from '@/shared/components/icons/ArrowIcon';
 import { ReactNode, useState } from 'react';
 import Link from 'next/link';
 
-interface NavBarCategoryItemProps {
+interface NavBarCategoryItemMobProps {
   category: {
     icon: ReactNode;
     title: string;
@@ -13,10 +13,10 @@ interface NavBarCategoryItemProps {
   onClose: () => void;
 }
 
-export default function NavBarCategoryItem({
+export default function NavBarCategoryItemMob({
   category,
   onClose,
-}: NavBarCategoryItemProps) {
+}: NavBarCategoryItemMobProps) {
   const [isSubCategoriesShown, setIsSubCategoriesShown] = useState(false);
 
   const toggleShowMore = () => setIsSubCategoriesShown(!isSubCategoriesShown);
@@ -24,14 +24,14 @@ export default function NavBarCategoryItem({
   const { icon, title, subCategories } = category;
 
   return (
-    <li className="group text-grey-light">
+    <div className="md:hidden text-grey-light">
       <div
         onClick={toggleShowMore}
         className="relative flex gap-[9px] justify-between items-center group-not-last:pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] group-last:after:hidden after:bg-[linear-gradient(90deg,rgba(167,167,167,0.5)_0%,rgba(102,102,102,0.35)_100%)]"
       >
         {subCategories?.length > 0 ? (
           <>
-            <div className="w-full flex gap-[9px] items-center">
+            <div className="cursor-pointer w-full flex gap-[9px] items-center">
               {icon}
               <h2 className="text-[16px] font-medium leading-[120%]">
                 {title}
@@ -52,7 +52,7 @@ export default function NavBarCategoryItem({
           <>
             <button type="button" className="ml-auto">
               <ArrowIcon
-                className={`${
+                className={`cursor-pointer ${
                   isSubCategoriesShown ? 'rotate-90' : ''
                 } transition duration-500 ease-in-out`}
               />
@@ -80,6 +80,6 @@ export default function NavBarCategoryItem({
           </li>
         ))}
       </ul>
-    </li>
+    </div>
   );
 }

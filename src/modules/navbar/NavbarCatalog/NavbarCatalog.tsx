@@ -1,7 +1,8 @@
 'use client';
 import { Dispatch, SetStateAction } from 'react';
 import Image from 'next/image';
-import NavbarCatalogMenu from './NavbarCatalogMenu';
+import NavbarCatalogMenuMob from './navbarCatalogMob/NavbarCatalogMenuMob';
+import NavbarCatalogMenuDesk from './navbarCatalogDesk/NavbarCatalogMenuDesk';
 
 interface NavbarCatalogProps {
   isOpenCatalogMenu: boolean;
@@ -17,7 +18,7 @@ const NavbarCatalog = ({
   setIsCartModalOpened,
 }: NavbarCatalogProps) => {
   return (
-    <>
+    <div className="md:relative w-full h-full">
       <button
         type="button"
         onClick={() => {
@@ -38,11 +39,15 @@ const NavbarCatalog = ({
           Каталог
         </span>
       </button>
-      <NavbarCatalogMenu
+      <NavbarCatalogMenuMob
         isOpen={isOpenCatalogMenu}
         onClose={() => setIsOpenCatalogMenu(false)}
       />
-    </>
+      <NavbarCatalogMenuDesk
+        isOpen={isOpenCatalogMenu}
+        onClose={() => setIsOpenCatalogMenu(false)}
+      />
+    </div>
   );
 };
 

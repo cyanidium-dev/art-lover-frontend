@@ -57,6 +57,21 @@ export const headerVariants = {
   },
 };
 
+export const catalogMenuVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.3, ease: 'easeOut' },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.95,
+    transition: { duration: 0.3, ease: 'easeIn' },
+  },
+};
+
 export const listItemVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
