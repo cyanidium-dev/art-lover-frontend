@@ -108,7 +108,8 @@ export default function DeliveryBlockUkraine() {
         <div className="flex flex-col gap-3 xl:gap-3.5">
           <CustomizedInput
             fieldName="city"
-            placeholder="* Назва населеного пункту"
+            placeholder="Назва населеного пункту"
+            isRequired
             errors={errors}
             touched={touched}
           />
@@ -117,9 +118,10 @@ export default function DeliveryBlockUkraine() {
               fieldName="branchNumber"
               placeholder={
                 values.deliveryType === 'Відділення'
-                  ? '* Номер відділення'
-                  : '* Номер поштомату'
+                  ? 'Номер відділення'
+                  : 'Номер поштомату'
               }
+              isRequired
               errors={errors}
               touched={touched}
               labelClassName="mb-0"
@@ -127,7 +129,8 @@ export default function DeliveryBlockUkraine() {
           ) : (
             <CustomizedInput
               fieldName="address"
-              placeholder="* Адреса"
+              placeholder="Адреса"
+              isRequired
               errors={errors}
               touched={touched}
             />

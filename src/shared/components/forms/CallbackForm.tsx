@@ -64,7 +64,8 @@ export default function CallBackForm({
             <div className="flex flex-col gap-y-3 md:flex-row gap-x-5">
               <CustomizedInput
                 fieldName="name"
-                placeholder="* Ім’я"
+                placeholder="Ім’я"
+                isRequired
                 errors={errors}
                 touched={touched}
                 labelClassName="md:w-[calc(50%-10px)]"
@@ -72,7 +73,8 @@ export default function CallBackForm({
               />
               <CustomizedInput
                 fieldName="surname"
-                placeholder="* Прізвище"
+                placeholder="Прізвище"
+                isRequired
                 errors={errors}
                 touched={touched}
                 labelClassName="md:w-[calc(50%-10px)]"
@@ -82,7 +84,8 @@ export default function CallBackForm({
             <CustomizedInput
               fieldName="email"
               inputType="email"
-              placeholder="* Електронна пошта"
+              placeholder="Електронна пошта"
+              isRequired
               errors={errors}
               touched={touched}
               fieldClassName="md:h-[46px]"
@@ -90,7 +93,8 @@ export default function CallBackForm({
             <CustomizedInput
               fieldName="message"
               as="textarea"
-              placeholder="* Поділіться своєю думкою"
+              placeholder="Поділіться своєю думкою"
+              isRequired
               errors={errors}
               touched={touched}
               fieldClassName="h-[99px] md:h-[150px] py-3"

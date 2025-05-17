@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
+import { useCartStore } from '@/shared/store/cartStore';
 import { Product } from '@/types/product';
 import Image from 'next/image';
 import SecondaryButton from '../buttons/SecondaryButton';
@@ -14,7 +15,14 @@ export default function ProductCard({
   product,
   setIsAddedToCartPopUpShown,
 }: ProductCardProps) {
-  const { title, price, discountedPrice, images, slug, category } = product;
+  const { addToCart } = useCartStore();
+
+  const { id, title, price, discountedPrice, images, slug, category } = product;
+
+  const handleClick = () => {
+    setIsAddedToCartPopUpShown(true);
+    addToCart({ id, title, price, images, category, slug, quantity: 1 });
+  };
 
   return (
     <div className="relative p-3 xl:px-5 xl:py-4 bg-white rounded-[8px] xl:rounded-[16px] shadow-social overflow-hidden">
@@ -67,10 +75,7 @@ export default function ProductCard({
             Детальніше
           </SecondaryButton>
         </Link>
-        <CartButton
-          setIsAddedToCartPopUpShown={setIsAddedToCartPopUpShown}
-          className="shrink-0"
-        />
+        <CartButton onClick={handleClick} className="shrink-0" />
       </div>
     </div>
   );

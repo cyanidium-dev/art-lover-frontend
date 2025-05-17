@@ -18,7 +18,8 @@ export default function PostcardBlock() {
       <button
         type="button"
         onClick={toggleIsInputShown}
-        className="cursor-pointer flex items-center justify-center w-full h-10 relative mt-5 xl:mt-6 xl:h-11 px-3 xl:px-6 py-[9px] xl:py-[12.5px] rounded-full border border-orange"
+        className="cursor-pointer flex items-center justify-center w-full h-10 relative mt-5 xl:mt-6 xl:h-11 px-3 xl:px-6 py-[9px] xl:py-[12.5px] 
+        rounded-full border border-orange xl:hover:brightness-125 focus-visible:brightness-125 transition duration-300 ease-in-out"
       >
         <p
           className="text-[11px] 

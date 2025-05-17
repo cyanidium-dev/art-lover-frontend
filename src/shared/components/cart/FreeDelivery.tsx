@@ -13,7 +13,8 @@ const FREE_DELIVERY_SUM = 500;
 export default function FreeDelivery({ cartItems }: FreeDeliveryProps) {
   const total = getTotalSum(cartItems);
 
-  const needToOrderSum = FREE_DELIVERY_SUM - total;
+  const needToOrderSum =
+    FREE_DELIVERY_SUM >= total ? FREE_DELIVERY_SUM - total : 0;
 
   const percent = Math.round((total / FREE_DELIVERY_SUM) * 100);
 

@@ -1,3 +1,4 @@
+import { useCartStore } from '@/shared/store/cartStore';
 import { CartItem } from '@/types/cartItem';
 import Image from 'next/image';
 import Counter from './Counter';
@@ -13,12 +14,13 @@ export default function CartListItem({
   cartItem,
   variant = 'white',
 }: CartItemProps) {
-  const { title, price, discountedPrice, images, category, slug } = cartItem;
+  const { removeFromCart } = useCartStore();
+  const { id, title, price, discountedPrice, images, category, slug } =
+    cartItem;
 
   return (
     <>
       <Link href={`/catalog/${category?.slug}/${slug}`}>
-        {' '}
         <div className="relative shrink-0 aspect-[90/101] w-[90px] overflow-hidden rounded-[6px]">
           <Image
             src={images[0]?.url || ''}
@@ -51,9 +53,12 @@ export default function CartListItem({
               : price}
             &nbsp;грн
           </p>
-          <Counter className="w-[98px]" variant={variant} />
+          <Counter className="w-[98px]" variant={variant} cartItem={cartItem} />
         </div>
-        <IconButton className="size-5 xl:size-6 ml-auto shrink-0">
+        <IconButton
+          handleClick={() => removeFromCart(id)}
+          className="size-5 xl:size-6 ml-auto shrink-0"
+        >
           <Image
             src="/images/icons/trash.svg"
             alt="trash icon"
