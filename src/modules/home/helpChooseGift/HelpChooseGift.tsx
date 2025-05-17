@@ -2,9 +2,12 @@ import Container from '@/shared/components/container/Container';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as motion from 'motion/react-client';
+import { useTranslations } from 'next-intl';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 
 export default function HelpChooseGift() {
+  const t = useTranslations('homePage.helpChooseGift');
+
   return (
     <section className="pt-20 xl:pt-[94px]">
       <Container className="relative">
@@ -88,7 +91,7 @@ export default function HelpChooseGift() {
               variants={fadeInAnimation({ y: 30, delay: 0.4 })}
               className="max-w-[286px] md:max-w-[306px] xl:max-w-[456px] mb-3 text-[18px] sm:text-[32px] xl:text-[50px] font-extrabold leading-[122%] uppercase text-white"
             >
-              Допоможемо обрати подарунок
+              {t('title')}
             </motion.h2>
             <motion.p
               initial="hidden"
@@ -98,8 +101,7 @@ export default function HelpChooseGift() {
               variants={fadeInAnimation({ y: 30, delay: 0.8 })}
               className="max-w-[206px] md:max-w-[306px] xl:max-w-[396px] mb-5 xl:mb-[52px] text-[12px] xl:text-[16px] font-light leading-[125%] text-justify text-white"
             >
-              Наш сайт допоможе обрати подарунок для будь-якого свята та події
-              за допомогою фільтрів
+              {t('description')}
             </motion.p>
             <Link href="/catalog/gifts">
               <motion.button
@@ -112,7 +114,7 @@ export default function HelpChooseGift() {
             text-[8px] sm:text-[12px] xl:text-[14px] font-normal leading-[120%] shadow-social bg-linear-[121deg,white_22.48%,#FF692D_337.32%] 
              sm:bg-linear-[-186deg,#ffffff_11.19%,#ff692d_199.95%] xl:hover:brightness-105 focus-visible:brightness-105 active:scale-95 transition duration-300 ease-in-out"
               >
-                Обрати подарунок
+                {t('button')}
               </motion.button>
             </Link>
           </div>

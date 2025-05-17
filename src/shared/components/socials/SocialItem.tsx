@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import * as motion from 'motion/react-client';
+import { useTranslations } from 'next-intl';
 import { listItemVariants } from '@/shared/utils/animationVariants';
 
 interface SocialItemProps {
@@ -15,6 +16,7 @@ interface SocialItemProps {
 }
 
 export default function SocialItem({ social }: SocialItemProps) {
+  const t = useTranslations('homePage.socials');
   const { title, link, icon, bgImageMob, bgImageDesk, qty } = social;
 
   return (
@@ -51,7 +53,7 @@ export default function SocialItem({ social }: SocialItemProps) {
           {title}
         </h3>
         <p className="text-[12px] lg:text-[18px] font-medium leading-[120%] text-center">
-          {qty} тис. підписників
+          {qty} {t('followers')}
         </p>
       </a>
     </motion.li>
