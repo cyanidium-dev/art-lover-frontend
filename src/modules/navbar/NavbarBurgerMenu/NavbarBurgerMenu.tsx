@@ -1,11 +1,22 @@
 'use client';
-import { useState, useRef, useEffect } from 'react';
+import { Dispatch, SetStateAction, useRef, useEffect } from 'react';
 
 import NavbarBurgerMenuButton from './NavbarBurgerMenuButton/NavbarBurgerMenuButton';
 import NavbarBurgerMenuContent from './NavbarBurgerMenuContent/NavbarBurgerMenuContent';
 
-const NavbarBurgerMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface NavbarBurgerMenuProps {
+  isOpenBurgerMenu: boolean;
+  setIsOpenBurgerMenu: Dispatch<SetStateAction<boolean>>;
+  setIsOpenCatalogMenu: Dispatch<SetStateAction<boolean>>;
+  setIsCartModalOpened: Dispatch<SetStateAction<boolean>>;
+}
+
+const NavbarBurgerMenu = ({
+  isOpenBurgerMenu,
+  setIsOpenBurgerMenu,
+  setIsOpenCatalogMenu,
+  setIsCartModalOpened,
+}: NavbarBurgerMenuProps) => {
   const modalRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -14,10 +25,16 @@ const NavbarBurgerMenu = () => {
 
   return (
     <>
-      <NavbarBurgerMenuButton onOpen={() => setIsOpen(true)} />
+      <NavbarBurgerMenuButton
+        onOpen={() => {
+          setIsOpenBurgerMenu(true);
+          setIsOpenCatalogMenu(false);
+          setIsCartModalOpened(false);
+        }}
+      />
       <NavbarBurgerMenuContent
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
+        isOpen={isOpenBurgerMenu}
+        onClose={() => setIsOpenBurgerMenu(false)}
       />
     </>
   );

@@ -4,12 +4,14 @@ interface BackdropProps {
   isVisible: boolean;
   onClick: () => void;
   className?: string;
+  transparent?: boolean;
 }
 
 export default function Backdrop({
   isVisible = false,
   onClick,
   className = '',
+  transparent = false,
 }: BackdropProps) {
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
@@ -27,11 +29,11 @@ export default function Backdrop({
 
   return (
     <div
-      className={`fixed z-[60] inset-0 w-dvw h-dvh bg-backdrop/36 transition duration-[1000ms] ease-in-out ${
+      className={`fixed z-[60] inset-0 w-dvw h-dvh  transition duration-[1000ms] ease-in-out ${
         isVisible
           ? 'opacity-100 no-doc-scroll'
           : 'opacity-0 pointer-events-none'
-      } ${className}`}
+      } ${transparent ? 'bg-transparent' : 'bg-backdrop/36'} ${className}`}
       onClick={onClick}
     />
   );

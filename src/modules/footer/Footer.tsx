@@ -6,18 +6,26 @@ import FooterAboutCompany from '@/modules/footer/FooterAboutCompany/FooterAboutC
 import FooterSocial from '@/modules/footer/FooterSocial/FooterSocial';
 import FooterContacts from '@/modules/footer/FooterContacts/FooterContacts';
 
-import { fadeInAnimation } from '@/shared/utils/animationVariants';
+import {
+  fadeInAnimation,
+  headerVariants,
+} from '@/shared/utils/animationVariants';
 import * as motion from 'motion/react-client';
 
 import styles from './Footer.module.scss';
 
 const Footer = () => {
   return (
-    <footer
+    <motion.footer
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={headerVariants}
       className={`${styles.footer} pt-[40px] xl:pt-[64px] pb-[8px] xl:pb-[79px]`}
     >
       <Container>
-        <div className="hidden xl:flex justify-between mb-[76px]">
+        <div className="hidden md:flex justify-between mb-[76px]">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -39,15 +47,18 @@ const Footer = () => {
           </motion.p>
         </div>
 
-        <div className="flex flex-col xl:flex-row xl:justify-between">
-          <FooterContacts />
-
-          <FooterCatalog />
-          <FooterAboutCompany />
-          <FooterSocial />
+        <div className="flex flex-col md:flex-row md:flex-wrap md:justify-between">
+          <div className="lg:flex justify-between lg:w-[44%]">
+            <FooterContacts />
+            <FooterCatalog />
+          </div>
+          <div className="lg:flex justify-between lg:w-[44%]">
+            <FooterAboutCompany />
+            <FooterSocial />
+          </div>
         </div>
       </Container>
-    </footer>
+    </motion.footer>
   );
 };
 
