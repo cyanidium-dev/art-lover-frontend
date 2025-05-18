@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
@@ -5,6 +6,8 @@ import Container from '@/shared/components/container/Container';
 import ReviewedProductsSlider from './ReviewedProductsSLider';
 
 export default function ReviewedProducts() {
+  const t = useTranslations('productPage.reviewedSection');
+
   return (
     <section className="pb-20 xl:pb-[140px]">
       <Container className="relative">
@@ -31,7 +34,7 @@ export default function ReviewedProducts() {
           variants={fadeInAnimation({ y: 30 })}
           className="mb-6 xl:mb-5 text-[18px] font-semibold leading-[140%] xl:text-[40px] xl:font-medium xl:leading-[120%] uppercase"
         >
-          переглянуті товари
+          {t('title')}
         </motion.h2>
         <ReviewedProductsSlider />
       </Container>

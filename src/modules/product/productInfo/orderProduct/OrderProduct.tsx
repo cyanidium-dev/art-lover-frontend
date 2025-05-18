@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import * as motion from 'motion/react-client';
 import { useCartStore } from '@/shared/store/cartStore';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
@@ -24,12 +25,12 @@ interface OrderProductProps {
 }
 
 export default function OrderProduct({ currentProduct }: OrderProductProps) {
+  const t = useTranslations('productPage');
+
   const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
   const [isCartModalShown, setIsCartModalShown] = useState(false);
   const [count, setCount] = useState(1);
   const { addToCart } = useCartStore();
-
-  console.log(count);
 
   const {
     id,
@@ -117,7 +118,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
             available ? 'text-green' : 'text-red-500'
           }`}
         >
-          {available ? 'В наявності' : 'Немає в наявності'}
+          {available ? t('inStock') : t('outOfStock')}
         </p>
         <Rating
           initialValue={rating}
@@ -140,7 +141,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
         variants={fadeInAnimation({ y: 30, delay: 0.6 })}
         className="mb-6 xl:mb-[26.5px] text-right text-[10px] xl:text-[14px] font-light leading-[120%]"
       >
-        ({reviewsList?.length} відгуків)
+        ({reviewsList?.length} {t('reviews')})
       </motion.p>
       {!addons || !addons.length ? null : (
         <AddonsList
@@ -168,15 +169,18 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
         {discountedPrice && discountedPrice < price ? (
           <div>
             <span className="text-[16px] xl:text-[24px] font-semibold leading-[120%] text-orange">
-              {discountedPrice} грн{' '}
+              {discountedPrice}
+              {t('hrn')}
             </span>
             <span className="text-[12px] xl:text-[16px] font-normal leading-[120%] line-through">
-              {price} грн
+              {price}
+              {t('hrn')}
             </span>
           </div>
         ) : (
           <span className="text-[16px] xl:text-[24px] font-semibold leading-[120%]">
-            {price} грн
+            {price}
+            {t('hrn')}
           </span>
         )}
       </motion.div>
@@ -193,7 +197,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
           className="h-[49px] xl:h-[58px]"
           textStyles="text-[14px] xl:text-[16px]"
         >
-          Додати товар до кошику
+          {t('button')}
         </MainButton>
         <button
           aria-label="add to favorites"

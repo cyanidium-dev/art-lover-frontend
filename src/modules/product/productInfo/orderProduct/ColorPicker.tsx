@@ -1,6 +1,7 @@
 'use client';
 
 import { Dispatch, SetStateAction } from 'react';
+import { useTranslations } from 'next-intl';
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 
@@ -15,6 +16,8 @@ export default function ColorPicker({
   selectedColor,
   setSelectedColor,
 }: ColorPickerProps) {
+  const t = useTranslations('productPage');
+
   return (
     <motion.div
       initial="hidden"
@@ -25,7 +28,7 @@ export default function ColorPicker({
       className="mb-6 xl:mb-[25.5px]"
     >
       <h3 className="mb-3 text-[14px] xl:text-[16px] font-medium leading-[120%] uppercase">
-        КОЛІР
+        {t('color')}
       </h3>
       <ul className="flex flex-wrap gap-x-[7px] xl:gap-x-[14px]">
         {colors.map((color, idx) => (

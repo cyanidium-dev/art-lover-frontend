@@ -1,6 +1,7 @@
 'use client';
 
 import { Dispatch, SetStateAction } from 'react';
+import { useTranslations } from 'next-intl';
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 
@@ -20,6 +21,8 @@ export default function AddonsList({
   selectedAddons,
   setSelectedAddons,
 }: AddonsListProps) {
+  const t = useTranslations('productPage');
+
   const toggleOption = (selectedTitle: string) => {
     setSelectedAddons(prev => {
       const exists = prev.some(opt => opt.title === selectedTitle);
@@ -71,7 +74,8 @@ export default function AddonsList({
                 </span>
               </div>
               <span className="text-[14px] xl:text-[16px] font-semibold leading-[120%] text-orange">
-                + {addon?.price} грн
+                + {addon?.price}
+                {t('hrn')}
               </span>
             </label>
           </li>

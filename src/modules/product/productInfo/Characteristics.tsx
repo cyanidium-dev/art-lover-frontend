@@ -1,4 +1,5 @@
 import * as motion from 'motion/react-client';
+import { useTranslations } from 'next-intl';
 import {
   fadeInAnimation,
   listItemVariants,
@@ -13,6 +14,8 @@ interface CharacteristicsProps {
 export default function Characteristics({
   currentProduct,
 }: CharacteristicsProps) {
+  const t = useTranslations('productPage.characteristics');
+
   if (
     !currentProduct?.characteristics ||
     !currentProduct?.characteristics.length
@@ -31,7 +34,7 @@ export default function Characteristics({
         variants={fadeInAnimation({ y: 30 })}
         className="mb-6 text-[18px] xl:text-[32px] font-medium leading-[120%] uppercase"
       >
-        Характеристика товару:
+        {t('title')}
       </motion.h2>
       <motion.ul
         initial="hidden"

@@ -159,6 +159,38 @@
       }
     }
   },
+  "productPage": {
+    "home": "Головна",
+    "inStock": "В наявності",
+    "outOfStock": "Немає в наявності",
+    "reviews": " відгуків",
+    "color": "КОЛІР",
+    "hrn": " грн",
+    "button": "Додати товар до кошику",
+    "fullDescription": "Повний опис товару",
+    "delivery": {
+      "title": "Доставка та повернення",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam leo massa, rhoncus eget nibh sit amet, lacinia condimentum odio. Fusce tellus justo, facilisis et risus id, gravida molestie sem. Maecenas faucibus, lectus at suscipit viverra, lorem ante molestie erat, a convallis ex velit et mi."
+    },
+    "idealFor": "Ідеально підходить для:",
+    "characteristics": {
+      "title": "Характеристика товару:",
+      "weight": "500 г",
+      "dimensions": "Розмір:",
+      "materials": "Матеріали:",
+      "manufacture": "Виробник:",
+      "includes": "Що входить у набір:",
+      "article": "Артикул:"
+    },
+    "benefits": {
+      "freeDelivery": "Швидка доставка",
+      "highQuality": "Висока якість",
+      "gift": "Відмінний подарунок"
+    },
+    "reviewsSection": { "title": "Відгуки" },
+    "similarSection": { "title": "Схожі товари" },
+    "reviewedSection": { "title": "переглянуті товари" }
+  },
   "header": {
     "burger": {
       "title": "ЗАЛИШИЛИСЯ ПИТАННЯ?",
