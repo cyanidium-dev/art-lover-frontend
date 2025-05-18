@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl';
 import { nameRegex, emailRegex } from '../regex/regex';
 
 export const CallBackValidation = () => {
-  const t = useTranslations('forms');
+  const t = useTranslations('forms.errors');
 
   const callBackFormValidationSchema = yup.object().shape({
     name: yup
