@@ -1,9 +1,12 @@
 import * as motion from 'motion/react-client';
+import { useTranslations } from 'next-intl';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import Container from '@/shared/components/container/Container';
 import HeroImages from './HeroImages';
 
 export default function Hero() {
+  const t = useTranslations('deliveryPage.hero');
+
   return (
     <section>
       <Container>
@@ -24,7 +27,7 @@ export default function Hero() {
             variants={fadeInAnimation({ x: 30, delay: 1.2 })}
             className="mb-[45px] xl:mb-[91px] text-right font-denistina text-[16px] xl:text-[32px] font-normal leading-[120%]"
           >
-            Швидко, зручно, надійно
+            {t('slogan')}
           </motion.p>
           <motion.h1
             initial="hidden"
@@ -34,7 +37,7 @@ export default function Hero() {
             variants={fadeInAnimation({ scale: 0.9, delay: 0.4 })}
             className="mb-2 xl:mb-4 text-[20px] xl:text-[40px] font-medium leading-[120%] uppercase text-center"
           >
-            умови доставки
+            {t('title')}
           </motion.h1>
           <motion.h2
             initial="hidden"
@@ -44,7 +47,7 @@ export default function Hero() {
             variants={fadeInAnimation({ y: 30, delay: 0.8 })}
             className="max-w-[206px] xl:max-w-full mx-auto text-[14px] xl:text-[18px] font-light leading-[120%] text-center"
           >
-            Доставляємо натхнення по всьому світу
+            {t('description')}
           </motion.h2>
         </motion.div>
       </Container>

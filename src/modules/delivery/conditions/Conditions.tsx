@@ -1,17 +1,14 @@
 import * as motion from 'motion/react-client';
+import { useTranslations } from 'next-intl';
 import { listVariants } from '@/shared/utils/animationVariants';
 import Container from '@/shared/components/container/Container';
 import ConditionItem from './ConditionItem';
 import ConditionImages from './ConditionImages';
 
 export default function Conditions() {
-  const conditionsList = [
-    'Ми здійснюємо доставку по всій Україні та за кордон, щоб ви могли отримати улюблені товари для творчості незалежно від вашого місцезнаходження.',
-    'Всі замовлення обробляються та відправляються протягом 1-2 робочих днів після підтвердження оплати. ',
-    'Доставка здійснюється з понеділка по суботу згідно з графіком роботи вибраної служби доставки. ',
-    'Вартість міжнародної доставки залежить від країни отримувача, ваги та габаритів посилки. Замовлення може підлягати митним платежам відповідно до законодавства вашої країни. Термін міжнародної доставки зазвичай складає 7-21 день, але може змінюватися залежно від поштової служби.',
-    'Після відправки ви отримаєте номер ТТН, за яким можна відстежити статус доставки на сайті перевізника.',
-  ];
+  const t = useTranslations('deliveryPage.conditions');
+
+  const conditionsList = [t('one'), t('two'), t('three'), t('four'), t('five')];
   return (
     <section className="pt-8 xl:pt-20">
       <Container className="relative">
