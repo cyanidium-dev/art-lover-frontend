@@ -191,6 +191,42 @@
     "similarSection": { "title": "Схожі товари" },
     "reviewedSection": { "title": "переглянуті товари" }
   },
+  "checkoutPage": {
+    "title": "Оформлення замовлення",
+    "tabMenu": {
+      "ukraineMob": "по Україні",
+      "ukraineDesk": "Доставка по Україні",
+      "worldwideMob": "по світу",
+      "worldwideDesk": "Доставка по світу"
+    },
+    "form": {
+      "stepOne": { "title": "Крок 1", "description": "Особисті дані" },
+      "stepTwo": { "title": "Крок 2", "description": "Оплата та доставка" },
+      "stepThree": { "title": "Крок 3", "description": "Спосіб оплати" },
+      "stepFour": { "title": "Крок 4", "description": "Одержувач" },
+      "stepFive": { "title": "Крок 5", "description": "Додати коментар" },
+      "payBy": "Сплатити за допомогою",
+      "yourOrder": "Ваше замовлення",
+      "addPackaging": "Додати пакування?",
+      "packaging": "Подарункове пакування",
+      "postcard": "Листівка",
+      "addButton": "Додати",
+      "promocode": "Промокод",
+      "tips": "Залишити чайові нашим пакувальникам",
+      "total": "Загальна вартість",
+      "hrn": " грн",
+      "checkout": "Оформити замовлення",
+      "choosePostOfficeNP": "Оберіть відділення Нової пошти",
+      "choosePostOfficeUkrPoshta": "Оберіть відділення Укрпошти",
+      "kyiv": "Київ",
+      "dnipro": "Дніпро",
+      "kharkiv": "Харків",
+      "odesa": "Одеса",
+      "lviv": "Львів",
+      "signPostcard": "Бажаєте підписати листівку?",
+      "emptyCart": "Ваш кошик порожній"
+    }
+  },
   "header": {
     "burger": {
       "title": "ЗАЛИШИЛИСЯ ПИТАННЯ?",
@@ -249,6 +285,21 @@
     "email": "Електронна пошта",
     "phonePlaceholder": "Номер телефону",
     "shareOpinion": "Поділіться своєю думкою",
+    "postOffice": "Відділення",
+    "courier": "Доставка кур’єром",
+    "poshtomat": "Поштомат",
+    "cityPlaceholder": "Назва населеного пункту",
+    "addressPlaceholder": "Адреса",
+    "postOfficeNumberPlaceholder": "Номер відділення",
+    "poshtomatNumberPlaceholder": "Номер поштомату",
+    "payByCard": "Картою на сайті",
+    "cashOnDelivery": "Сплатити при отриманні",
+    "iAmRecipient": "Я одержувач",
+    "anotherPersonRecipient": "Одержувач інша людина",
+    "commentPlaceholder": "Додайте коментар, якщо потрібно",
+    "postCardPlaceholder": "Пиши сюди, якщо хочеш підписати",
+    "promocodePlaceholder": "Введіть свій промокод",
+    "tipsPlaceholder": "Вписати суму",
     "errors": {
       "required": "Дане поле є обов'язковим до заповнення",
       "wrongPhone": "Вкажіть правильний номер телефону",
@@ -256,7 +307,11 @@
       "nameMinMaxSymbols": "Повинно містити від 2 до 30 символів",
       "nameAllowedSymbols": "Допустимі літери та дефіс, апостроф, лапки",
       "startsWithZero": "Номер телефону має починатися з нуля",
-      "max200Symbols": "Повинно містити не більше 200 символів"
+      "max200Symbols": "Повинно містити не більше 200 символів",
+      "sixCharZero": "Після +38 має бути цифра 0",
+      "chooseDelivery": "Оберіть сервіс доставки",
+      "onlyNumbersAllowed": "Допустимі тільки цифри",
+      "positiveNumbers": "Чайові не можуть бути менше 0"
     },
     "submitButton": "Надіслати",
     "sending": "Надсилання..."

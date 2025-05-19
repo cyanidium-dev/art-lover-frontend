@@ -1,5 +1,6 @@
 'use client';
 import { useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useFormikContext, ErrorMessage } from 'formik';
 import CustomizedInput from '../formComponents/CustomizedInput';
@@ -20,11 +21,23 @@ const deliveryServices = [
   },
 ];
 
-const deliveryTypes = ['Відділення', 'Доставка кур’єром', 'Поштомат'];
-
-const cities = ['Київ', 'Дніпро', 'Харків', 'Одеса', 'Львів'];
-
 export default function DeliveryBlockUkraine() {
+  const t = useTranslations();
+
+  const deliveryTypes = [
+    { label: t('forms.postOffice'), value: 'Відділення' },
+    { label: t('forms.courier'), value: 'Доставка кур’єром' },
+    { label: t('forms.poshtomat'), value: 'Поштомат' },
+  ];
+
+  const cities = [
+    { label: t('checkoutPage.form.kyiv'), value: 'Київ' },
+    { label: t('checkoutPage.form.dnipro'), value: 'Дніпро' },
+    { label: t('checkoutPage.form.kharkiv'), value: 'Харків' },
+    { label: t('checkoutPage.form.odesa'), value: 'Одеса' },
+    { label: t('checkoutPage.form.lviv'), value: 'Львів' },
+  ];
+
   const { values, setFieldValue, errors, touched } = useFormikContext<Values>();
 
   useEffect(() => {
@@ -77,30 +90,30 @@ export default function DeliveryBlockUkraine() {
             <RadioButtonInput
               key={idx}
               fieldName="deliveryType"
-              value={type}
+              value={type.value}
               onClick={() => setFieldValue('deliveryType', type)}
-              label={type}
+              label={type.label}
             />
           ))}
         </div>
         {values.deliveryService === 'Укрпошта' ? (
           <p className="mb-3 text-[14px] xl:text-[16px] font-light leading-[120%]">
-            Оберіть відділення Укрпошти
+            {t('checkoutPage.form.choosePostOfficeUkrPoshta')}
           </p>
         ) : (
           <p className="mb-3 text-[14px] xl:text-[16px] font-light leading-[120%]">
-            Оберіть відділення Нової пошти
+            {t('checkoutPage.form.choosePostOfficeNP')}
           </p>
         )}
         <div className="flex flex-wrap gap-2 xl:gap-3 mb-5 xl:mb-3">
           {cities.map(city => (
             <button
-              key={city}
+              key={city.value}
               type="button"
               onClick={() => setFieldValue('city', city)}
-              className="cursor-pointer text-[12px] xl:text-[16px] font-medium leading-[120%] text-black transition"
+              className="cursor-pointer text-[12px] xl:text-[16px] font-medium leading-[120%] text-black xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
             >
-              {city}
+              {city.label}
             </button>
           ))}
         </div>
@@ -108,7 +121,7 @@ export default function DeliveryBlockUkraine() {
         <div className="flex flex-col gap-3 xl:gap-3.5">
           <CustomizedInput
             fieldName="city"
-            placeholder="Назва населеного пункту"
+            placeholder={t('forms.cityPlaceholder')}
             isRequired
             errors={errors}
             touched={touched}
@@ -118,8 +131,8 @@ export default function DeliveryBlockUkraine() {
               fieldName="branchNumber"
               placeholder={
                 values.deliveryType === 'Відділення'
-                  ? 'Номер відділення'
-                  : 'Номер поштомату'
+                  ? t('forms.postOfficeNumberPlaceholder')
+                  : t('forms.poshtomatNumberPlaceholder')
               }
               isRequired
               errors={errors}
@@ -129,7 +142,7 @@ export default function DeliveryBlockUkraine() {
           ) : (
             <CustomizedInput
               fieldName="address"
-              placeholder="Адреса"
+              placeholder={t('forms.addressPlaceholder')}
               isRequired
               errors={errors}
               touched={touched}
