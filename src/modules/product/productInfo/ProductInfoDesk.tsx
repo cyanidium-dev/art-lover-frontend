@@ -42,8 +42,8 @@ export default function ProductInfoDesk({
       <div>
         <OrderProduct currentProduct={currentProduct} />
         <FullDescription currentProduct={currentProduct} />
-        <DeliveryInfo currentProduct={currentProduct} />
-        <Benefits currentProduct={currentProduct} />
+        <DeliveryInfo />
+        <Benefits />
       </div>
     </div>
   );

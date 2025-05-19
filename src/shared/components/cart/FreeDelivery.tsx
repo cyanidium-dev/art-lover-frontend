@@ -2,6 +2,7 @@ import { getTotalSum } from '@/shared/utils/getTotalSum';
 import { CartItem } from '@/types/cartItem';
 import { Progress } from '@heroui/react';
 import * as motion from 'motion/react-client';
+import { useTranslations } from 'next-intl';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 
 interface FreeDeliveryProps {
@@ -11,6 +12,7 @@ interface FreeDeliveryProps {
 const FREE_DELIVERY_SUM = 500;
 
 export default function FreeDelivery({ cartItems }: FreeDeliveryProps) {
+  const t = useTranslations('cart');
   const total = getTotalSum(cartItems);
 
   const needToOrderSum =
@@ -29,10 +31,10 @@ export default function FreeDelivery({ cartItems }: FreeDeliveryProps) {
     >
       <div className="flex items-center justify-between mb-3 text-white">
         <p className="max-w-[160px] xl:max-w-full text-[12px] xl:text-[14px] font-normal leading-[120%]">
-          До безкоштовної доставки дозамовте на
+          {t('freeDelivery')}
         </p>
         <p className="text-[12px] xl:text-[16px] font-normal leading-[120%]">
-          {needToOrderSum} грн
+          {needToOrderSum} {t('hrn')}
         </p>
       </div>
       <Progress

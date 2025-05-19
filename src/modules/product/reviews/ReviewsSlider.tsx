@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { SwiperSlide } from 'swiper/react';
 import { motion } from 'motion/react';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
@@ -16,6 +17,8 @@ function chunkArray<T>(arr: T[], size: number): T[][] {
 }
 
 export default function ReviewsSlider() {
+  const t = useTranslations('productPage.reviewsSection');
+
   const chunkedReviews = chunkArray(reviewsList, 3);
 
   return (
@@ -30,7 +33,7 @@ export default function ReviewsSlider() {
       <div className="absolute top-0 left-0 flex items-center gap-x-6 w-[calc(100%-72px-24px)] xl:w-[calc(100%-96px-24px)]">
         <div className="flex items-center gap-x-3">
           <h2 className="text-[16px] xl:text-[32px] font-medium leading-[120%] uppercase">
-            відгуки
+            {t('title')}
           </h2>
           <p className="mt-[1px] text-[10px] xl:text-[16px] font-normal leading-none">
             ({reviewsList.length})

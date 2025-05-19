@@ -1,7 +1,7 @@
 'use client';
 import ArrowIcon from '@/shared/components/icons/ArrowIcon';
 import { ReactNode, useState } from 'react';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 interface NavBarCategoryItemMobProps {
   category: {

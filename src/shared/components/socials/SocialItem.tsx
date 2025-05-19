@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import * as motion from 'motion/react-client';
+import { useTranslations } from 'next-intl';
 import { listItemVariants } from '@/shared/utils/animationVariants';
 
 interface SocialItemProps {
@@ -15,6 +16,7 @@ interface SocialItemProps {
 }
 
 export default function SocialItem({ social }: SocialItemProps) {
+  const t = useTranslations('homePage.socials');
   const { title, link, icon, bgImageMob, bgImageDesk, qty } = social;
 
   return (
@@ -44,14 +46,14 @@ export default function SocialItem({ social }: SocialItemProps) {
         href={link}
         target="_blank"
         rel="noopener noreferrer nofollow"
-        className="text-inherit flex flex-col justify-center items-center h-[141px] md:h-auto md:aspect-square px-[31px] py-[21px] xl:py-8 rounded-[12px] "
+        className="text-inherit flex flex-col justify-center items-center h-[141px] md:h-auto md:aspect-square px-[31px] xl:px-7 py-[21px] xl:py-8 rounded-[12px] "
       >
         {icon}
         <h3 className="mt-1 lg:mt-3 xl:mt-4 mb-2 lg:mb-3 xl:mb-4 text-[14px] lg:text-[20px] font-semibold leading-[120%]">
           {title}
         </h3>
         <p className="text-[12px] lg:text-[18px] font-medium leading-[120%] text-center">
-          {qty} тис. підписників
+          {qty} {t('followers')}
         </p>
       </a>
     </motion.li>

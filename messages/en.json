@@ -1,0 +1,343 @@
+{
+  "homePage": {
+    "categories": { "title": "Product categories" },
+    "helpChooseGift": {
+      "title": "Help choose gift",
+      "description": "Our site will help you choose a gift for any holiday or event using filters",
+      "button": "Choose gift"
+    },
+    "bestsellers": {
+      "title": "Bestsellers",
+      "description": "Creativity that won hearts"
+    },
+    "newProducts": {
+      "title": "New products",
+      "description": "Fresh ideas for your creativity"
+    },
+    "discountedProducts": {
+      "title": "Discounted products",
+      "description": "Discounts that delight creators"
+    },
+    "about": {
+      "title": "About us",
+      "description": "We are a team passionate about art who created this store for everyone eager to create without limits! Our mission is to inspire artists, illustrators, designers, and all who can't imagine life without creativity.",
+      "cta": "Create. Inspire!",
+      "benefits": {
+        "one": "New customers",
+        "two": "Satisfied customers",
+        "three": "Orders received"
+      }
+    },
+    "reviews": {
+      "title": "Reviews",
+      "description": "Impressions about our store"
+    },
+    "socials": {
+      "title": "Follow us on social media",
+      "followers": "k followers"
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "About us",
+      "subtitle": "Our story and values",
+      "description": "We are a team of creative enthusiasts who love making unique string art masterpieces."
+    },
+    "team": {
+      "title": "Our creative team",
+      "teamList": {
+        "one": {
+          "name": "Oleksandra",
+          "role": "Maker, Assistant, Customer Service"
+        },
+        "two": {
+          "name": "Andrian",
+          "role": "Owner, Curator, Maker"
+        },
+        "three": {
+          "name": "Anastasia",
+          "role": "Maker, Marketer"
+        }
+      }
+    },
+    "history": {
+      "title": "History of our team",
+      "descriptionOne": "Our passion for this art form started quite simply. We all loved crafting and wanted to try something new. One day we discovered string art and were amazed by its incredible creativity and possibilities. Inspired, we decided to share it with the world by opening our store.",
+      "descriptionTwo": "In our store, you will find various string art kits to create wonderful artworks. We offer a wide range of designs and sizes so everyone can find something to their taste. Additionally, we accept orders for custom portraits and any other images to create a unique masterpiece just for you.",
+      "descriptionThree": "We take pride in the quality of our products and strive to ensure every customer enjoys working with our kits. We also value an individual approach to each client and are always ready to help bring your ideas to life.",
+      "thankYouOne": "Thank you for choosing our store for your creativity.",
+      "thankYouTwo": "We hope our kits bring you joy and inspiration, and you create something truly amazing!"
+    }
+  },
+  "blogPage": {
+    "title": "blog",
+    "description": "Welcome to our blog! Here we share inspiration, creative ideas, and useful lifehacks.",
+    "readingTime": " min read"
+  },
+  "contactsPage": {
+    "hero": {
+      "title": "contacts",
+      "subtitle": "Have questions or suggestions?",
+      "description": "Get in touch with us – we will gladly help!",
+      "slogan": "Your questions - our answers"
+    },
+    "contactsInfo": {
+      "phone": "Phone",
+      "lineOne": "Line 1 - online store",
+      "lineTwo": "Line 2 - corporate clients",
+      "email": "Email address",
+      "corporate": "(for corporate clients)",
+      "hotline": "Hotline is available",
+      "workingDays": "Mon-Fri: ",
+      "weekend": "Sat-Sun: "
+    },
+    "callback": {
+      "title": "your message",
+      "description": "Fill out the form – and we will contact you"
+    }
+  },
+  "deliveryPage": {
+    "hero": {
+      "title": "delivery terms",
+      "description": "Delivering inspiration worldwide",
+      "slogan": "fast, convenient, reliable"
+    },
+    "conditions": {
+      "one": "We deliver throughout Ukraine and abroad so you can receive your favorite creative products regardless of your location.",
+      "two": "All orders are processed and shipped within 1-2 business days after payment confirmation.",
+      "three": "Delivery is carried out from Monday to Saturday according to the schedule of the selected delivery service.",
+      "four": "The cost of international delivery depends on the recipient country, package weight, and dimensions. Orders may be subject to customs fees according to your country’s legislation. The international delivery time usually takes 7-21 days but may vary depending on the postal service.",
+      "five": "After shipping, you will receive a tracking number to check the delivery status on the carrier’s website."
+    },
+    "deliveryUkraine": {
+      "title": "delivery in Ukraine",
+      "subtitle": "delivery methods:",
+      "deliveryMethods": {
+        "one": {
+          "title": "ArtLover courier",
+          "description": "Free delivery for orders over 500 UAH. For orders up to 500 UAH, delivery cost is 50 UAH. Delivery takes 1-3 business days."
+        },
+        "two": {
+          "title": "Nova Poshta (pickup)",
+          "description": "Free delivery for orders over 600 UAH. For orders up to 600 UAH, delivery cost is calculated according to the carrier’s rates. Delivery time is 1-3 business days. Valid ID required for pickup."
+        },
+        "three": {
+          "title": "Nova Poshta (parcel locker)",
+          "description": "Free delivery for orders over 300 UAH. For orders under 300 UAH, delivery cost is calculated by the carrier’s rates. Delivery time is 1-3 business days. Pickup via SMS code or Nova Poshta app. Parcels stored in locker up to 4 days."
+        },
+        "four": {
+          "title": "Nova Poshta (courier)",
+          "description": "Free delivery for orders over 500 UAH. For orders up to 500 UAH, delivery cost is calculated by the carrier’s rates. Delivery time depends on region and is 1-3 business days. Courier will contact you to arrange delivery time."
+        },
+        "five": {
+          "title": "Ukrposhta (pickup)",
+          "description": "Free delivery for orders over 500 UAH. For orders up to 500 UAH, delivery cost is calculated by the carrier’s rates. Delivery time depends on region and takes 3-7 business days."
+        },
+        "six": {
+          "title": "Ukrposhta (parcel locker)",
+          "description": "Free delivery for orders over 500 UAH. For orders up to 500 UAH, delivery cost is calculated by the carrier’s rates. Delivery time is 3-7 business days. Use code received by SMS or Ukrposhta app to receive."
+        }
+      }
+    },
+    "deliveryWorldwide": {
+      "title": "international delivery",
+      "subtitle": "delivery methods:",
+      "deliveryMethods": {
+        "one": {
+          "title": "Nova Poshta Global",
+          "description": "Free delivery for orders over 1000 UAH. For orders up to 1000 UAH, delivery cost is calculated by the carrier’s rates. Delivery time is 5–12 business days. Valid ID required for pickup."
+        },
+        "two": {
+          "title": "Ukrposhta",
+          "description": "Free delivery for orders over 800 UAH. For orders up to 800 UAH, delivery cost depends on carrier’s rates. Delivery time is 10–30 business days. Pickup available at post office with valid ID."
+        },
+        "three": {
+          "title": "Meest",
+          "description": "Free delivery for orders over 1200 UAH. For orders up to 1200 UAH, delivery cost determined by carrier’s rates. Delivery time is 7–14 business days. Pickup possible at office or via courier with valid ID."
+        },
+        "four": {
+          "title": "DHL",
+          "description": "Delivery cost calculated individually depending on weight and destination country. Delivery time 2–7 business days. Valid ID required for pickup."
+        },
+        "five": {
+          "title": "FedEx",
+          "description": "Delivery price depends on carrier’s rates and chosen delivery type. Delivery time is 1–5 business days (express) or 7–12 days (standard). Pickup at office or via courier with valid ID."
+        }
+      }
+    }
+  },
+  "productPage": {
+    "home": "Home",
+    "linkCopied": "Link copied",
+    "inStock": "In stock",
+    "outOfStock": "Out of stock",
+    "reviews": " reviews",
+    "color": "COLOR",
+    "hrn": " UAH",
+    "button": "Add product to cart",
+    "fullDescription": "Full product description",
+    "delivery": {
+      "title": "Delivery & Returns",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam leo massa, rhoncus eget nibh sit amet, lacinia condimentum odio. Fusce tellus justo, facilisis et risus id, gravida molestie sem. Maecenas faucibus, lectus at suscipit viverra, lorem ante molestie erat, a convallis ex velit et mi."
+    },
+    "idealFor": "Ideal for:",
+    "characteristics": {
+      "title": "Product characteristics:",
+      "weight": "500 g",
+      "dimensions": "Dimensions:",
+      "materials": "Materials:",
+      "manufacture": "Manufacturer:",
+      "includes": "Includes in the set:",
+      "article": "Article:"
+    },
+    "benefits": {
+      "freeDelivery": "Fast delivery",
+      "highQuality": "High quality",
+      "gift": "Great gift"
+    },
+    "reviewsSection": { "title": "Reviews" },
+    "similarSection": { "title": "Similar products" },
+    "reviewedSection": { "title": "viewed products" }
+  },
+  "checkoutPage": {
+    "title": "Checkout",
+    "tabMenu": {
+      "ukraineMob": "within Ukraine",
+      "ukraineDesk": "Delivery within Ukraine",
+      "worldwideMob": "worldwide",
+      "worldwideDesk": "Worldwide delivery"
+    },
+    "form": {
+      "stepOne": { "title": "Step 1", "description": "Personal data" },
+      "stepTwo": { "title": "Step 2", "description": "Payment and delivery" },
+      "stepThree": { "title": "Step 3", "description": "Payment method" },
+      "stepFour": { "title": "Step 4", "description": "Recipient" },
+      "stepFive": { "title": "Step 5", "description": "Add comment" },
+      "payBy": "Pay by",
+      "yourOrder": "Your order",
+      "addPackaging": "Add packaging?",
+      "packaging": "Gift packaging",
+      "postcard": "Postcard",
+      "addButton": "Add",
+      "promocode": "Promo code",
+      "tips": "Leave a tip for our packers",
+      "total": "Total cost",
+      "hrn": " UAH",
+      "checkout": "Place order",
+      "choosePostOfficeNP": "Choose Nova Poshta branch",
+      "choosePostOfficeUkrPoshta": "Choose Ukrposhta branch",
+      "kyiv": "Kyiv",
+      "dnipro": "Dnipro",
+      "kharkiv": "Kharkiv",
+      "odesa": "Odesa",
+      "lviv": "Lviv",
+      "signPostcard": "Want to sign the postcard?",
+      "emptyCart": "Your cart is empty"
+    }
+  },
+  "confirmationPage": {
+    "title": "Thank you for your order!",
+    "description": "Our manager will contact you shortly. Have a great day!",
+    "button": "See other our products"
+  },
+  "favoritesPage": {
+    "title": "Favorite Products",
+    "description": "Add your favorite products here"
+  },
+  "header": {
+    "burger": {
+      "title": "ANY QUESTIONS LEFT?",
+      "description": "Check our contacts and get in touch! Our manager can provide consultation on all products and questions you may have."
+    },
+    "catalogMenu": {
+      "title": "Catalog"
+    }
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Your cart is empty",
+    "freeDelivery": "Add items for free delivery worth",
+    "hrn": " UAH",
+    "quantity": "Number of items in cart",
+    "total": "Total cost",
+    "button": "Checkout"
+  },
+  "subscribeNews": {
+    "title": "Follow our news!",
+    "button": " Send"
+  },
+  "footer": {
+    "description": "Create a masterpiece today!",
+    "free": "Free",
+    "catalog": "Catalog",
+    "button": "Cart",
+    "about": "About the company",
+    "socials": "Our social networks",
+    "navMenu": {
+      "about": "About us",
+      "blog": "Blog",
+      "contacts": "Contacts",
+      "payment": "Payment and delivery",
+      "publicContract": "Public contract"
+    }
+  },
+  "popUps": {
+    "addedToCart": {
+      "title": "Product added to cart!",
+      "description": "Go to cart to see all selected products",
+      "continueShopping": "Continue shopping",
+      "checkout": "Checkout"
+    },
+    "notification": {
+      "success": {
+        "title": "Thank you for your message!",
+        "description": "Please try submitting the form again or call us."
+      },
+      "error": {
+        "title": "Unfortunately, something went wrong",
+        "description": "Please try submitting the form again or call us."
+      }
+    }
+  },
+  "forms": {
+    "namePlaceholder": "First name",
+    "surnamePlaceholder": "Last name",
+    "email": "Email",
+    "phonePlaceholder": "Phone number",
+    "shareOpinion": "Share your opinion",
+    "postOffice": "Post office",
+    "courier": "Courier delivery",
+    "poshtomat": "Parcel locker",
+    "cityPlaceholder": "City name",
+    "addressPlaceholder": "Address",
+    "postOfficeNumberPlaceholder": "Post office number",
+    "poshtomatNumberPlaceholder": "Parcel locker number",
+    "payByCard": "Pay by card on the site",
+    "cashOnDelivery": "Cash on delivery",
+    "iAmRecipient": "I am the recipient",
+    "anotherPersonRecipient": "Recipient is another person",
+    "commentPlaceholder": "Add a comment if needed",
+    "postCardPlaceholder": "Write here if you want to sign",
+    "promocodePlaceholder": "Enter your promo code",
+    "tipsPlaceholder": "Enter amount",
+    "errors": {
+      "required": "This field is required",
+      "wrongPhone": "Please enter a valid phone number",
+      "wrongEmail": "Enter a valid email",
+      "nameMinMaxSymbols": "Must be between 2 and 30 characters",
+      "nameAllowedSymbols": "Allowed letters, hyphen, apostrophe, quotes",
+      "startsWithZero": "Phone number must start with zero",
+      "max200Symbols": "Must contain no more than 200 characters",
+      "sixCharZero": "After +38 the next digit must be 0",
+      "chooseDelivery": "Choose a delivery service",
+      "onlyNumbersAllowed": "Only numbers allowed",
+      "positiveNumbers": "Tips cannot be less than 0"
+    },
+    "submitButton": "Send",
+    "sending": "Sending..."
+  },
+  "productCard": {
+    "hrn": " UAH",
+    "button": "More details"
+  }
+}

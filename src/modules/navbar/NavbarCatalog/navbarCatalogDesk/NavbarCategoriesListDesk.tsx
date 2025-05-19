@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import { categoriesList } from '../mockedData';
 import NavBarCategoryItemDesk from './NavbarCategoryItemDesk';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 interface NavBarCategoriesListDeskProps {
   onClose: () => void;

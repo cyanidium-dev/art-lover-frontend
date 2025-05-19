@@ -1,7 +1,7 @@
 'use client';
 
 import ArrowIcon from '@/shared/components/icons/ArrowIcon';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { ReactNode } from 'react';
 
 interface NavBarCategoryItemDeskProps {
