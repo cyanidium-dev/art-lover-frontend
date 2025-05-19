@@ -33,7 +33,7 @@ export default function CartTotal({
       exit="exit"
       viewport={{ once: true, amount: 0.2 }}
       variants={fadeInAnimation({ y: 30, delay: 1.1 })}
-      className="fixed bottom-0 right-0 w-full max-w-[515px] px-8 xl:px-9 py-4 xl:py-[26px] bg-white rounded-tr-[16px] rounded-tl-[16px]"
+      className="absolute bottom-0 right-0 w-full max-w-[515px] px-8 xl:px-9 py-4 xl:py-[26px] bg-white rounded-tr-[16px] rounded-tl-[16px]"
     >
       <div className="flex flex-row items-center justify-between mb-2 xl:mb-3">
         <p className="text-[12px] xl:text-[16px] font-normal leading-[120%]">

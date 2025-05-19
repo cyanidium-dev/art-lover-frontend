@@ -1,6 +1,4 @@
 'use client';
-import { useRef, useEffect } from 'react';
-import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   burgerMenuVariants,
@@ -19,41 +17,22 @@ export default function NavbarCatalogMenuMob({
   isOpen,
   onClose,
 }: NavbarCatalogMenuMobProps) {
-  const modalRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    modalRef.current = document?.getElementById('modal');
-  }, []);
-
-  useEffect(() => {
-    const body = document.body;
-    if (isOpen) {
-      body.classList.add('no-scroll');
-    } else {
-      body.classList.remove('no-scroll');
-    }
-
-    return () => body.classList.remove('no-scroll');
-  }, [isOpen]);
-
-  if (!modalRef.current) return null;
-
-  return createPortal(
-    <>
-      <AnimatePresence mode="wait">
-        {isOpen && (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={burgerMenuVariants}
-            style={{ scrollbarGutter: 'stable' }}
-            className={`flex flex-col justify-between md:hidden absolute z-[70] top-22 md:top-0 right-0 w-[100vw] md:w-[495px] bg-white md:bg-dark h-[calc(100dvh-88px)] overflow-y-auto overflow-x-hidden scrollbar scrollbar-w-[2.5px] scrollbar-thumb-rounded-full 
-      scrollbar-track-rounded-full scrollbar-thumb-orange scrollbar-track-transparent
-                `}
+  return (
+    <AnimatePresence mode="wait">
+      {isOpen && (
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          variants={burgerMenuVariants}
+          className={`md:hidden absolute -z-[10] top-0 md:top-0 right-0 w-[100vw] md:w-[495px] bg-white md:bg-dark h-dvh`}
+        >
+          <div className="relative -z-50 h-22 w-full md:hidden bg-white"></div>
+          <div
+            className="flex flex-col justify-between h-[calc(100%-88px)]  overflow-y-auto overflow-x-hidden scrollbar scrollbar-w-[2.5px] scrollbar-thumb-rounded-full 
+      scrollbar-track-rounded-full scrollbar-thumb-orange scrollbar-track-transparent"
           >
             <div>
-              {' '}
               <div className="flex items-center justify-between w-full pl-8 pr-8 pt-4 pb-5">
                 <h2 className="text-[20px] font-semibold leading-[120% text-orange">
                   Каталог
@@ -83,10 +62,9 @@ export default function NavbarCatalogMenuMob({
                 alt="background"
               />
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>,
-    modalRef.current
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

@@ -1,6 +1,4 @@
 'use client';
-import { useRef, useEffect } from 'react';
-import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
@@ -26,26 +24,8 @@ const NavbarBurgerMenuContent = ({
   onClose,
 }: NavbarBurgerMenuContentProps) => {
   const t = useTranslations('header.burger');
-  const modalRef = useRef<HTMLElement | null>(null);
 
-  useEffect(() => {
-    modalRef.current = document?.getElementById('modal');
-  }, []);
-
-  useEffect(() => {
-    const body = document.body;
-    if (isOpen) {
-      body.classList.add('no-scroll');
-    } else {
-      body.classList.remove('no-scroll');
-    }
-
-    return () => body.classList.remove('no-scroll');
-  }, [isOpen]);
-
-  if (!modalRef.current) return null;
-
-  return createPortal(
+  return (
     <>
       <AnimatePresence mode="wait">
         {isOpen && (
@@ -54,10 +34,15 @@ const NavbarBurgerMenuContent = ({
             animate="visible"
             exit="exit"
             variants={burgerMenuVariants}
-            className={`absolute z-[70] top-22 md:top-0 right-0 w-[100vw] md:w-[495px] h-[calc(100dvh-88px)] md:h-[100dvh] bg-dark md:bg-white overflow-y-auto scrollbar scrollbar-w-[2.5px] scrollbar-thumb-rounded-full 
-      scrollbar-track-rounded-full scrollbar-thumb-orange scrollbar-track-transparent`}
+            className={`${
+              isOpen ? 'no-doc-scroll' : ''
+            } absolute -z-10 md:z-[70] top-0 right-0 w-[100vw] md:w-[495px] h-[100dvh] bg-dark md:bg-white `}
           >
-            <div className="w-full px-8 md:px-[50px] pt-4 md:pt-7 pb-[46px] md:pb-8">
+            <div className="relative -z-50 h-22 w-full md:hidden bg-white"></div>
+            <div
+              className="w-full h-[calc(100%-88px)] px-8 md:px-[50px] pt-4 md:pt-7 pb-[46px] md:pb-8 overflow-y-auto scrollbar scrollbar-w-[2.5px] scrollbar-thumb-rounded-full 
+      scrollbar-track-rounded-full scrollbar-thumb-orange scrollbar-track-transparent "
+            >
               <button
                 type="button"
                 onClick={onClose}
@@ -110,8 +95,7 @@ const NavbarBurgerMenuContent = ({
         isVisible={isOpen}
         onClick={onClose}
       />
-    </>,
-    modalRef.current
+    </>
   );
 };
 
