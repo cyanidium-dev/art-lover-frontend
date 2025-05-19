@@ -19,8 +19,8 @@ export default function ProductInfoMob({
       <ImagePicker currentProduct={currentProduct} />
       <OrderProduct currentProduct={currentProduct} />
       <FullDescription currentProduct={currentProduct} />
-      <DeliveryInfo />
-      <Benefits />
+      <DeliveryInfo currentProduct={currentProduct} />
+      <Benefits currentProduct={currentProduct} />
       <IdealFor currentProduct={currentProduct} />
       <Characteristics currentProduct={currentProduct} />
     </div>

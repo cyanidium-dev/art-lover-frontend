@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
-import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import NavMenuItem from './NavMenuItem';
 
@@ -8,16 +7,14 @@ interface NavMenuProps {
   onClose?: Dispatch<SetStateAction<boolean>>;
 }
 
+const navMenuList = [
+  { title: 'Про нас', link: '/about' },
+  { title: 'Блог', link: '/blog' },
+  { title: 'Контакти', link: '/contacts' },
+  { title: 'Оплата та доставка', link: '/delivery' },
+];
+
 export default function NavMenu({ onClose }: NavMenuProps) {
-  const t = useTranslations('footer.navMenu');
-
-  const navMenuList = [
-    { title: t('about'), link: '/about' },
-    { title: t('blog'), link: '/blog' },
-    { title: t('contacts'), link: '/contacts' },
-    { title: t('payment'), link: '/delivery' },
-  ];
-
   return (
     <motion.ul
       initial="hidden"

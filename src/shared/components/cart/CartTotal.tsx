@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
-import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 import MainButton from '../buttons/MainButton';
 import { motion } from 'framer-motion';
 import { getTotalSum } from '@/shared/utils/getTotalSum';
@@ -17,7 +16,6 @@ export default function CartTotal({
   setIsPopUpShown,
   cartItems,
 }: CartTotalProps) {
-  const t = useTranslations('cart');
   const [total, setTotal] = useState(0);
 
   const sum = getTotalSum(cartItems);
@@ -37,7 +35,7 @@ export default function CartTotal({
     >
       <div className="flex flex-row items-center justify-between mb-2 xl:mb-3">
         <p className="text-[12px] xl:text-[16px] font-normal leading-[120%]">
-          {t('quantity')}
+          Кількість товарів у кошику
         </p>
         <p className="text-[12px] xl:text-[20px] font-normal xl:font-medium leading-[120%]">
           {cartItems?.length}
@@ -45,10 +43,10 @@ export default function CartTotal({
       </div>
       <div className="flex flex-row items-center justify-between mb-3 xl:mb-6">
         <p className="text-[12px] xl:text-[16px] font-medium xl:font-normal leading-[120%]">
-          {t('total')}
+          Загальна вартість
         </p>
         <p className="text-[12px] xl:text-[24px] font-medium leading-[120%]">
-          {total}&nbsp;{t('hrn')}
+          {total}&nbsp;грн
         </p>
       </div>
       <Link href="/checkout" onClick={() => setIsPopUpShown(false)}>
@@ -57,7 +55,7 @@ export default function CartTotal({
           className="w-full h-9 xl:h-12"
           textStyles="text-[12px] xl:text-[14px] font-medium"
         >
-          {t('button')}
+          Оформити замовлення
         </MainButton>
       </Link>
     </motion.div>

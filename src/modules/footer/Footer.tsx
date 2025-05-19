@@ -1,6 +1,6 @@
-import { useTranslations } from 'next-intl';
 import Container from '@/shared/components/container/Container';
 import Logo from '@/shared/components/Logo/Logo';
+
 import FooterCatalog from '@/modules/footer/FooterCatalog/FooterCatalog';
 import FooterAboutCompany from '@/modules/footer/FooterAboutCompany/FooterAboutCompany';
 import FooterSocial from '@/modules/footer/FooterSocial/FooterSocial';
@@ -15,8 +15,6 @@ import * as motion from 'motion/react-client';
 import styles from './Footer.module.scss';
 
 const Footer = () => {
-  const t = useTranslations('footer');
-
   return (
     <motion.footer
       initial="hidden"
@@ -45,7 +43,7 @@ const Footer = () => {
             variants={fadeInAnimation({ x: 30 })}
             className="font-denistina text-[32px] font-normal leading-[100%] text-white"
           >
-            {t('description')}
+            Створи шедевр вже сьогодні!
           </motion.p>
         </div>
 

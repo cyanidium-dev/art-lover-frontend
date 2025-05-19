@@ -1,7 +1,7 @@
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import Container from '@/shared/components/container/Container';
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 
 interface Breadcrumb {
   label: string;

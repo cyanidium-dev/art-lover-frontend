@@ -1,6 +1,6 @@
 'use client';
 import { Dispatch, SetStateAction } from 'react';
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { listItemVariants } from '@/shared/utils/animationVariants';
 
