@@ -5,7 +5,7 @@ import { usePathname, useRouter } from '@/i18n/navigation';
 import { Locale } from '@/types/locale';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocale } from 'next-intl';
-import Image from 'next/image';
+import LocaleSwitcherArrowIcon from '@/shared/components/icons/LocaleSwitcherArrowIcon';
 
 export default function LocaleSwitcher() {
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -59,17 +59,13 @@ export default function LocaleSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="cursor-pointer flex items-center gap-[9px] outline-none"
+        className="cursor-pointer flex items-center gap-[9px] outline-none xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
       >
         <span className="text-[14px] xl:text-[16px] font-bold leading-[125%] uppercase">
           {currentLocale === 'uk' ? 'UA' : currentLocale}
         </span>
-        <Image
-          src="/images/productPage/productInfo/arrow.svg"
-          alt="arrow icon"
-          width={16}
-          height={16}
-          className={`size-3 xl:size-4 mb-[2px] ${
+        <LocaleSwitcherArrowIcon
+          className={`size-3 xl:size-4 mb-[1px] ${
             isOpen ? 'rotate-180' : 'rotate-0'
           } transition duration-300 ease-in-out`}
         />
