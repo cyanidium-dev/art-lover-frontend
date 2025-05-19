@@ -110,7 +110,7 @@ export default function DeliveryBlockUkraine() {
             <button
               key={city.value}
               type="button"
-              onClick={() => setFieldValue('city', city)}
+              onClick={() => setFieldValue('city', city.label)}
               className="cursor-pointer text-[12px] xl:text-[16px] font-medium leading-[120%] text-black xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
             >
               {city.label}

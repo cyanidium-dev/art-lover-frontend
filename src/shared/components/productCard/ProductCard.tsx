@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
+import { useTranslations } from 'next-intl';
 import { useCartStore } from '@/shared/store/cartStore';
 import { Product } from '@/types/product';
 import Image from 'next/image';
@@ -15,6 +16,8 @@ export default function ProductCard({
   product,
   setIsAddedToCartPopUpShown,
 }: ProductCardProps) {
+  const t = useTranslations('productCard');
+
   const { addToCart } = useCartStore();
 
   const { id, title, price, discountedPrice, images, slug, category } = product;
@@ -47,19 +50,20 @@ export default function ProductCard({
         {discountedPrice && discountedPrice < price ? (
           <p className="mb-1.5 xl:mb-2 h-auto leading-none">
             <span className="text-[14px] xl:text-[16px] font-medium leading-[120%] text-orange">
-              {discountedPrice} грн
+              {discountedPrice}
+              {t('hrn')}
             </span>
             <span className="text-[14px] xl:text-[16px] font-medium leading-[120%]">
               {' '}
               &nbsp;
             </span>
             <span className="text-[12px] xl:text-[14px] font-normal leading-[120%] line-through">
-              {price} грн
+              {price} {t('hrn')}
             </span>
           </p>
         ) : (
           <p className="mb-1.5 xl:mb-2 text-[14px] xl:text-[16px] font-medium leading-[120%]">
-            {price} грн
+            {price} {t('hrn')}
           </p>
         )}
         <h3 className="mb-4 xl:mb-[18px] text-[14px] xl:text-[18px] font-medium leading-[120%] line-clamp-1">
@@ -72,7 +76,7 @@ export default function ProductCard({
           className="block w-full"
         >
           <SecondaryButton className="w-full max-w-[102px] xs:max-w-full h-9 xl:h-10">
-            Детальніше
+            {t('button')}
           </SecondaryButton>
         </Link>
         <CartButton onClick={handleClick} className="shrink-0" />

@@ -1,5 +1,6 @@
 'use client';
 import { Dispatch, SetStateAction } from 'react';
+import { useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
@@ -12,6 +13,8 @@ interface TabMenuProps {
 }
 
 export default function TabMenu({ activeTab, setActiveTab }: TabMenuProps) {
+  const t = useTranslations('checkoutPage.tabMenu');
+
   const router = useRouter();
   const pathName = usePathname();
 
@@ -19,7 +22,7 @@ export default function TabMenu({ activeTab, setActiveTab }: TabMenuProps) {
 
   const menuList = [
     {
-      title: screenWidth > 640 ? 'Доставка ПО УКРАЇНІ' : 'ПО УКРАЇНІ',
+      title: screenWidth > 640 ? t('ukraineDesk') : t('ukraineMob'),
       value: 'ukraine',
     },
     // {

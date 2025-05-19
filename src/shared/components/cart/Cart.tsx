@@ -62,7 +62,10 @@ export default function CartModal({
                 className="flex items-center justify-between mb-10"
               >
                 <div className="flex items-center gap-x-5">
-                  <CartIcon strokeWidth="2" className="size-6 xl:size-[34px]" />
+                  <CartIcon
+                    strokeWidth="2"
+                    className="size-6 xl:size-[34px] text-white"
+                  />
                   <h3 className="text-[20px] xl:text-[24px] font-bold leading-[120%] uppercase text-white">
                     {t('title')}
                   </h3>

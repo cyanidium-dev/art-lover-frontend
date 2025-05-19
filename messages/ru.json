@@ -302,11 +302,11 @@
     "shareOpinion": "Поделитесь своим мнением",
     "postOffice": "Отделение",
     "courier": "Доставка курьером",
-    "poshtomat": "Поштомат",
+    "poshtomat": "Почтомат",
     "cityPlaceholder": "Название населённого пункта",
     "addressPlaceholder": "Адрес",
     "postOfficeNumberPlaceholder": "Номер отделения",
-    "poshtomatNumberPlaceholder": "Номер поштомата",
+    "poshtomatNumberPlaceholder": "Номер почтомата",
     "payByCard": "Картой на сайте",
     "cashOnDelivery": "Оплатить при получении",
     "iAmRecipient": "Я получатель",
@@ -330,5 +330,9 @@
     },
     "submitButton": "Отправить",
     "sending": "Отправка..."
+  },
+  "productCard": {
+    "hrn": " грн",
+    "button": "Детальнее"
   }
 }

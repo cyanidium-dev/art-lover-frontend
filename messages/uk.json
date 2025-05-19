@@ -324,5 +324,9 @@
     },
     "submitButton": "Надіслати",
     "sending": "Надсилання..."
+  },
+  "productCard": {
+    "hrn": " грн",
+    "button": "Детальніше"
   }
 }
