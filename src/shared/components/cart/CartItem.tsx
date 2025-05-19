@@ -3,7 +3,7 @@ import { CartItem } from '@/types/cartItem';
 import Image from 'next/image';
 import Counter from './Counter';
 import IconButton from '../buttons/IconButton';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 interface CartItemProps {
   cartItem: CartItem;

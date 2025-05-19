@@ -4,7 +4,7 @@ import { Product } from '@/types/product';
 import Image from 'next/image';
 import SecondaryButton from '../buttons/SecondaryButton';
 import CartButton from './CartButton';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 interface ProductCardProps {
   product: Product;

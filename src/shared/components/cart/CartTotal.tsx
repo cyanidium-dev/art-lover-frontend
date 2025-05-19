@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import MainButton from '../buttons/MainButton';
 import { motion } from 'framer-motion';
 import { getTotalSum } from '@/shared/utils/getTotalSum';

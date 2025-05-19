@@ -1,7 +1,7 @@
 import SecondaryButton from '@/shared/components/buttons/SecondaryButton';
 import Container from '@/shared/components/container/Container';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';

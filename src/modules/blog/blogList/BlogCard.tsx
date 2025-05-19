@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { Article } from '@/types/article';
 import { calculateReadingTime } from '@/shared/utils/calculateReadingTime';
 import Image from 'next/image';
