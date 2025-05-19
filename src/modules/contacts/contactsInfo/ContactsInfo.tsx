@@ -1,4 +1,5 @@
 import * as motion from 'motion/react-client';
+import { useTranslations } from 'next-intl';
 import {
   listVariants,
   listItemVariants,
@@ -10,6 +11,8 @@ import Image from 'next/image';
 import ContactsInfoImages from './ContactsInfoImages';
 
 export default function ContactsInfo() {
+  const t = useTranslations('contactsPage.contactsInfo');
+
   const { phone, emails } = contacts;
 
   return (
@@ -37,7 +40,7 @@ export default function ContactsInfo() {
               className="absolute -top-8 md:top-[-104px] left-[calc(50%-32px)] w-16 md:w-20 h-auto"
             />
             <h3 className="mb-3 xl:mb-5 text-[16px] xl:text-[20px] font-semibold leading-[160%] text-center">
-              Телефон
+              {t('phone')}
             </h3>
             {phone ? (
               <a
@@ -55,10 +58,10 @@ export default function ContactsInfo() {
               </a>
             ) : null}
             <p className="mb-2 text-[12px] xl:text-[14px] font-medium leading-[120%] text-center xl:text-left text-gray-light">
-              Лінія 1 - інтернет магазин
+              {t('lineOne')}
             </p>
             <p className="text-[12px] xl:text-[14px] font-medium leading-[120%] text-center xl:text-left text-gray-light">
-              Лінія 2 - корпоративним клієнтам
+              {t('lineTwo')}
             </p>
           </motion.li>
           <motion.li
@@ -74,7 +77,7 @@ export default function ContactsInfo() {
               className="absolute -top-8 md:top-[-104px] left-[calc(50%-32px)] w-16 md:w-20 h-auto"
             />
             <h3 className="mb-3 xl:mb-5 text-[16px] xl:text-[20px] font-semibold leading-[160%] text-center">
-              Електронна адреса
+              {t('email')}
             </h3>
             {emails && emails.length ? (
               <ul className="flex flex-col gap-y-2 xl:gap-x-3 items-center mb-1 text-gray-light">
@@ -94,7 +97,7 @@ export default function ContactsInfo() {
               </ul>
             ) : null}
             <p className="text-[14px] font-medium leading-[120%] text-center text-gray-light">
-              (для корпоративних клієнтів)
+              {t('corporate')}
             </p>
           </motion.li>
           <motion.li
@@ -110,13 +113,13 @@ export default function ContactsInfo() {
               className="absolute -top-8 md:top-[-104px] left-[calc(50%-32px)] w-16 md:w-20 h-auto"
             />
             <h3 className="mb-3 xl:mb-5 text-[16px] xl:text-[20px] font-semibold leading-[160%] text-center">
-              Гаряча лінія працює
+              {t('hotline')}
             </h3>
             <p className="mb-2 xl:mb-3 text-[14px] xl:text-[18px] font-medium leading-[120%] text-center text-gray-light">
-              Пн-Пт: 09:00-00:00
+              {t('workingDays')}09:00-00:00
             </p>
             <p className="text-[14px] xl:text-[18px] font-medium leading-[120%] text-center text-gray-light">
-              Сб-Нд: 10:00-20:00
+              {t('weekend')}10:00-20:00
             </p>
           </motion.li>
         </motion.ul>

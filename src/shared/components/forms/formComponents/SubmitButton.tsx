@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import MainButton from '../../buttons/MainButton';
 
 interface SubmitButtonProps {
@@ -16,6 +17,8 @@ export default function SubmitButton({
   text,
   className = 'w-full',
 }: SubmitButtonProps) {
+  const t = useTranslations('forms');
+
   return (
     <MainButton
       type="submit"
@@ -23,7 +26,7 @@ export default function SubmitButton({
       isLoading={isLoading}
       className={className}
     >
-      {isLoading ? 'Надсилання...' : text}
+      {isLoading ? t('sending') : text}
     </MainButton>
   );
 }

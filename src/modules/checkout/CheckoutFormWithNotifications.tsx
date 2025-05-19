@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import NotificationPopUp from '@/shared/components/pop-ups/NotificationPopUp';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
 import CheckoutForm from '@/shared/components/forms/checkoutForm/CheckoutForm';
@@ -14,6 +15,7 @@ export default function CheckoutFormWithNotifications({
   activeTab,
   className,
 }: CheckoutFormWithNotificationsProps) {
+  const t = useTranslations('popUps.notification');
   const [isError, setIsError] = useState(false);
   const [isNotificationShown, setIsNotificationShown] = useState(false);
 
@@ -27,13 +29,9 @@ export default function CheckoutFormWithNotifications({
       />
 
       <NotificationPopUp
-        title={
-          isError ? 'На жаль, щось пішло не так' : 'Дякуємо за повідомлення!'
-        }
+        title={isError ? t('error.title') : t('success.title')}
         description={
-          isError
-            ? 'Спробуйте відправити форму ще раз або зателефонуйте нам.'
-            : "Наш менеджер скоро зв'яжеться з вами."
+          isError ? t('error.description') : t('success.description')
         }
         isPopUpShown={isNotificationShown}
         setIsPopUpShown={setIsNotificationShown}

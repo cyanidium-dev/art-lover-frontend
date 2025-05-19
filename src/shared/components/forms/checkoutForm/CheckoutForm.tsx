@@ -1,6 +1,7 @@
 'use client';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { Dispatch, SetStateAction, useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import MaskedInput from 'react-text-mask';
 import Image from 'next/image';
 import * as motion from 'motion/react-client';
@@ -11,7 +12,7 @@ import {
 } from '@/shared/utils/animationVariants';
 
 import { getTotalSum } from '@/shared/utils/getTotalSum';
-import { checkoutValidation } from '@/shared/schemas/checkoutFormValidation';
+import { CheckoutValidation } from '@/shared/schemas/checkoutFormValidation';
 import { handleSubmitForm } from '@/shared/utils/handleSubmitForm';
 import { phoneMask } from '@/shared/regex/regex';
 import { productsList } from '@/modules/home/bestsellers/mockedData';
@@ -20,7 +21,7 @@ import CustomizedInput from '../formComponents/CustomizedInput';
 import SubmitButton from '../formComponents/SubmitButton';
 import CheckoutSubTitle from './CheckoutSubTitle';
 import TipsInputBlock from './TipsInputBlock';
-import GiftHint from '@/modules/checkout/GiftHint';
+// import GiftHint from '@/modules/checkout/GiftHint';
 import RadioButtonInput from '../formComponents/RadioButtonInput';
 import RecipientBlock from './RecipientBlock';
 import CartItemsList from './CartItemsList';
@@ -66,6 +67,8 @@ export default function CheckoutForm({
   activeTab,
   className = '',
 }: CheckoutFormProps) {
+  const t = useTranslations();
+
   const [isLoading, setIsLoading] = useState(false);
   const [total, setTotal] = useState(0);
 
@@ -101,7 +104,7 @@ export default function CheckoutForm({
     tips: '',
   };
 
-  const validationSchema = checkoutValidation(activeTab);
+  const validationSchema = CheckoutValidation(activeTab);
 
   const submitForm = async (
     values: ValuesCheckoutFormType,
@@ -160,20 +163,20 @@ export default function CheckoutForm({
             >
               <CheckoutSubTitle
                 icon="emoji"
-                title="Крок 1"
-                description="Особисті дані"
+                title={t('checkoutPage.form.stepOne.title')}
+                description={t('checkoutPage.form.stepOne.description')}
               />
               <div className="flex flex-col gap-y-3 xl:gap-y-[14px]">
                 <CustomizedInput
                   fieldName="name"
-                  placeholder="Ім’я"
+                  placeholder={t('forms.namePlaceholder')}
                   isRequired
                   errors={errors}
                   touched={touched}
                 />
                 <CustomizedInput
                   fieldName="surname"
-                  placeholder="Прізвище"
+                  placeholder={t('forms.surnamePlaceholder')}
                   isRequired
                   errors={errors}
                   touched={touched}
@@ -181,7 +184,7 @@ export default function CheckoutForm({
                 <CustomizedInput
                   fieldName="email"
                   inputType="email"
-                  placeholder="Електронна пошта"
+                  placeholder={t('forms.email')}
                   isRequired
                   errors={errors}
                   touched={touched}
@@ -189,7 +192,7 @@ export default function CheckoutForm({
                 <CustomizedInput
                   fieldName="phone"
                   inputType="tel"
-                  placeholder="Номер телефону"
+                  placeholder={t('forms.phonePlaceholder')}
                   isRequired
                   errors={errors}
                   touched={touched}
@@ -210,8 +213,8 @@ export default function CheckoutForm({
             >
               <CheckoutSubTitle
                 icon="globe"
-                title="Крок 2"
-                description="Оплата та доставка"
+                title={t('checkoutPage.form.stepTwo.title')}
+                description={t('checkoutPage.form.stepTwo.description')}
               />
               {activeTab === 'ukraine' ? (
                 <DeliveryBlockUkraine />
@@ -228,18 +231,18 @@ export default function CheckoutForm({
               <div>
                 <CheckoutSubTitle
                   icon="card"
-                  title="Крок 3"
-                  description="Спосіб оплати"
+                  title={t('checkoutPage.form.stepThree.title')}
+                  description={t('checkoutPage.form.stepThree.description')}
                 />
                 <RadioButtonInput
                   fieldName="payment"
-                  label="Картою на сайті"
+                  label={t('forms.payByCard')}
                   value="Картою на сайті"
                 />
               </div>
               <div className="flex items-center justify-between px-3 xl:px-5 py-2.5 xl:py-[13px] rounded-[6px] border border-gray-light">
                 <p className="text-[12px] xl:text-[14px] font-normal leading-[120%]">
-                  Сплатити за допомогою
+                  {t('checkoutPage.form.payBy')}
                 </p>
                 <Image
                   src="/images/checkoutPage/monoPay.svg"
@@ -251,7 +254,7 @@ export default function CheckoutForm({
               </div>
               <RadioButtonInput
                 fieldName="payment"
-                label="Сплатити при отриманні"
+                label={t('forms.cashOnDelivery')}
                 value="Сплатити при отриманні"
               />
             </motion.div>
@@ -263,8 +266,8 @@ export default function CheckoutForm({
             >
               <CheckoutSubTitle
                 icon="users"
-                title="Крок 4"
-                description="Одержувач"
+                title={t('checkoutPage.form.stepFour.title')}
+                description={t('checkoutPage.form.stepFour.description')}
               />
               <RecipientBlock errors={errors} touched={touched} />
             </motion.div>
@@ -276,13 +279,13 @@ export default function CheckoutForm({
             >
               <CheckoutSubTitle
                 icon="pencil"
-                title="Крок 5"
-                description="Додати коментар"
+                title={t('checkoutPage.form.stepFive.title')}
+                description={t('checkoutPage.form.stepFive.description')}
               />
               <CustomizedInput
                 fieldName="message"
                 as="textarea"
-                placeholder="Додайте коментар, якщо потрібно"
+                placeholder={t('forms.commentPlaceholder')}
                 errors={errors}
                 touched={touched}
                 fieldClassName="h-[99px] xl:h-[93px] py-3"
@@ -306,9 +309,15 @@ export default function CheckoutForm({
               variants={listItemVariants}
               className="xl:mb-3 py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark"
             >
-              <CheckoutSubTitle icon="shopping" title="Ваше замовлення" />
+              <CheckoutSubTitle
+                icon="shopping"
+                title={t('checkoutPage.form.yourOrder')}
+              />
               <CartItemsList />
-              <CheckoutSubTitle icon="gift" title="Додати пакування?" />
+              <CheckoutSubTitle
+                icon="gift"
+                title={t('checkoutPage.form.addPackaging')}
+              />
               <AdditionalOptions />
               <PostcardBlock />
             </motion.div>
@@ -317,10 +326,13 @@ export default function CheckoutForm({
               variants={listItemVariants}
               className="py-5 px-4 xl:p-7 rounded-[6px] xl:rounded-[8px] border border-dark"
             >
-              <CheckoutSubTitle icon="heart" title="Промокод" />
+              <CheckoutSubTitle
+                icon="heart"
+                title={t('checkoutPage.form.promocode')}
+              />
               <CustomizedInput
                 fieldName="promocode"
-                placeholder="Введіть свій промокод"
+                placeholder={t('forms.promocodePlaceholder')}
                 errors={errors}
                 touched={touched}
               />
@@ -332,7 +344,7 @@ export default function CheckoutForm({
             >
               <CheckoutSubTitle
                 icon="money"
-                title="Залишити чайові нашим пакувальникам"
+                title={t('checkoutPage.form.tips')}
               />
               <TipsInputBlock errors={errors} touched={touched} />
             </motion.div>
@@ -343,26 +355,26 @@ export default function CheckoutForm({
             >
               <div className="flex items-center justify-between">
                 <h3 className="text-[12px] xl:text-[16px] font-medium leading-[120%]">
-                  Загальна вартість
+                  {t('checkoutPage.form.total')}
                 </h3>
                 <p className="text-[16px] xl:text-[24px] font-medium leading-[120%]">
-                  {total} грн
+                  {total} {t('checkoutPage.form.hrn')}
                 </p>
               </div>
               <SubmitButton
                 dirty={dirty}
                 isValid={isValid}
                 isLoading={isLoading}
-                text="Оформити замовлення"
+                text={t('checkoutPage.form.checkout')}
                 className="h-10 md:h-12"
               />
             </motion.div>
-            <motion.div
+            {/* <motion.div
               viewport={{ once: true, amount: 0.2 }}
               variants={listItemVariants}
             >
               <GiftHint />
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </Form>
       )}

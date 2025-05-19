@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import HeartIcon from '@/shared/components/icons/HeartIcon';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 const NavbarFavorite = () => {
   const pathname = usePathname();

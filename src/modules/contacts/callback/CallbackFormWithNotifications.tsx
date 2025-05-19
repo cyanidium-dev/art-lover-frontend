@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'motion/react';
+import { useTranslations } from 'next-intl';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import CallBackForm from '@/shared/components/forms/CallbackForm';
 import NotificationPopUp from '@/shared/components/pop-ups/NotificationPopUp';
@@ -14,6 +15,7 @@ interface CallBackFormWithNotificationsProps {
 export default function CallBackFormWithNotifications({
   className,
 }: CallBackFormWithNotificationsProps) {
+  const t = useTranslations('popUps.notification');
   const [isError, setIsError] = useState(false);
   const [isNotificationShown, setIsNotificationShown] = useState(false);
 
@@ -34,13 +36,9 @@ export default function CallBackFormWithNotifications({
         />
       </motion.div>
       <NotificationPopUp
-        title={
-          isError ? 'На жаль, щось пішло не так' : 'Дякуємо за повідомлення!'
-        }
+        title={isError ? t('error.title') : t('success.title')}
         description={
-          isError
-            ? 'Спробуйте відправити форму ще раз або зателефонуйте нам.'
-            : "Наш менеджер скоро зв'яжеться з вами."
+          isError ? t('error.description') : t('success.description')
         }
         isPopUpShown={isNotificationShown}
         setIsPopUpShown={setIsNotificationShown}

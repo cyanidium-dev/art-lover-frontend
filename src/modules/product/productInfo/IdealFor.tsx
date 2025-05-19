@@ -1,4 +1,5 @@
 import * as motion from 'motion/react-client';
+import { useTranslations } from 'next-intl';
 import {
   fadeInAnimation,
   listItemVariants,
@@ -11,6 +12,8 @@ interface IdealForProps {
 }
 
 export default function IdealFor({ currentProduct }: IdealForProps) {
+  const t = useTranslations('productPage');
+
   if (!currentProduct?.idealFor || !currentProduct?.idealFor.length)
     return null;
 
@@ -26,7 +29,7 @@ export default function IdealFor({ currentProduct }: IdealForProps) {
         variants={fadeInAnimation({ y: 30 })}
         className="mb-6 xl:mb-8 text-[18px] xl:text-[32px] font-medium leading-[120%] uppercase"
       >
-        Ідеально підходить для:
+        {t('idealFor')}
       </motion.h2>
       <motion.ul
         initial="hidden"
