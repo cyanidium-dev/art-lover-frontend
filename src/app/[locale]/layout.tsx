@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import localFont from 'next/font/local';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 
@@ -47,7 +50,24 @@ export default async function RootLayout({
         <NextIntlClientProvider>
           <div id="modal" style={{ zIndex: 100 }}></div>
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 pt-22 xl:pt-[98px]">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              exit="exit"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeInAnimation({ delay: 1.2, scale: 0.9 })}
+              className="xl:hidden -z-10 absolute top-0 right-[calc(50%-100px)]"
+            >
+              <Image
+                src="/images/navbar/figureCenterMob.svg"
+                alt="figure background"
+                width="114"
+                height="43"
+              />
+            </motion.div>
+            {children}
+          </main>
           <SubscribeNews />
           <Footer />
         </NextIntlClientProvider>
