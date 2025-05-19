@@ -1,328 +1,339 @@
 {
   "homePage": {
-    "categories": { "title": "Категорії товарів" },
+    "categories": { "title": "Product categories" },
     "helpChooseGift": {
-      "title": "Допоможемо обрати подарунок",
-      "description": "Наш сайт допоможе обрати подарунок для будь-якого свята та події за допомогою фільтрів",
-      "button": "Обрати подарунок"
+      "title": "Help choose gift",
+      "description": "Our site will help you choose a gift for any holiday or event using filters",
+      "button": "Choose gift"
     },
     "bestsellers": {
-      "title": "хіти продажів",
-      "description": "Творчість, яка підкорила серця"
+      "title": "Bestsellers",
+      "description": "Creativity that won hearts"
     },
     "newProducts": {
-      "title": "наші новинки",
-      "description": "Свіжі ідеї для вашої творчості"
+      "title": "New products",
+      "description": "Fresh ideas for your creativity"
     },
     "discountedProducts": {
-      "title": "товари зі знижкою",
-      "description": "Знижки, що радують творців"
+      "title": "Discounted products",
+      "description": "Discounts that delight creators"
     },
     "about": {
-      "title": "Про нас",
-      "description": "Ми – команда, закохана в мистецтво, яка створила цей магазин для всіх, хто прагне творити без меж! Нашою місією є надихати художників, ілюстраторів, дизайнерів і всіх, хто не уявляє життя без творчості.",
-      "cta": "Твори. Натхняйся!",
+      "title": "About us",
+      "description": "We are a team passionate about art who created this store for everyone eager to create without limits! Our mission is to inspire artists, illustrators, designers, and all who can't imagine life without creativity.",
+      "cta": "Create. Inspire!",
       "benefits": {
-        "one": "Нових клієнтів",
-        "two": "Задоволених клієнтів",
-        "three": "Прийнятих замовлень"
+        "one": "New customers",
+        "two": "Satisfied customers",
+        "three": "Orders received"
       }
     },
     "reviews": {
-      "title": "Відгуки",
-      "description": "Враження про наш магазин"
+      "title": "Reviews",
+      "description": "Impressions about our store"
     },
     "socials": {
-      "title": "Стежте за нами в соціальних мережах",
-      "followers": " тис. підписників"
+      "title": "Follow us on social media",
+      "followers": "k followers"
     }
   },
   "aboutPage": {
     "hero": {
-      "title": "Про нас",
-      "subtitle": "Наша історія та цінності",
-      "description": "Ми команда творчих ентузіастів, які люблять створювати унікальні витвори мистецтва в стилі стрінг-арт."
+      "title": "About us",
+      "subtitle": "Our story and values",
+      "description": "We are a team of creative enthusiasts who love making unique string art masterpieces."
     },
     "team": {
-      "title": "Наша творча команда",
+      "title": "Our creative team",
       "teamList": {
         "one": {
-          "name": "Олександра",
+          "name": "Oleksandra",
           "role": "Maker, Assistant, Customer Service"
         },
-        "two": { "name": "Андріан", "role": "Owner, Curator, Maker" },
-        "three": { "name": "Анастасія", "role": "Maker, Marketer" }
+        "two": {
+          "name": "Andrian",
+          "role": "Owner, Curator, Maker"
+        },
+        "three": {
+          "name": "Anastasia",
+          "role": "Maker, Marketer"
+        }
       }
     },
     "history": {
-      "title": "Історія нашої команди",
-      "descriptionOne": "Наше захоплення цим видом мистецтва почалося досить просто. Ми всі любили майструвати і хотіли спробувати щось нове. Одного разу ми відкрили для себе стрінг-арт і були вражені його неймовірною креативністю та можливостями. Надихнувшись, ми вирішили поділитися цим зі світом, відкривши наш магазин.",
-      "descriptionTwo": "У нашому магазині ви знайдете різноманітні набори стрінг-арт для створення чудових творів мистецтва. Ми пропонуємо широкий асортимент дизайнів і розмірів, щоб кожен міг знайти щось на свій смак. Крім того, ми також приймаємо замовлення на індивідуальні портрети та будь-які інші зображення, щоб створити унікальний витвір мистецтва саме для вас.",
-      "descriptionThree": "Ми пишаємося якістю нашої продукції та прагнемо, щоб кожен клієнт отримував задоволення від роботи з нашими наборами. Ми також цінуємо індивідуальний підхід до кожного клієнта і завжди готові допомогти втілити ваші ідеї в життя.",
-      "thankYouOne": "Дякуємо, що обрали наш магазин для своєї творчості.",
-      "thankYouTwo": "Сподіваємося, що наші набори принесуть вам радість і натхнення, і ви створите щось справді неймовірне!"
+      "title": "History of our team",
+      "descriptionOne": "Our passion for this art form started quite simply. We all loved crafting and wanted to try something new. One day we discovered string art and were amazed by its incredible creativity and possibilities. Inspired, we decided to share it with the world by opening our store.",
+      "descriptionTwo": "In our store, you will find various string art kits to create wonderful artworks. We offer a wide range of designs and sizes so everyone can find something to their taste. Additionally, we accept orders for custom portraits and any other images to create a unique masterpiece just for you.",
+      "descriptionThree": "We take pride in the quality of our products and strive to ensure every customer enjoys working with our kits. We also value an individual approach to each client and are always ready to help bring your ideas to life.",
+      "thankYouOne": "Thank you for choosing our store for your creativity.",
+      "thankYouTwo": "We hope our kits bring you joy and inspiration, and you create something truly amazing!"
     }
   },
   "blogPage": {
-    "title": "блог",
-    "description": "Ласкаво просимо до нашого блогу! Тут ми ділимося натхненням, творчими ідеями та корисними лайфхаками."
+    "title": "blog",
+    "description": "Welcome to our blog! Here we share inspiration, creative ideas, and useful lifehacks.",
+    "readingTime": " min read"
   },
   "contactsPage": {
     "hero": {
-      "title": "контакти",
-      "subtitle": "Маєте питання чи пропозиції?",
-      "description": "Зв’яжіться з нами – ми з радістю допоможемо!",
-      "slogan": "Ваші питання - наші відповіді"
+      "title": "contacts",
+      "subtitle": "Have questions or suggestions?",
+      "description": "Get in touch with us – we will gladly help!",
+      "slogan": "Your questions - our answers"
     },
     "contactsInfo": {
-      "phone": "Телефон",
-      "lineOne": "Лінія 1 - інтернет магазин",
-      "lineTwo": "Лінія 2 - корпоративним клієнтам",
-      "email": "Електронна адреса",
-      "corporate": "(для корпоративних клієнтів)",
-      "hotline": "Гаряча лінія працює",
-      "workingDays": "Пн-Пт: ",
-      "weekend": "Сб-Нд: "
+      "phone": "Phone",
+      "lineOne": "Line 1 - online store",
+      "lineTwo": "Line 2 - corporate clients",
+      "email": "Email address",
+      "corporate": "(for corporate clients)",
+      "hotline": "Hotline is available",
+      "workingDays": "Mon-Fri: ",
+      "weekend": "Sat-Sun: "
     },
     "callback": {
-      "title": "Ваше повідомлення",
-      "description": "Заповніть форму – і ми з вами зв’яжемося"
+      "title": "your message",
+      "description": "Fill out the form – and we will contact you"
     }
   },
   "deliveryPage": {
     "hero": {
-      "title": "умови доставки",
-      "description": "Доставляємо натхнення по всьому світу",
-      "slogan": "Швидко, зручно, надійно"
+      "title": "delivery terms",
+      "description": "Delivering inspiration worldwide",
+      "slogan": "fast, convenient, reliable"
     },
     "conditions": {
-      "one": "Ми здійснюємо доставку по всій Україні та за кордон, щоб ви могли отримати улюблені товари для творчості незалежно від вашого місцезнаходження.",
-      "two": "Всі замовлення обробляються та відправляються протягом 1-2 робочих днів після підтвердження оплати.",
-      "three": "Доставка здійснюється з понеділка по суботу згідно з графіком роботи вибраної служби доставки.",
-      "four": "Вартість міжнародної доставки залежить від країни отримувача, ваги та габаритів посилки. Замовлення може підлягати митним платежам відповідно до законодавства вашої країни. Термін міжнародної доставки зазвичай складає 7-21 день, але може змінюватися залежно від поштової служби.",
-      "five": "Після відправки ви отримаєте номер ТТН, за яким можна відстежити статус доставки на сайті перевізника."
+      "one": "We deliver throughout Ukraine and abroad so you can receive your favorite creative products regardless of your location.",
+      "two": "All orders are processed and shipped within 1-2 business days after payment confirmation.",
+      "three": "Delivery is carried out from Monday to Saturday according to the schedule of the selected delivery service.",
+      "four": "The cost of international delivery depends on the recipient country, package weight, and dimensions. Orders may be subject to customs fees according to your country’s legislation. The international delivery time usually takes 7-21 days but may vary depending on the postal service.",
+      "five": "After shipping, you will receive a tracking number to check the delivery status on the carrier’s website."
     },
     "deliveryUkraine": {
-      "title": "Доставка по Україні",
-      "subtitle": "Способи доставки:",
+      "title": "delivery in Ukraine",
+      "subtitle": "delivery methods:",
       "deliveryMethods": {
         "one": {
-          "title": "Кур'єром ArtLover",
-          "description": "Безкоштовна доставка при замовленні від 500 грн. Для замовлень на суму до 500 грн вартість доставки складає 50 грн. Доставка здійснюється протягом 1-3 робочих днів."
+          "title": "ArtLover courier",
+          "description": "Free delivery for orders over 500 UAH. For orders up to 500 UAH, delivery cost is 50 UAH. Delivery takes 1-3 business days."
         },
         "two": {
-          "title": "Нова Пошта (Самовивіз)",
-          "description": "Безкоштовна доставка при замовленні від 600 грн. Для замовлень на суму до 600 грн вартість доставки розраховується за тарифами перевізника. Термін доставки 1-3 робочі дні. Для отримання потрібно мати документ, що підтверджує особу."
+          "title": "Nova Poshta (pickup)",
+          "description": "Free delivery for orders over 600 UAH. For orders up to 600 UAH, delivery cost is calculated according to the carrier’s rates. Delivery time is 1-3 business days. Valid ID required for pickup."
         },
         "three": {
-          "title": "Нова Пошта (Поштомат)",
-          "description": "Безкоштовна доставка при замовленні від 300 грн. Для замовлень до 300 грн вартість доставки розраховується за тарифами перевізника. Термін доставки 1-3 робочі дні. Отримання здійснюється через SMS-код або у додатку 'Нова Пошта'. Замовлення зберігається у поштоматі до 4 днів."
+          "title": "Nova Poshta (parcel locker)",
+          "description": "Free delivery for orders over 300 UAH. For orders under 300 UAH, delivery cost is calculated by the carrier’s rates. Delivery time is 1-3 business days. Pickup via SMS code or Nova Poshta app. Parcels stored in locker up to 4 days."
         },
         "four": {
-          "title": "Нова Пошта (Кур'єром)",
-          "description": "Безкоштовна доставка при замовленні від 500 грн. Для замовлень на суму до 500 грн вартість доставки розраховується за тарифами перевізника. Термін доставки залежить від регіону та складає від 1 до 3 робочих днів. Кур'єр зв'яжеться з вами для уточнення часу доставки."
+          "title": "Nova Poshta (courier)",
+          "description": "Free delivery for orders over 500 UAH. For orders up to 500 UAH, delivery cost is calculated by the carrier’s rates. Delivery time depends on region and is 1-3 business days. Courier will contact you to arrange delivery time."
         },
         "five": {
-          "title": "Укрпошта (Самовивіз)",
-          "description": "Безкоштовна доставка при замовленні від 500 грн. Для замовлень на суму до 500 грн вартість доставки розраховується за тарифами перевізника. Термін доставки залежить від регіону і складає від 3 до 7 робочих днів."
+          "title": "Ukrposhta (pickup)",
+          "description": "Free delivery for orders over 500 UAH. For orders up to 500 UAH, delivery cost is calculated by the carrier’s rates. Delivery time depends on region and takes 3-7 business days."
         },
         "six": {
-          "title": "Укрпошта (Поштомат)",
-          "description": "Безкоштовна доставка при замовленні від 500 грн. Для замовлень на суму до 500 грн вартість доставки розраховується за тарифами перевізника. Термін доставки складає 3-7 робочих днів. Для отримання скористайтесь кодом, який ви отримаєте через SMS або в додатку Укрпошти."
+          "title": "Ukrposhta (parcel locker)",
+          "description": "Free delivery for orders over 500 UAH. For orders up to 500 UAH, delivery cost is calculated by the carrier’s rates. Delivery time is 3-7 business days. Use code received by SMS or Ukrposhta app to receive."
         }
       }
     },
     "deliveryWorldwide": {
-      "title": "Міжнародна доставка",
-      "subtitle": "Способи доставки:",
+      "title": "international delivery",
+      "subtitle": "delivery methods:",
       "deliveryMethods": {
         "one": {
           "title": "Nova Poshta Global",
-          "description": "Безкоштовна доставка при замовленні від 1000 грн. Для замовлень на суму до 1000 грн вартість доставки розраховується за тарифами перевізника. Термін доставки 5–12 робочих днів. Для отримання потрібно мати документ, що підтверджує особу."
+          "description": "Free delivery for orders over 1000 UAH. For orders up to 1000 UAH, delivery cost is calculated by the carrier’s rates. Delivery time is 5–12 business days. Valid ID required for pickup."
         },
         "two": {
-          "title": "Укрпошта",
-          "description": "Безкоштовна доставка при замовленні від 800 грн. Для замовлень на суму до 800 грн вартість доставки залежить від тарифів перевізника. Термін доставки 10–30 робочих днів. Отримати посилку можна у відділенні, пред’явивши документ, що підтверджує особу."
+          "title": "Ukrposhta",
+          "description": "Free delivery for orders over 800 UAH. For orders up to 800 UAH, delivery cost depends on carrier’s rates. Delivery time is 10–30 business days. Pickup available at post office with valid ID."
         },
         "three": {
           "title": "Meest",
-          "description": "Безкоштовна доставка при замовленні від 1200 грн. Для замовлень на суму до 1200 грн вартість доставки визначається тарифами перевізника. Термін доставки 7–14 робочих днів. Отримання можливе у відділенні або через кур’єра за наявності документа, що підтверджує особу."
+          "description": "Free delivery for orders over 1200 UAH. For orders up to 1200 UAH, delivery cost determined by carrier’s rates. Delivery time is 7–14 business days. Pickup possible at office or via courier with valid ID."
         },
         "four": {
           "title": "DHL",
-          "description": "Вартість доставки розраховується індивідуально залежно від ваги та країни призначення. Термін доставки 2–7 робочих днів. Для отримання необхідно мати документ, що підтверджує особу."
+          "description": "Delivery cost calculated individually depending on weight and destination country. Delivery time 2–7 business days. Valid ID required for pickup."
         },
         "five": {
           "title": "FedEx",
-          "description": "Ціна доставки залежить від тарифів перевізника та вибраного типу доставки. Термін доставки 1–5 робочих днів (експрес) або 7–12 днів (стандарт). Отримати посилку можна у відділенні або через кур’єра, пред’явивши документ, що підтверджує особу."
+          "description": "Delivery price depends on carrier’s rates and chosen delivery type. Delivery time is 1–5 business days (express) or 7–12 days (standard). Pickup at office or via courier with valid ID."
         }
       }
     }
   },
   "productPage": {
-    "home": "Головна",
-    "linkCopied": "Посилання скопійоване",
-    "inStock": "В наявності",
-    "outOfStock": "Немає в наявності",
-    "reviews": " відгуків",
-    "color": "КОЛІР",
-    "hrn": " грн",
-    "button": "Додати товар до кошику",
-    "fullDescription": "Повний опис товару",
+    "home": "Home",
+    "linkCopied": "Link copied",
+    "inStock": "In stock",
+    "outOfStock": "Out of stock",
+    "reviews": " reviews",
+    "color": "COLOR",
+    "hrn": " UAH",
+    "button": "Add product to cart",
+    "fullDescription": "Full product description",
     "delivery": {
-      "title": "Доставка та повернення",
+      "title": "Delivery & Returns",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam leo massa, rhoncus eget nibh sit amet, lacinia condimentum odio. Fusce tellus justo, facilisis et risus id, gravida molestie sem. Maecenas faucibus, lectus at suscipit viverra, lorem ante molestie erat, a convallis ex velit et mi."
     },
-    "idealFor": "Ідеально підходить для:",
+    "idealFor": "Ideal for:",
     "characteristics": {
-      "title": "Характеристика товару:",
-      "weight": "500 г",
-      "dimensions": "Розмір:",
-      "materials": "Матеріали:",
-      "manufacture": "Виробник:",
-      "includes": "Що входить у набір:",
-      "article": "Артикул:"
+      "title": "Product characteristics:",
+      "weight": "500 g",
+      "dimensions": "Dimensions:",
+      "materials": "Materials:",
+      "manufacture": "Manufacturer:",
+      "includes": "Includes in the set:",
+      "article": "Article:"
     },
     "benefits": {
-      "freeDelivery": "Швидка доставка",
-      "highQuality": "Висока якість",
-      "gift": "Відмінний подарунок"
+      "freeDelivery": "Fast delivery",
+      "highQuality": "High quality",
+      "gift": "Great gift"
     },
-    "reviewsSection": { "title": "Відгуки" },
-    "similarSection": { "title": "Схожі товари" },
-    "reviewedSection": { "title": "переглянуті товари" }
+    "reviewsSection": { "title": "Reviews" },
+    "similarSection": { "title": "Similar products" },
+    "reviewedSection": { "title": "viewed products" }
   },
   "checkoutPage": {
-    "title": "Оформлення замовлення",
+    "title": "Checkout",
     "tabMenu": {
-      "ukraineMob": "по Україні",
-      "ukraineDesk": "Доставка по Україні",
-      "worldwideMob": "по світу",
-      "worldwideDesk": "Доставка по світу"
+      "ukraineMob": "within Ukraine",
+      "ukraineDesk": "Delivery within Ukraine",
+      "worldwideMob": "worldwide",
+      "worldwideDesk": "Worldwide delivery"
     },
     "form": {
-      "stepOne": { "title": "Крок 1", "description": "Особисті дані" },
-      "stepTwo": { "title": "Крок 2", "description": "Оплата та доставка" },
-      "stepThree": { "title": "Крок 3", "description": "Спосіб оплати" },
-      "stepFour": { "title": "Крок 4", "description": "Одержувач" },
-      "stepFive": { "title": "Крок 5", "description": "Додати коментар" },
-      "payBy": "Сплатити за допомогою",
-      "yourOrder": "Ваше замовлення",
-      "addPackaging": "Додати пакування?",
-      "packaging": "Подарункове пакування",
-      "postcard": "Листівка",
-      "addButton": "Додати",
-      "promocode": "Промокод",
-      "tips": "Залишити чайові нашим пакувальникам",
-      "total": "Загальна вартість",
-      "hrn": " грн",
-      "checkout": "Оформити замовлення",
-      "choosePostOfficeNP": "Оберіть відділення Нової пошти",
-      "choosePostOfficeUkrPoshta": "Оберіть відділення Укрпошти",
-      "kyiv": "Київ",
-      "dnipro": "Дніпро",
-      "kharkiv": "Харків",
-      "odesa": "Одеса",
-      "lviv": "Львів",
-      "signPostcard": "Бажаєте підписати листівку?",
-      "emptyCart": "Ваш кошик порожній"
+      "stepOne": { "title": "Step 1", "description": "Personal data" },
+      "stepTwo": { "title": "Step 2", "description": "Payment and delivery" },
+      "stepThree": { "title": "Step 3", "description": "Payment method" },
+      "stepFour": { "title": "Step 4", "description": "Recipient" },
+      "stepFive": { "title": "Step 5", "description": "Add comment" },
+      "payBy": "Pay by",
+      "yourOrder": "Your order",
+      "addPackaging": "Add packaging?",
+      "packaging": "Gift packaging",
+      "postcard": "Postcard",
+      "addButton": "Add",
+      "promocode": "Promo code",
+      "tips": "Leave a tip for our packers",
+      "total": "Total cost",
+      "hrn": " UAH",
+      "checkout": "Place order",
+      "choosePostOfficeNP": "Choose Nova Poshta branch",
+      "choosePostOfficeUkrPoshta": "Choose Ukrposhta branch",
+      "kyiv": "Kyiv",
+      "dnipro": "Dnipro",
+      "kharkiv": "Kharkiv",
+      "odesa": "Odesa",
+      "lviv": "Lviv",
+      "signPostcard": "Want to sign the postcard?",
+      "emptyCart": "Your cart is empty"
     }
   },
   "confirmationPage": {
-    "title": "Дякуємо за замовлення!",
-    "description": "Наш менеджер зв’яжеться з вами найближчим часом. Гарного дня!",
-    "button": "Переглянути інші наші товари"
+    "title": "Thank you for your order!",
+    "description": "Our manager will contact you shortly. Have a great day!",
+    "button": "See other products"
   },
   "header": {
     "burger": {
-      "title": "ЗАЛИШИЛИСЯ ПИТАННЯ?",
-      "description": "Переглянь наші контакти та зв’яжися! Наш менеджер зможе надати консультацію по всім товарам та питанням, які вас цікавлять."
+      "title": "ANY QUESTIONS LEFT?",
+      "description": "Check our contacts and get in touch! Our manager can provide consultation on all products and questions you may have."
     },
     "catalogMenu": {
-      "title": "Каталог"
+      "title": "Catalog"
     }
   },
   "cart": {
-    "title": "Кошик",
-    "empty": "Ваш кошик порожній",
-    "freeDelivery": "До безкоштовної доставки дозамовте на",
-    "hrn": " грн",
-    "quantity": "Кількість товарів у кошику",
-    "total": "Загальна вартість",
-    "button": "Оформити замовлення"
+    "title": "Cart",
+    "empty": "Your cart is empty",
+    "freeDelivery": "Add items for free delivery worth",
+    "hrn": " UAH",
+    "quantity": "Number of items in cart",
+    "total": "Total cost",
+    "button": "Checkout"
   },
   "subscribeNews": {
-    "title": "відстежуйте наші новини!",
-    "button": " Надіслати"
+    "title": "Follow our news!",
+    "button": " Send"
   },
   "footer": {
-    "description": "Створи шедевр вже сьогодні!",
-    "free": "Безкоштовно",
-    "catalog": "Каталог",
-    "button": "Кошик",
-    "about": "Про компанію",
-    "socials": "Наші соц. мережі",
+    "description": "Create a masterpiece today!",
+    "free": "Free",
+    "catalog": "Catalog",
+    "button": "Cart",
+    "about": "About the company",
+    "socials": "Our social networks",
     "navMenu": {
-      "about": "Про нас",
-      "blog": "Блог",
-      "contacts": "Контакти",
-      "payment": "Оплата та доставка",
-      "publicContract": "Публічний договір"
+      "about": "About us",
+      "blog": "Blog",
+      "contacts": "Contacts",
+      "payment": "Payment and delivery",
+      "publicContract": "Public contract"
     }
   },
   "popUps": {
     "addedToCart": {
-      "title": "Товар додано до кошика!",
-      "description": "Перейди в кошик та переглянь всі обрані товари",
-      "continueShopping": "Продовжити покупки",
-      "checkout": "Оформити замовлення"
+      "title": "Product added to cart!",
+      "description": "Go to cart to see all selected products",
+      "continueShopping": "Continue shopping",
+      "checkout": "Checkout"
     },
     "notification": {
       "success": {
-        "title": "Дякуємо за повідомлення!",
-        "description": "Спробуйте відправити форму ще раз або зателефонуйте нам."
+        "title": "Thank you for your message!",
+        "description": "Please try submitting the form again or call us."
       },
       "error": {
-        "title": "На жаль, щось пішло не так",
-        "description": "Спробуйте відправити форму ще раз або зателефонуйте нам."
+        "title": "Unfortunately, something went wrong",
+        "description": "Please try submitting the form again or call us."
       }
     }
   },
   "forms": {
-    "namePlaceholder": "Iм’я",
-    "surnamePlaceholder": "Прізвище",
-    "email": "Електронна пошта",
-    "phonePlaceholder": "Номер телефону",
-    "shareOpinion": "Поділіться своєю думкою",
-    "postOffice": "Відділення",
-    "courier": "Доставка кур’єром",
-    "poshtomat": "Поштомат",
-    "cityPlaceholder": "Назва населеного пункту",
-    "addressPlaceholder": "Адреса",
-    "postOfficeNumberPlaceholder": "Номер відділення",
-    "poshtomatNumberPlaceholder": "Номер поштомату",
-    "payByCard": "Картою на сайті",
-    "cashOnDelivery": "Сплатити при отриманні",
-    "iAmRecipient": "Я одержувач",
-    "anotherPersonRecipient": "Одержувач інша людина",
-    "commentPlaceholder": "Додайте коментар, якщо потрібно",
-    "postCardPlaceholder": "Пиши сюди, якщо хочеш підписати",
-    "promocodePlaceholder": "Введіть свій промокод",
-    "tipsPlaceholder": "Вписати суму",
+    "namePlaceholder": "First name",
+    "surnamePlaceholder": "Last name",
+    "email": "Email",
+    "phonePlaceholder": "Phone number",
+    "shareOpinion": "Share your opinion",
+    "postOffice": "Post office",
+    "courier": "Courier delivery",
+    "poshtomat": "Parcel locker",
+    "cityPlaceholder": "City name",
+    "addressPlaceholder": "Address",
+    "postOfficeNumberPlaceholder": "Post office number",
+    "poshtomatNumberPlaceholder": "Parcel locker number",
+    "payByCard": "Pay by card on the site",
+    "cashOnDelivery": "Cash on delivery",
+    "iAmRecipient": "I am the recipient",
+    "anotherPersonRecipient": "Recipient is another person",
+    "commentPlaceholder": "Add a comment if needed",
+    "postCardPlaceholder": "Write here if you want to sign",
+    "promocodePlaceholder": "Enter your promo code",
+    "tipsPlaceholder": "Enter amount",
     "errors": {
-      "required": "Дане поле є обов'язковим до заповнення",
-      "wrongPhone": "Вкажіть правильний номер телефону",
-      "wrongEmail": "Введіть валідний email",
-      "nameMinMaxSymbols": "Повинно містити від 2 до 30 символів",
-      "nameAllowedSymbols": "Допустимі літери та дефіс, апостроф, лапки",
-      "startsWithZero": "Номер телефону має починатися з нуля",
-      "max200Symbols": "Повинно містити не більше 200 символів",
-      "sixCharZero": "Після +38 має бути цифра 0",
-      "chooseDelivery": "Оберіть сервіс доставки",
-      "onlyNumbersAllowed": "Допустимі тільки цифри",
-      "positiveNumbers": "Чайові не можуть бути менше 0"
+      "required": "This field is required",
+      "wrongPhone": "Please enter a valid phone number",
+      "wrongEmail": "Enter a valid email",
+      "nameMinMaxSymbols": "Must be between 2 and 30 characters",
+      "nameAllowedSymbols": "Allowed letters, hyphen, apostrophe, quotes",
+      "startsWithZero": "Phone number must start with zero",
+      "max200Symbols": "Must contain no more than 200 characters",
+      "sixCharZero": "After +38 the next digit must be 0",
+      "chooseDelivery": "Choose a delivery service",
+      "onlyNumbersAllowed": "Only numbers allowed",
+      "positiveNumbers": "Tips cannot be less than 0"
     },
-    "submitButton": "Надіслати",
-    "sending": "Надсилання..."
+    "submitButton": "Send",
+    "sending": "Sending..."
+  },
+  "productCard": {
+    "hrn": " UAH",
+    "button": "More details"
   }
 }
