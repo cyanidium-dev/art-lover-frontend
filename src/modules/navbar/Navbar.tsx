@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import * as motion from 'motion/react-client';
 
 import {
@@ -14,12 +14,12 @@ import Logo from '@/shared/components/Logo/Logo';
 import MobileLogo from '@/shared/components/MobileLogo/MobileLogo';
 
 import NavbarCatalog from '@/modules/navbar/NavbarCatalog/NavbarCatalog';
-import NavbarSearch from '@/modules/navbar/NavbarSearch/NavbarSearch';
 import NavbarFavorite from '@/modules/navbar/NavbarFavorite/NavbarFavorite';
 import NavbarCart from '@/modules/navbar/NavbarCart/NavbarCart';
 import NavbarBurgerMenu from '@/modules/navbar/NavbarBurgerMenu/NavbarBurgerMenu';
 
 import styles from './Navbar.module.scss';
+import LocaleSwitcher from './localeSwitcher/LocaleSwitcher';
 
 const Navbar = () => {
   const [isOpenBurgerMenu, setIsOpenBurgerMenu] = useState(false);
@@ -69,7 +69,7 @@ const Navbar = () => {
               />
             </div>
             <div className="flex items-center gap-[10px] xl:gap-4">
-              <NavbarSearch />
+              <LocaleSwitcher />
               <NavbarFavorite />
               <NavbarCart
                 isCartModalOpened={isCartModalOpened}

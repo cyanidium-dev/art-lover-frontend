@@ -1,9 +1,12 @@
+import { useTranslations } from 'next-intl';
 import Container from '@/shared/components/container/Container';
 import Image from 'next/image';
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 
 export default function Hero() {
+  const t = useTranslations('favoritesPage');
+
   return (
     <section>
       <Container>
@@ -55,7 +58,7 @@ export default function Hero() {
             variants={fadeInAnimation({ x: -30 })}
             className="mt-[83px] md:mt-0 mb-3 md:mb-0 text-[20px] md:text-[32px] xl:text-[40px] font-medium leading-[120%] uppercase"
           >
-            Обрані товари
+            {t('title')}
           </motion.h1>
           <motion.p
             initial="hidden"
@@ -65,7 +68,7 @@ export default function Hero() {
             variants={fadeInAnimation({ x: 30 })}
             className="md:pt-[57px] md:mb-2 text-[14px] xl:text-[16px] font-light leading-[120%]"
           >
-            Додавай обрані товари сюди
+            {t('description')}
           </motion.p>
         </motion.div>
       </Container>

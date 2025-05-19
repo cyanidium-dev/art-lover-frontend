@@ -1,9 +1,10 @@
+import { useTranslations } from 'next-intl';
 import { useCartStore } from '@/shared/store/cartStore';
 import { CartItem } from '@/types/cartItem';
 import Image from 'next/image';
 import Counter from './Counter';
 import IconButton from '../buttons/IconButton';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 interface CartItemProps {
   cartItem: CartItem;
@@ -14,6 +15,8 @@ export default function CartListItem({
   cartItem,
   variant = 'white',
 }: CartItemProps) {
+  const t = useTranslations('cart');
+
   const { removeFromCart } = useCartStore();
   const { id, title, price, discountedPrice, images, category, slug } =
     cartItem;
@@ -51,7 +54,7 @@ export default function CartListItem({
             {discountedPrice && discountedPrice < price
               ? discountedPrice
               : price}
-            &nbsp;грн
+            {t('hrn')}
           </p>
           <Counter className="w-[98px]" variant={variant} cartItem={cartItem} />
         </div>

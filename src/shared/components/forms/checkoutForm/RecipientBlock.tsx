@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { useFormikContext, FormikErrors, FormikTouched } from 'formik';
 import CustomizedInput from '../formComponents/CustomizedInput';
 import RadioButtonInput from '../formComponents/RadioButtonInput';
@@ -18,6 +19,8 @@ export default function RecipientBlock({
   errors,
   touched,
 }: RecipientBlockProps) {
+  const t = useTranslations('forms');
+
   const { values, setFieldValue } = useFormikContext<Values>();
   const isOther = values.recipientOption === 'Одержувач інша людина';
 
@@ -52,14 +55,14 @@ export default function RecipientBlock({
       <div className="flex flex-col gap-3 xl:gap-y-6">
         <RadioButtonInput
           fieldName="recipientOption"
-          value="Я одержувач"
-          label="Я одержувач"
+          value={'Я одержувач'}
+          label={t('iAmRecipient')}
           onClick={autoFill}
         />
         <RadioButtonInput
           fieldName="recipientOption"
           value="Одержувач інша людина"
-          label="Одержувач інша людина"
+          label={t('anotherPersonRecipient')}
           onClick={() => {
             setFieldValue('recipientName', '');
             setFieldValue('recipientSurname', '');
@@ -77,24 +80,27 @@ export default function RecipientBlock({
           {' '}
           <CustomizedInput
             fieldName="recipientName"
-            placeholder="* Ім’я"
+            placeholder={t('namePlaceholder')}
             errors={errors}
             touched={touched}
+            isRequired
           />
           <CustomizedInput
             fieldName="recipientSurname"
-            placeholder="* Прізвище"
+            placeholder={t('surnamePlaceholder')}
             errors={errors}
             touched={touched}
+            isRequired
           />
           <CustomizedInput
             fieldName="recipientPhone"
             inputType="tel"
-            placeholder="* Номер телефону"
+            placeholder={t('phonePlaceholder')}
             errors={errors}
             touched={touched}
             as={MaskedInput}
             mask={phoneMask}
+            isRequired
           />
         </div>
       </div>

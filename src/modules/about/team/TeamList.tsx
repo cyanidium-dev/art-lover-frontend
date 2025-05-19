@@ -1,9 +1,29 @@
 import * as motion from 'motion/react-client';
+import { useTranslations } from 'next-intl';
 import { listVariants } from '@/shared/utils/animationVariants';
-import { teamList } from './mockedData';
 import TeamCard from './TeamCard';
 
 export default function TeamList() {
+  const t = useTranslations('aboutPage.team.teamList');
+
+  const teamList = [
+    {
+      name: t('one.name'),
+      role: t('one.role'),
+      image: { url: '/images/mockedData/teamOne.webp', alt: '' },
+    },
+    {
+      name: t('two.name'),
+      role: t('two.role'),
+      image: { url: '/images/mockedData/teamTwo.webp', alt: '' },
+    },
+    {
+      name: t('three.name'),
+      role: t('three.role'),
+      image: { url: '/images/mockedData/teamThree.webp', alt: '' },
+    },
+  ];
+
   if (!teamList || !teamList.length) return null;
 
   return (

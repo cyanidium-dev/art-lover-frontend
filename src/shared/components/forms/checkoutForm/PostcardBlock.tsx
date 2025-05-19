@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { useFormikContext } from 'formik';
 import TextareaWithCounter from '../formComponents/TextAreaWithCounter';
 
@@ -8,6 +9,8 @@ interface Values {
 }
 
 export default function PostcardBlock() {
+  const t = useTranslations();
+
   const { errors, touched } = useFormikContext<Values>();
   const [isInputShown, setIsInputShown] = useState(false);
 
@@ -25,7 +28,7 @@ export default function PostcardBlock() {
           className="text-[11px] 
                   xl:text-[14px] font-medium leading-[120%] text-orange text-center"
         >
-          Бажаєте підписати листівку?
+          {t('checkoutPage.form.signPostcard')}
         </p>
         <Image
           src="/images/checkoutPage/envelope.svg"
@@ -42,7 +45,7 @@ export default function PostcardBlock() {
       >
         <TextareaWithCounter
           fieldName="postcard"
-          placeholder="Пиши сюди, якщо хочеш підписати"
+          placeholder={t('forms.postCardPlaceholder')}
           errors={errors}
           touched={touched}
           labelClassName="mt-4"

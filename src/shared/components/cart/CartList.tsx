@@ -1,5 +1,6 @@
 import CartListItem from './CartItem';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { useCartStore } from '@/shared/store/cartStore';
 import {
   fadeInAnimation,
@@ -7,6 +8,7 @@ import {
 } from '@/shared/utils/animationVariants';
 
 export default function CartList() {
+  const t = useTranslations('cart');
   const { cartItems } = useCartStore();
 
   return (
@@ -49,7 +51,7 @@ export default function CartList() {
           exit={{ opacity: 0, y: 30, transition: { duration: 0.3 } }}
           className="h-[calc(100dvh-320px)] xl:h-[calc(100dvh-390px)] text-[16px] xl:text-[18px] font-normal leading-[120%] text-center py-[140px] text-white/50"
         >
-          Ваш кошик порожній
+          {t('empty')}
         </motion.div>
       )}
     </AnimatePresence>

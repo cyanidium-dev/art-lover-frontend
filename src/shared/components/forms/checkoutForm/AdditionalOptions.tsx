@@ -1,16 +1,19 @@
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import SecondaryButton from '../../buttons/SecondaryButton';
 import PlusIcon from '../../icons/PlusIcon';
 
 export default function AdditionalOptions() {
+  const t = useTranslations('checkoutPage.form');
+
   const additionalOptions = [
     {
-      title: 'Подарункове пакування',
+      title: t('packaging'),
       price: 100,
       image: { url: '/images/mockedData/productImageOne.webp', alt: '' },
     },
     {
-      title: 'Листівка',
+      title: t('postcard'),
       price: 30,
       image: { url: '/images/mockedData/productImageOne.webp', alt: '' },
     },
@@ -44,13 +47,13 @@ export default function AdditionalOptions() {
               className={`mb-[17px] text-[13px] xl:text-[16px] font-semibold leading-[120%]`}
             >
               {price}
-              &nbsp;грн
+              {t('hrn')}
             </p>
             <SecondaryButton
               className="gap-x-[34px] w-[79px] xl:w-[132px] h-7 xl:h-[35px]"
               textStyles="text-[10px] xl:text-[12px] font-medium"
             >
-              Додати
+              {t('addButton')}
               <PlusIcon className="hidden xl:block size-3.5" />
             </SecondaryButton>
           </div>

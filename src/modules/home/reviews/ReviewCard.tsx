@@ -4,7 +4,7 @@ import { formatDate } from '@/shared/utils/formatDate';
 import { Review } from '@/types/review';
 import StarFilledIcon from '@/shared/components/icons/StarFilledIcon';
 import StarEmptyIcon from '@/shared/components/icons/StarEmptyIcon';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 interface ReviewCardProps {
   review: Review;
