@@ -1,12 +1,9 @@
-import { useTranslations } from 'next-intl';
 import Container from '@/shared/components/container/Container';
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import HeroImages from './HeroImages';
 
 export default function Hero() {
-  const t = useTranslations('blogPage');
-
   return (
     <section>
       <Container>
@@ -20,7 +17,7 @@ export default function Hero() {
             variants={fadeInAnimation({ y: 30 })}
             className="mb-2 xl:mb-3 text-[20px] md:text-[24px] lg:text-[32px] xl:text-[40px] font-medium leading-[120%] uppercase"
           >
-            {t('title')}
+            блог
           </motion.h1>
           <motion.p
             initial="hidden"
@@ -30,7 +27,8 @@ export default function Hero() {
             variants={fadeInAnimation({ scale: 0.9, delay: 0.4 })}
             className="max-w-[179px] md:max-w-[260px] text-[12px] md:text-[16px] font-light leading-[120%] xl:leading-[126%] md:text-justify"
           >
-            {t('description')}
+            Ласкаво просимо до нашого блогу! Тут ми ділимося натхненням,
+            творчими ідеями та корисними лайфхаками.
           </motion.p>
         </div>
       </Container>

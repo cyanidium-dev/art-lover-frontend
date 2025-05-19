@@ -1,14 +1,11 @@
 import Image from 'next/image';
 import * as motion from 'motion/react-client';
-import { useTranslations } from 'next-intl';
 
 import Container from '@/shared/components/container/Container';
 
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 
 const SubscribeNews = () => {
-  const t = useTranslations('subscribeNews');
-
   return (
     <motion.section
       initial="hidden"
@@ -133,7 +130,7 @@ const SubscribeNews = () => {
             variants={fadeInAnimation({ x: -30 })}
             className="text-white uppercase leading-[160%] text-[20px] xl:text-[24px] font-semibold mb-[24px] xl:mb-0"
           >
-            {t('title')}
+            відстежуйте наші новини!
           </motion.p>
           <motion.div
             initial="hidden"
@@ -152,7 +149,7 @@ const SubscribeNews = () => {
             focus-visible:bg-orange xl:hover:text-white focus-visible:text-white transition duration-300 ease-in-out"
               type="button"
             >
-              {t('button')}
+              Надіслати
             </button>
           </motion.div>
         </div>

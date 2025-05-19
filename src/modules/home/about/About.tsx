@@ -1,14 +1,11 @@
 import Container from '@/shared/components/container/Container';
 import Image from 'next/image';
 import * as motion from 'motion/react-client';
-import { useTranslations } from 'next-intl';
 import BenefitsList from './BenefitsList';
 import AboutImages from './AboutImages';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 
 export default function About() {
-  const t = useTranslations('homePage.about');
-
   return (
     <section className="relative pt-20 xl:pt-[138px]">
       <Container className="relative md:flex gap-x-5">
@@ -24,7 +21,7 @@ export default function About() {
                 variants={fadeInAnimation({ y: 30 })}
                 className="text-[24px] xl:text-[48px] font-medium leading-[120%] uppercase"
               >
-                {t('title')}
+                Про нас
               </motion.h2>
               <motion.p
                 initial="hidden"
@@ -34,7 +31,10 @@ export default function About() {
                 variants={fadeInAnimation({ y: 30, delay: 0.4 })}
                 className="text-[14px] xl:text-[20px] font-light leading-[120%] text-justify"
               >
-                {t('description')}
+                Ми – команда, закохана в мистецтво, яка створила цей магазин для
+                всіх, хто прагне творити без меж! Нашою місією є надихати
+                художників, ілюстраторів, дизайнерів і всіх, хто не уявляє життя
+                без творчості.
               </motion.p>
             </div>
             <motion.p
@@ -45,7 +45,7 @@ export default function About() {
               variants={fadeInAnimation({ x: -30, delay: 0.8 })}
               className="mb-5 font-denistina text-[14px] xl:text-[36px] font-normal leading-[120%] text-orange text-right"
             >
-              {t('cta')}
+              Твори. Натхняйся!
             </motion.p>
           </div>
           <motion.div

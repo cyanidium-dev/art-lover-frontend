@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import * as motion from 'motion/react-client';
 import CartModal from '@/shared/components/cart/Cart';
@@ -9,7 +8,6 @@ import CartIcon from '@/shared/components/icons/CartIcon';
 
 const FooterContacts = () => {
   const [isCartModalOpened, setIsCartModalOpened] = useState(false);
-  const t = useTranslations('footer');
 
   return (
     <>
@@ -27,7 +25,7 @@ const FooterContacts = () => {
           0 800 550 130
         </a>
         <p className="text-white text-[12px] xl:text-[14px] mb-[32px]">
-          {t('free')}
+          Безкоштовно
         </p>
         <p className="text-white text-[14px] xl:text-[16px] font-semibold mb-[8px]">
           Пн-Пт: 09:00-00:00
@@ -42,7 +40,7 @@ const FooterContacts = () => {
           xl:hover:bg-orange xl:hover:text-white focus-visible:bg-orange focus-visible:text-white transition duration-300 ease-in-out"
         >
           <CartIcon className="w-6 h-auto" strokeWidth="1" />
-          <span className="text-[14px] font-semibold">{t('button')}</span>
+          <span className="text-[14px] font-semibold">Кошик</span>
         </button>
       </motion.div>
       <CartModal

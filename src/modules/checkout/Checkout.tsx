@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useTranslations } from 'next-intl';
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import Container from '@/shared/components/container/Container';
@@ -9,8 +8,6 @@ import TabMenu from './TabMenu';
 import CheckoutFormWithNotifications from './CheckoutFormWithNotifications';
 
 export default function Checkout() {
-  const t = useTranslations('checkoutPage');
-
   const router = useRouter();
   const searchParams = useSearchParams();
   const menu = searchParams.get('delivery') || 'ukraine';
@@ -35,7 +32,7 @@ export default function Checkout() {
           variants={fadeInAnimation({ y: 30 })}
           className="mb-5 xl:mb-7 text-[18px] xl:text-[32px] font-semibold leading-[140%] xl:leading-[120%] uppercase text-center"
         >
-          {t('title')}
+          Оформлення замовлення
         </motion.h1>
         <TabMenu activeTab={activeTab} setActiveTab={setActiveTab} />
         <CheckoutFormWithNotifications activeTab={activeTab} />

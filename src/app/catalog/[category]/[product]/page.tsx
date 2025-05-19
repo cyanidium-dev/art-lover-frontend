@@ -1,4 +1,3 @@
-import { getTranslations } from 'next-intl/server';
 import { productsList } from '@/modules/home/bestsellers/mockedData';
 import Breadcrumbs from '@/modules/product/breadcrumbs/Breadcrumbs';
 import ProductInfo from '@/modules/product/productInfo/ProductInfo';
@@ -11,8 +10,6 @@ interface ProductPageProps {
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
-  const t = await getTranslations('productPage');
-
   const { category, product } = await params;
 
   if (!productsList || !productsList.length) return null;
@@ -24,7 +21,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   if (!currentProduct) return null;
 
   const crumbs = [
-    { label: t('home'), href: '/' },
+    { label: 'Головна', href: '/' },
     {
       label: currentProduct?.category?.title || '',
       href: `/catalog/${category}`,

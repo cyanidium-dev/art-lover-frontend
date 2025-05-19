@@ -3,13 +3,10 @@ import Container from '@/shared/components/container/Container';
 import DiscountedProductsSLider from './DiscountedProductsSLider';
 import { Suspense } from 'react';
 import * as motion from 'motion/react-client';
-import { useTranslations } from 'next-intl';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import Loader from '@/shared/components/loader/Loader';
 
 export default function DiscountedProducts() {
-  const t = useTranslations('homePage.discountedProducts');
-
   return (
     <section className="pt-20 xl:pt-[158px]">
       <Container className="relative">
@@ -67,7 +64,7 @@ export default function DiscountedProducts() {
             variants={fadeInAnimation({ x: -30 })}
             className="text-[20px] xl:text-[40px] font-medium leading-[120%] uppercase"
           >
-            {t('title')}
+            товари зі знижкою
           </motion.h2>
           <motion.p
             initial="hidden"
@@ -77,7 +74,7 @@ export default function DiscountedProducts() {
             variants={fadeInAnimation({ x: 30 })}
             className="font-denistina text-[14px] xl:text-[36px] font-normal leading-[120%]"
           >
-            {t('description')}
+            Знижки, що радують творців
           </motion.p>
         </div>
       </Container>

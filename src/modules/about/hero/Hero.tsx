@@ -1,12 +1,9 @@
-import { useTranslations } from 'next-intl';
 import Container from '@/shared/components/container/Container';
 import Image from 'next/image';
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 
 export default function Hero() {
-  const t = useTranslations('aboutPage.hero');
-
   return (
     <section>
       <Container className="relative">
@@ -120,7 +117,7 @@ export default function Hero() {
               variants={fadeInAnimation({ y: 30, delay: 0.4 })}
               className="ml-[22px] lg:ml-0 mb-2 lg:mb-[22px] xs:mt-3 md:mt-[37px] lg:mt-[45px] font-denistina text-[16px] md:text-[22px] lg:text-[32px] font-normal leading-[120%]"
             >
-              {t('subtitle')}
+              Наша історія та цінності
             </motion.h2>
             <motion.p
               initial="hidden"
@@ -130,7 +127,8 @@ export default function Hero() {
               variants={fadeInAnimation({ y: 30, delay: 0.8 })}
               className="md:ml-[39px] text-[12px] md:text-[14px] xl:text-[18px] font-light leading-[120%] lg:leading-[160%] lg:text-justify"
             >
-              {t('description')}
+              Ми команда творчих ентузіастів, які люблять створювати унікальні
+              витвори мистецтва в стилі стрінг-арт.
             </motion.p>
           </div>
           <motion.h1
@@ -141,7 +139,7 @@ export default function Hero() {
             variants={fadeInAnimation({ scale: 0.9, delay: 0.8 })}
             className="lg:mt-[-15px] text-[20px] md:text-[32px] lg:text-[40px] font-medium leading-[120%] uppercase"
           >
-            {t('title')}
+            Про нас
           </motion.h1>
         </motion.div>
       </Container>

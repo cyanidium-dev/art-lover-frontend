@@ -2,7 +2,6 @@
 import { useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
 
 import { headerPhoneRegex } from '@/shared/regex/regex';
 import {
@@ -25,7 +24,6 @@ const NavbarBurgerMenuContent = ({
   isOpen,
   onClose,
 }: NavbarBurgerMenuContentProps) => {
-  const t = useTranslations('header.burger');
   const modalRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -73,7 +71,7 @@ const NavbarBurgerMenuContent = ({
                 variants={fadeInAnimation({ y: 30, delay: 0.4 })}
                 className="max-w-[264px] md:max-w-full mb-4.5 text-[20px] md:text-[36px] font-semibold md:font-medium leading-[160%] md:leading-[120%] md:text-center uppercasec text-white md:text-dark"
               >
-                {t('title')}
+                ЗАЛИШИЛИСЯ ПИТАННЯ?
               </motion.h2>
               <motion.div
                 initial="hidden"
@@ -82,8 +80,10 @@ const NavbarBurgerMenuContent = ({
                 viewport={{ once: true, amount: 0.2 }}
                 variants={fadeInAnimation({ y: 30, delay: 0.6 })}
               >
+                {' '}
                 <p className="hidden md:block mb-8 text-[16px] font-light leading-[120%] text-justify">
-                  {t('description')}
+                  Переглянь наші контакти та зв’яжися! Наш менеджер зможе надати
+                  консультацію по всім товарам та питанням, які вас цікавлять.
                 </p>
                 <a
                   href={`tel:+${PHONE.replace(/\D/g, '')}`}

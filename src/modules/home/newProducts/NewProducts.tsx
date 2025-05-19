@@ -1,15 +1,12 @@
 import Image from 'next/image';
 import { Suspense } from 'react';
 import * as motion from 'motion/react-client';
-import { useTranslations } from 'next-intl';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import Container from '@/shared/components/container/Container';
 import NewProductsSlider from './NewProductsSlider';
 import Loader from '@/shared/components/loader/Loader';
 
 export default function NewProducts() {
-  const t = useTranslations('homePage.newProducts');
-
   return (
     <section className="pt-20 xl:pt-[158px]">
       <Container className="relative">
@@ -67,7 +64,7 @@ export default function NewProducts() {
             variants={fadeInAnimation({ x: -30 })}
             className="text-[20px] xl:text-[40px] font-medium leading-[120%] uppercase"
           >
-            {t('title')}
+            наші новинки
           </motion.h2>
           <motion.p
             initial="hidden"
@@ -77,7 +74,7 @@ export default function NewProducts() {
             variants={fadeInAnimation({ x: 30 })}
             className="font-denistina text-[14px] xl:text-[36px] font-normal leading-[120%]"
           >
-            {t('description')}
+            Свіжі ідеї для вашої творчості
           </motion.p>
         </div>
       </Container>
