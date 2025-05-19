@@ -1,4 +1,6 @@
 import { useTranslations } from 'next-intl';
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import Container from '@/shared/components/container/Container';
 import PublicContractBlock from './PublicContractBlock';
 
@@ -112,20 +114,41 @@ export default function PublicContract() {
   return (
     <section className="pt-13 xl:pt-[59px] pb-20 xl:pb-[140px]">
       <Container>
-        <h1 className="mb-6 xl:mb-8 text-[22px] xl:text-[32px] font-medium leading-[120%] uppercase text-center">
+        <motion.h1
+          initial="hidden"
+          whileInView="visible"
+          exit="exit"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeInAnimation({ y: 30 })}
+          className="mb-6 xl:mb-8 text-[22px] xl:text-[32px] font-medium leading-[120%] uppercase text-center"
+        >
           {t('title')}
-        </h1>
-        <h2 className="mb-10 xl:mb-14">
+        </motion.h1>
+        <motion.h2
+          initial="hidden"
+          whileInView="visible"
+          exit="exit"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeInAnimation({ y: 30, delay: 0.3 })}
+          className="mb-10 xl:mb-14"
+        >
           <p className="mb-2 xl:mb-3 text-[14px] xl:text-[18px] font-medium leading-[120%] uppercase text-center">
             {t('subtitleOne')}
           </p>
           <p className="text-[12px] xl:text-[16px] font-medium leading-[120%] text-center">
             {t('subtitleTwo')}
           </p>
-        </h2>
-        <p className="mb-7 xl:mb-10 text-[14px] xl:text-[16px] font-normal leading-[160%]">
+        </motion.h2>
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          exit="exit"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeInAnimation({ y: 30, delay: 0.3 })}
+          className="mb-7 xl:mb-10 text-[14px] xl:text-[16px] font-normal leading-[160%]"
+        >
           {t('description')}
-        </p>
+        </motion.p>
         <div className="flex flex-col gap-6">
           <PublicContractBlock title={t('partOne.title')} list={listOne} />
           <PublicContractBlock title={t('partTwo.title')} list={listTwo} />

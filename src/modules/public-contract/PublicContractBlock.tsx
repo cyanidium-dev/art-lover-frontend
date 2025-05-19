@@ -1,3 +1,6 @@
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
+
 interface PublicContractBlockProps {
   title: string;
   list: string[];
@@ -8,7 +11,13 @@ export default function PublicContractBlock({
   list,
 }: PublicContractBlockProps) {
   return (
-    <div>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeInAnimation({ y: 30 })}
+    >
       <h3 className="mb-2 xl:mb-3 text-[16px] xl:text-[20px] font-semibold leading-[160%] uppercase">
         {title}
       </h3>
@@ -22,6 +31,6 @@ export default function PublicContractBlock({
           </li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 }
