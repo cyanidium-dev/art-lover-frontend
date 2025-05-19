@@ -1,5 +1,9 @@
-import React from 'react';
+import PublicContract from '@/modules/public-contract/PublicContract';
 
 export default function PublicContractPage() {
-  return <div>PublicContractPage</div>;
+  return (
+    <>
+      <PublicContract />
+    </>
+  );
 }
