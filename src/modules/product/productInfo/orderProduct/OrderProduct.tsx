@@ -72,6 +72,19 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
     });
     setIsAddedToCartPopUpShown(true);
   };
+
+  const [isCopiedShareLink, setIsCopiedShareLink] = useState(false);
+
+  const handleShareClick = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setIsCopiedShareLink(true);
+      setTimeout(() => setIsCopiedShareLink(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy link:', err);
+    }
+  };
+
   return (
     <div className="mb-20 md:mb-8">
       <motion.div
@@ -85,7 +98,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
         <h1 className="text-[16px] xl:text-[32px] font-semibold leading-[120%] uppercase">
           {title}
         </h1>
-        <IconButton>
+        <IconButton handleClick={handleShareClick}>
           <Image
             src="/images/productPage/orderProduct/share.svg"
             alt="share icon"
@@ -94,6 +107,14 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
             className="size-5 xl:size-8"
           />
         </IconButton>
+
+        <div
+          className={`${
+            isCopiedShareLink ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          } fixed -top-5 right-0 bg-orange text-white px-4 py-2 rounded-[8px] text-sm shadow-social z-50 transition-opacity duration-300`}
+        >
+          {t('linkCopied')}
+        </div>
       </motion.div>
       <motion.p
         initial="hidden"

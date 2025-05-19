@@ -161,6 +161,7 @@
   },
   "productPage": {
     "home": "Головна",
+    "linkCopied": "Посилання скопійоване",
     "inStock": "В наявності",
     "outOfStock": "Немає в наявності",
     "reviews": " відгуків",
