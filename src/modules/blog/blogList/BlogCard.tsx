@@ -1,5 +1,4 @@
-import { Link } from '@/i18n/navigation';
-import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import { Article } from '@/types/article';
 import { calculateReadingTime } from '@/shared/utils/calculateReadingTime';
 import Image from 'next/image';
@@ -9,8 +8,6 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ article }: BlogCardProps) {
-  const t = useTranslations('blogPage');
-
   const { title, subtitle, description, images, slug } = article;
 
   const readingTime = calculateReadingTime(article);
@@ -45,8 +42,7 @@ export default function BlogCard({ article }: BlogCardProps) {
             className="absolute left-4 xl:left-8 size-5 xl:size-6"
           />
           <p className="text-[12px] xl:text-[16px] font-normal leading-[120%] text-gray-light">
-            {readingTime}
-            {t('readingTime')}
+            {readingTime}&nbsp;хв читання
           </p>
         </div>
         <Link href={`/blog/${slug}`}>

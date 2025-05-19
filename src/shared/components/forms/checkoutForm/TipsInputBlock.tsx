@@ -2,7 +2,6 @@
 
 import { useFormikContext, FormikErrors, FormikTouched } from 'formik';
 import { useEffect, useState } from 'react';
-import { useTranslations } from 'next-intl';
 import clsx from 'clsx';
 import CustomizedInput from '../formComponents/CustomizedInput';
 
@@ -21,8 +20,6 @@ export default function TipsInputBlock({
   errors,
   touched,
 }: TipsInputBlockProps) {
-  const t = useTranslations('forms');
-
   const { setFieldValue, values } = useFormikContext<Values>();
   const [selectedTip, setSelectedTip] = useState<number | null>(null);
 
@@ -66,7 +63,7 @@ export default function TipsInputBlock({
 
       <CustomizedInput
         fieldName="tips"
-        placeholder={t('tipsPlaceholder')}
+        placeholder="Вписати суму"
         errors={errors}
         touched={touched}
         onChange={handleInputChange}

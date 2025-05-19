@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import Container from '@/shared/components/container/Container';
 import TeamList from './TeamList';
 import { Suspense } from 'react';
@@ -8,8 +7,6 @@ import Loader from '@/shared/components/loader/Loader';
 import TeamImages from './TeamImages';
 
 export default function Team() {
-  const t = useTranslations('aboutPage.team');
-
   return (
     <section className="pt-8 xl:pt-14">
       <Container className="relative">
@@ -22,7 +19,7 @@ export default function Team() {
           variants={fadeInAnimation({ y: 30 })}
           className="mb-6 xl:mb-10 text-[18px] xl:text-[32px] font-semibold xl:font-medium leading-[140%] uppercase"
         >
-          {t('title')}
+          Наша творча команда
         </motion.h2>
         <Suspense fallback={<Loader />}>
           <TeamList />

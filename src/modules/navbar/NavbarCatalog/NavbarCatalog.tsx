@@ -1,6 +1,5 @@
 'use client';
 import { Dispatch, SetStateAction } from 'react';
-import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import NavbarCatalogMenuMob from './navbarCatalogMob/NavbarCatalogMenuMob';
 import NavbarCatalogMenuDesk from './navbarCatalogDesk/NavbarCatalogMenuDesk';
@@ -18,8 +17,6 @@ const NavbarCatalog = ({
   setIsOpenCatalogMenu,
   setIsCartModalOpened,
 }: NavbarCatalogProps) => {
-  const t = useTranslations('header.catalogMenu');
-
   return (
     <div className="md:relative w-full h-full">
       <button
@@ -39,7 +36,7 @@ const NavbarCatalog = ({
           height="12"
         />
         <span className="text-[16px] font-semibold text-white hidden xl:block">
-          {t('title')}
+          Каталог
         </span>
       </button>
       <NavbarCatalogMenuMob

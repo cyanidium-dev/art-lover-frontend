@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import InstagramIcon from '@/shared/components/icons/InstagramIcon';
 import FooterColumn from '../FooterColumn/FooterColumn';
 import YoutubeIcon from '@/shared/components/icons/YoutubeIcon';
@@ -7,10 +6,8 @@ import FacebookIcon from '@/shared/components/icons/FacebookIcon';
 import MonoPayIcon from '@/shared/components/icons/MonoPayIcon';
 
 const FooterSocial = () => {
-  const t = useTranslations('footer');
-
   return (
-    <FooterColumn title={t('socials')}>
+    <FooterColumn title="Наші соц. мережі">
       <ul className="flex gap-[16px] items-center xl:block">
         <li className="xl:mb-[20px]">
           <a

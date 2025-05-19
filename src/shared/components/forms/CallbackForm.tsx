@@ -1,9 +1,8 @@
 'use client';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { Dispatch, SetStateAction, useState } from 'react';
-import { useTranslations } from 'next-intl';
 
-import { CallBackValidation } from '@/shared/schemas/callbackFormValidation';
+import { callBackValidation } from '@/shared/schemas/callbackFormValidation';
 import { handleSubmitForm } from '@/shared/utils/handleSubmitForm';
 
 import CustomizedInput from './formComponents/CustomizedInput';
@@ -29,7 +28,6 @@ export default function CallBackForm({
   setIsPopUpShown,
   className = '',
 }: CallBackFormProps) {
-  const t = useTranslations('forms');
   const [isLoading, setIsLoading] = useState(false);
 
   const initialValues = {
@@ -39,7 +37,7 @@ export default function CallBackForm({
     message: '',
   };
 
-  const validationSchema = CallBackValidation();
+  const validationSchema = callBackValidation();
 
   const submitForm = async (
     values: ValuesCallBackFormType,
@@ -66,7 +64,7 @@ export default function CallBackForm({
             <div className="flex flex-col gap-y-3 md:flex-row gap-x-5">
               <CustomizedInput
                 fieldName="name"
-                placeholder={t('namePlaceholder')}
+                placeholder="Ім’я"
                 isRequired
                 errors={errors}
                 touched={touched}
@@ -75,7 +73,7 @@ export default function CallBackForm({
               />
               <CustomizedInput
                 fieldName="surname"
-                placeholder={t('surnamePlaceholder')}
+                placeholder="Прізвище"
                 isRequired
                 errors={errors}
                 touched={touched}
@@ -86,7 +84,7 @@ export default function CallBackForm({
             <CustomizedInput
               fieldName="email"
               inputType="email"
-              placeholder={t('email')}
+              placeholder="Електронна пошта"
               isRequired
               errors={errors}
               touched={touched}
@@ -95,7 +93,7 @@ export default function CallBackForm({
             <CustomizedInput
               fieldName="message"
               as="textarea"
-              placeholder={t('shareOpinion')}
+              placeholder="Поділіться своєю думкою"
               isRequired
               errors={errors}
               touched={touched}
@@ -106,7 +104,7 @@ export default function CallBackForm({
             dirty={dirty}
             isValid={isValid}
             isLoading={isLoading}
-            text={t('submitButton')}
+            text="Надіслати"
             className="h-10 md:h-12"
           />
         </Form>

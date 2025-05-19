@@ -1,25 +1,17 @@
-import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
+import { Product } from '@/types/product';
 
-export default function Benefits() {
-  const t = useTranslations('productPage.benefits');
+interface BenefitsProps {
+  currentProduct: Product;
+}
 
-  const benefits = [
-    {
-      icon: '/images/mockedData/productBenefitOne.svg',
-      description: t('freeDelivery'),
-    },
-    {
-      icon: '/images/mockedData/productBenefitTwo.svg',
-      description: t('highQuality'),
-    },
-    {
-      icon: '/images/mockedData/productBenefitThree.svg',
-      description: t('gift'),
-    },
-  ];
+export default function Benefits({ currentProduct }: BenefitsProps) {
+  if (!currentProduct?.benefits || !currentProduct?.benefits?.length)
+    return null;
+
+  const { benefits } = currentProduct;
 
   return (
     <motion.ul

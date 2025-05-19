@@ -1,15 +1,21 @@
 'use client';
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
+import { Product } from '@/types/product';
 
-export default function DeliveryInfo() {
-  const t = useTranslations('productPage');
+interface DeliveryInfoProps {
+  currentProduct: Product;
+}
 
+export default function DeliveryInfo({ currentProduct }: DeliveryInfoProps) {
   const [isShownMore, setIsShownMore] = useState(false);
   const toggleShowMore = () => setIsShownMore(!isShownMore);
+
+  if (!currentProduct?.delivery) return null;
+
+  const { delivery } = currentProduct;
 
   return (
     <motion.div
@@ -30,7 +36,7 @@ export default function DeliveryInfo() {
           className="w-5 xl:w-[25px] h-auto"
         />
         <h3 className="ml-[14px] text-[16px] xl:text-[24px] font-medium leading-[120%]">
-          {t('delivery.title')}
+          Доставка та повернення
         </h3>
         <Image
           src="/images/productPage/productInfo/arrow.svg"
@@ -50,7 +56,7 @@ export default function DeliveryInfo() {
         <p
           className={`pt-4 xl:pt-6 xl:pb-3 text-[12px] xl:text-[14px] font-light leading-[120%] text-justify`}
         >
-          {t('delivery.description')}
+          {delivery}
         </p>
       </div>
     </motion.div>

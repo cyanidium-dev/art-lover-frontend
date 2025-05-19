@@ -1,5 +1,4 @@
 'use client';
-import { useTranslations } from 'next-intl';
 import { Product } from '@/types/product';
 import { useState } from 'react';
 import * as motion from 'motion/react-client';
@@ -13,8 +12,6 @@ interface FullDescriptionProps {
 export default function FullDescription({
   currentProduct,
 }: FullDescriptionProps) {
-  const t = useTranslations('productPage');
-
   const [isShownMore, setIsShownMore] = useState(false);
   const toggleShowMore = () => setIsShownMore(!isShownMore);
   if (!currentProduct?.fullDescription) return null;
@@ -40,7 +37,7 @@ export default function FullDescription({
           className="w-5 xl:w-[25px] h-auto"
         />
         <h3 className="text-[16px] xl:text-[24px] font-medium leading-[120%]">
-          {t('fullDescription')}
+          Повний опис товару
         </h3>
         <Image
           src="/images/productPage/productInfo/arrow.svg"

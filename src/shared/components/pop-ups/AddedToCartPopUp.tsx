@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction } from 'react';
-import { useTranslations } from 'next-intl';
 import SecondaryButton from '../buttons/SecondaryButton';
 import MainButton from '../buttons/MainButton';
 import Image from 'next/image';
@@ -17,8 +16,6 @@ export default function AddedToCartPopUp({
   setIsCartModalShown,
   className = '',
 }: ModalProps) {
-  const t = useTranslations('popUps.addedToCart');
-
   return (
     <>
       <div
@@ -45,10 +42,10 @@ export default function AddedToCartPopUp({
           className="hidden xl:block absolute bottom-0 right-0"
         />
         <h3 className="mb-1.5 text-[20px] xl:text-[28px] font-medium leading-[120%] text-center text-orange">
-          {t('title')}
+          Товар додано до кошика!
         </h3>
         <p className="xl:max-w-[204px] xl:mx-auto mb-6 xl:mb-7 text-[12px] font-light leading-[120%] text-center">
-          {t('description')}
+          Перейди в кошик та переглянь всі обрані товари
         </p>
         <div className="flex flex-col gap-3 xl:gap-4 xl:flex-row">
           <SecondaryButton
@@ -56,7 +53,7 @@ export default function AddedToCartPopUp({
             textStyles="text-[12px] font-normal"
             className="w-full h-10 xl:w-[calc(50%-8px)]"
           >
-            {t('continueShopping')}
+            Продовжити покупки
           </SecondaryButton>
 
           <MainButton
@@ -67,7 +64,7 @@ export default function AddedToCartPopUp({
             textStyles="text-[12px] font-normal"
             className="xl:w-[calc(50%-8px)] h-10"
           >
-            {t('checkout')}
+            Оформити замовлення
           </MainButton>
         </div>
       </div>
