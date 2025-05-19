@@ -2,11 +2,14 @@ import SecondaryButton from '@/shared/components/buttons/SecondaryButton';
 import Container from '@/shared/components/container/Container';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import ConfirmationImages from './ConfirmationImages';
 
 export default function Confirmation() {
+  const t = useTranslations('confirmationPage');
+
   return (
     <section className="pt-13 xl:pt-[59px] pb-20 xl:pb-[140px]">
       <Container className="relative">
@@ -36,7 +39,7 @@ export default function Confirmation() {
             variants={fadeInAnimation({ y: 30 })}
             className="mb-3 lg:mb-4.5 text-[16px] lg:text-[32px] font-semibold leading-[120%] uppercase text-center"
           >
-            Дякуємо за замовлення!
+            {t('title')}
           </motion.h1>
           <motion.p
             initial="hidden"
@@ -46,7 +49,7 @@ export default function Confirmation() {
             variants={fadeInAnimation({ y: 30, delay: 0.4 })}
             className="lg:max-w-[358px] lg:mx-auto mb-5 xl:mb-[33px] text-[12px] lg:text-[20px] font-light leading-[120%] text-center"
           >
-            Наш менеджер зв’яжеться з вами найближчим часом. Гарного дня!
+            {t('description')}
           </motion.p>
           <motion.div
             initial="hidden"
@@ -60,7 +63,7 @@ export default function Confirmation() {
                 className="w-full lg:max-w-[345px] lg:mx-auto h-9 lg:h-12"
                 textStyles="text-[12px] lg:text-[14px] font-medium"
               >
-                Переглянути інші наші товари
+                {t('button')}
               </SecondaryButton>
             </Link>
           </motion.div>
