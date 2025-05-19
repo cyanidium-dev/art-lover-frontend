@@ -240,6 +240,10 @@
     "description": "Our manager will contact you shortly. Have a great day!",
     "button": "See other products"
   },
+  "favoritesPage": {
+    "title": "Favorite Products",
+    "description": "Add your favorite products here"
+  },
   "header": {
     "burger": {
       "title": "ANY QUESTIONS LEFT?",

@@ -23,6 +23,7 @@ export default function CartModal({
   setIsPopUpShown,
 }: CartModalProps) {
   const t = useTranslations('cart');
+
   const { cartItems } = useCartStore();
 
   return (
