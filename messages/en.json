@@ -424,7 +424,7 @@
     "notification": {
       "success": {
         "title": "Thank you for your message!",
-        "description": "Please try submitting the form again or call us."
+        "description": "Our manager will contact you shortly. Have a nice day!"
       },
       "error": {
         "title": "Unfortunately, something went wrong",
