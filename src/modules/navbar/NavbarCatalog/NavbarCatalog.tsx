@@ -6,6 +6,7 @@ import NavbarCatalogMenuMob from './navbarCatalogMob/NavbarCatalogMenuMob';
 import NavbarCatalogMenuDesk from './navbarCatalogDesk/NavbarCatalogMenuDesk';
 import { fetchSanityData } from '@/shared/utils/fetchSanityData';
 import { allCategoriesQuery } from '@/shared/lib/queries';
+import { Category } from '@/types/category';
 
 interface NavbarCatalogProps {
   isOpenCatalogMenu: boolean;
@@ -23,7 +24,7 @@ const NavbarCatalog = ({
   const t = useTranslations('header.catalogMenu');
   const locale = useLocale();
 
-  const [categories, setCategories] = useState<any[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
 
   console.log(categories);
 
