@@ -1,9 +1,11 @@
 'use client';
-import { Dispatch, SetStateAction } from 'react';
-import { useTranslations } from 'next-intl';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
 import NavbarCatalogMenuMob from './navbarCatalogMob/NavbarCatalogMenuMob';
 import NavbarCatalogMenuDesk from './navbarCatalogDesk/NavbarCatalogMenuDesk';
+import { fetchSanityData } from '@/shared/utils/fetchSanityData';
+import { allCategoriesQuery } from '@/shared/lib/queries';
 
 interface NavbarCatalogProps {
   isOpenCatalogMenu: boolean;
@@ -19,6 +21,21 @@ const NavbarCatalog = ({
   setIsCartModalOpened,
 }: NavbarCatalogProps) => {
   const t = useTranslations('header.catalogMenu');
+  const locale = useLocale();
+
+  const [categories, setCategories] = useState<any[]>([]);
+
+  console.log(categories);
+
+  useEffect(() => {
+    const loadData = async () => {
+      const query = allCategoriesQuery(locale);
+      const result = await fetchSanityData(query);
+      setCategories(result);
+    };
+
+    loadData();
+  }, [locale]);
 
   return (
     <div className="md:relative w-full h-full">
