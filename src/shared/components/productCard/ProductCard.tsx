@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { useCartStore } from '@/shared/store/cartStore';
 import { Product } from '@/types/product';
 import Image from 'next/image';
@@ -17,6 +17,7 @@ export default function ProductCard({
   setIsAddedToCartPopUpShown,
 }: ProductCardProps) {
   const t = useTranslations('productCard');
+  const locale = useLocale();
 
   const { addToCart } = useCartStore();
 
@@ -31,7 +32,7 @@ export default function ProductCard({
     <div className="relative p-3 xl:px-5 xl:py-4 bg-white rounded-[8px] xl:rounded-[16px] shadow-social overflow-hidden">
       {discountedPrice && discountedPrice < price ? (
         <Image
-          src="/images/icons/promotion.svg"
+          src={`/images/icons/promotion-${locale}.svg`}
           alt="promotion label"
           width="169"
           height="109"
