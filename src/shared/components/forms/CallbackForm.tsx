@@ -1,10 +1,10 @@
 'use client';
 import { Form, Formik, FormikHelpers } from 'formik';
+import axios from 'axios';
 import { Dispatch, SetStateAction, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { CallBackValidation } from '@/shared/schemas/callbackFormValidation';
-import { handleSubmitForm } from '@/shared/utils/handleSubmitForm';
 
 import CustomizedInput from './formComponents/CustomizedInput';
 import SubmitButton from './formComponents/SubmitButton';
@@ -26,7 +26,6 @@ interface CallBackFormProps {
 export default function CallBackForm({
   setIsError,
   setIsNotificationShown,
-  setIsPopUpShown,
   className = '',
 }: CallBackFormProps) {
   const t = useTranslations('forms');
@@ -45,13 +44,34 @@ export default function CallBackForm({
     values: ValuesCallBackFormType,
     formikHelpers: FormikHelpers<ValuesCallBackFormType>
   ) => {
-    await handleSubmitForm<ValuesCallBackFormType>(
-      formikHelpers,
-      setIsLoading,
-      setIsError,
-      setIsNotificationShown,
-      setIsPopUpShown
-    );
+    const { resetForm } = formikHelpers;
+    const data =
+      `<b>Заявка "Форма зворотнього зв'язку"</b>\n` +
+      `<b>Ім'я:</b> ${values.name.trim()}\n` +
+      `<b>Прізвище:</b> ${values.surname.trim()}\n` +
+      `<b>Email:</b> ${values.email.trim()}\n` +
+      `<b>Повідомлення:</b> ${values.message.trim()}\n`;
+    try {
+      setIsLoading(true);
+
+      await axios({
+        method: 'post',
+        url: '/api/telegram',
+        data,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      resetForm();
+      setIsNotificationShown(true);
+    } catch (error) {
+      setIsError(true);
+      setIsNotificationShown(true);
+      return error;
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

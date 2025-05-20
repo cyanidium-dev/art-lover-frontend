@@ -23,7 +23,8 @@ const SubscribeNews = () => {
     e.preventDefault();
     setLoading(true);
     const data =
-      `<b>Заявка "Відстежуйте наші новини"</b>\n` + `<b>Email:</b> ${email}\n`;
+      `<b>Заявка "Відстежуйте наші новини"</b>\n` +
+      `<b>Email:</b> ${email.trim()}\n`;
     try {
       await axios({
         method: 'post',
