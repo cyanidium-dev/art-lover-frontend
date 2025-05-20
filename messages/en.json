@@ -424,7 +424,17 @@
     "notification": {
       "success": {
         "title": "Thank you for your message!",
+        "description": "Our manager will contact you shortly. Have a nice day!"
+      },
+      "error": {
+        "title": "Unfortunately, something went wrong",
         "description": "Please try submitting the form again or call us."
+      }
+    },
+    "subscribeNotification": {
+      "success": {
+        "title": "Thank you for subscribing!",
+        "description": "Your email has been successfully sent. Have a great day!"
       },
       "error": {
         "title": "Unfortunately, something went wrong",
