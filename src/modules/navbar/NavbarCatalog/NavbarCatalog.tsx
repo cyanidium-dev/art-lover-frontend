@@ -84,6 +84,7 @@ const NavbarCatalog = ({
         onClose={() => setIsOpenCatalogMenu(false)}
       />
       <NavbarCatalogMenuDesk
+         catalogList={catalogList}
         isOpen={isOpenCatalogMenu}
         onClose={() => setIsOpenCatalogMenu(false)}
       />
