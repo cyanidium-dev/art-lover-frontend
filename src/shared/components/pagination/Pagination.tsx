@@ -82,7 +82,9 @@ export default function Pagination<T>({
 
   return (
     <>
-      <div className={`${className}`}>{renderItems(currentItems)}</div>
+      <div key={currentPage} className={`${className}`}>
+        {renderItems(currentItems)}
+      </div>
       <motion.div
         initial="hidden"
         whileInView="visible"
