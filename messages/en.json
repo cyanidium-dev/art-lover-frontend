@@ -385,8 +385,11 @@
     "catalogMenu": {
       "title": "Catalog",
       "gifts": "Gifts",
+      "giftsDescription": "Give inspiration",
       "discounts": "Discounts",
-      "newProducts": "New Arrivals"
+      "discountsDescription": "Great deals",
+      "newProducts": "New arrivals",
+      "newProductsDescription": "New in our store"
     }
   },
   "cart": {

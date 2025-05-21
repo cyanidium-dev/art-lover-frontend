@@ -8,6 +8,8 @@ import { fetchSanityData } from '@/shared/utils/fetchSanityData';
 import { allCategoriesQuery } from '@/shared/lib/queries';
 import { Category } from '@/types/category';
 import GiftIcon from '@/shared/components/icons/categoriesIcons/GiftIcon';
+import DiscountsIcon from '@/shared/components/icons/categoriesIcons/DiscountsIcon';
+import NewProductsIcon from '@/shared/components/icons/categoriesIcons/NewProductsIcon';
 
 interface NavbarCatalogProps {
   isOpenCatalogMenu: boolean;
@@ -41,8 +43,12 @@ const NavbarCatalog = ({
   const catalogList = [
     { icon: <GiftIcon />, slug: 'gifts', title: t('gifts') },
     ...categoriesList,
-    { icon: <GiftIcon />, slug: 'discounts', title: t('discounts') },
-    { icon: <GiftIcon />, slug: 'new-products', title: t('newProducts') },
+    { icon: <DiscountsIcon />, slug: 'discounts', title: t('discounts') },
+    {
+      icon: <NewProductsIcon />,
+      slug: 'new-products',
+      title: t('newProducts'),
+    },
   ];
 
   useEffect(() => {
@@ -84,7 +90,7 @@ const NavbarCatalog = ({
         onClose={() => setIsOpenCatalogMenu(false)}
       />
       <NavbarCatalogMenuDesk
-         catalogList={catalogList}
+        catalogList={catalogList}
         isOpen={isOpenCatalogMenu}
         onClose={() => setIsOpenCatalogMenu(false)}
       />

@@ -385,8 +385,11 @@
     "catalogMenu": {
       "title": "Каталог",
       "gifts": "Подарки",
+      "giftsDescription": "Дарите вдохновение",
       "discounts": "Скидки",
-      "newProducts": "Новинки"
+      "discountsDescription": "Выгодные предложения",
+      "newProducts": "Новинки",
+      "newProductsDescription": "Новое в нашем магазине"
     }
   },
   "cart": {

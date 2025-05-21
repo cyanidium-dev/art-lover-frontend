@@ -1,9 +1,9 @@
-import { Category } from '@/types/category';
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
+import { CatalogItem } from '@/types/catalogItem';
 
 interface CategorySlideOneDeskProps {
-  categories: Category[];
+  categories: CatalogItem[];
 }
 
 export default function CategorySlideOneDesk({
@@ -25,7 +25,7 @@ export default function CategorySlideOneDesk({
         <p className="mb-2 lg:mb-3 xl:mb-5 ml-8 font-denistina text-[20px] lg:text-[32px] leading-none text-white">
           {categories[0]?.description}
         </p>
-        <h3 className="text-[18px] lg:text-[28px] font-semibold leading-none uppercase text-white">
+        <h3 className="text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-white">
           {categories[0]?.title}
         </h3>
       </Link>
@@ -43,7 +43,7 @@ export default function CategorySlideOneDesk({
           <p className="mb-1 font-denistina text-[20px] lg:text-[32px] leading-none text-dark">
             {categories[1]?.description}
           </p>
-          <h3 className="text-[18px] lg:text-[28px] font-semibold leading-none uppercase text-dark">
+          <h3 className="text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-dark">
             {categories[1]?.title}
           </h3>
         </Link>
@@ -57,7 +57,7 @@ export default function CategorySlideOneDesk({
             className="-z-10 object-cover"
             fill
           />
-          <h3 className="text-[18px] lg:text-[28px] font-semibold leading-none uppercase text-white">
+          <h3 className="text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-white">
             {categories[2]?.title}
           </h3>
           <p className="ml-[140px] lg:ml-[214px] font-denistina text-[20px] lg:text-[32px] leading-none text-white">
@@ -74,7 +74,7 @@ export default function CategorySlideOneDesk({
             className="-z-10 object-cover"
             fill
           />
-          <h3 className="mb-1 text-[18px] lg:text-[28px] font-semibold leading-none uppercase text-dark">
+          <h3 className="mb-1 text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-dark">
             {categories[3]?.title}
           </h3>
           <p className="ml-[39px] font-denistina text-[20px] lg:text-[32px] leading-none text-dark">
@@ -93,7 +93,7 @@ export default function CategorySlideOneDesk({
             className="-z-10 object-cover"
             fill
           />
-          <h3 className="mb-2 text-[18px] lg:text-[28px] font-semibold leading-none uppercase text-white">
+          <h3 className="mb-2 text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-white">
             {categories[4]?.title}
           </h3>
           <p className="font-denistina text-[20px] lg:text-[32px] leading-none text-white">

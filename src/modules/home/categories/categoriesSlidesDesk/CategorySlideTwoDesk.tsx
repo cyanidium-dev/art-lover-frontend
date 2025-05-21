@@ -1,9 +1,9 @@
-import { Category } from '@/types/category';
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
+import { CatalogItem } from '@/types/catalogItem';
 
 interface CategorySlideTwoDeskProps {
-  categories: Category[];
+  categories: CatalogItem[];
 }
 
 export default function CategorySlideTwoDesk({
@@ -22,7 +22,7 @@ export default function CategorySlideTwoDesk({
           sizes="50vw"
           className="-z-10"
         />
-        <h3 className="max-w-[159px] text-[18px] lg:text-[28px] font-semibold leading-none uppercase text-white">
+        <h3 className="max-w-[159px] text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-white">
           {categories[0]?.title}
         </h3>
         <div className="ml-auto xl:mr-6">
@@ -45,7 +45,7 @@ export default function CategorySlideTwoDesk({
             className="-z-10 object-cover"
             fill
           />
-          <h3 className="mb-6 text-[18px] lg:text-[28px] font-semibold leading-none uppercase text-dark">
+          <h3 className="mb-6 text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-dark">
             {categories[1]?.title}
           </h3>
           <p className="font-denistina text-[20px] lg:text-[32px] leading-none text-dark">
@@ -62,7 +62,7 @@ export default function CategorySlideTwoDesk({
             className="-z-10 object-contain object-right"
             fill
           />
-          <h3 className="max-w-[176px] mb-5 text-[18px] lg:text-[28px] font-semibold leading-none uppercase text-white">
+          <h3 className="max-w-[176px] mb-5 text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-white">
             {categories[2]?.title}
           </h3>
           <p className="font-denistina text-[20px] lg:text-[32px] leading-none text-white">
@@ -79,7 +79,7 @@ export default function CategorySlideTwoDesk({
             className="-z-10 object-cover"
             fill
           />
-          <h3 className="xl:max-w-[240px] mb-5 text-[18px] lg:text-[28px] font-semibold leading-none uppercase text-dark">
+          <h3 className="xl:max-w-[240px] mb-5 text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-dark">
             {categories[3]?.title}
           </h3>
           <p className="font-denistina text-[20px] lg:text-[32px] leading-none text-dark">
@@ -98,7 +98,7 @@ export default function CategorySlideTwoDesk({
             className="-z-10 object-cover"
             fill
           />
-          <h3 className="mb-2 text-[18px] lg:text-[28px] font-semibold leading-none uppercase text-white">
+          <h3 className="mb-2 text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-white">
             {categories[4]?.title}
           </h3>
           <p className="font-denistina text-[20px] lg:text-[32px] leading-none text-white">

@@ -379,8 +379,11 @@
     "catalogMenu": {
       "title": "Каталог",
       "gifts": "Подарунки",
+      "giftsDescription": "Даруйте натхнення",
       "discounts": "Знижки",
-      "newProducts": "Новинки"
+      "discountsDescription": "Вигідні пропозиції",
+      "newProducts": "Новинки",
+      "newProductsDescription": "Нове у нашому магазині"
     }
   },
   "cart": {

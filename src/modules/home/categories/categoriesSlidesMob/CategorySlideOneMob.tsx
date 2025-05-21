@@ -1,4 +1,3 @@
-import { Category } from '@/types/category';
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import * as motion from 'motion/react-client';
@@ -6,9 +5,10 @@ import {
   listVariants,
   listItemVariants,
 } from '@/shared/utils/animationVariants';
+import { CatalogItem } from '@/types/catalogItem';
 
 interface CategorySlideOneMobProps {
-  categories: Category[];
+  categories: CatalogItem[];
 }
 
 export default function CategorySlideOneMob({
