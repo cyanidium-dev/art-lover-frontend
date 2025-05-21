@@ -59,42 +59,45 @@ export default function NavBarCategoriesListDesk({
       </div>
 
       {/* RIGHT SUBCATEGORY PANEL */}
-      <AnimatePresence>
-        {activeCategory &&
-          activeCategory.subcategories &&
-          activeCategory.subcategories.length > 0 && (
-            <motion.div
-              key={activeCategory.slug}
-              initial={{ opacity: 0, x: '-100%' }}
-              animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
-              exit={{ opacity: 0, transition: { duration: 0.1 } }}
-              className="absolute -z-10 left-[342px] top-0 w-[284px] h-full bg-white text-dark pt-[76px] pb-10 pl-8 pr-6 rounded-tr-[6px] 
-            rounded-br-[6px] shadow-social"
-            >
-              <h3 className="text-orange text-[16px] font-medium leading-[120%] mb-5">
-                {activeCategory.title}
-              </h3>
-              <ul
-                className="flex flex-col gap-4 h-[330px] pr-2 overflow-y-auto scrollbar scrollbar-w-[2.5px] scrollbar-thumb-rounded-full 
-      scrollbar-track-rounded-full scrollbar-thumb-orange scrollbar-track-transparent popup-scroll"
+      <div
+        className={`relative h-auto overflow-hidden ${activeCategory ? 'w-[284px]' : ''}`}
+      >
+        <AnimatePresence mode="wait">
+          {activeCategory &&
+            activeCategory.subcategories &&
+            activeCategory.subcategories.length > 0 && (
+              <motion.div
+                key={activeCategory.slug}
+                initial={{ opacity: 0, x: '-100%' }}
+                animate={{ opacity: 1, x: 0, transition: { duration: 0.4 } }}
+                exit={{ opacity: 0, x: 0, transition: { duration: 0.1 } }}
+                className={`absolute left-0 top-0  flex flex-col min-h-full bg-white text-dark pt-[76px] pb-10 pl-8 pr-6 
+            rounded-tr-[6px] rounded-br-[6px] shadow-social ${!activeCategory ? 'pointer-events-none' : ''}`}
               >
-                {activeCategory?.subcategories &&
-                  activeCategory?.subcategories.map((sub, idx) => (
+                <h3 className="text-orange text-[16px] font-medium leading-[120%] mb-5">
+                  {activeCategory.title}
+                </h3>
+                <ul
+                  className="flex flex-col gap-4 h-[330px] pr-2 overflow-y-auto scrollbar scrollbar-w-[2.5px] scrollbar-thumb-rounded-full 
+              scrollbar-track-rounded-full scrollbar-thumb-orange scrollbar-track-transparent popup-scroll"
+                >
+                  {activeCategory?.subcategories.map((sub, idx) => (
                     <li key={idx}>
                       <Link
                         href={`/catalog/${activeCategory.slug}?subcategory=${sub.slug}`}
                         className="flex items-center gap-x-3 text-[14px] font-light leading-[120%] xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
                         onClick={onClose}
                       >
-                        <div className="size-2 rounded-full bg-current shrink-0"></div>{' '}
+                        <div className="size-2 rounded-full bg-current shrink-0"></div>
                         {sub.title}
                       </Link>
                     </li>
                   ))}
-              </ul>
-            </motion.div>
-          )}
-      </AnimatePresence>
+                </ul>
+              </motion.div>
+            )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 }
