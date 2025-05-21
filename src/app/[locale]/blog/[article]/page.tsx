@@ -1,4 +1,3 @@
-import { articlesList } from '@/modules/blog/blogList/mockedData';
 import Content from '@/modules/article/content/Content';
 import Hero from '@/modules/article/hero/Hero';
 import { fetchSanityData } from '@/shared/utils/fetchSanityData';
@@ -15,18 +14,20 @@ export async function generateMetadata({
   params,
 }: ArticlePageProps): Promise<Metadata> {
   const { article, locale } = await params;
-  const articleData = await fetchSanityData(singlePostQuery, {
-    slug: 'string-art-mistectvo-nitok-sho-pidkoryuye-sercya',
+  const currentArticle = await fetchSanityData(singlePostQuery, {
+    slug: article,
     lang: locale,
   });
 
+  console.log(currentArticle.seoTitle, currentArticle.seoDescription);
+
   return {
-    title: articleData?.seoTitle || defaultMetadata.title,
-    description: articleData?.seoDescription || defaultMetadata.description,
+    title: currentArticle?.seoTitle || defaultMetadata.title,
+    description: currentArticle?.seoDescription || defaultMetadata.description,
     openGraph: {
       images: [
         {
-          url: articleData?.seoImage || '/opengraph-image.jpg',
+          url: currentArticle?.images[0] || '/opengraph-image.jpg',
           width: 1200,
           height: 630,
           alt: 'Art Lover',
@@ -38,16 +39,10 @@ export async function generateMetadata({
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { article, locale } = await params;
-  const articleData = await fetchSanityData(singlePostQuery, {
-    slug: 'string-art-mistectvo-nitok-sho-pidkoryuye-sercya',
+  const currentArticle = await fetchSanityData(singlePostQuery, {
+    slug: article,
     lang: locale,
   });
-
-  if (!articlesList || !articlesList.length) return null;
-
-  const currentArticle = articlesList.find(
-    articleItem => articleItem.slug === article
-  );
 
   if (!currentArticle) return null;
 

@@ -5,5 +5,7 @@ export interface Article {
   subtitle: string;
   description: string;
   text: string[];
-  images: { url: string; alt: string }[];
+  images: string[];
+  seoTitle: string;
+  seoDescription: string;
 }

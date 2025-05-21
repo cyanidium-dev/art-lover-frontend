@@ -1,6 +1,6 @@
 export const allCategoriesQuery = (lang: string) => `
   *[_type == "category"]{
-    _id,
+    "id": _id,
     "title": title["${lang}"],
     "slug": slug.current,
     "icon": icon.asset->url,
@@ -8,26 +8,32 @@ export const allCategoriesQuery = (lang: string) => `
   }
 `;
 
-export const allPostsQuery = (lang: string) => `
+export const allPostsQuery = `
   *[_type == "post"]{
-    _id,
-    "title": title["${lang}"],
+    "id": _id,
     "slug": slug.current,
-    "photos": photos[].asset->url,
-    "seoTitle": seo.title["${lang}"],
-    "seoDescription": seo.description["${lang}"],
-    "seoImage": seo.image.asset->url
+    "title": title[$lang],
+    "subtitle": subtitle[$lang],
+    "description": description[$lang],
+    "text": text[$lang],
+    "images": images[].asset->url,
+    "seoTitle": seo.title[$lang],
+    "seoDescription": seo.description[$lang],
   }
 `;
 
 export const singlePostQuery = `
   *[_type == "post" && slug.current == $slug][0]{
-    _id,
-    "title": title[$lang],
+    "id": _id,
     "slug": slug.current,
-    "photos": photos[].asset->url,
+    "title": title[$lang],
+    "subtitle": subtitle[$lang],
+    "description": description[$lang],
+    "text": text[$lang],
+    "images": images[].asset->url,
     "seoTitle": seo.title[$lang],
     "seoDescription": seo.description[$lang],
-    "seoImage": seo.image.asset->url
-  }
+    }
 `;
+
+export const allReviewsQuery = `*[_type == "product" && defined(reviews)][].reviews[]`;

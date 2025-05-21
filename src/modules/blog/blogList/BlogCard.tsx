@@ -13,6 +13,8 @@ export default function BlogCard({ article }: BlogCardProps) {
 
   const { title, subtitle, description, images, slug } = article;
 
+  console.log(images[0]);
+
   const readingTime = calculateReadingTime(article);
 
   return (
@@ -20,19 +22,19 @@ export default function BlogCard({ article }: BlogCardProps) {
       <Link href={`/blog/${slug}`}>
         <div className="relative h-[116px] xs:h-[180px] lg:h-[213px] mb-4 rounded-[8px] xl:rounded-[16px] overflow-hidden">
           <Image
-            src={images[0]?.url || ''}
-            alt={images[0]?.alt || 'blog photo'}
+            src={images[0] || ''}
+            alt={'blog photo'}
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
             className="object-cover object-center"
           />
         </div>
 
-        <h3 className="mb-2 text-[14px] xl:text-[18px] font-medium leading-[120%] text-orange">
+        <h3 className="mb-2 text-[14px] xl:text-[18px] font-medium leading-[120%] text-orange line-clamp-1">
           {title}: {subtitle.toLowerCase()}
         </h3>
       </Link>
-      <p className="mb-5 xl:mb-7 text-[12px] xl:text-[16px] font-medium leading-[120%]">
+      <p className="mb-5 xl:mb-7 text-[12px] xl:text-[16px] font-medium leading-[120%] line-clamp-1">
         {description}
       </p>
       <div className="flex gap-x-4 xl:gap-x-6">
