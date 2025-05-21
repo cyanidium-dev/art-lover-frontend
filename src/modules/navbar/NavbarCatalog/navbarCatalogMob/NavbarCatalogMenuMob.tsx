@@ -1,5 +1,6 @@
 'use client';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import {
   burgerMenuVariants,
   fadeInAnimation,
@@ -7,16 +8,21 @@ import {
 import CrossInCircleIcon from '@/shared/components/icons/CrossInCircleIcon';
 import Image from 'next/image';
 import NavBarCategoriesListMob from './NavBarCategoriesListMob';
+import { Category } from '@/types/category';
 
 interface NavbarCatalogMenuMobProps {
   isOpen: boolean;
   onClose: () => void;
+  catalogList: Category[];
 }
 
 export default function NavbarCatalogMenuMob({
+  catalogList,
   isOpen,
   onClose,
 }: NavbarCatalogMenuMobProps) {
+  const t = useTranslations('header.catalogMenu');
+
   return (
     <AnimatePresence mode="wait">
       {isOpen && (
@@ -35,7 +41,7 @@ export default function NavbarCatalogMenuMob({
             <div>
               <div className="flex items-center justify-between w-full pl-8 pr-8 pt-4 pb-5">
                 <h2 className="text-[20px] font-semibold leading-[120% text-orange">
-                  Каталог
+                  {t('title')}
                 </h2>
                 <button
                   type="button"
@@ -45,7 +51,10 @@ export default function NavbarCatalogMenuMob({
                   {<CrossInCircleIcon className="size-full" />}
                 </button>
               </div>
-              <NavBarCategoriesListMob onClose={onClose} />
+              <NavBarCategoriesListMob
+                onClose={onClose}
+                catalogList={catalogList}
+              />
             </div>
             <motion.div
               initial="hidden"

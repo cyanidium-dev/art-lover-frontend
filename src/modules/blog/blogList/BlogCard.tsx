@@ -13,8 +13,6 @@ export default function BlogCard({ article }: BlogCardProps) {
 
   const { title, subtitle, description, images, slug } = article;
 
-  console.log(images[0]);
-
   const readingTime = calculateReadingTime(article);
 
   return (

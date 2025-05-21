@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
-import { categoriesList } from '../mockedData';
+import { categoriesList } from '../categoriesList';
 import NavBarCategoryItemDesk from './NavbarCategoryItemDesk';
 import { Link } from '@/i18n/navigation';
 

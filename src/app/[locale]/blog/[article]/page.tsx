@@ -19,8 +19,6 @@ export async function generateMetadata({
     lang: locale,
   });
 
-  console.log(currentArticle.seoTitle, currentArticle.seoDescription);
-
   return {
     title: currentArticle?.seoTitle || defaultMetadata.title,
     description: currentArticle?.seoDescription || defaultMetadata.description,
