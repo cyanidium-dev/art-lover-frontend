@@ -9,7 +9,7 @@ const client = createClient({
 });
 
 export async function POST(req: NextRequest) {
-  const { query } = await req.json();
+  const { query, params } = await req.json();
 
   if (!query || typeof query !== 'string') {
     return NextResponse.json(
@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const data = await client.fetch(query);
+    const data = await client.fetch(query, params || {});
     return NextResponse.json(data);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {

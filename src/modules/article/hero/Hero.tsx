@@ -10,7 +10,6 @@ interface HeroProps {
 
 export default function Hero({ article }: HeroProps) {
   const { title, subtitle } = article;
-
   return (
     <section>
       <Container>
