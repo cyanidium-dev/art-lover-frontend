@@ -7,6 +7,7 @@ import NavbarCatalogMenuDesk from './navbarCatalogDesk/NavbarCatalogMenuDesk';
 import { fetchSanityData } from '@/shared/utils/fetchSanityData';
 import { allCategoriesQuery } from '@/shared/lib/queries';
 import { Category } from '@/types/category';
+import GiftIcon from '@/shared/components/icons/categoriesIcons/GiftIcon';
 
 interface NavbarCatalogProps {
   isOpenCatalogMenu: boolean;
@@ -14,6 +15,10 @@ interface NavbarCatalogProps {
   setIsOpenCatalogMenu: Dispatch<SetStateAction<boolean>>;
   setIsCartModalOpened: Dispatch<SetStateAction<boolean>>;
 }
+
+const SvgIcon = ({ svg }: { svg: string }) => (
+  <span dangerouslySetInnerHTML={{ __html: svg }} />
+);
 
 const NavbarCatalog = ({
   isOpenCatalogMenu,
@@ -26,12 +31,25 @@ const NavbarCatalog = ({
 
   const [categories, setCategories] = useState<Category[]>([]);
 
-  console.log('categories', categories);
+  const categoriesList = categories?.map(category => ({
+    icon: <SvgIcon svg={category.icon} />,
+    slug: category?.slug,
+    title: category?.title,
+    subcategories: category?.subcategories,
+  }));
+
+  const catalogList = [
+    { icon: <GiftIcon />, slug: 'gifts', title: t('gifts') },
+    ...categoriesList,
+    { icon: <GiftIcon />, slug: 'discounts', title: t('discounts') },
+    { icon: <GiftIcon />, slug: 'new-products', title: t('newProducts') },
+  ];
 
   useEffect(() => {
     const loadData = async () => {
-      const query = allCategoriesQuery(locale);
-      const result = await fetchSanityData(query);
+      const result = await fetchSanityData(allCategoriesQuery, {
+        lang: locale,
+      });
       setCategories(result);
     };
 
@@ -61,10 +79,12 @@ const NavbarCatalog = ({
         </span>
       </button>
       <NavbarCatalogMenuMob
+        catalogList={catalogList}
         isOpen={isOpenCatalogMenu}
         onClose={() => setIsOpenCatalogMenu(false)}
       />
       <NavbarCatalogMenuDesk
+         catalogList={catalogList}
         isOpen={isOpenCatalogMenu}
         onClose={() => setIsOpenCatalogMenu(false)}
       />

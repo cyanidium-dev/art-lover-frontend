@@ -383,7 +383,10 @@
       "description": "Check our contacts and get in touch! Our manager can provide consultation on all products and questions you may have."
     },
     "catalogMenu": {
-      "title": "Catalog"
+      "title": "Catalog",
+      "gifts": "Gifts",
+      "discounts": "Discounts",
+      "newProducts": "New Arrivals"
     }
   },
   "cart": {

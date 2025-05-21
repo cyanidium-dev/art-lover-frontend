@@ -1,15 +1,19 @@
-export const allCategoriesQuery = (lang: string) => `
-  *[_type == "category"]{
+export const allCategoriesQuery = `
+  *[_type == "category"] | order(_createdAt asc) {
+  "id": _id,
+  "title": title[$lang],
+  "slug": slug.current,
+  icon,
+  "subcategories": subcategories[]->{
     "id": _id,
-    "title": title["${lang}"],
-    "slug": slug.current,
-    "icon": icon.asset->url,
-    subcategories
+    "title": title[$lang],
+    "slug": slug.current
   }
+}
 `;
 
 export const allPostsQuery = `
-  *[_type == "post"]{
+  *[_type == "post"]  | order(_createdAt desc) {
     "id": _id,
     "slug": slug.current,
     "title": title[$lang],

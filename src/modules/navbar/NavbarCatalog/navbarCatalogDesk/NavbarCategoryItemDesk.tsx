@@ -2,15 +2,10 @@
 
 import ArrowIcon from '@/shared/components/icons/ArrowIcon';
 import { Link } from '@/i18n/navigation';
-import { ReactNode } from 'react';
+import { CatalogItem } from '@/types/catalogItem';
 
 interface NavBarCategoryItemDeskProps {
-  category: {
-    icon: ReactNode;
-    title: string;
-    slug: string;
-    subCategories: { title: string; slug: string }[];
-  };
+  category: CatalogItem;
   onClose: () => void;
   isActive: boolean;
   onClick: () => void;
@@ -22,9 +17,9 @@ export default function NavBarCategoryItemDesk({
   isActive,
   onClick,
 }: NavBarCategoryItemDeskProps) {
-  const { icon, title, subCategories } = category;
+  const { icon, title, subcategories } = category;
 
-  const hasSub = subCategories?.length > 0;
+  const hasSub = subcategories && subcategories?.length > 0;
 
   return (
     <div

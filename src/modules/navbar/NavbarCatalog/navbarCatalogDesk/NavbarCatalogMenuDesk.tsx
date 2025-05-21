@@ -4,13 +4,16 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { catalogMenuVariants } from '@/shared/utils/animationVariants';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
 import NavBarCategoriesListDesk from './NavbarCategoriesListDesk';
+import { CatalogItem } from '@/types/catalogItem';
 
 interface NavbarCatalogMenuDeskProps {
+  catalogList: CatalogItem[];
   isOpen: boolean;
   onClose: () => void;
 }
 
 export default function NavbarCatalogMenuDesk({
+  catalogList,
   isOpen,
   onClose,
 }: NavbarCatalogMenuDeskProps) {
@@ -35,10 +38,13 @@ export default function NavbarCatalogMenuDesk({
             exit="exit"
             variants={catalogMenuVariants}
             style={{ scrollbarGutter: 'stable' }}
-            className={`hidden md:block absolute z-[100] top-11 xl:top-14 left-0 w-[639px] p-1 rounded-[6px] overflow-y-auto oveflow-x-hidden scrollbar scrollbar-w-[2.5px] scrollbar-thumb-rounded-full 
+            className={`hidden md:block absolute z-[100] w-fit top-11 xl:top-14 left-0 p-1 rounded-[6px] overflow-y-auto oveflow-x-hidden scrollbar scrollbar-w-[2.5px] scrollbar-thumb-rounded-full 
       scrollbar-track-rounded-full scrollbar-thumb-orange scrollbar-track-transparent popup-scroll`}
           >
-            <NavBarCategoriesListDesk onClose={onClose} />
+            <NavBarCategoriesListDesk
+              onClose={onClose}
+              catalogList={catalogList}
+            />
           </motion.div>
         )}
       </AnimatePresence>
