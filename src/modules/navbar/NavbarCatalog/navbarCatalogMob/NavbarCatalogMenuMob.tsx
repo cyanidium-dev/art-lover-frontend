@@ -8,12 +8,12 @@ import {
 import CrossInCircleIcon from '@/shared/components/icons/CrossInCircleIcon';
 import Image from 'next/image';
 import NavBarCategoriesListMob from './NavBarCategoriesListMob';
-import { Category } from '@/types/category';
+import { CatalogItem } from '@/types/catalogItem';
 
 interface NavbarCatalogMenuMobProps {
   isOpen: boolean;
   onClose: () => void;
-  catalogList: Category[];
+  catalogList: CatalogItem[];
 }
 
 export default function NavbarCatalogMenuMob({

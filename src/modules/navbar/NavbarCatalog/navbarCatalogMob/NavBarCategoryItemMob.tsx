@@ -2,10 +2,10 @@
 import ArrowIcon from '@/shared/components/icons/ArrowIcon';
 import { useState } from 'react';
 import { Link } from '@/i18n/navigation';
-import { Category } from '@/types/category';
+import { CatalogItem } from '@/types/catalogItem';
 
 interface NavBarCategoryItemMobProps {
-  category: Category;
+  category: CatalogItem;
   onClose: () => void;
 }
 

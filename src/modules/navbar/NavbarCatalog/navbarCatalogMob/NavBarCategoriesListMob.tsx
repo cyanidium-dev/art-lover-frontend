@@ -1,8 +1,8 @@
+import { CatalogItem } from '@/types/catalogItem';
 import NavBarCategoryItemMob from './NavBarCategoryItemMob';
-import { Category } from '@/types/category';
 
 interface NavBarCategoriesListMobProps {
-  catalogList: Category[];
+  catalogList: CatalogItem[];
   onClose: () => void;
 }
 
