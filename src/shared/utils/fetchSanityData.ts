@@ -4,7 +4,7 @@ export const fetchSanityData = async (
   query: string,
   params: Record<string, unknown> = {}
 ) => {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
   try {
     const response = await axios.post(
