@@ -40,9 +40,9 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
     addons,
     colors,
     price,
-    images,
+    mainImage,
     category,
-    slug,
+     slug,
     discountedPrice,
   } = currentProduct;
 
@@ -64,7 +64,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
       id,
       title,
       price,
-      images,
+      mainImage,
       category,
       slug,
       quantity: count,

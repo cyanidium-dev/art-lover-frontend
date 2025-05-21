@@ -1,14 +1,22 @@
-'use client';
 import Container from '@/shared/components/container/Container';
 import ReviewsSlider from './ReviewsSlider';
 import { Suspense } from 'react';
 import * as motion from 'motion/react-client';
-import { useTranslations } from 'next-intl';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import Loader from '@/shared/components/loader/Loader';
+import { fetchSanityData } from '@/shared/utils/fetchSanityData';
+import { allReviewsQuery } from '@/shared/lib/queries';
 
-export default function Reviews() {
-  const t = useTranslations('homePage.reviews');
+export default async function Reviews() {
+  const locale = await getLocale();
+  const t = await getTranslations('homePage.reviews');
+
+  const reviewsList = await fetchSanityData(allReviewsQuery, {
+    lang: locale,
+  });
+
+  if (!reviewsList || !reviewsList.length) return null;
 
   return (
     <section className="pt-20 xl:pt-[158px]">
@@ -37,7 +45,7 @@ export default function Reviews() {
         </div>
       </Container>
       <Suspense fallback={<Loader />}>
-        <ReviewsSlider />
+        <ReviewsSlider reviewsList={reviewsList} />
       </Suspense>
     </section>
   );

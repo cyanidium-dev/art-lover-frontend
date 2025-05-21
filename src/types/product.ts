@@ -1,5 +1,3 @@
-import { Category } from './category';
-
 type Characteristic = {
   title: string;
   description: string | string[];
@@ -7,7 +5,8 @@ type Characteristic = {
 
 export interface Product {
   id: string;
-  category: Category;
+  category: string;
+  subcategory: string;
   slug: string;
   title: string;
   available: boolean;
@@ -16,7 +15,8 @@ export interface Product {
   delivery: string;
   price: number;
   discountedPrice?: number;
-  images: { url: string; alt: string }[];
+  mainImage: string;
+  images: string[];
   bestseller?: boolean;
   newProduct?: boolean;
   idealFor: string[];

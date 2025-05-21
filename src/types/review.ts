@@ -1,10 +1,10 @@
 export interface Review {
-  id: string;
-  title: string;
-  slug: string;
-  images: { url: string; alt: string }[];
+  productTitle: string;
+  productSlug: string;
+  productMainImage: string;
   rating: number;
   author: string;
+  productCategorySlug: string;
   text: string;
   createdAt: string;
 }

@@ -57,8 +57,8 @@ export default function ReviewsSlider() {
         {chunkedReviews.map((group, idx) => (
           <SwiperSlide key={idx}>
             <div className="flex flex-col gap-y-4 xl:gap-y-5">
-              {group.map(review => (
-                <ReviewCard key={review.id} review={review} />
+              {group.map((review, idx) => (
+                <ReviewCard key={idx} review={review} />
               ))}
             </div>
           </SwiperSlide>

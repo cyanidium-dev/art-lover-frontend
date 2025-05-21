@@ -21,11 +21,20 @@ export default function ProductCard({
 
   const { addToCart } = useCartStore();
 
-  const { id, title, price, discountedPrice, images, slug, category } = product;
+  const { id, title, price, discountedPrice, mainImage, slug, category } =
+    product;
 
   const handleClick = () => {
     setIsAddedToCartPopUpShown(true);
-    addToCart({ id, title, price, images, category, slug, quantity: 1 });
+    addToCart({
+      id,
+      title,
+      price,
+      mainImage,
+      category,
+      slug,
+      quantity: 1,
+    });
   };
 
   return (
@@ -39,11 +48,11 @@ export default function ProductCard({
           className="absolute z-10 top-0 right-0"
         />
       ) : null}
-      <Link href={`/catalog/${category?.slug}/${slug}`}>
+      <Link href={`/catalog/${category}/${slug}`}>
         <div className="relative h-[120px] md:h-[180px] lg:h-[200px] xl:h-[300px] mb-3 xl:mb-4 rounded-[8px] xl:rounded-[16px] overflow-hidden">
           <Image
-            src={images[0]?.url || ''}
-            alt={images[0]?.url || 'product'}
+            src={mainImage}
+            alt={'product'}
             fill
             className="object-cover"
           />
@@ -72,10 +81,7 @@ export default function ProductCard({
         </h3>
       </Link>
       <div className="flex justify-between gap-x-0.5 xs:gap-x-3 xl:gap-x-2">
-        <Link
-          href={`/catalog/${category?.slug}/${slug}`}
-          className="block w-full"
-        >
+        <Link href={`/catalog/${category}/${slug}`} className="block w-full">
           <SecondaryButton className="w-full max-w-[102px] xs:max-w-full h-9 xl:h-10">
             {t('button')}
           </SecondaryButton>

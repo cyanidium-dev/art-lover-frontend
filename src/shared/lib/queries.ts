@@ -12,6 +12,29 @@ export const allCategoriesQuery = `
 }
 `;
 
+export const allNewProductsQuery = `*[_type == "product"] | order(publishedAt desc)[0...20]{
+_id,
+  "title": title[$lang],
+  price,
+  discountedPrice,
+  "slug": slug.current,
+  "mainImage": mainImage.asset->url,
+  "categorySlug": category->slug.current,
+  "categoryTitle": category->title,
+  "subcategorySlug": subcategory->slug.current
+}`;
+
+export const allDiscountedProductsQuery = `*[_type == "product" && defined(discountedPrice)]{
+  _id,
+  "title": title[$lang],
+  price,
+  discountedPrice,
+  "slug": slug.current,
+  "mainImage": mainImage.asset->url,
+  "categorySlug": category->slug.current,
+  "subcategorySlug": subcategory->slug.current
+}`;
+
 export const allPostsQuery = `
   *[_type == "post"]  | order(_createdAt desc) {
     "id": _id,
@@ -40,4 +63,14 @@ export const singlePostQuery = `
     }
 `;
 
-export const allReviewsQuery = `*[_type == "product" && defined(reviews)][].reviews[]`;
+export const allReviewsQuery = `*[_type == "product" && defined(reviews)]{
+  reviews[] {
+    ...,
+    "productTitle": ^.title[$lang],
+    "productSlug": ^.slug.current,
+    "productMainImage": ^.mainImage.asset->url,
+    "productCategorySlug": ^.category->slug.current,
+    "createdAt": ^._createdAt
+  }
+}.reviews[]
+`;

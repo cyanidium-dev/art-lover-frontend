@@ -2,13 +2,8 @@ import { Product } from '@/types/product';
 
 const productTemplate = {
   id: '1',
-  category: {
-    id: '',
-    slug: 'gifts',
-    title: 'Подарунки',
-    description: '',
-    icon: '',
-  },
+  category: 'gifts',
+  subcategory: '',
   slug: 'string-art-portrait-kit',
   title: 'String Art Portrait Kit',
   available: true,
@@ -23,13 +18,13 @@ const productTemplate = {
     { title: 'Бобіна з нитками', price: 100 },
     { title: 'Підставка для схеми', price: 200 },
   ],
+  mainImage: '/images/mockedData/productImageOne.webp',
   images: [
-    { url: '/images/mockedData/productImageOne.webp', alt: '' },
-    { url: '/images/mockedData/productImageTwo.webp', alt: '' },
-    { url: '/images/mockedData/productImageThree.webp', alt: '' },
-    { url: '/images/mockedData/productImageFour.webp', alt: '' },
-    { url: '/images/mockedData/productImageFive.webp', alt: '' },
-    { url: '/images/mockedData/productImageSix.webp', alt: '' },
+    '/images/mockedData/productImageTwo.webp',
+    '/images/mockedData/productImageThree.webp',
+    '/images/mockedData/productImageFour.webp',
+    '/images/mockedData/productImageFive.webp',
+    '/images/mockedData/productImageSix.webp',
   ],
   characteristics: [
     { title: 'Вага:', description: '500 г' },
