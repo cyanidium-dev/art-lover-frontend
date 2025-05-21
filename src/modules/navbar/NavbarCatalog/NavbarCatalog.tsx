@@ -26,7 +26,7 @@ const NavbarCatalog = ({
 
   const [categories, setCategories] = useState<Category[]>([]);
 
-  console.log(categories);
+  console.log('categories', categories);
 
   useEffect(() => {
     const loadData = async () => {
