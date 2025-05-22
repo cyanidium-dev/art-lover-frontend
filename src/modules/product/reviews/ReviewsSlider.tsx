@@ -4,7 +4,6 @@ import { useTranslations } from 'next-intl';
 import { SwiperSlide } from 'swiper/react';
 import { motion } from 'motion/react';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
-import { reviewsList } from '@/modules/home/reviews/mockedData';
 import SwiperWrapper from '@/shared/components/swiper/SwiperWrapper';
 import ReviewCard from './ReviewCard';
 import { Product } from '@/types/product';
@@ -46,7 +45,7 @@ export default function ReviewsSlider({ currentProduct }: ReviewsSliderProps) {
             ({reviews.length})
           </p>
         </div>
-        {reviewsList && reviews.length ? (
+        {reviews && reviews.length ? (
           <div className="w-[calc(100%-105px-24px)] h-[0.5px] opacity-50 bg-dark"></div>
         ) : null}
       </div>

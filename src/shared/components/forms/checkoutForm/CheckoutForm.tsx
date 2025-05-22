@@ -11,11 +11,10 @@ import {
   listItemVariants,
 } from '@/shared/utils/animationVariants';
 
-import { getTotalSum } from '@/shared/utils/getTotalSum';
 import { CheckoutValidation } from '@/shared/schemas/checkoutFormValidation';
 import { handleSubmitForm } from '@/shared/utils/handleSubmitForm';
 import { phoneMask } from '@/shared/regex/regex';
-import { productsList } from '@/modules/home/bestsellers/mockedData';
+import { useCartStore } from '@/shared/store/cartStore';
 
 import CustomizedInput from '../formComponents/CustomizedInput';
 import SubmitButton from '../formComponents/SubmitButton';
@@ -69,14 +68,12 @@ export default function CheckoutForm({
 }: CheckoutFormProps) {
   const t = useTranslations();
 
+  const { getTotalAmount } = useCartStore();
+
   const [isLoading, setIsLoading] = useState(false);
   const [total, setTotal] = useState(0);
 
-  const cartItems = productsList
-    .slice(0, 4)
-    .map(item => ({ ...item, quantity: 1 }));
-
-  const sum = getTotalSum(cartItems);
+  const sum = getTotalAmount();
 
   useEffect(() => {
     setTotal(sum);
