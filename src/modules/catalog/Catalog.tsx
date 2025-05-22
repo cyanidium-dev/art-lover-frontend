@@ -1,9 +1,13 @@
+'use client';
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import CatalogFilters from './CatalogFilters/CatalogFilters';
 import CatalogMainImage from './CatalogMainImage/CatalogMainImage';
-import CatalogCategories from './CatalogCategories/CatalogCategories';
 import CatalogProducts from './CatalogProducts/CatalogProducts';
 import Container from '@/shared/components/container/Container';
 import { Product } from '@/types/product';
+import TabMenu from './CatalogCategories/TabMenu';
+import NoItems from './NoItems';
 
 interface CatalogProps {
   categoryProducts: {
@@ -20,16 +24,60 @@ interface CatalogProps {
   };
 }
 
+const SECTION_ID = 'catalog-page-products-list';
+
 const Catalog = ({ categoryProducts }: CatalogProps) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const { subcategories } = categoryProducts;
+
+  const defaultSubcategory = subcategories[0]?.subcategorySlug;
+  const [activeTab, setActiveTab] = useState(defaultSubcategory);
+
+  useEffect(() => {
+    const currentParam = searchParams.get('subcategory');
+    if (currentParam && currentParam !== activeTab) {
+      setActiveTab(currentParam);
+    }
+  }, [searchParams, activeTab]);
+
+  useEffect(() => {
+    const currentParam = searchParams.get('subcategory');
+    if (!currentParam && defaultSubcategory) {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set('subcategory', defaultSubcategory);
+      router.replace(`?${params.toString()}`, { scroll: false });
+    }
+  }, [searchParams, defaultSubcategory, router]);
+
+  const currentSubcategory = subcategories.filter(
+    subcategory => subcategory.subcategorySlug === activeTab
+  );
+
+  const currentProducts = currentSubcategory[0].products;
+
+  console.log(currentProducts);
+
   return (
-    <Container className="flex gap-[20px] items-start">
-      <CatalogFilters />
-      <div className="w-full lg:w-3/4">
-        <CatalogMainImage categoryProducts={categoryProducts} />
-        <CatalogCategories />
-        <CatalogProducts />
-      </div>
-    </Container>
+    <section className="pb-20 xl:pb-[140px]">
+      <Container className="flex gap-[20px] items-start">
+        <CatalogFilters />
+        <div id={SECTION_ID} className="w-full lg:w-3/4">
+          <CatalogMainImage categoryProducts={categoryProducts} />
+          <TabMenu
+            categoryProducts={categoryProducts}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+          />
+          {currentProducts?.length ? (
+            <CatalogProducts currentProducts={currentProducts} />
+          ) : (
+            <NoItems />
+          )}
+        </div>
+      </Container>
+    </section>
   );
 };
 
