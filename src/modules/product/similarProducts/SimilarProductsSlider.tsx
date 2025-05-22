@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { SwiperSlide } from 'swiper/react';
 import { motion } from 'motion/react';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
-import { productsList } from '@/modules/home/bestsellers/mockedData';
 import SwiperWrapper from '@/shared/components/swiper/SwiperWrapper';
 import ProductCard from '@/shared/components/productCard/ProductCard';
 import AddedToCartPopUp from '@/shared/components/pop-ups/AddedToCartPopUp';
@@ -14,7 +13,9 @@ export default function SimilarProductsSlider() {
   const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
   const [isCartModalShown, setIsCartModalShown] = useState(false);
 
-  if (!productsList || !productsList.length) return null;
+  const productsList = null;
+
+  if (!productsList) return null;
 
   return (
     <>

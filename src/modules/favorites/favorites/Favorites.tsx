@@ -1,4 +1,5 @@
-import { productsList } from '@/modules/home/bestsellers/mockedData';
+'use client';
+import { useFavoritesStore } from '@/shared/store/favoritesStore';
 import Container from '@/shared/components/container/Container';
 import NoItems from './NoItems';
 import FavoritesList from './FavoritesList';
@@ -7,14 +8,16 @@ import FavoritesImages from './FavoritesImages';
 const SECTION_ID = 'favorites-page-list';
 
 export default function Favorites() {
+  const { favorites } = useFavoritesStore();
+
   return (
     <section id={SECTION_ID} className="pt-8 xl:pt-20 pb-20 xl:pb-[140px]">
       <Container className="relative">
         <FavoritesImages />
-        {!productsList || !productsList.length ? (
+        {!favorites.length ? (
           <NoItems />
         ) : (
-          <FavoritesList favoritesList={productsList} />
+          <FavoritesList favoritesList={favorites} />
         )}
       </Container>
     </section>

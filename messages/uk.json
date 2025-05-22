@@ -238,7 +238,8 @@
   },
   "favoritesPage": {
     "title": "Обрані товари",
-    "description": "Додавай обрані товари сюди"
+    "description": "Додавай обрані товари сюди",
+    "noItems": "У вас ще немає обраних товарів"
   },
   "publicContractPage": {
     "title": "Публічний договір інтернет-магазину Art Lover",

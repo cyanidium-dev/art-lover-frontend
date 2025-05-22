@@ -244,7 +244,8 @@
   },
   "favoritesPage": {
     "title": "Favorite Products",
-    "description": "Add your favorite products here"
+    "description": "Add your favorite products here",
+    "noItems": "You don't have any favorite items yet"
   },
   "publicContractPage": {
     "title": "Public Agreement of the Art Lover Online Store",
