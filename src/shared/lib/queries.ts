@@ -12,6 +12,17 @@ export const allCategoriesQuery = `
 }
 `;
 
+export const allBestsellersQuery = `*[_type == "product" && isBestseller == true]{
+  _id,
+  "title": title[$lang],
+  price,
+  discountedPrice,
+  "slug": slug.current,
+  "mainImage": mainImage.asset->url,
+  "categorySlug": category->slug.current,
+  "subcategorySlug": subcategory->slug.current
+}`;
+
 export const allNewProductsQuery = `*[_type == "product"] | order(publishedAt desc)[0...20]{
 _id,
   "title": title[$lang],
