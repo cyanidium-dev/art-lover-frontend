@@ -1,8 +1,9 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import * as motion from 'motion/react-client';
 import { useCartStore } from '@/shared/store/cartStore';
+import { useReviewedProductsStore } from '@/shared/store/reviewedProductsStore';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import { Rating } from 'react-simple-star-rating';
 import IconButton from '@/shared/components/buttons/IconButton';
@@ -10,7 +11,6 @@ import MainButton from '@/shared/components/buttons/MainButton';
 import StarFilledIcon from '@/shared/components/icons/StarFilledIcon';
 import StarEmptyIcon from '@/shared/components/icons/StarEmptyIcon';
 import { Product } from '@/types/product';
-import { reviewsList } from '@/modules/home/reviews/mockedData';
 import { getAverageRating } from '@/shared/utils/getAverageRating';
 import Image from 'next/image';
 import AddonsList from './AddonsList';
@@ -19,6 +19,7 @@ import Counter from './Counter';
 import AddedToCartPopUp from '@/shared/components/pop-ups/AddedToCartPopUp';
 import CartModal from '@/shared/components/cart/Cart';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
+import FavoriteIcon from './FavoriteIcon';
 
 interface OrderProductProps {
   currentProduct: Product;
@@ -26,6 +27,7 @@ interface OrderProductProps {
 
 export default function OrderProduct({ currentProduct }: OrderProductProps) {
   const t = useTranslations('productPage');
+  const { addReviewedProduct } = useReviewedProductsStore();
 
   const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
   const [isCartModalShown, setIsCartModalShown] = useState(false);
@@ -36,14 +38,15 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
     id,
     title,
     description,
-    available,
+    inStock,
     addons,
     colors,
     price,
-    images,
-    category,
+    mainImage,
+    categorySlug,
     slug,
     discountedPrice,
+    reviews,
   } = currentProduct;
 
   const [selectedColor, setSelectedColor] = useState({
@@ -57,15 +60,15 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
     }[]
   >([]);
 
-  const rating = getAverageRating(reviewsList);
+  const rating = getAverageRating(reviews);
 
   const handleAddToCartClick = () => {
     addToCart({
       id,
       title,
       price,
-      images,
-      category,
+      mainImage,
+      categorySlug,
       slug,
       quantity: count,
       color: selectedColor,
@@ -84,6 +87,12 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
       console.error('Failed to copy link:', err);
     }
   };
+
+  useEffect(() => {
+    if (currentProduct) {
+      addReviewedProduct(currentProduct);
+    }
+  }, [currentProduct, addReviewedProduct]);
 
   return (
     <div className="mb-20 md:mb-8">
@@ -136,10 +145,10 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
       >
         <p
           className={`text-[12px] xl:text-[16px] font-normal leading-[120%] ${
-            available ? 'text-green' : 'text-red-500'
+            inStock ? 'text-green' : 'text-red-500'
           }`}
         >
-          {available ? t('inStock') : t('outOfStock')}
+          {inStock ? t('inStock') : t('outOfStock')}
         </p>
         <Rating
           initialValue={rating}
@@ -162,7 +171,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
         variants={fadeInAnimation({ y: 30, delay: 0.6 })}
         className="mb-6 xl:mb-[26.5px] text-right text-[10px] xl:text-[14px] font-light leading-[120%]"
       >
-        ({reviewsList?.length} {t('reviews')})
+        ({t('reviews', { count: reviews?.length })})
       </motion.p>
       {!addons || !addons.length ? null : (
         <AddonsList
@@ -193,6 +202,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
               {discountedPrice}
               {t('hrn')}
             </span>
+            &nbsp;&nbsp;
             <span className="text-[12px] xl:text-[16px] font-normal leading-[120%] line-through">
               {price}
               {t('hrn')}
@@ -220,19 +230,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
         >
           {t('button')}
         </MainButton>
-        <button
-          aria-label="add to favorites"
-          className="cursor-pointer flex items-center justify-center shrink-0 size-12 xl:w-[63px] xl:h-[58px] rounded-[8px] bg-dark xl:hover:brightness-125 
-          focus-visible:brightness-125 active:scale-95 transition duration-300 ease-in-out"
-        >
-          <Image
-            src="/images/productPage/orderProduct/heart.svg"
-            alt="heart icon"
-            width={24}
-            height={24}
-            className="size-6 xl:size-[34px]"
-          />
-        </button>
+        <FavoriteIcon currentProduct={currentProduct} />
       </motion.div>
       <AddedToCartPopUp
         isPopUpShown={isAddedToCartPopUpShown}

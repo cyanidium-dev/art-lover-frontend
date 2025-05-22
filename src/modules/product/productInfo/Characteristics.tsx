@@ -16,13 +16,23 @@ export default function Characteristics({
 }: CharacteristicsProps) {
   const t = useTranslations('productPage.characteristics');
 
-  if (
-    !currentProduct?.characteristics ||
-    !currentProduct?.characteristics.length
-  )
-    return null;
+  if (!currentProduct?.characteristics) return null;
 
   const { characteristics } = currentProduct;
+  const { weight, dimensions, article, kitContents, manufacturer, materials } =
+    characteristics;
+
+  const characteristicsList = [
+    { title: t('weight'), description: `${weight}${t('gram')}` },
+    {
+      title: t('dimensions'),
+      description: `${dimensions.width ? `${dimensions.width}` : ''} ${dimensions.height ? `x ${dimensions.height}` : ''}  ${dimensions.length ? `x ${dimensions.length}` : ''} ${dimensions.width || dimensions.height || dimensions.length ? t('sm') : ''}`,
+    },
+    { title: t('materials'), description: materials },
+    { title: t('manufacture'), description: manufacturer },
+    { title: t('includes'), description: kitContents },
+    { title: t('article'), description: article },
+  ];
 
   return (
     <div>
@@ -44,7 +54,7 @@ export default function Characteristics({
         variants={listVariants({ staggerChildren: 0.2, delayChildren: 0.2 })}
         className="flex flex-col gap-y-4 xl:gap-y-3"
       >
-        {characteristics.map((characteristic, idx) => (
+        {characteristicsList.map((characteristic, idx) => (
           <motion.li
             viewport={{ once: true, amount: 0.2 }}
             variants={listItemVariants}

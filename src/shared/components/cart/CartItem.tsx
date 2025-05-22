@@ -18,16 +18,16 @@ export default function CartListItem({
   const t = useTranslations('cart');
 
   const { removeFromCart } = useCartStore();
-  const { id, title, price, discountedPrice, images, category, slug } =
+  const { id, title, price, discountedPrice, mainImage, categorySlug, slug } =
     cartItem;
 
   return (
     <>
-      <Link href={`/catalog/${category?.slug}/${slug}`}>
+      <Link href={`/catalog/${categorySlug}/${slug}`}>
         <div className="relative shrink-0 aspect-[90/101] w-[90px] overflow-hidden rounded-[6px]">
           <Image
-            src={images[0]?.url || ''}
-            alt={images[0]?.alt || 'product photo'}
+            src={mainImage || ''}
+            alt={'product photo'}
             fill
             sizes="33vw"
             className="w-full h-full object-cover"
@@ -36,7 +36,7 @@ export default function CartListItem({
       </Link>
       <div className="w-full flex gap-x-2 justify-between">
         <div>
-          <Link href={`/catalog/${category?.slug}/${slug}`}>
+          <Link href={`/catalog/${categorySlug}/${slug}`}>
             <p
               className={`mb-2 xl:mb-3 text-[12px] xl:text-[14px] font-medium leading-[120%] line-clamp-2 xl:line-clamp-1 ${
                 variant === 'white' ? 'text-white' : 'text-dark'

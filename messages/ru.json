@@ -171,7 +171,7 @@
     "linkCopied": "Ссылка скопирована",
     "inStock": "В наличии",
     "outOfStock": "Нет в наличии",
-    "reviews": " отзывов",
+    "reviews": "{count, plural, one {# отзыв} few {# отзыва} many {# отзывов} other {# отзыва}}",
     "color": "ЦВЕТ",
     "hrn": " грн",
     "button": "Добавить товар в корзину",
@@ -183,8 +183,10 @@
     "idealFor": "Идеально подходит для:",
     "characteristics": {
       "title": "Характеристики товара:",
-      "weight": "500 г",
+      "weight": "Вес:",
+      "gram": " г",
       "dimensions": "Размер:",
+      "sm": " см",
       "materials": "Материалы:",
       "manufacture": "Производитель:",
       "includes": "Что входит в набор:",
@@ -242,7 +244,8 @@
   },
   "favoritesPage": {
     "title": "Избранные товары",
-    "description": "Добавляй сюда избранные товары"
+    "description": "Добавляй сюда избранные товары",
+    "noItems": "У вас ещё нет избранных товаров"
   },
   "publicContractPage": {
     "title": "Публичный договор интернет-магазина Art Lover",

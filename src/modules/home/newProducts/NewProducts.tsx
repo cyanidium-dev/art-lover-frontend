@@ -1,14 +1,23 @@
 import Image from 'next/image';
 import { Suspense } from 'react';
 import * as motion from 'motion/react-client';
-import { useTranslations } from 'next-intl';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import Container from '@/shared/components/container/Container';
 import NewProductsSlider from './NewProductsSlider';
 import Loader from '@/shared/components/loader/Loader';
+import { fetchSanityData } from '@/shared/utils/fetchSanityData';
+import { allNewProductsQuery } from '@/shared/lib/queries';
 
-export default function NewProducts() {
-  const t = useTranslations('homePage.newProducts');
+export default async function NewProducts() {
+  const locale = await getLocale();
+  const t = await getTranslations('homePage.newProducts');
+
+  const newProductsList = await fetchSanityData(allNewProductsQuery, {
+    lang: locale,
+  });
+
+  if (!newProductsList || !newProductsList.length) return null;
 
   return (
     <section className="pt-20 xl:pt-[158px]">
@@ -82,7 +91,7 @@ export default function NewProducts() {
         </div>
       </Container>
       <Suspense fallback={<Loader />}>
-        <NewProductsSlider />
+        <NewProductsSlider newProductsList={newProductsList} />
       </Suspense>
     </section>
   );

@@ -1,27 +1,32 @@
-import { Category } from './category';
-
-type Characteristic = {
-  title: string;
-  description: string | string[];
-};
-
 export interface Product {
   id: string;
-  category: Category;
+  categorySlug: string;
+  categoryTitle: string;
+  subcategorySlug: string;
+  subcategoryTitle: string;
   slug: string;
   title: string;
-  available: boolean;
+  inStock: boolean;
   description: string;
   fullDescription: string;
   delivery: string;
   price: number;
   discountedPrice?: number;
-  images: { url: string; alt: string }[];
+  mainImage: string;
+  images: string[];
   bestseller?: boolean;
   newProduct?: boolean;
   idealFor: string[];
-  characteristics: Characteristic[];
+  characteristics: {
+    weight: string;
+    dimensions: { height: number; width: number; length: number };
+    article: string;
+    kitContents: string[];
+    manufacturer: string;
+    materials: string;
+  };
   benefits: { icon: string; description: string }[];
   addons: { title: string; price: number }[];
   colors: { title: string; hex: string }[];
+  reviews: { author: string; rating: number; text: string }[];
 }

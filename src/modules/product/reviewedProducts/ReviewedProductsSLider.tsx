@@ -2,8 +2,8 @@
 import { useState } from 'react';
 import { SwiperSlide } from 'swiper/react';
 import { motion } from 'motion/react';
+import { useReviewedProductsStore } from '@/shared/store/reviewedProductsStore';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
-import { productsList } from '@/modules/home/bestsellers/mockedData';
 import SwiperWrapper from '@/shared/components/swiper/SwiperWrapper';
 import ProductCard from '@/shared/components/productCard/ProductCard';
 import AddedToCartPopUp from '@/shared/components/pop-ups/AddedToCartPopUp';
@@ -14,7 +14,9 @@ export default function ReviewedProductsSlider() {
   const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
   const [isCartModalShown, setIsCartModalShown] = useState(false);
 
-  if (!productsList || !productsList.length) return null;
+  const { reviewedProducts } = useReviewedProductsStore();
+
+  if (!reviewedProducts) return null;
 
   return (
     <>
@@ -44,7 +46,7 @@ export default function ReviewedProductsSlider() {
             },
           }}
         >
-          {productsList.map((reviewedProduct, idx) => (
+          {reviewedProducts.map((reviewedProduct, idx) => (
             <SwiperSlide key={idx}>
               <ProductCard
                 setIsAddedToCartPopUpShown={setIsAddedToCartPopUpShown}

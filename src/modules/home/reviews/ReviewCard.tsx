@@ -11,7 +11,16 @@ interface ReviewCardProps {
 }
 
 export default function ReviewCard({ review }: ReviewCardProps) {
-  const { images, title, author, text, rating, createdAt, slug } = review;
+  const {
+    productMainImage,
+    productTitle,
+    author,
+    text,
+    rating,
+    createdAt,
+    productCategorySlug,
+    productSlug,
+  } = review;
 
   const formattedDate = formatDate(createdAt);
 
@@ -25,11 +34,11 @@ export default function ReviewCard({ review }: ReviewCardProps) {
         className="hidden xl:block absolute top-0 right-0"
       />
       <div>
-        <Link href={`/catalog/${slug}`}>
+        <Link href={`/catalog/${productCategorySlug}/${productSlug}`}>
           <div className="relative h-[85px] xl:h-[95px] mb-3 xl:mb-5 rounded-[8px]  xl:rounded-[16px] overflow-hidden">
             <Image
-              src={images[0]?.url || ''}
-              alt={images[0]?.alt || 'product photo'}
+              src={productMainImage || ''}
+              alt={'product photo'}
               fill
               sizes="33vw"
               className="object-cover"
@@ -39,7 +48,7 @@ export default function ReviewCard({ review }: ReviewCardProps) {
             Товар:
           </p>
           <h3 className="mb-3 xl:mb-[14px] text-[14px] xl:text-[18px] font-medium leading-[120%] line-clamp-1">
-            {title}
+            {productTitle}
           </h3>
         </Link>
         <p className="mb-2 xl:mb-5 text-[12px] xl:text-[16px] font-normal xl:font-light leading-[125%] text-justify">

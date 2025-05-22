@@ -3,24 +3,22 @@ import { useState } from 'react';
 import { SwiperSlide } from 'swiper/react';
 import { motion } from 'motion/react';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
-import { productsList } from '../bestsellers/mockedData';
 import ProductCard from '@/shared/components/productCard/ProductCard';
 import SwiperWrapper from '@/shared/components/swiper/SwiperWrapper';
 import AddedToCartPopUp from '@/shared/components/pop-ups/AddedToCartPopUp';
 import CartModal from '@/shared/components/cart/Cart';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
+import { Product } from '@/types/product';
 
-export default function DiscountedProductsSLider() {
+interface DiscountedProductsSLiderProps {
+  discountedProductsList: Product[];
+}
+
+export default function DiscountedProductsSLider({
+  discountedProductsList,
+}: DiscountedProductsSLiderProps) {
   const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
   const [isCartModalShown, setIsCartModalShown] = useState(false);
-
-  if (!productsList || !productsList.length) return null;
-
-  const discountedProductsList = productsList.filter(
-    product => product.discountedPrice
-  );
-
-  if (!discountedProductsList || !discountedProductsList.length) return null;
 
   return (
     <>

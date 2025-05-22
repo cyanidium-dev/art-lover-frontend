@@ -3,22 +3,22 @@ import { useState } from 'react';
 import { SwiperSlide } from 'swiper/react';
 import { motion } from 'motion/react';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
-import { productsList } from '../bestsellers/mockedData';
 import ProductCard from '@/shared/components/productCard/ProductCard';
 import SwiperWrapper from '@/shared/components/swiper/SwiperWrapper';
 import AddedToCartPopUp from '@/shared/components/pop-ups/AddedToCartPopUp';
 import CartModal from '@/shared/components/cart/Cart';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
+import { Product } from '@/types/product';
 
-export default function NewProductsSlider() {
+interface NewProductsSliderProps {
+  newProductsList: Product[];
+}
+
+export default function NewProductsSlider({
+  newProductsList,
+}: NewProductsSliderProps) {
   const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
   const [isCartModalShown, setIsCartModalShown] = useState(false);
-
-  if (!productsList || !productsList.length) return null;
-
-  const newProductsList = productsList.filter(product => product.newProduct);
-
-  if (!newProductsList || !newProductsList.length) return null;
 
   return (
     <>

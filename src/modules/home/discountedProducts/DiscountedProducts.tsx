@@ -3,12 +3,24 @@ import Container from '@/shared/components/container/Container';
 import DiscountedProductsSLider from './DiscountedProductsSLider';
 import { Suspense } from 'react';
 import * as motion from 'motion/react-client';
-import { useTranslations } from 'next-intl';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import Loader from '@/shared/components/loader/Loader';
+import { fetchSanityData } from '@/shared/utils/fetchSanityData';
+import { allDiscountedProductsQuery } from '@/shared/lib/queries';
 
-export default function DiscountedProducts() {
-  const t = useTranslations('homePage.discountedProducts');
+export default async function DiscountedProducts() {
+  const locale = await getLocale();
+  const t = await getTranslations('homePage.discountedProducts');
+
+  const discountedProductsList = await fetchSanityData(
+    allDiscountedProductsQuery,
+    {
+      lang: locale,
+    }
+  );
+
+  if (!discountedProductsList || !discountedProductsList.length) return null;
 
   return (
     <section className="pt-20 xl:pt-[158px]">
@@ -82,7 +94,9 @@ export default function DiscountedProducts() {
         </div>
       </Container>
       <Suspense fallback={<Loader />}>
-        <DiscountedProductsSLider />
+        <DiscountedProductsSLider
+          discountedProductsList={discountedProductsList}
+        />
       </Suspense>
     </section>
   );

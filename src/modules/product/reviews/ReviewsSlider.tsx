@@ -4,9 +4,13 @@ import { useTranslations } from 'next-intl';
 import { SwiperSlide } from 'swiper/react';
 import { motion } from 'motion/react';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
-import { reviewsList } from '@/modules/home/reviews/mockedData';
 import SwiperWrapper from '@/shared/components/swiper/SwiperWrapper';
 import ReviewCard from './ReviewCard';
+import { Product } from '@/types/product';
+
+interface ReviewsSliderProps {
+  currentProduct: Product;
+}
 
 function chunkArray<T>(arr: T[], size: number): T[][] {
   const chunked: T[][] = [];
@@ -16,10 +20,12 @@ function chunkArray<T>(arr: T[], size: number): T[][] {
   return chunked;
 }
 
-export default function ReviewsSlider() {
+export default function ReviewsSlider({ currentProduct }: ReviewsSliderProps) {
   const t = useTranslations('productPage.reviewsSection');
 
-  const chunkedReviews = chunkArray(reviewsList, 3);
+  const { reviews } = currentProduct;
+
+  const chunkedReviews = chunkArray(reviews, 3);
 
   return (
     <motion.div
@@ -36,10 +42,10 @@ export default function ReviewsSlider() {
             {t('title')}
           </h2>
           <p className="mt-[1px] text-[10px] xl:text-[16px] font-normal leading-none">
-            ({reviewsList.length})
+            ({reviews.length})
           </p>
         </div>
-        {reviewsList && reviewsList.length ? (
+        {reviews && reviews.length ? (
           <div className="w-[calc(100%-105px-24px)] h-[0.5px] opacity-50 bg-dark"></div>
         ) : null}
       </div>
@@ -57,8 +63,8 @@ export default function ReviewsSlider() {
         {chunkedReviews.map((group, idx) => (
           <SwiperSlide key={idx}>
             <div className="flex flex-col gap-y-4 xl:gap-y-5">
-              {group.map(review => (
-                <ReviewCard key={review.id} review={review} />
+              {group.map((review, idx) => (
+                <ReviewCard key={idx} review={review} />
               ))}
             </div>
           </SwiperSlide>

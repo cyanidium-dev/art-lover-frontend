@@ -3,11 +3,15 @@
 import { SwiperSlide } from 'swiper/react';
 import { motion } from 'motion/react';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
-import { reviewsList } from './mockedData';
 import SwiperWrapper from '@/shared/components/swiper/SwiperWrapper';
 import ReviewCard from './ReviewCard';
+import { Review } from '@/types/review';
 
-export default function ReviewsSlider() {
+interface ReviewsSliderProps {
+  reviewsList: Review[];
+}
+
+export default function ReviewsSlider({ reviewsList }: ReviewsSliderProps) {
   return (
     <motion.div
       initial="hidden"

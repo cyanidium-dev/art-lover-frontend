@@ -171,7 +171,7 @@
     "linkCopied": "Link copied",
     "inStock": "In stock",
     "outOfStock": "Out of stock",
-    "reviews": " reviews",
+    "reviews": "{count, plural, one {# review} other {# reviews}}",
     "color": "COLOR",
     "hrn": " UAH",
     "button": "Add product to cart",
@@ -183,8 +183,10 @@
     "idealFor": "Ideal for:",
     "characteristics": {
       "title": "Product characteristics:",
-      "weight": "500 g",
+      "weight": "Weight:",
+      "gram": " g",
       "dimensions": "Dimensions:",
+      "sm": " sm",
       "materials": "Materials:",
       "manufacture": "Manufacturer:",
       "includes": "Includes in the set:",
@@ -242,7 +244,8 @@
   },
   "favoritesPage": {
     "title": "Favorite Products",
-    "description": "Add your favorite products here"
+    "description": "Add your favorite products here",
+    "noItems": "You don't have any favorite items yet"
   },
   "publicContractPage": {
     "title": "Public Agreement of the Art Lover Online Store",

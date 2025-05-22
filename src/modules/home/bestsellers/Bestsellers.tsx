@@ -2,13 +2,23 @@ import Image from 'next/image';
 import Container from '@/shared/components/container/Container';
 import BestsellersSlider from './BestsellersSlider';
 import { Suspense } from 'react';
+import { getLocale, getTranslations } from 'next-intl/server';
 import * as motion from 'motion/react-client';
-import { useTranslations } from 'next-intl';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
+import { fetchSanityData } from '@/shared/utils/fetchSanityData';
+import { allBestsellersQuery } from '@/shared/lib/queries';
 import Loader from '@/shared/components/loader/Loader';
 
-export default function Bestsellers() {
-  const t = useTranslations('homePage.bestsellers');
+export default async function Bestsellers() {
+  const locale = await getLocale();
+  const t = await getTranslations('homePage.bestsellers');
+
+  const bestsellersList = await fetchSanityData(
+   allBestsellersQuery,
+    {
+      lang: locale,
+    }
+  );
 
   return (
     <section className="pt-20 xl:pt-[158px]">
@@ -50,7 +60,7 @@ export default function Bestsellers() {
         </motion.p>
       </Container>
       <Suspense fallback={<Loader />}>
-        <BestsellersSlider />
+        <BestsellersSlider bestsellersList={bestsellersList}/>
       </Suspense>
     </section>
   );
