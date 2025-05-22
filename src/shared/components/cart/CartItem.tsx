@@ -26,7 +26,7 @@ export default function CartListItem({
       <Link href={`/catalog/${categorySlug}/${slug}`}>
         <div className="relative shrink-0 aspect-[90/101] w-[90px] overflow-hidden rounded-[6px]">
           <Image
-            src={mainImage || ''}
+            src={mainImage}
             alt={'product photo'}
             fill
             sizes="33vw"

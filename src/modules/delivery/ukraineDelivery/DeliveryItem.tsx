@@ -21,7 +21,7 @@ export default function DeliveryItem({ deliveryItem }: DeliveryItemProps) {
     >
       <div className="relative w-50 h-25 overflow-hidden mb-6 xl:mb-10 mx-auto">
         <Image
-          src={image?.url || ''}
+          src={image?.url}
           alt={image?.alt || 'post icon'}
           fill
           sizes="33vw"

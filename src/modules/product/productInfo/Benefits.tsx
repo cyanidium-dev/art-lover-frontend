@@ -36,7 +36,7 @@ export default function Benefits() {
           className="flex items-center gap-x-6 px-5 py-3 not-last:border-b not-last:border-orange"
         >
           <Image
-            src={benefit?.icon || ''}
+            src={benefit?.icon}
             alt={benefit?.description || 'icon'}
             width={40}
             height={40}

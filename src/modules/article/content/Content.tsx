@@ -61,7 +61,7 @@ export default function Content({ article }: ContentProps) {
             className="relative w-full md:w-[calc(50%-12px)] h-[181px] md:h-[229px] xl:h-[329px] rounded-[16px] overflow-hidden shadow-social"
           >
             <Image
-              src={images[0] || ''}
+              src={images[0]}
               alt={'article image'}
               sizes="(max-width: 768px) 100vw, 50vw"
               fill
@@ -77,7 +77,7 @@ export default function Content({ article }: ContentProps) {
             className="relative md:w-[calc(50%-12px)] h-[181px] md:h-[229px] xl:h-[329px] rounded-[16px] overflow-hidden shadow-social"
           >
             <Image
-              src={images[1] || ''}
+              src={images[1]}
               alt={'article image'}
               sizes="(max-width: 768px) 100vw, 50vw"
               fill

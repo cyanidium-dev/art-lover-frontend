@@ -20,7 +20,7 @@ export default function BlogCard({ article }: BlogCardProps) {
       <Link href={`/blog/${slug}`}>
         <div className="relative h-[116px] xs:h-[180px] lg:h-[213px] mb-4 rounded-[8px] xl:rounded-[16px] overflow-hidden">
           <Image
-            src={images[0] || ''}
+            src={images[0]}
             alt={'blog photo'}
             fill
             sizes="(max-width: 768px) 100vw, 33vw"

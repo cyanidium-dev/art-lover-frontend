@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import { useLocale } from 'next-intl';
 import HeartIcon from '@/shared/components/icons/HeartIcon';
 import { Link } from '@/i18n/navigation';
 
@@ -10,7 +11,8 @@ interface NavbarFavoriteProps {
 
 const NavbarFavorite = ({ onClick }: NavbarFavoriteProps) => {
   const pathname = usePathname();
-  const isActive = pathname === '/favorites';
+  const locale = useLocale();
+  const isActive = pathname === `/${locale}/favorites`;
 
   return (
     <Link
