@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import * as motion from 'motion/react-client';
 import { useCartStore } from '@/shared/store/cartStore';
-import { useFavoritesStore } from '@/shared/store/favoritesStore';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import { Rating } from 'react-simple-star-rating';
 import IconButton from '@/shared/components/buttons/IconButton';
@@ -19,8 +18,7 @@ import Counter from './Counter';
 import AddedToCartPopUp from '@/shared/components/pop-ups/AddedToCartPopUp';
 import CartModal from '@/shared/components/cart/Cart';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
-import HeartIcon from '@/shared/components/icons/HeartIcon';
-import EmptyHeartIcon from '@/shared/components/icons/EmptyHeartIcon';
+import FavoriteIcon from './FavoriteIcon';
 
 interface OrderProductProps {
   currentProduct: Product;
@@ -28,16 +26,6 @@ interface OrderProductProps {
 
 export default function OrderProduct({ currentProduct }: OrderProductProps) {
   const t = useTranslations('productPage');
-
-  const { addFavorite, removeFavorite, isFavorite } = useFavoritesStore();
-
-  const toggleFavorite = () => {
-    if (isFavorite(currentProduct.slug)) {
-      removeFavorite(currentProduct.slug);
-    } else {
-      addFavorite(currentProduct);
-    }
-  };
 
   const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
   const [isCartModalShown, setIsCartModalShown] = useState(false);
@@ -234,16 +222,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
         >
           {t('button')}
         </MainButton>
-        <button
-          onClick={toggleFavorite}
-          aria-label="add to favorites"
-          className="group cursor-pointer flex items-center justify-center shrink-0 size-12 xl:w-[63px] xl:h-[58px] rounded-[8px] bg-dark xl:hover:brightness-125 
-          focus-visible:brightness-125 active:scale-95 transition duration-300 ease-in-out"
-        >
-          <EmptyHeartIcon
-            className={`size-6 xl:size-[34px] ${isFavorite(currentProduct.slug) ? 'text-orange' : 'text-white'} transition duration-300 ease-in-out`}
-          />
-        </button>
+        <FavoriteIcon currentProduct={currentProduct} />
       </motion.div>
       <AddedToCartPopUp
         isPopUpShown={isAddedToCartPopUpShown}

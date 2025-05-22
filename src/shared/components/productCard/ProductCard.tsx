@@ -45,7 +45,7 @@ export default function ProductCard({
           alt="promotion label"
           width="169"
           height="109"
-          className="absolute z-10 top-0 right-0"
+          className="absolute z-10 top-0 right-0 pointer-events-none"
         />
       ) : null}
       <Link href={`/catalog/${category}/${slug}`}>

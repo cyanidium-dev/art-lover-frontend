@@ -147,6 +147,10 @@
   transform: scale(0.95);
 }
 
+.product-reviews .swiper-button-lock {
+  display: block !important;
+}
+
 .swiper-button-disabled {
   background-color: var(--white);
   box-shadow: 3px 3px 10px 0px rgba(36, 36, 36, 0.08);

@@ -45,8 +45,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <Suspense fallback={<Loader />}>
         <Breadcrumbs crumbs={crumbs} />
         <ProductInfo currentProduct={currentProduct} />
+        <Reviews currentProduct={currentProduct} />
       </Suspense>
-      <Reviews />
       <SimilarProducts />
       <ReviewedProducts />
     </>

@@ -1,10 +1,9 @@
 import { Rating } from 'react-simple-star-rating';
-import { Review } from '@/types/review';
 import StarFilledIcon from '@/shared/components/icons/StarFilledIcon';
 import StarEmptyIcon from '@/shared/components/icons/StarEmptyIcon';
 
 interface ReviewCardProps {
-  review: Review;
+  review: { author: string; rating: number; text: string };
 }
 
 export default function ReviewCard({ review }: ReviewCardProps) {
