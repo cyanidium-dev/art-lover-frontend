@@ -20,8 +20,6 @@ export default function DiscountedProductsSLider({
   const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
   const [isCartModalShown, setIsCartModalShown] = useState(false);
 
-  console.log(discountedProductsList);
-
   return (
     <>
       <motion.div

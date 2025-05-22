@@ -1,8 +1,9 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import * as motion from 'motion/react-client';
 import { useCartStore } from '@/shared/store/cartStore';
+import { useReviewedProductsStore } from '@/shared/store/reviewedProductsStore';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import { Rating } from 'react-simple-star-rating';
 import IconButton from '@/shared/components/buttons/IconButton';
@@ -26,6 +27,7 @@ interface OrderProductProps {
 
 export default function OrderProduct({ currentProduct }: OrderProductProps) {
   const t = useTranslations('productPage');
+  const { addReviewedProduct } = useReviewedProductsStore();
 
   const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
   const [isCartModalShown, setIsCartModalShown] = useState(false);
@@ -85,6 +87,12 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
       console.error('Failed to copy link:', err);
     }
   };
+
+  useEffect(() => {
+    if (currentProduct) {
+      addReviewedProduct(currentProduct);
+    }
+  }, [currentProduct, addReviewedProduct]);
 
   return (
     <div className="mb-20 md:mb-8">

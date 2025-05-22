@@ -24,8 +24,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
     lang: locale,
   });
 
-  console.log(currentProduct);
-
   if (!currentProduct) return null;
 
   const crumbs = [
