@@ -32,6 +32,7 @@ export default function TabMenu({ activeTab, categoryProducts }: TabMenuProps) {
   const handleTabClick = (menu: { title: string; value: string }) => {
     const params = new URLSearchParams(window.location.search);
     params.set('subcategory', menu.value);
+    params.set('page', '1');
     router.push(`?${params.toString()}`, { scroll: false });
   };
 
