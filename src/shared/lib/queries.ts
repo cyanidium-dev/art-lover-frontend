@@ -36,7 +36,7 @@ export const allDiscountedProductsQuery = `*[_type == "product" && defined(disco
 }`;
 
 export const singleProductQuery = `
-  *[_type == "product" && slug.current == $slug][0]{
+*[_type == "product" && slug.current == $slug][0]{
     "id": _id,
     "slug": slug.current,
     "title": title[$lang],
@@ -52,8 +52,8 @@ export const singleProductQuery = `
     "price": price,
     "discountedPrice": discountedPrice,
     "inStock": inStock,
-    "sku": sku,
-    "weight": weight,
+    
+    "characteristics": {"weight": weight,
     "dimensions": {
       "width": dimensions.width,
       "height": dimensions.height,
@@ -62,13 +62,14 @@ export const singleProductQuery = `
     "materials": materials[$lang],
     "manufacturer": manufacturer[$lang],
     "kitContents": kitContents[$lang],
-    "tags": tags[].[$lang],
+    "article": sku},
+      "idealFor": tags[].[$lang],
     "colors": colors[] {
-      name,
-      value
+      "title": name,
+      "hex": value.hex
     },
-    "additions": additions[] {
-      "name": name[$lang],
+    "addons": additions[] {
+      "title": name[$lang],
       "price": price
     },
     "professions": professions[]-> {

@@ -12,16 +12,18 @@ interface ImagePickerProps {
 }
 
 export default function ImagePicker({ currentProduct }: ImagePickerProps) {
-  const { images, price, discountedPrice } = currentProduct;
+  const { images, mainImage, price, discountedPrice } = currentProduct;
+
+  const imagesList = [mainImage, ...images];
 
   const [currentIdx, setCurrentIdx] = useState(0);
 
   const next = () => {
-    setCurrentIdx(prev => (prev + 1) % images.length);
+    setCurrentIdx(prev => (prev + 1) % imagesList.length);
   };
 
   const prev = () => {
-    setCurrentIdx(prev => (prev - 1 + images.length) % images.length);
+    setCurrentIdx(prev => (prev - 1 + imagesList.length) % imagesList.length);
   };
 
   const swipeHandlers = useSwipeable({
@@ -43,9 +45,9 @@ export default function ImagePicker({ currentProduct }: ImagePickerProps) {
       <div className="relative overflow-hidden rounded-[6px] xl:rounded-[10px] h-[289px] xs:h-[349px] md:h-[300px] lg:h-[420px] xl:h-[528px]">
         <AnimatePresence>
           <motion.img
-            key={images[currentIdx].url}
-            src={images[currentIdx].url}
-            alt={images[currentIdx].alt}
+            key={imagesList[currentIdx]}
+            src={imagesList[currentIdx]}
+            alt={'product photo'}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -100,9 +102,9 @@ export default function ImagePicker({ currentProduct }: ImagePickerProps) {
         className="pb-2 mt-4 flex gap-4 xl:gap-x-[15px] overflow-x-auto scrollbar scrollbar-h-[2.5px] xl:scrollbar-h-[4.5px] scrollbar-thumb-rounded-full 
          scrollbar-track-rounded-full scrollbar-thumb-orange scrollbar-track-transparent"
       >
-        {images.map((img, idx) => (
+        {imagesList.map((img, idx) => (
           <button
-            key={img.url}
+            key={img}
             onClick={() => setCurrentIdx(idx)}
             className={`cursor-pointer w-22 xl:w-24 h-22 xl:h-24 rounded-[6px] xl:rounded-[12px] overflow-hidden shrink-0 border-2 ${
               idx === currentIdx
@@ -112,8 +114,8 @@ export default function ImagePicker({ currentProduct }: ImagePickerProps) {
           >
             <div className={`relative w-full h-full `}>
               <Image
-                src={img.url}
-                alt={img.alt}
+                src={img}
+                alt={'product photo'}
                 fill
                 className="w-full h-full object-cover rounded-[4px] xl:rounded-[8px] transition-all duration-300 ease-in-out"
               />

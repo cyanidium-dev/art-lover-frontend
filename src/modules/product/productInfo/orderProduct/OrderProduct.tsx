@@ -10,7 +10,6 @@ import MainButton from '@/shared/components/buttons/MainButton';
 import StarFilledIcon from '@/shared/components/icons/StarFilledIcon';
 import StarEmptyIcon from '@/shared/components/icons/StarEmptyIcon';
 import { Product } from '@/types/product';
-import { reviewsList } from '@/modules/home/reviews/mockedData';
 import { getAverageRating } from '@/shared/utils/getAverageRating';
 import Image from 'next/image';
 import AddonsList from './AddonsList';
@@ -36,14 +35,15 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
     id,
     title,
     description,
-    available,
+    inStock,
     addons,
     colors,
     price,
     mainImage,
     category,
-     slug,
+    slug,
     discountedPrice,
+    reviews,
   } = currentProduct;
 
   const [selectedColor, setSelectedColor] = useState({
@@ -57,7 +57,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
     }[]
   >([]);
 
-  const rating = getAverageRating(reviewsList);
+  const rating = getAverageRating(reviews);
 
   const handleAddToCartClick = () => {
     addToCart({
@@ -136,10 +136,10 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
       >
         <p
           className={`text-[12px] xl:text-[16px] font-normal leading-[120%] ${
-            available ? 'text-green' : 'text-red-500'
+            inStock ? 'text-green' : 'text-red-500'
           }`}
         >
-          {available ? t('inStock') : t('outOfStock')}
+          {inStock ? t('inStock') : t('outOfStock')}
         </p>
         <Rating
           initialValue={rating}
@@ -162,7 +162,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
         variants={fadeInAnimation({ y: 30, delay: 0.6 })}
         className="mb-6 xl:mb-[26.5px] text-right text-[10px] xl:text-[14px] font-light leading-[120%]"
       >
-        ({reviewsList?.length} {t('reviews')})
+        ({t('reviews', { count: reviews?.length })})
       </motion.p>
       {!addons || !addons.length ? null : (
         <AddonsList
@@ -193,6 +193,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
               {discountedPrice}
               {t('hrn')}
             </span>
+            &nbsp;&nbsp;
             <span className="text-[12px] xl:text-[16px] font-normal leading-[120%] line-through">
               {price}
               {t('hrn')}

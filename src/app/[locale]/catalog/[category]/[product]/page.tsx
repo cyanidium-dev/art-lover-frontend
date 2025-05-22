@@ -7,6 +7,8 @@ import SimilarProducts from '@/modules/product/similarProducts/SimilarProducts';
 import { fetchSanityData } from '@/shared/utils/fetchSanityData';
 import { singleProductQuery } from '@/shared/lib/queries';
 import { Locale } from '@/types/locale';
+import { Suspense } from 'react';
+import Loader from '@/shared/components/loader/Loader';
 
 interface ProductPageProps {
   params: Promise<{ category: string; product: string; locale: Locale }>;
@@ -40,8 +42,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <>
-      <Breadcrumbs crumbs={crumbs} />
-      <ProductInfo currentProduct={currentProduct} />
+      <Suspense fallback={<Loader />}>
+        <Breadcrumbs crumbs={crumbs} />
+        <ProductInfo currentProduct={currentProduct} />
+      </Suspense>
       <Reviews />
       <SimilarProducts />
       <ReviewedProducts />

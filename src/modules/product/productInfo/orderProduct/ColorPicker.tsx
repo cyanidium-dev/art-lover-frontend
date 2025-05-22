@@ -31,8 +31,8 @@ export default function ColorPicker({
         {t('color')}
       </h3>
       <ul className="flex flex-wrap gap-x-[7px] xl:gap-x-[14px]">
-        {colors.map((color, idx) => (
-          <li key={idx}>
+        {colors.map(color => (
+          <li key={color?.hex}>
             <button
               onClick={() =>
                 setSelectedColor({ title: color?.title, hex: color?.hex })

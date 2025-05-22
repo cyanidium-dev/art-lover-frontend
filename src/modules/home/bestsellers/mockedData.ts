@@ -6,7 +6,8 @@ const productTemplate = {
   subcategory: '',
   slug: 'string-art-portrait-kit',
   title: 'String Art Portrait Kit',
-  available: true,
+  inStock: true,
+  reviews: [],
   description:
     'Custom Thread Portrait Kit, DIY Wall Decor, Personalized String Art Portrait Gift, Handmade Unique Gift, Creative Art Kit, Wall Art Gift',
   fullDescription:
