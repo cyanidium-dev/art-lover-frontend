@@ -21,7 +21,7 @@ export default function ProductCard({
 
   const { addToCart } = useCartStore();
 
-  const { id, title, price, discountedPrice, mainImage, slug, category } =
+  const { id, title, price, discountedPrice, mainImage, slug, categorySlug } =
     product;
 
   const handleClick = () => {
@@ -31,7 +31,7 @@ export default function ProductCard({
       title,
       price,
       mainImage,
-      category,
+      categorySlug,
       slug,
       quantity: 1,
     });
@@ -48,7 +48,7 @@ export default function ProductCard({
           className="absolute z-10 top-0 right-0 pointer-events-none"
         />
       ) : null}
-      <Link href={`/catalog/${category}/${slug}`}>
+      <Link href={`/catalog/${categorySlug}/${slug}`}>
         <div className="relative h-[120px] md:h-[180px] lg:h-[200px] xl:h-[300px] mb-3 xl:mb-4 rounded-[8px] xl:rounded-[16px] overflow-hidden">
           <Image
             src={mainImage}
@@ -81,7 +81,10 @@ export default function ProductCard({
         </h3>
       </Link>
       <div className="flex justify-between gap-x-0.5 xs:gap-x-3 xl:gap-x-2">
-        <Link href={`/catalog/${category}/${slug}`} className="block w-full">
+        <Link
+          href={`/catalog/${categorySlug}/${slug}`}
+          className="block w-full"
+        >
           <SecondaryButton className="w-full max-w-[102px] xs:max-w-full h-9 xl:h-10">
             {t('button')}
           </SecondaryButton>

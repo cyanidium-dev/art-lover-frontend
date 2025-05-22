@@ -1,7 +1,9 @@
 export interface Product {
   id: string;
-  category: string;
-  subcategory: string;
+  categorySlug: string;
+  categoryTitle: string;
+  subcategorySlug: string;
+  subcategoryTitle: string;
   slug: string;
   title: string;
   inStock: boolean;

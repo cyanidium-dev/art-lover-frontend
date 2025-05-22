@@ -101,6 +101,18 @@ export const singleProductQuery = `
   }
 `;
 
+export const allSimilarProductsQuery = `*[_type == "product" 
+  && category->slug.current == $categorySlug 
+  && slug.current != $excludeSlug
+]{
+  "title": title[$lang],
+  price,
+  discountedPrice,
+  "slug": slug.current,
+  "categorySlug": category->slug.current,
+  "mainImage": mainImage.asset->url,
+  }`;
+
 export const allPostsQuery = `
   *[_type == "post"]  | order(_createdAt desc) {
     "id": _id,

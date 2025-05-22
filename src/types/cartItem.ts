@@ -1,7 +1,7 @@
 export interface CartItem {
   id: string;
   title: string;
-  category: string;
+  categorySlug: string;
   slug: string;
   price: number;
   discountedPrice?: number;

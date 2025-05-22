@@ -8,14 +8,17 @@ import ProductCard from '@/shared/components/productCard/ProductCard';
 import AddedToCartPopUp from '@/shared/components/pop-ups/AddedToCartPopUp';
 import CartModal from '@/shared/components/cart/Cart';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
+import { Product } from '@/types/product';
 
-export default function SimilarProductsSlider() {
+interface SimilarProductsSliderProps {
+  similarProductsList: Product[];
+}
+
+export default function SimilarProductsSlider({
+  similarProductsList,
+}: SimilarProductsSliderProps) {
   const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
   const [isCartModalShown, setIsCartModalShown] = useState(false);
-
-  const productsList = null;
-
-  if (!productsList) return null;
 
   return (
     <>
@@ -45,7 +48,7 @@ export default function SimilarProductsSlider() {
             },
           }}
         >
-          {productsList.map((similarProduct, idx) => (
+          {similarProductsList.map((similarProduct, idx) => (
             <SwiperSlide key={idx}>
               <ProductCard
                 setIsAddedToCartPopUpShown={setIsAddedToCartPopUpShown}

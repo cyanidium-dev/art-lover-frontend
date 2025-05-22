@@ -24,6 +24,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
     lang: locale,
   });
 
+  console.log(currentProduct);
+
   if (!currentProduct) return null;
 
   const crumbs = [
@@ -46,8 +48,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <Breadcrumbs crumbs={crumbs} />
         <ProductInfo currentProduct={currentProduct} />
         <Reviews currentProduct={currentProduct} />
+        <SimilarProducts
+          categorySlug={currentProduct?.categorySlug}
+          excludeSlug={currentProduct?.slug}
+        />
       </Suspense>
-      <SimilarProducts />
       <ReviewedProducts />
     </>
   );
