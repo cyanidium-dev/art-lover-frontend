@@ -9,6 +9,7 @@ interface CategorySlideTwoDeskProps {
 export default function CategorySlideTwoDesk({
   categories,
 }: CategorySlideTwoDeskProps) {
+  console.log(categories[0]?.description);
   return (
     <div className="hidden md:flex gap-5">
       <Link
@@ -22,7 +23,7 @@ export default function CategorySlideTwoDesk({
           sizes="50vw"
           className="-z-10"
         />
-        <h3 className="max-w-[159px] text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-white">
+        <h3 className="max-w-[120px] lg:max-w-[159px] text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-white">
           {categories[0]?.title}
         </h3>
         <div className="ml-auto xl:mr-6">
@@ -31,6 +32,8 @@ export default function CategorySlideTwoDesk({
           </p>
           <p className="ml-10 xl:ml-[69px] font-denistina text-[20px] lg:text-[32px] leading-none text-white">
             {categories[0]?.description?.split(' ')[1]}
+            &nbsp; &nbsp;
+            <span>{categories[0]?.description?.split(' ')[2]}</span>
           </p>
         </div>
       </Link>
@@ -48,7 +51,10 @@ export default function CategorySlideTwoDesk({
           <h3 className="mb-6 text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-dark">
             {categories[1]?.title}
           </h3>
-          <p className="font-denistina text-[20px] lg:text-[32px] leading-none text-dark">
+          <p
+            style={{ wordSpacing: '8px' }}
+            className="font-denistina text-[20px] lg:text-[32px] leading-none text-dark"
+          >
             {categories[1]?.description}
           </p>
         </Link>
@@ -65,7 +71,10 @@ export default function CategorySlideTwoDesk({
           <h3 className="max-w-[176px] mb-5 text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-white">
             {categories[2]?.title}
           </h3>
-          <p className="font-denistina text-[20px] lg:text-[32px] leading-none text-white">
+          <p
+            style={{ wordSpacing: '8px' }}
+            className="font-denistina text-[20px] lg:text-[32px] leading-none text-white"
+          >
             {categories[2]?.description}
           </p>
         </Link>

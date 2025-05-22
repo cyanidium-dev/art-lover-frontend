@@ -2,12 +2,33 @@ export const allCategoriesQuery = `
   *[_type == "category"] | order(_createdAt asc) {
   "id": _id,
   "title": title[$lang],
+  "subtitle": subtitle[$lang],
   "slug": slug.current,
   icon,
   "subcategories": subcategories[]->{
     "id": _id,
     "title": title[$lang],
     "slug": slug.current
+  }
+}
+`;
+
+export const allProductsByCategoryQuery = `*[_type == "category" && slug.current == $categorySlug] {
+  "categoryTitle": title[$lang],
+  "categorySubtitle": subtitle[$lang],
+  "categorySlug": slug.current,
+  "subcategories": subcategories[]->{
+    "subcategoryTitle": title[$lang],
+    "subcategorySlug": slug.current,
+    "products": *[
+      _type == "product" && references(^._id)
+    ]{
+      "title": title[$lang],
+      "slug": slug.current,
+      price,
+      discountedPrice,
+      "mainImage": mainImage.asset->url
+    }
   }
 }
 `;
