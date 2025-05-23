@@ -49,24 +49,24 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
     reviews,
   } = currentProduct;
 
-  console.log(inStock);
+  console.log(addons);
 
   const [selectedColor, setSelectedColor] = useState({
     title: colors && colors?.length ? colors[0]?.title : '',
     hex: colors && colors?.length ? colors[0]?.hex : '',
   });
-  const [selectedAddons, setSelectedAddons] = useState<
-    {
-      title: string;
-      price: number;
-    }[]
-  >([]);
+
+  const defaultAddons = addons
+    ? addons.map(addon => ({ ...addon, checked: false }))
+    : [];
+
+  const [selectedAddons, setSelectedAddons] = useState(defaultAddons);
 
   const rating = getAverageRating(reviews);
 
   const handleAddToCartClick = () => {
     addToCart({
-      id,
+      id: `${id}${selectedColor.hex}`,
       title,
       price,
       discountedPrice,
@@ -179,7 +179,6 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
       </motion.p>
       {!addons || !addons.length || inStock !== 'in_stock' ? null : (
         <AddonsList
-          options={addons}
           selectedAddons={selectedAddons}
           setSelectedAddons={setSelectedAddons}
         />

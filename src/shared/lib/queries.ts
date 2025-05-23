@@ -154,7 +154,8 @@ export const singleProductQuery = `
     },
     "addons": additions[] {
       "title": name[$lang],
-      "price": price
+      "price": price,
+      "id": _key
     },
     "professions": professions[]-> {
       "id": _id,

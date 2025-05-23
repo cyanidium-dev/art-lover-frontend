@@ -37,7 +37,7 @@ export default function ProductCard({
     console.log(id);
     setIsAddedToCartPopUpShown(true);
     addToCart({
-      id,
+      id: `${id}${colors && colors?.length ? colors[0].hex : ''}`,
       title,
       price,
       discountedPrice,

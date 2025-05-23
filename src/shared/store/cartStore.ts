@@ -11,6 +11,7 @@ interface CartState {
   removeSingleItem: (itemId: string) => void;
   clearCart: () => void;
   getTotalAmount: () => number;
+  toggleAddonChecked: (itemId: string, addonId: string) => void;
   isCartAnimating: boolean;
   cartAnimationKey: number;
   animatingImage: { url: string; alt: string } | null;
@@ -79,7 +80,7 @@ export const useCartStore = create<CartState>()(
 
           const addonsTotal =
             item.addons?.reduce((addonSum, addon) => {
-              return addonSum + addon.price * 1;
+              return addon.checked ? addonSum + addon.price * 1 : addonSum;
             }, 0) || 0;
 
           return sum + baseTotal + addonsTotal;
@@ -114,6 +115,24 @@ export const useCartStore = create<CartState>()(
             }
           }
           return state;
+        });
+      },
+
+      toggleAddonChecked: (itemId: string, addonId: string) => {
+        set(state => {
+          const updatedCartItems = state.cartItems.map(item => {
+            if (item.id === itemId && item.addons) {
+              const updatedAddons = item.addons.map(addon => {
+                if (addon.id === addonId) {
+                  return { ...addon, checked: !addon.checked };
+                }
+                return addon;
+              });
+              return { ...item, addons: updatedAddons };
+            }
+            return item;
+          });
+          return { cartItems: updatedCartItems };
         });
       },
 

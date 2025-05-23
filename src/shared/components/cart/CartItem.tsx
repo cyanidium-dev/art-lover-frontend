@@ -20,7 +20,7 @@ export default function CartListItem({
 }: CartItemProps) {
   const t = useTranslations('cart');
 
-  const { removeFromCart } = useCartStore();
+  const { removeFromCart, toggleAddonChecked } = useCartStore();
   const {
     id,
     title,
@@ -99,18 +99,19 @@ export default function CartListItem({
           </IconButton>
         </div>
       </div>
-      {addons?.length ? (
+
+      {addons && addons?.length ? (
         <ul className="flex flex-col gap-2 p-3 text-white border-t border-white rounded-[8px]">
-          {addons.map((addon, idx) => {
+          {addons.map(addon => {
             return (
-              <li key={idx}>
+              <li key={addon.id}>
                 <label className="cursor-pointer flex items-center justify-between">
                   <div className="flex items-center gap-x-5">
                     <span className="relative inline-block w-5 xl:w-6 h-5 xl:h-6">
                       <input
                         type="checkbox"
-                        checked
-                        onChange={() => console.log('remove addon')}
+                        checked={addon.checked}
+                        onChange={() => toggleAddonChecked(id, addon.id)}
                         className="peer appearance-none w-full h-full border border-white rounded-[6px] transition duration-300 ease-in-out"
                       />
                       <svg
