@@ -72,10 +72,18 @@ export const useCartStore = create<CartState>()(
 
       getTotalAmount: () => {
         const { cartItems } = get();
-        return cartItems.reduce(
-          (sum, item) => sum + item.price * item.quantity,
-          0
-        );
+        return cartItems.reduce((sum, item) => {
+          const baseTotal = item.discountedPrice
+            ? item.discountedPrice * item.quantity
+            : item.price * item.quantity;
+
+          const addonsTotal =
+            item.addons?.reduce((addonSum, addon) => {
+              return addonSum + addon.price * 1;
+            }, 0) || 0;
+
+          return sum + baseTotal + addonsTotal;
+        }, 0);
       },
 
       increaseQuantity: itemId => {

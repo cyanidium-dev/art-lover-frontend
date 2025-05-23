@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import MainButton from '../buttons/MainButton';
 import { motion } from 'framer-motion';
-import { getTotalSum } from '@/shared/utils/getTotalSum';
+import { useCartStore } from '@/shared/store/cartStore';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import { CartItem } from '@/types/cartItem';
 
@@ -19,8 +19,9 @@ export default function CartTotal({
 }: CartTotalProps) {
   const t = useTranslations('cart');
   const [total, setTotal] = useState(0);
+  const { getTotalAmount } = useCartStore();
 
-  const sum = getTotalSum(cartItems);
+  const sum = getTotalAmount();
 
   useEffect(() => {
     setTotal(sum);

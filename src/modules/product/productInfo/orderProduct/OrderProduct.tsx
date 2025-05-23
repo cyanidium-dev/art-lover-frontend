@@ -49,9 +49,11 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
     reviews,
   } = currentProduct;
 
+  console.log(inStock);
+
   const [selectedColor, setSelectedColor] = useState({
-    title: colors[0]?.title || '',
-    hex: colors[0]?.hex || '',
+    title: colors && colors?.length ? colors[0]?.title : '',
+    hex: colors && colors?.length ? colors[0]?.hex : '',
   });
   const [selectedAddons, setSelectedAddons] = useState<
     {
@@ -67,11 +69,13 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
       id,
       title,
       price,
+      discountedPrice,
       mainImage,
       categorySlug,
       slug,
       quantity: count,
       color: selectedColor,
+      addons: selectedAddons,
     });
     setIsAddedToCartPopUpShown(true);
   };
@@ -145,10 +149,10 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
       >
         <p
           className={`text-[12px] xl:text-[16px] font-normal leading-[120%] ${
-            inStock ? 'text-green' : 'text-red-500'
+            inStock === 'in_stock' ? 'text-green' : 'text-red-500'
           }`}
         >
-          {inStock ? t('inStock') : t('outOfStock')}
+          {inStock === 'in_stock' ? t('inStock') : t('outOfStock')}
         </p>
         <Rating
           initialValue={rating}
@@ -173,14 +177,14 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
       >
         ({t('reviews', { count: reviews?.length })})
       </motion.p>
-      {!addons || !addons.length ? null : (
+      {!addons || !addons.length || inStock !== 'in_stock' ? null : (
         <AddonsList
           options={addons}
           selectedAddons={selectedAddons}
           setSelectedAddons={setSelectedAddons}
         />
       )}
-      {!colors || !colors.length ? null : (
+      {!colors || !colors.length || inStock !== 'in_stock' ? null : (
         <ColorPicker
           colors={colors}
           selectedColor={selectedColor}
@@ -193,7 +197,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
         exit="exit"
         viewport={{ once: true, amount: 0.5 }}
         variants={fadeInAnimation({ y: 30, delay: 1.2 })}
-        className="flex items-center justify-between mb-4 xl:mb-5"
+        className={`${inStock !== 'in_stock' ? 'hidden' : 'flex'}  items-center justify-between mb-4 xl:mb-5`}
       >
         <Counter count={count} setCount={setCount} />
         {discountedPrice && discountedPrice < price ? (
@@ -224,6 +228,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
         className="flex items-center gap-x-4"
       >
         <MainButton
+          disabled={inStock !== 'in_stock'}
           onClick={handleAddToCartClick}
           className="h-[49px] xl:h-[58px]"
           textStyles="text-[14px] xl:text-[16px]"

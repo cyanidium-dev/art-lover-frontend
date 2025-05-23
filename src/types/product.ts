@@ -6,7 +6,7 @@ export interface Product {
   subcategoryTitle: string;
   slug: string;
   title: string;
-  inStock: boolean;
+  inStock: string;
   description: string;
   fullDescription: string;
   delivery: string;

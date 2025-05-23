@@ -38,7 +38,7 @@ export default function CartList({ setIsPopUpShown }: CartListProps) {
                 animate="visible"
                 exit="exit"
                 layout
-                className="flex gap-x-[25px] p-3 border border-white rounded-[8px]"
+                className="border border-white rounded-[8px]"
               >
                 <CartListItem
                   cartItem={cartItem}

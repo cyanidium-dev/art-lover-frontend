@@ -68,8 +68,6 @@ const Catalog = ({ categoryProducts }: CatalogProps) => {
   const currentProducts =
     currentSubcategory?.products || categoryProducts?.products;
 
-  console.log(currentProducts);
-
   return (
     <section className="pb-20 xl:pb-[140px]">
       <Container className="flex gap-[20px] items-start">

@@ -9,7 +9,6 @@ interface CategorySlideTwoDeskProps {
 export default function CategorySlideTwoDesk({
   categories,
 }: CategorySlideTwoDeskProps) {
-  console.log(categories[0]?.description);
   return (
     <div className="hidden md:flex gap-5">
       <Link

@@ -27,7 +27,11 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
       "slug": slug.current,
       price,
       discountedPrice,
-      "mainImage": mainImage.asset->url
+      "mainImage": mainImage.asset->url,
+       "colors": colors[] {
+      "title": name,
+      "hex": value.hex
+    },
     }
   },
   "products": *[
@@ -37,7 +41,11 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
     "slug": slug.current,
     price,
     discountedPrice,
-    "mainImage": mainImage.asset->url
+    "mainImage": mainImage.asset->url,
+     "colors": colors[] {
+      "title": name,
+      "hex": value.hex
+    },
   }
 }[0]
 `;
@@ -47,6 +55,10 @@ export const allBestsellersQuery = `*[_type == "product" && isBestseller == true
   "title": title[$lang],
   price,
   discountedPrice,
+  "colors": colors[] {
+      "title": name,
+      "hex": value.hex
+    },
   "slug": slug.current,
   "mainImage": mainImage.asset->url,
   "categorySlug": category->slug.current,
@@ -58,6 +70,10 @@ _id,
   "title": title[$lang],
   price,
   discountedPrice,
+  "colors": colors[] {
+      "title": name,
+      "hex": value.hex
+    },
   "slug": slug.current,
   "mainImage": mainImage.asset->url,
   "categorySlug": category->slug.current,
@@ -70,6 +86,10 @@ export const allDiscountedProductsQuery = `*[_type == "product" && defined(disco
   "title": title[$lang],
   price,
   discountedPrice,
+  "colors": colors[] {
+      "title": name,
+      "hex": value.hex
+    },
   "slug": slug.current,
   "mainImage": mainImage.asset->url,
   "categorySlug": category->slug.current,
@@ -81,6 +101,10 @@ export const allGiftsQuery = `*[_type == "product" && isGift == true]{
   "title": title[$lang],
   price,
   discountedPrice,
+  "colors": colors[] {
+      "title": name,
+      "hex": value.hex
+    },
   "slug": slug.current,
   "mainImage": mainImage.asset->url,
   "categorySlug": category->slug.current,
@@ -149,6 +173,10 @@ export const allSimilarProductsQuery = `*[_type == "product"
   "title": title[$lang],
   price,
   discountedPrice,
+  "colors": colors[] {
+      "title": name,
+      "hex": value.hex
+    },
   "slug": slug.current,
   "categorySlug": category->slug.current,
   "mainImage": mainImage.asset->url,

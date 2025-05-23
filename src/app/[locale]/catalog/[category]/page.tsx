@@ -59,8 +59,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             }
           : res;
 
-  console.log(res);
-
   return (
     <>
       <Catalog categoryProducts={categoryProducts} />

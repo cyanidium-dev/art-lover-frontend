@@ -21,8 +21,16 @@ export default function ProductCard({
 
   const { addToCart } = useCartStore();
 
-  const { id, title, price, discountedPrice, mainImage, slug, categorySlug } =
-    product;
+  const {
+    id,
+    title,
+    price,
+    discountedPrice,
+    mainImage,
+    slug,
+    categorySlug,
+    colors,
+  } = product;
 
   const handleClick = () => {
     setIsAddedToCartPopUpShown(true);
@@ -30,10 +38,12 @@ export default function ProductCard({
       id,
       title,
       price,
+      discountedPrice,
       mainImage,
       categorySlug,
       slug,
       quantity: 1,
+      color: colors && colors?.length ? colors[0] : undefined,
     });
   };
 
