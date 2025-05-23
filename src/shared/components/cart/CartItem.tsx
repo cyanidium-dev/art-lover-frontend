@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react';
 import { useTranslations } from 'next-intl';
 import { useCartStore } from '@/shared/store/cartStore';
 import { CartItem } from '@/types/cartItem';
@@ -9,11 +10,13 @@ import { Link } from '@/i18n/navigation';
 interface CartItemProps {
   cartItem: CartItem;
   variant?: 'dark' | 'white';
+  setIsPopUpShown?: Dispatch<SetStateAction<boolean>>;
 }
 
 export default function CartListItem({
   cartItem,
   variant = 'white',
+  setIsPopUpShown,
 }: CartItemProps) {
   const t = useTranslations('cart');
 
@@ -21,9 +24,14 @@ export default function CartListItem({
   const { id, title, price, discountedPrice, mainImage, categorySlug, slug } =
     cartItem;
 
+  console.log(cartItem);
+
   return (
     <>
-      <Link href={`/catalog/${categorySlug}/${slug}`}>
+      <Link
+        onClick={setIsPopUpShown ? () => setIsPopUpShown(false) : undefined}
+        href={`/catalog/${categorySlug}/${slug}`}
+      >
         <div className="relative shrink-0 aspect-[90/101] w-[90px] overflow-hidden rounded-[6px]">
           <Image
             src={mainImage}
@@ -36,7 +44,10 @@ export default function CartListItem({
       </Link>
       <div className="w-full flex gap-x-2 justify-between">
         <div>
-          <Link href={`/catalog/${categorySlug}/${slug}`}>
+          <Link
+            onClick={setIsPopUpShown ? () => setIsPopUpShown(false) : undefined}
+            href={`/catalog/${categorySlug}/${slug}`}
+          >
             <p
               className={`mb-2 xl:mb-3 text-[12px] xl:text-[14px] font-medium leading-[120%] line-clamp-2 xl:line-clamp-1 ${
                 variant === 'white' ? 'text-white' : 'text-dark'

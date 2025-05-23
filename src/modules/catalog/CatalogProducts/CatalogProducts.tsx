@@ -35,7 +35,7 @@ const CatalogProducts = ({ currentProducts }: CatalogProductsProps) => {
             initial="hidden"
             whileInView="visible"
             exit="exit"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={listVariants({
               staggerChildren: 0.3,
               delayChildren: 0.3,

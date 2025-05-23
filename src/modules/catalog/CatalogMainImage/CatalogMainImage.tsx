@@ -21,7 +21,7 @@ const CatalogMainBanner = ({ categoryProducts }: CatalogMainBannerProps) => {
   const { categoryTitle, categorySubtitle } = categoryProducts;
 
   return (
-    <div className="relative p-3 bg-dark z-10 mb-[24px] md:mb-[32px] aspect-[296/160] lg:aspect-[820/196] rounded-[8px] xl:rounded-[16px] overflow-hidden">
+    <div className="relative p-3 xl:px-6 xl:py-7 bg-dark z-10 mb-[24px] md:mb-[32px] aspect-[296/160] lg:aspect-[820/196] rounded-[8px] xl:rounded-[16px] overflow-hidden">
       <Image
         src="/images/catalog/mainDesk.webp"
         alt="background"

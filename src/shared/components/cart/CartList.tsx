@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react';
 import CartListItem from './CartItem';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
@@ -7,7 +8,11 @@ import {
   cartItemVariants,
 } from '@/shared/utils/animationVariants';
 
-export default function CartList() {
+interface CartListProps {
+  setIsPopUpShown: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function CartList({ setIsPopUpShown }: CartListProps) {
   const t = useTranslations('cart');
   const { cartItems } = useCartStore();
 
@@ -35,7 +40,10 @@ export default function CartList() {
                 layout
                 className="flex gap-x-[25px] p-3 border border-white rounded-[8px]"
               >
-                <CartListItem cartItem={cartItem} />
+                <CartListItem
+                  cartItem={cartItem}
+                  setIsPopUpShown={setIsPopUpShown}
+                />
               </motion.li>
             ))}
           </AnimatePresence>
