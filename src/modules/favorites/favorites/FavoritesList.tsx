@@ -37,8 +37,8 @@ export default function FavoritesList({ favoritesList }: FavoritesListProps) {
             exit="exit"
             viewport={{ once: true, amount: 0.4 }}
             variants={listVariants({
-              staggerChildren: 0.4,
-              delayChildren: 0.8,
+              staggerChildren: 0.3,
+              delayChildren: 0.4,
             })}
             className="flex flex-wrap gap-4 xl:gap-5"
           >

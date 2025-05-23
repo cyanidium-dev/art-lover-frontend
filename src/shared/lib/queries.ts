@@ -29,8 +29,17 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
       discountedPrice,
       "mainImage": mainImage.asset->url
     }
+  },
+  "products": *[
+    _type == "product" && references(^._id)
+  ]{
+    "title": title[$lang],
+    "slug": slug.current,
+    price,
+    discountedPrice,
+    "mainImage": mainImage.asset->url
   }
-}
+}[0]
 `;
 
 export const allBestsellersQuery = `*[_type == "product" && isBestseller == true]{

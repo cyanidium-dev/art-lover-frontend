@@ -12,7 +12,8 @@ interface NavbarFavoriteProps {
 const NavbarFavorite = ({ onClick }: NavbarFavoriteProps) => {
   const pathname = usePathname();
   const locale = useLocale();
-  const isActive = pathname === `/${locale}/favorites`;
+  const isActive =
+    pathname === `/${locale}/favorites` || pathname === '/favorites';
 
   return (
     <Link

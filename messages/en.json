@@ -69,6 +69,7 @@
       "thankYouTwo": "We hope our kits bring you joy and inspiration, and you create something truly amazing!"
     }
   },
+  "catalogPage": { "noItems": "There are no products in this category" },
   "blogPage": {
     "title": "blog",
     "description": "Welcome to our blog! Here we share inspiration, creative ideas, useful lifehacks.",

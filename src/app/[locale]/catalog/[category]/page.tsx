@@ -57,7 +57,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               categorySubtitle: t('newProductsDescription'),
               products: res,
             }
-          : res[0];
+          : res;
+
+  console.log(res);
 
   return (
     <>
