@@ -50,7 +50,7 @@ export default function ProductCard({
   };
 
   return (
-    <div className="relative p-3 xl:px-5 xl:py-4 bg-white rounded-[8px] xl:rounded-[16px] shadow-social overflow-hidden">
+    <div className="relative flex flex-col justify-between h-full p-3 xl:px-5 xl:py-4 bg-white rounded-[8px] xl:rounded-[16px] shadow-social overflow-hidden">
       {discountedPrice && discountedPrice < price ? (
         <Image
           src={`/images/icons/promotion-${locale}.svg`}
@@ -69,27 +69,29 @@ export default function ProductCard({
             className="object-cover"
           />
         </div>
-        {discountedPrice && discountedPrice < price ? (
-          <p className="mb-1.5 xl:mb-2 h-auto leading-none">
-            <span className="text-[14px] xl:text-[16px] font-medium leading-[120%] text-orange">
-              {discountedPrice}
-              {t('hrn')}
-            </span>
-            <span className="text-[14px] xl:text-[16px] font-medium leading-[120%]">
-              &nbsp;
-            </span>
-            <span className="text-[12px] xl:text-[14px] font-normal leading-[120%] line-through">
+        <div className="flex flex-col justify-between mb-4 xl:mb-[18px]">
+          {discountedPrice && discountedPrice < price ? (
+            <p className="mb-1.5 xl:mb-2 h-auto leading-none">
+              <span className="text-[13px] xl:text-[16px] font-medium leading-[120%] text-orange">
+                {discountedPrice}
+                {t('hrn')}
+              </span>
+              <span className="text-[13px] xl:text-[16px] font-medium leading-[120%]">
+                &nbsp;
+              </span>
+              <span className="text-[9px] xl:text-[14px] font-normal leading-[120%] line-through">
+                {price} {t('hrn')}
+              </span>
+            </p>
+          ) : (
+            <p className="mb-1.5 xl:mb-2 text-[14px] xl:text-[16px] font-medium leading-[120%]">
               {price} {t('hrn')}
-            </span>
-          </p>
-        ) : (
-          <p className="mb-1.5 xl:mb-2 text-[14px] xl:text-[16px] font-medium leading-[120%]">
-            {price} {t('hrn')}
-          </p>
-        )}
-        <h3 className="mb-4 xl:mb-[18px] text-[14px] xl:text-[18px] font-medium leading-[120%] line-clamp-1">
-          {title}
-        </h3>
+            </p>
+          )}
+          <h3 className="text-[13px] xl:text-[18px] font-medium leading-[120%] line-clamp-2">
+            {title}
+          </h3>
+        </div>
       </Link>
       <div className="flex justify-between gap-x-0.5 xs:gap-x-3 xl:gap-x-2">
         <Link

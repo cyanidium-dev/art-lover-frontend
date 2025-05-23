@@ -31,7 +31,7 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
       "mainImage": mainImage.asset->url,
       inStock,
       "colors": colors[] {
-      "title": name,
+      "title": name[$lang],
       "hex": value.hex
     },
     }
@@ -47,7 +47,7 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
     "mainImage": mainImage.asset->url,
     inStock,
     "colors": colors[] {
-      "title": name,
+      "title": name[$lang],
       "hex": value.hex
     },
   }
@@ -61,7 +61,7 @@ export const allBestsellersQuery = `*[_type == "product" && isBestseller == true
   discountedPrice,
   inStock,
   "colors": colors[] {
-      "title": name,
+      "title": name[$lang],
       "hex": value.hex
     },
   "slug": slug.current,
@@ -77,7 +77,7 @@ export const allNewProductsQuery = `*[_type == "product"] | order(publishedAt de
   discountedPrice,
   inStock,
   "colors": colors[] {
-      "title": name,
+      "title": name[$lang],
       "hex": value.hex
     },
   "slug": slug.current,
@@ -94,7 +94,7 @@ export const allDiscountedProductsQuery = `*[_type == "product" && defined(disco
   discountedPrice,
   inStock,
   "colors": colors[] {
-      "title": name,
+      "title": name[$lang],
       "hex": value.hex
     },
   "slug": slug.current,
@@ -110,7 +110,7 @@ export const allGiftsQuery = `*[_type == "product" && isGift == true]{
   discountedPrice,
   inStock,
   "colors": colors[] {
-      "title": name,
+      "title": name[$lang],
       "hex": value.hex
     },
   "slug": slug.current,
@@ -127,7 +127,7 @@ export const allGiftsByGenderQuery = `{
     discountedPrice,
     inStock,
     "colors": colors[] {
-      "title": name,
+      "title": name[$lang],
       "hex": value.hex
     },
     "slug": slug.current,
@@ -142,7 +142,7 @@ export const allGiftsByGenderQuery = `{
     discountedPrice,
     inStock,
     "colors": colors[] {
-      "title": name,
+      "title": name[$lang],
       "hex": value.hex
     },
     "slug": slug.current,
@@ -182,7 +182,7 @@ export const singleProductQuery = `
     "article": sku},
       "idealFor": tags[].[$lang],
     "colors": colors[] {
-      "title": name,
+      "title": name[$lang],
       "hex": value.hex
     },
     "addons": additions[] {
@@ -218,7 +218,7 @@ export const allSimilarProductsQuery = `*[_type == "product"
   discountedPrice,
   inStock,
   "colors": colors[] {
-      "title": name,
+      "title": name[$lang],
       "hex": value.hex
     },
   "slug": slug.current,

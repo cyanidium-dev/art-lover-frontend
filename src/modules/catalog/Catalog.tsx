@@ -8,6 +8,7 @@ import Container from '@/shared/components/container/Container';
 import { Product } from '@/types/product';
 import TabMenu from './CatalogCategories/TabMenu';
 import NoItems from './NoItems';
+import CatalogSorting from './CatalogSorting/CatalogSorting';
 
 interface CatalogProps {
   categoryProducts: {
@@ -81,6 +82,7 @@ const Catalog = ({ categoryProducts }: CatalogProps) => {
               setActiveTab={setActiveTab}
             />
           )}
+          <CatalogSorting />
           {currentProducts?.length ? (
             <CatalogProducts
               activeTab={activeTab}

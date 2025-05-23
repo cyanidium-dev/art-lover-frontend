@@ -66,11 +66,13 @@ export default function CartListItem({
                 }`}
               >
                 {title}
-                {color && color?.title ? `, ${color?.title}` : null}
+                {color && color?.title
+                  ? `, ${color?.title.toLowerCase()}`
+                  : null}
               </p>
             </Link>
 
-            <p
+            <div
               className={`mb-[17px] text-[13px] xl:text-[16px] font-semibold leading-[120%] ${
                 variant === 'white' ? 'text-white' : 'text-dark'
               }`}
@@ -93,7 +95,7 @@ export default function CartListItem({
                   {price} {t('hrn')}
                 </p>
               )}
-            </p>
+            </div>
             <Counter
               className="w-[98px]"
               variant={variant}

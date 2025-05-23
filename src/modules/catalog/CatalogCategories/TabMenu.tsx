@@ -44,7 +44,7 @@ export default function TabMenu({ activeTab, categoryProducts }: TabMenuProps) {
       exit="exit"
       viewport={{ once: true, amount: 0.2 }}
       variants={fadeInAnimation({ y: 30, delay: 0.2 })}
-      className="flex flex-wrap items-center gap-3 mb-6 xl:mb-8"
+      className="flex flex-wrap items-center gap-3 mb-4 xl:mb-8"
     >
       {subcategories.map((subcategory, idx) => (
         <TabMenuItem
