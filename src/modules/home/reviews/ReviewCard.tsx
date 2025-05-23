@@ -37,7 +37,7 @@ export default function ReviewCard({ review }: ReviewCardProps) {
         <Link href={`/catalog/${productCategorySlug}/${productSlug}`}>
           <div className="relative h-[85px] xl:h-[95px] mb-3 xl:mb-5 rounded-[8px]  xl:rounded-[16px] overflow-hidden">
             <Image
-              src={productMainImage || ''}
+              src={productMainImage}
               alt={'product photo'}
               fill
               sizes="33vw"

@@ -91,7 +91,7 @@ export default function Pagination<T>({
         exit="exit"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInAnimation({ y: 30 })}
-        className="flex justify-center items-center gap-3 xl:gap-[35px] mt-8 xl:mt-12 mx-auto"
+        className={`${totalPages > 1 ? 'flex' : 'hidden'}  justify-center items-center gap-3 xl:gap-[35px] mt-8 xl:mt-12 mx-auto`}
       >
         <button
           aria-label="left"

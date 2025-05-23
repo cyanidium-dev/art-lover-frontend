@@ -6,7 +6,7 @@ export interface CartItem {
   price: number;
   discountedPrice?: number;
   mainImage: string;
-  addons?: { title: string; price: number }[];
+  addons?: { title: string; price: number; id: string; checked: boolean }[];
   color?: { title: string; hex: string };
   quantity: number;
 }

@@ -9,9 +9,39 @@ import { singleProductQuery } from '@/shared/lib/queries';
 import { Locale } from '@/types/locale';
 import { Suspense } from 'react';
 import Loader from '@/shared/components/loader/Loader';
+import type { Metadata } from 'next';
+import { metadata as defaultMetadata } from '@/app/[locale]/layout';
 
 interface ProductPageProps {
   params: Promise<{ category: string; product: string; locale: Locale }>;
+}
+
+export async function generateMetadata({
+  params,
+}: ProductPageProps): Promise<Metadata> {
+  const { product, locale } = await params;
+  const currentProduct = await fetchSanityData(singleProductQuery, {
+    slug: product,
+    lang: locale,
+  });
+
+  return {
+    title: currentProduct?.seoTitle || defaultMetadata.title,
+    description: currentProduct?.seoDescription || defaultMetadata.description,
+    openGraph: {
+      images: [
+        {
+          url:
+            currentProduct?.seoImage ||
+            currentProduct?.mainImage ||
+            '/opengraph-image.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'Art Lover',
+        },
+      ],
+    },
+  };
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {

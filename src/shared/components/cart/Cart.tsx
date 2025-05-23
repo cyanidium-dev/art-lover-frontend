@@ -79,7 +79,7 @@ export default function CartModal({
                   {<CrossInCircleIcon className="size-full" />}
                 </button>
               </motion.div>
-              <CartList />
+              <CartList setIsPopUpShown={setIsPopUpShown} />
               <FreeDelivery cartItems={cartItems} />
             </div>
           </div>

@@ -2,6 +2,7 @@ export const allCategoriesQuery = `
   *[_type == "category"] | order(_createdAt asc) {
   "id": _id,
   "title": title[$lang],
+  "subtitle": subtitle[$lang],
   "slug": slug.current,
   icon,
   "subcategories": subcategories[]->{
@@ -12,11 +13,57 @@ export const allCategoriesQuery = `
 }
 `;
 
+export const allProductsByCategoryQuery = `*[_type == "category" && slug.current == $categorySlug] {
+  "categoryTitle": title[$lang],
+  "categorySubtitle": subtitle[$lang],
+  "categorySlug": slug.current,
+  "subcategories": subcategories[]->{
+    "subcategoryTitle": title[$lang],
+    "subcategorySlug": slug.current,
+    "products": *[
+      _type == "product" && references(^._id)
+    ]{
+      "id": _id,
+      "title": title[$lang],
+      "slug": slug.current,
+      price,
+      discountedPrice,
+      "mainImage": mainImage.asset->url,
+      inStock,
+      "colors": colors[] {
+      "title": name,
+      "hex": value.hex
+    },
+    }
+  },
+  "products": *[
+    _type == "product" && references(^._id)
+  ]{
+    "id": _id,
+    "title": title[$lang],
+    "slug": slug.current,
+    price,
+    discountedPrice,
+    "mainImage": mainImage.asset->url,
+    inStock,
+    "colors": colors[] {
+      "title": name,
+      "hex": value.hex
+    },
+  }
+}[0]
+`;
+
 export const allBestsellersQuery = `*[_type == "product" && isBestseller == true]{
-  _id,
+  "id": _id,
   "title": title[$lang],
   price,
   discountedPrice,
+  inStock,
+  "colors": colors[] {
+      "title": name,
+      "hex": value.hex
+    },
   "slug": slug.current,
   "mainImage": mainImage.asset->url,
   "categorySlug": category->slug.current,
@@ -24,10 +71,15 @@ export const allBestsellersQuery = `*[_type == "product" && isBestseller == true
 }`;
 
 export const allNewProductsQuery = `*[_type == "product"] | order(publishedAt desc)[0...20]{
-_id,
+ "id": _id,
   "title": title[$lang],
   price,
   discountedPrice,
+  inStock,
+  "colors": colors[] {
+      "title": name,
+      "hex": value.hex
+    },
   "slug": slug.current,
   "mainImage": mainImage.asset->url,
   "categorySlug": category->slug.current,
@@ -36,10 +88,31 @@ _id,
 }`;
 
 export const allDiscountedProductsQuery = `*[_type == "product" && defined(discountedPrice)]{
-  _id,
+  "id": _id,
   "title": title[$lang],
   price,
   discountedPrice,
+  inStock,
+  "colors": colors[] {
+      "title": name,
+      "hex": value.hex
+    },
+  "slug": slug.current,
+  "mainImage": mainImage.asset->url,
+  "categorySlug": category->slug.current,
+  "subcategorySlug": subcategory->slug.current
+}`;
+
+export const allGiftsQuery = `*[_type == "product" && isGift == true]{
+  "id": _id,
+  "title": title[$lang],
+  price,
+  discountedPrice,
+  inStock,
+  "colors": colors[] {
+      "title": name,
+      "hex": value.hex
+    },
   "slug": slug.current,
   "mainImage": mainImage.asset->url,
   "categorySlug": category->slug.current,
@@ -81,7 +154,8 @@ export const singleProductQuery = `
     },
     "addons": additions[] {
       "title": name[$lang],
-      "price": price
+      "price": price,
+      "id": _key
     },
     "professions": professions[]-> {
       "id": _id,
@@ -105,9 +179,15 @@ export const allSimilarProductsQuery = `*[_type == "product"
   && category->slug.current == $categorySlug 
   && slug.current != $excludeSlug
 ]{
+  "id": _id,
   "title": title[$lang],
   price,
   discountedPrice,
+  inStock,
+  "colors": colors[] {
+      "title": name,
+      "hex": value.hex
+    },
   "slug": slug.current,
   "categorySlug": category->slug.current,
   "mainImage": mainImage.asset->url,

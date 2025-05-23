@@ -8,33 +8,30 @@ import { fadeInAnimation } from '@/shared/utils/animationVariants';
 interface Option {
   title: string;
   price: number;
+  id: string;
+  checked: boolean;
 }
 
 interface AddonsListProps {
-  options: Option[];
   selectedAddons: Option[];
   setSelectedAddons: Dispatch<SetStateAction<Option[]>>;
 }
 
 export default function AddonsList({
-  options,
   selectedAddons,
   setSelectedAddons,
 }: AddonsListProps) {
   const t = useTranslations('productPage');
 
-  const toggleOption = (selectedTitle: string) => {
-    setSelectedAddons(prev => {
-      const exists = prev.some(opt => opt.title === selectedTitle);
-      if (exists) {
-        return prev.filter(opt => opt.title !== selectedTitle);
-      } else {
-        const newOption = options.find(opt => opt.title === selectedTitle);
-        return newOption ? [...prev, newOption] : prev;
-      }
-    });
+  const toggleOption = (selectedId: string) => {
+    setSelectedAddons(prev =>
+      prev.map(opt =>
+        opt.id === selectedId ? { ...opt, checked: !opt.checked } : opt
+      )
+    );
   };
 
+  console.log(selectedAddons);
   return (
     <motion.ul
       initial="hidden"
@@ -46,17 +43,16 @@ export default function AddonsList({
   before:left-0 before:h-[0.5px] before:w-full before:bg-dark before:opacity-50 after:content-[''] after:absolute after:bottom-0 
   after:left-0 after:h-[0.5px] after:w-full after:bg-dark after:opacity-50"
     >
-      {options.map((addon, idx) => {
-        const isChecked = selectedAddons.some(opt => opt.title === addon.title);
+      {selectedAddons.map(addon => {
         return (
-          <li key={idx}>
+          <li key={addon.id}>
             <label className="cursor-pointer flex items-center justify-between">
               <div className="flex items-center gap-x-5">
                 <span className="relative inline-block w-5 xl:w-6 h-5 xl:h-6">
                   <input
                     type="checkbox"
-                    checked={isChecked}
-                    onChange={() => toggleOption(addon?.title)}
+                    checked={addon.checked}
+                    onChange={() => toggleOption(addon?.id)}
                     className="peer appearance-none w-full h-full border border-orange rounded-[6px] bg-white checked:bg-orange checked:border-orange transition duration-300 ease-in-out"
                   />
                   <svg

@@ -7,12 +7,24 @@ import Hero from '@/modules/home/hero/Hero';
 import NewProducts from '@/modules/home/newProducts/NewProducts';
 import Reviews from '@/modules/home/reviews/Reviews';
 import Socials from '@/shared/components/socials/Socials';
+import { fetchSanityData } from '@/shared/utils/fetchSanityData';
+import { allCategoriesQuery } from '@/shared/lib/queries';
+import { Locale } from '@/types/locale';
 
-export default function HomePage() {
+interface HomePageProps {
+  params: Promise<{ locale: Locale }>;
+}
+
+export default async function HomePage({ params }: HomePageProps) {
+  const { locale } = await params;
+  const categories = await fetchSanityData(allCategoriesQuery, {
+    lang: locale,
+  });
+
   return (
     <>
       <Hero />
-      <Categories />
+      <Categories categories={categories} />
       <HelpChooseGift />
       <Bestsellers />
       <NewProducts />

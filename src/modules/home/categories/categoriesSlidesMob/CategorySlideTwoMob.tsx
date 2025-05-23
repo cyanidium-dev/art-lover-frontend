@@ -53,6 +53,8 @@ export default function CategorySlideTwoMob({
           </p>
           <p className="ml-[87px] font-denistina text-[14px] sm:text-[18px] font-normal leading-[120%] text-white">
             {categories[0]?.description?.split(' ')[1]}
+            &nbsp; &nbsp;
+            <span>{categories[0]?.description?.split(' ')[2]}</span>
           </p>
         </Link>
       </motion.li>

@@ -30,7 +30,7 @@ export default function AdditionalOptions() {
         >
           <div className="relative shrink-0 aspect-[90/101] w-[90px] overflow-hidden rounded-[6px]">
             <Image
-              src={image?.url || ''}
+              src={image?.url}
               alt={image?.alt || 'product photo'}
               fill
               sizes="33vw"

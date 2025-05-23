@@ -6,7 +6,7 @@ export interface Product {
   subcategoryTitle: string;
   slug: string;
   title: string;
-  inStock: boolean;
+  inStock: string;
   description: string;
   fullDescription: string;
   delivery: string;
@@ -26,7 +26,7 @@ export interface Product {
     materials: string;
   };
   benefits: { icon: string; description: string }[];
-  addons: { title: string; price: number }[];
+  addons: { title: string; price: number; id: string }[];
   colors: { title: string; hex: string }[];
   reviews: { author: string; rating: number; text: string }[];
 }

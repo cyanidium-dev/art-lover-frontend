@@ -1,11 +1,8 @@
 'use client';
-import { useState, useEffect } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { SwiperSlide } from 'swiper/react';
 import { motion } from 'motion/react';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
-import { fetchSanityData } from '@/shared/utils/fetchSanityData';
-import { allCategoriesQuery } from '@/shared/lib/queries';
 import { Category } from '@/types/category';
 import SwiperWrapper from '@/shared/components/swiper/SwiperWrapper';
 import CategorySlideOneMob from './categoriesSlidesMob/CategorySlideOneMob';
@@ -13,35 +10,27 @@ import CategorySlideTwoMob from './categoriesSlidesMob/CategorySlideTwoMob';
 import CategorySlideOneDesk from './categoriesSlidesDesk/CategorySlideOneDesk';
 import CategorySlideTwoDesk from './categoriesSlidesDesk/CategorySlideTwoDesk';
 
-export default function CategoriesSlider() {
+interface CategoriesSliderProps {
+  categories: Category[];
+}
+
+export default function CategoriesSlider({
+  categories,
+}: CategoriesSliderProps) {
   const t = useTranslations('header.catalogMenu');
-  const locale = useLocale();
 
-  const [categories, setCategories] = useState<Category[]>([]);
-
-  useEffect(() => {
-    const loadData = async () => {
-      const result = await fetchSanityData(allCategoriesQuery, {
-        lang: locale,
-      });
-      setCategories(result);
-    };
-
-    loadData();
-  }, [locale]);
-
-  if (!categories || !categories.length) return null;
+  if (!categories) return null;
 
   const categoriesPartOne = [
     {
       title: categories[0].title,
       slug: categories[0].slug,
-      description: 'Створи шедевр сьогодні',
+      description: categories[0].subtitle,
     },
     {
       title: categories[4].title,
       slug: categories[4].slug,
-      description: 'Краса в деталях',
+      description: categories[4].subtitle,
     },
     { slug: 'gifts', title: t('gifts'), description: t('giftsDescription') },
     {
@@ -59,27 +48,27 @@ export default function CategoriesSlider() {
     {
       title: categories[1].title,
       slug: categories[1].slug,
-      description: 'Створюйте Надихайтесь',
+      description: categories[1].subtitle,
     },
     {
       title: categories[6].title,
       slug: categories[6].slug,
-      description: 'Незамінні дрібниці',
+      description: categories[6].subtitle,
     },
     {
       title: categories[2].title,
       slug: categories[2].slug,
-      description: 'Творчість і розваги в одному місці',
+      description: categories[2].subtitle,
     },
     {
       title: categories[3].title,
       slug: categories[3].slug,
-      description: 'Краса, що дарує впевненість',
+      description: categories[3].subtitle,
     },
     {
       title: categories[5].title,
       slug: categories[5].slug,
-      description: 'Зручність і порядок',
+      description: categories[5].subtitle,
     },
   ];
 

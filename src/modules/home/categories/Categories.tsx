@@ -5,8 +5,13 @@ import * as motion from 'motion/react-client';
 import { useTranslations } from 'next-intl';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import CategoriesSlider from './CategoriesSlider';
+import { Category } from '@/types/category';
 
-export default function Categories() {
+interface CategoriesProps {
+  categories: Category[];
+}
+
+export default function Categories({ categories }: CategoriesProps) {
   const t = useTranslations('homePage.categories');
 
   return (
@@ -23,7 +28,7 @@ export default function Categories() {
           {t('title')}
         </motion.h2>
         <Suspense fallback={<Loader />}>
-          <CategoriesSlider />
+          <CategoriesSlider categories={categories} />
         </Suspense>
       </Container>
     </section>

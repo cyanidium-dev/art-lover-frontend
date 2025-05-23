@@ -21,19 +21,31 @@ export default function ProductCard({
 
   const { addToCart } = useCartStore();
 
-  const { id, title, price, discountedPrice, mainImage, slug, categorySlug } =
-    product;
+  const {
+    id,
+    title,
+    price,
+    discountedPrice,
+    inStock,
+    mainImage,
+    slug,
+    categorySlug,
+    colors,
+  } = product;
 
   const handleClick = () => {
+    console.log(id);
     setIsAddedToCartPopUpShown(true);
     addToCart({
-      id,
+      id: `${id}${colors && colors?.length ? colors[0].hex : ''}`,
       title,
       price,
+      discountedPrice,
       mainImage,
       categorySlug,
       slug,
       quantity: 1,
+      color: colors && colors?.length ? colors[0] : undefined,
     });
   };
 
@@ -64,7 +76,6 @@ export default function ProductCard({
               {t('hrn')}
             </span>
             <span className="text-[14px] xl:text-[16px] font-medium leading-[120%]">
-              {' '}
               &nbsp;
             </span>
             <span className="text-[12px] xl:text-[14px] font-normal leading-[120%] line-through">
@@ -89,7 +100,11 @@ export default function ProductCard({
             {t('button')}
           </SecondaryButton>
         </Link>
-        <CartButton onClick={handleClick} className="shrink-0" />
+        <CartButton
+          disabled={inStock !== 'in_stock'}
+          onClick={handleClick}
+          className="shrink-0"
+        />
       </div>
     </div>
   );

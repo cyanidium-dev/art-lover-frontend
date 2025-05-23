@@ -62,7 +62,7 @@ export default function TeamCard({ teammate }: TeamCardProps) {
       <div className=" p-4 xl:p-6">
         <div className="relative aspect-[264/168] xs:aspect-auto xs:h-[264px] md:h-[194px] mb-4 xl:mb-6 rounded-[8px] xl:rounded-[16px] overflow-hidden">
           <Image
-            src={image?.url || ''}
+            src={image?.url}
             alt={image?.alt || 'teammate'}
             fill
             className="object-cover"

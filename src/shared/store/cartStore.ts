@@ -11,6 +11,7 @@ interface CartState {
   removeSingleItem: (itemId: string) => void;
   clearCart: () => void;
   getTotalAmount: () => number;
+  toggleAddonChecked: (itemId: string, addonId: string) => void;
   isCartAnimating: boolean;
   cartAnimationKey: number;
   animatingImage: { url: string; alt: string } | null;
@@ -72,10 +73,18 @@ export const useCartStore = create<CartState>()(
 
       getTotalAmount: () => {
         const { cartItems } = get();
-        return cartItems.reduce(
-          (sum, item) => sum + item.price * item.quantity,
-          0
-        );
+        return cartItems.reduce((sum, item) => {
+          const baseTotal = item.discountedPrice
+            ? item.discountedPrice * item.quantity
+            : item.price * item.quantity;
+
+          const addonsTotal =
+            item.addons?.reduce((addonSum, addon) => {
+              return addon.checked ? addonSum + addon.price * 1 : addonSum;
+            }, 0) || 0;
+
+          return sum + baseTotal + addonsTotal;
+        }, 0);
       },
 
       increaseQuantity: itemId => {
@@ -106,6 +115,24 @@ export const useCartStore = create<CartState>()(
             }
           }
           return state;
+        });
+      },
+
+      toggleAddonChecked: (itemId: string, addonId: string) => {
+        set(state => {
+          const updatedCartItems = state.cartItems.map(item => {
+            if (item.id === itemId && item.addons) {
+              const updatedAddons = item.addons.map(addon => {
+                if (addon.id === addonId) {
+                  return { ...addon, checked: !addon.checked };
+                }
+                return addon;
+              });
+              return { ...item, addons: updatedAddons };
+            }
+            return item;
+          });
+          return { cartItems: updatedCartItems };
         });
       },
 

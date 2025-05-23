@@ -1,44 +1,44 @@
 'use client';
-import { useState, Suspense } from 'react';
+import { useState } from 'react';
+
+import Pagination from '@/shared/components/pagination/Pagination';
+import ProductCard from '../../../shared/components/productCard/ProductCard';
+import AddedToCartPopUp from '@/shared/components/pop-ups/AddedToCartPopUp';
+import CartModal from '@/shared/components/cart/Cart';
+import Backdrop from '@/shared/components/backdrop/Backdrop';
+import { Product } from '@/types/product';
 import * as motion from 'motion/react-client';
 import {
   listVariants,
   listItemVariants,
 } from '@/shared/utils/animationVariants';
-import Loader from '@/shared/components/loader/Loader';
-import ProductCard from '@/shared/components/productCard/ProductCard';
-import Pagination from '@/shared/components/pagination/Pagination';
-import { Product } from '@/types/product';
-import AddedToCartPopUp from '@/shared/components/pop-ups/AddedToCartPopUp';
-import CartModal from '@/shared/components/cart/Cart';
-import Backdrop from '@/shared/components/backdrop/Backdrop';
+import { useCatalogItemsPerPage } from '@/shared/hooks/useCatalogItemsPerPage';
 
-interface FavoritesListProps {
-  favoritesList: Product[];
+interface CatalogProductsProps {
+  currentProducts: Product[];
 }
 
-const SECTION_ID = 'favorites-page-list';
-const ITEMS_PER_PAGE = 4;
+const SECTION_ID = 'catalog-page-products-list';
 
-export default function FavoritesList({ favoritesList }: FavoritesListProps) {
+const CatalogProducts = ({ currentProducts }: CatalogProductsProps) => {
   const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
   const [isCartModalShown, setIsCartModalShown] = useState(false);
 
   return (
-    <Suspense fallback={<Loader />}>
+    <>
       <Pagination
-        items={favoritesList}
+        items={currentProducts}
         scrollTargetId={SECTION_ID}
-        useItemsPerPage={() => ITEMS_PER_PAGE}
+        useItemsPerPage={useCatalogItemsPerPage}
         renderItems={currentItems => (
           <motion.ul
             initial="hidden"
             whileInView="visible"
             exit="exit"
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={listVariants({
               staggerChildren: 0.3,
-              delayChildren: 0.4,
+              delayChildren: 0.3,
             })}
             className="flex flex-wrap gap-4 xl:gap-5"
           >
@@ -47,7 +47,7 @@ export default function FavoritesList({ favoritesList }: FavoritesListProps) {
                 viewport={{ once: true, amount: 0.2 }}
                 variants={listItemVariants}
                 key={idx}
-                className="w-[calc(50%-8px)] md:w-[calc(25%-12px)] xl:w-[calc(25%-15px)]"
+                className="w-[calc(50%-8px)] md:w-[calc(33.33%-10.67px)] xl:w-[calc(33.33%-13.33px)]"
               >
                 <ProductCard
                   setIsAddedToCartPopUpShown={setIsAddedToCartPopUpShown}
@@ -58,6 +58,9 @@ export default function FavoritesList({ favoritesList }: FavoritesListProps) {
           </motion.ul>
         )}
       />
+      {/* <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-[140px] mt-[33px] md:mt-[40px]">
+        {elements}
+      </div> */}
       <AddedToCartPopUp
         isPopUpShown={isAddedToCartPopUpShown}
         setIsPopUpShown={setIsAddedToCartPopUpShown}
@@ -74,6 +77,8 @@ export default function FavoritesList({ favoritesList }: FavoritesListProps) {
           setIsCartModalShown(false);
         }}
       />
-    </Suspense>
+    </>
   );
-}
+};
+
+export default CatalogProducts;

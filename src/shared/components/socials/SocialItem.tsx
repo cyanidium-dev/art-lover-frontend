@@ -27,7 +27,7 @@ export default function SocialItem({ social }: SocialItemProps) {
      bg-white first:bg-orange last:bg-orange  md:odd:bg-orange md:even:bg-white shadow-social rounded-[12px] overflow-hidden"
     >
       <Image
-        src={bgImageMob || ''}
+        src={bgImageMob}
         alt="background"
         width={140}
         height={141}
@@ -35,7 +35,7 @@ export default function SocialItem({ social }: SocialItemProps) {
         className="md:hidden absolute top-0 left-0 -z-20 w-full h-auto object-cover "
       />
       <Image
-        src={bgImageDesk || ''}
+        src={bgImageDesk}
         alt="background"
         width={260}
         height={260}
