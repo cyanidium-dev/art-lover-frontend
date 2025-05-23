@@ -23,12 +23,14 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
     "products": *[
       _type == "product" && references(^._id)
     ]{
+      "id": _id,
       "title": title[$lang],
       "slug": slug.current,
       price,
       discountedPrice,
       "mainImage": mainImage.asset->url,
-       "colors": colors[] {
+      inStock,
+      "colors": colors[] {
       "title": name,
       "hex": value.hex
     },
@@ -37,12 +39,14 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
   "products": *[
     _type == "product" && references(^._id)
   ]{
+    "id": _id,
     "title": title[$lang],
     "slug": slug.current,
     price,
     discountedPrice,
     "mainImage": mainImage.asset->url,
-     "colors": colors[] {
+    inStock,
+    "colors": colors[] {
       "title": name,
       "hex": value.hex
     },
@@ -51,10 +55,11 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
 `;
 
 export const allBestsellersQuery = `*[_type == "product" && isBestseller == true]{
-  _id,
+  "id": _id,
   "title": title[$lang],
   price,
   discountedPrice,
+  inStock,
   "colors": colors[] {
       "title": name,
       "hex": value.hex
@@ -66,10 +71,11 @@ export const allBestsellersQuery = `*[_type == "product" && isBestseller == true
 }`;
 
 export const allNewProductsQuery = `*[_type == "product"] | order(publishedAt desc)[0...20]{
-_id,
+ "id": _id,
   "title": title[$lang],
   price,
   discountedPrice,
+  inStock,
   "colors": colors[] {
       "title": name,
       "hex": value.hex
@@ -82,10 +88,11 @@ _id,
 }`;
 
 export const allDiscountedProductsQuery = `*[_type == "product" && defined(discountedPrice)]{
-  _id,
+  "id": _id,
   "title": title[$lang],
   price,
   discountedPrice,
+  inStock,
   "colors": colors[] {
       "title": name,
       "hex": value.hex
@@ -97,10 +104,11 @@ export const allDiscountedProductsQuery = `*[_type == "product" && defined(disco
 }`;
 
 export const allGiftsQuery = `*[_type == "product" && isGift == true]{
-  _id,
+  "id": _id,
   "title": title[$lang],
   price,
   discountedPrice,
+  inStock,
   "colors": colors[] {
       "title": name,
       "hex": value.hex
@@ -170,9 +178,11 @@ export const allSimilarProductsQuery = `*[_type == "product"
   && category->slug.current == $categorySlug 
   && slug.current != $excludeSlug
 ]{
+  "id": _id,
   "title": title[$lang],
   price,
   discountedPrice,
+  inStock,
   "colors": colors[] {
       "title": name,
       "hex": value.hex

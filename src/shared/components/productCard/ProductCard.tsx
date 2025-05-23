@@ -26,6 +26,7 @@ export default function ProductCard({
     title,
     price,
     discountedPrice,
+    inStock,
     mainImage,
     slug,
     categorySlug,
@@ -33,6 +34,7 @@ export default function ProductCard({
   } = product;
 
   const handleClick = () => {
+    console.log(id);
     setIsAddedToCartPopUpShown(true);
     addToCart({
       id,
@@ -99,7 +101,11 @@ export default function ProductCard({
             {t('button')}
           </SecondaryButton>
         </Link>
-        <CartButton onClick={handleClick} className="shrink-0" />
+        <CartButton
+          disabled={inStock !== 'in_stock'}
+          onClick={handleClick}
+          className="shrink-0"
+        />
       </div>
     </div>
   );
