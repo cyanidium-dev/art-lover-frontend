@@ -14,13 +14,14 @@ interface CatalogProps {
     categorySlug: string;
     categoryTitle: string;
     categorySubtitle: string;
-    subcategories: [
+    subcategories?: [
       {
         subcategorySlug: string;
         subcategoryTitle: string;
         products: Product[];
       },
     ];
+    products?: Product[];
   };
 }
 
@@ -30,32 +31,42 @@ const Catalog = ({ categoryProducts }: CatalogProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const { subcategories } = categoryProducts;
+  const subcategories = categoryProducts?.subcategories || [];
 
-  const defaultSubcategory = subcategories[0]?.subcategorySlug;
-  const [activeTab, setActiveTab] = useState(defaultSubcategory);
+  const hasSubcategories = subcategories?.length > 0;
+
+  const defaultSubcategory = hasSubcategories
+    ? subcategories[0]?.subcategorySlug
+    : '';
+
+  const [activeTab, setActiveTab] = useState(defaultSubcategory || '');
 
   useEffect(() => {
+    if (!hasSubcategories) return;
+
     const currentParam = searchParams.get('subcategory');
     if (currentParam && currentParam !== activeTab) {
       setActiveTab(currentParam);
     }
-  }, [searchParams, activeTab]);
+  }, [searchParams, activeTab, hasSubcategories]);
 
   useEffect(() => {
+    if (!hasSubcategories) return;
+
     const currentParam = searchParams.get('subcategory');
     if (!currentParam && defaultSubcategory) {
       const params = new URLSearchParams(searchParams.toString());
       params.set('subcategory', defaultSubcategory);
       router.replace(`?${params.toString()}`, { scroll: false });
     }
-  }, [searchParams, defaultSubcategory, router]);
+  }, [searchParams, defaultSubcategory, router, hasSubcategories]);
 
-  const currentSubcategory = subcategories.filter(
+  const currentSubcategory = subcategories.find(
     subcategory => subcategory.subcategorySlug === activeTab
   );
 
-  const currentProducts = currentSubcategory[0].products;
+  const currentProducts =
+    currentSubcategory?.products || categoryProducts?.products;
 
   console.log(currentProducts);
 
@@ -65,11 +76,13 @@ const Catalog = ({ categoryProducts }: CatalogProps) => {
         <CatalogFilters />
         <div id={SECTION_ID} className="w-full lg:w-3/4">
           <CatalogMainImage categoryProducts={categoryProducts} />
-          <TabMenu
-            categoryProducts={categoryProducts}
-            activeTab={activeTab}
-            setActiveTab={setActiveTab}
-          />
+          {hasSubcategories && (
+            <TabMenu
+              categoryProducts={categoryProducts}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+            />
+          )}
           {currentProducts?.length ? (
             <CatalogProducts currentProducts={currentProducts} />
           ) : (

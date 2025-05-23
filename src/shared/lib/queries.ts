@@ -67,6 +67,17 @@ export const allDiscountedProductsQuery = `*[_type == "product" && defined(disco
   "subcategorySlug": subcategory->slug.current
 }`;
 
+export const allGiftsQuery = `*[_type == "product" && isGift == true]{
+  _id,
+  "title": title[$lang],
+  price,
+  discountedPrice,
+  "slug": slug.current,
+  "mainImage": mainImage.asset->url,
+  "categorySlug": category->slug.current,
+  "subcategorySlug": subcategory->slug.current
+}`;
+
 export const singleProductQuery = `
 *[_type == "product" && slug.current == $slug][0]{
     "id": _id,

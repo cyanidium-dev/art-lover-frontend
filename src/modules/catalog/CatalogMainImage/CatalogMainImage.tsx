@@ -6,13 +6,14 @@ interface CatalogMainBannerProps {
     categorySlug: string;
     categoryTitle: string;
     categorySubtitle: string;
-    subcategories: [
+    subcategories?: [
       {
         subcategorySlug: string;
         subcategoryTitle: string;
         products: Product[];
       },
     ];
+    products?: Product[];
   };
 }
 

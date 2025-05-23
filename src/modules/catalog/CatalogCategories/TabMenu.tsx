@@ -11,13 +11,14 @@ interface TabMenuProps {
     categorySlug: string;
     categoryTitle: string;
     categorySubtitle: string;
-    subcategories: [
+    subcategories?: [
       {
         subcategorySlug: string;
         subcategoryTitle: string;
         products: Product[];
       },
     ];
+    products?: Product[];
   };
   activeTab: string;
   setActiveTab: Dispatch<SetStateAction<string>>;
