@@ -16,22 +16,29 @@ import { useCatalogItemsPerPage } from '@/shared/hooks/useCatalogItemsPerPage';
 
 interface CatalogProductsProps {
   currentProducts: Product[];
+  activeTab: string;
+  categorySlug: string;
 }
 
 const SECTION_ID = 'catalog-page-products-list';
 
-const CatalogProducts = ({ currentProducts }: CatalogProductsProps) => {
+const CatalogProducts = ({
+  currentProducts,
+  activeTab,
+  categorySlug,
+}: CatalogProductsProps) => {
   const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
   const [isCartModalShown, setIsCartModalShown] = useState(false);
 
   return (
-    <>
+    <div key={categorySlug}>
       <Pagination
         items={currentProducts}
         scrollTargetId={SECTION_ID}
         useItemsPerPage={useCatalogItemsPerPage}
         renderItems={currentItems => (
           <motion.ul
+            key={activeTab}
             initial="hidden"
             whileInView="visible"
             exit="exit"
@@ -77,7 +84,7 @@ const CatalogProducts = ({ currentProducts }: CatalogProductsProps) => {
           setIsCartModalShown(false);
         }}
       />
-    </>
+    </div>
   );
 };
 

@@ -389,6 +389,8 @@
     "catalogMenu": {
       "title": "Catalog",
       "gifts": "Gifts",
+      "women": "For her",
+      "men": "For him",
       "giftsDescription": "Give inspiration",
       "discounts": "Discounts",
       "discountsDescription": "Great deals",

@@ -389,6 +389,8 @@
     "catalogMenu": {
       "title": "Каталог",
       "gifts": "Подарки",
+      "women": "Для неё",
+      "men": "Для него",
       "giftsDescription": "Дарите вдохновение",
       "discounts": "Скидки",
       "discountsDescription": "Выгодные предложения",

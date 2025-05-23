@@ -82,7 +82,11 @@ const Catalog = ({ categoryProducts }: CatalogProps) => {
             />
           )}
           {currentProducts?.length ? (
-            <CatalogProducts currentProducts={currentProducts} />
+            <CatalogProducts
+              activeTab={activeTab}
+              currentProducts={currentProducts}
+              categorySlug={categoryProducts.categorySlug}
+            />
           ) : (
             <NoItems />
           )}

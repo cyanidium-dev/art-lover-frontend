@@ -4,7 +4,7 @@ import { fetchSanityData } from '@/shared/utils/fetchSanityData';
 import { getTranslations } from 'next-intl/server';
 import {
   allDiscountedProductsQuery,
-  allGiftsQuery,
+  allGiftsByGenderQuery,
   allNewProductsQuery,
   allProductsByCategoryQuery,
 } from '@/shared/lib/queries';
@@ -19,7 +19,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   const res =
     category === 'gifts'
-      ? await fetchSanityData(allGiftsQuery, {
+      ? await fetchSanityData(allGiftsByGenderQuery, {
           lang: locale,
         })
       : category === 'discounts'
@@ -35,13 +35,26 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               categorySlug: category,
             });
 
+  console.log(res);
+
   const categoryProducts =
     category === 'gifts'
       ? {
           categorySlug: 'gifts',
           categoryTitle: t('gifts'),
           categorySubtitle: t('giftsDescription'),
-          products: res,
+          subcategories: [
+            {
+              subcategoryTitle: t('women'),
+              subcategorySlug: 'women',
+              products: res.female,
+            },
+            {
+              subcategoryTitle: t('men'),
+              subcategorySlug: 'men',
+              products: res.male,
+            },
+          ],
         }
       : category === 'discounts'
         ? {

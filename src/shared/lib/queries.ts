@@ -119,6 +119,39 @@ export const allGiftsQuery = `*[_type == "product" && isGift == true]{
   "subcategorySlug": subcategory->slug.current
 }`;
 
+export const allGiftsByGenderQuery = `{
+  "female": *[_type == "product" && isGift == true && (gender == "female" || gender == "unisex")]{
+    "id": _id,
+    "title": title[$lang],
+    price,
+    discountedPrice,
+    inStock,
+    "colors": colors[] {
+      "title": name,
+      "hex": value.hex
+    },
+    "slug": slug.current,
+    "mainImage": mainImage.asset->url,
+    "categorySlug": category->slug.current,
+    "subcategorySlug": subcategory->slug.current
+  },
+  "male": *[_type == "product" && isGift == true && (gender == "male" || gender == "unisex")]{
+    "id": _id,
+    "title": title[$lang],
+    price,
+    discountedPrice,
+    inStock,
+    "colors": colors[] {
+      "title": name,
+      "hex": value.hex
+    },
+    "slug": slug.current,
+    "mainImage": mainImage.asset->url,
+    "categorySlug": category->slug.current,
+    "subcategorySlug": subcategory->slug.current
+  }
+}`;
+
 export const singleProductQuery = `
 *[_type == "product" && slug.current == $slug][0]{
     "id": _id,
