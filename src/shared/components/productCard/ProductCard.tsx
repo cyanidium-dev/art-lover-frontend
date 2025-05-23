@@ -76,7 +76,6 @@ export default function ProductCard({
               {t('hrn')}
             </span>
             <span className="text-[14px] xl:text-[16px] font-medium leading-[120%]">
-              {' '}
               &nbsp;
             </span>
             <span className="text-[12px] xl:text-[14px] font-normal leading-[120%] line-through">

@@ -33,7 +33,7 @@ export default function CartListItem({
     addons,
   } = cartItem;
 
-  console.log(cartItem);
+  console.log(color);
 
   return (
     <>
@@ -66,7 +66,7 @@ export default function CartListItem({
                 }`}
               >
                 {title}
-                {color ? `, ${color?.title}` : null}
+                {color && color?.title ? `, ${color?.title}` : null}
               </p>
             </Link>
 
@@ -75,10 +75,24 @@ export default function CartListItem({
                 variant === 'white' ? 'text-white' : 'text-dark'
               }`}
             >
-              {discountedPrice && discountedPrice < price
-                ? discountedPrice
-                : price}
-              {t('hrn')}
+              {discountedPrice && discountedPrice < price ? (
+                <p className="mb-1.5 xl:mb-2 h-auto leading-none">
+                  <span className="text-[14px] xl:text-[16px] font-medium leading-[120%] text-orange">
+                    {discountedPrice}
+                    {t('hrn')}
+                  </span>
+                  <span className="text-[14px] xl:text-[16px] font-medium leading-[120%]">
+                    &nbsp;
+                  </span>
+                  <span className="text-[10px] xl:text-[12px] font-normal leading-[120%] line-through">
+                    {price} {t('hrn')}
+                  </span>
+                </p>
+              ) : (
+                <p className="mb-1.5 xl:mb-2 text-[14px] xl:text-[16px] font-medium leading-[120%]">
+                  {price} {t('hrn')}
+                </p>
+              )}
             </p>
             <Counter
               className="w-[98px]"
