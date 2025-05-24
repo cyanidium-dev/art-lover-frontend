@@ -7,7 +7,7 @@ const AgeFilter = () => {
 
   return (
     <FilterLayout title={t('age')}>
-      <DoubleRangeSlider min={0} max={99} />
+      <DoubleRangeSlider min={0} max={99} maxSuffix=" +" />
     </FilterLayout>
   );
 };

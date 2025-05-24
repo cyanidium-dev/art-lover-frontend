@@ -8,11 +8,13 @@ type DragTarget = 'min' | 'max' | null;
 interface CustomDoubleSliderProps {
   min?: number;
   max?: number;
+  maxSuffix?: string; // новий пропс для додаткового суфікса (наприклад "+")
 }
 
 const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
   min = 0,
   max = 100,
+  maxSuffix = '', // за замовчуванням пусто
 }) => {
   const t = useTranslations('catalogPage.filter');
 
@@ -24,10 +26,8 @@ const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
   const [maxVal, setMaxVal] = useState<number>(max);
   const [dragging, setDragging] = useState<DragTarget>(null);
 
-  // Відсоток позиції повзунка по треку
   const getPercent = (val: number): number => ((val - min) / (max - min)) * 100;
 
-  // Значення по відсотку позиції повзунка
   const getValueFromPercent = (percent: number): number =>
     Math.round(min + percent * (max - min));
 
@@ -40,49 +40,33 @@ const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
     const trackLeft = trackRect.left;
     const trackWidth = trackRect.width;
 
-    // Визначаємо ширину повзунка (вважаємо ширину одного повзунка)
     const handleWidth =
       minHandleRef.current?.offsetWidth ||
       maxHandleRef.current?.offsetWidth ||
       0;
 
-    // Відповідний відсоток ширини повзунка від треку
     const handlePercentWidth = (handleWidth / trackWidth) * 100;
 
-    // Відносна позиція курсора (пікселі)
     let relativeX = e.clientX - trackLeft;
-
-    // Обмежуємо в межах треку
     if (relativeX < 0) relativeX = 0;
     if (relativeX > trackWidth) relativeX = trackWidth;
 
-    // Відсоток від треку
     const percent = relativeX / trackWidth;
-
-    // Відповідне значення
     let value = getValueFromPercent(percent);
 
     if (dragging === 'min') {
-      // Максимально можна рухатися до maxVal в відсотках мінус ширина повзунка
       const maxPercent = getPercent(maxVal) / 100 - handlePercentWidth / 100;
       const clampedPercent = Math.min(percent, maxPercent);
 
-      // Перерахунок value з урахуванням clampedPercent
       value = getValueFromPercent(clampedPercent);
-
-      // Обмеження по мінімуму
       value = Math.max(value, min);
 
       setMinVal(value);
     } else if (dragging === 'max') {
-      // Мінімально можна рухатися до minVal в відсотках плюс ширина повзунка
       const minPercent = getPercent(minVal) / 100 + handlePercentWidth / 100;
       const clampedPercent = Math.max(percent, minPercent);
 
-      // Перерахунок value з урахуванням clampedPercent
       value = getValueFromPercent(clampedPercent);
-
-      // Обмеження по максимуму
       value = Math.min(value, max);
 
       setMaxVal(value);
@@ -150,10 +134,13 @@ const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
         </div>
       </div>
 
-      {/* Мінімальне та максимальне значення під треком */}
+      {/* Мінімальне та максимальне значення під треком з суфіксом для max */}
       <div className="w-full mt-6 flex justify-between text-[14px] font-semibold text-black px-1">
         <p className="text-[16px] font-normal">{min}</p>
-        <p className="text-[16px] font-normal">{max}</p>
+        <p className="text-[16px] font-normal">
+          {max}
+          {maxSuffix}
+        </p>
       </div>
     </div>
   );
