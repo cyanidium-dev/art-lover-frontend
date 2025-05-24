@@ -43,14 +43,13 @@ const CatalogProducts = ({
             initial="hidden"
             animate="visible"
             exit="exit"
-            viewport={{ once: true, amount: 0.1 }}
             variants={listVariants({
               staggerChildren: 0.3,
               delayChildren: 0.3,
             })}
             className="flex flex-wrap gap-4 xl:gap-5"
           >
-            <AnimatePresence>
+            <AnimatePresence mode="wait">
               {currentItems.map(item => (
                 <motion.li
                   layout
