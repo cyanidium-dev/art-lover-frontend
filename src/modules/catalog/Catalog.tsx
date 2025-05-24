@@ -167,8 +167,9 @@ const Catalog = ({ categoryProducts, professions }: CatalogProps) => {
             className="flex items-center gap-4 mb-8 relative z-20"
           >
             <button
+              type="button"
               onClick={() => setIsOpenFilter(true)}
-              className="lg:hidden cursor-pointer"
+              className="lg:hidden cursor-pointer outline-none"
             >
               <Image
                 src="/images/catalog/filter.svg"
