@@ -1,5 +1,6 @@
 export interface Product {
   id: string;
+  createdAt: string;
   categorySlug: string;
   categoryTitle: string;
   subcategorySlug: string;
@@ -30,4 +31,7 @@ export interface Product {
   colors: { title: string; hex: string }[];
   reviews: { author: string; rating: number; text: string }[];
   isBestseller: boolean;
+  professions: { title: string; value: string }[];
+  ageMin: number;
+  ageMax: number;
 }

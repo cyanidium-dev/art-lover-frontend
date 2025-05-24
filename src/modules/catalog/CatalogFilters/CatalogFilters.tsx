@@ -14,6 +14,7 @@ import { useTranslations } from 'next-intl';
 interface CatalogFiltersProps {
   onApplyFilters: (filters: FiltersState) => void;
   professions: { title: string; value: string }[];
+  activeTab: string;
 }
 
 export interface FiltersState {
@@ -28,6 +29,7 @@ export interface FiltersState {
 const CatalogFilters = ({
   onApplyFilters,
   professions,
+  activeTab,
 }: CatalogFiltersProps) => {
   const t = useTranslations('catalogPage.filter');
   const searchParams = useSearchParams();
@@ -60,6 +62,7 @@ const CatalogFilters = ({
 
   return (
     <motion.div
+      key={activeTab}
       initial="hidden"
       whileInView="visible"
       exit="exit"

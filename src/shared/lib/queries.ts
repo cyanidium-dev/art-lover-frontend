@@ -36,6 +36,13 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
       "mainImage": mainImage.asset->url,
       inStock,
       isBestseller,
+      "professions": professions[]->{
+        "title": title[$lang],
+        value
+    },
+      "createdAt":_createdAt,
+      "ageMin": ageRange.min,
+      "ageMax": ageRange.max,
       "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
@@ -53,6 +60,13 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
     "mainImage": mainImage.asset->url,
     inStock,
     isBestseller,
+    "professions": professions[]->{
+        "title": title[$lang],
+        value
+  },
+  "createdAt":_createdAt,
+  "ageMin": ageRange.min,
+      "ageMax": ageRange.max,
     "reviews": reviews[] {
       author,
       rating,
@@ -73,6 +87,13 @@ export const allBestsellersQuery = `*[_type == "product" && isBestseller == true
   discountedPrice,
   inStock,
   isBestseller,
+  "professions": professions[]->{
+        "title": title[$lang],
+        value
+  },
+  "createdAt":_createdAt,
+   "ageMin": ageRange.min,
+   "ageMax": ageRange.max,
   "reviews": reviews[] {
       author,
       rating,
@@ -95,6 +116,13 @@ export const allNewProductsQuery = `*[_type == "product"] | order(publishedAt de
   discountedPrice,
   inStock,
   isBestseller,
+  "professions": professions[]->{
+        "title": title[$lang],
+        value
+  },
+  "createdAt":_createdAt,
+  "ageMin": ageRange.min,
+  "ageMax": ageRange.max,
   "reviews": reviews[] {
       author,
       rating,
@@ -118,6 +146,13 @@ export const allDiscountedProductsQuery = `*[_type == "product" && defined(disco
   discountedPrice,
   inStock,
   isBestseller,
+  "professions": professions[]->{
+        "title": title[$lang],
+        value
+  },
+  "createdAt":_createdAt,
+  "ageMin": ageRange.min,
+   "ageMax": ageRange.max,
   "reviews": reviews[] {
       author,
       rating,
@@ -140,6 +175,13 @@ export const allGiftsQuery = `*[_type == "product" && isGift == true]{
   discountedPrice,
   inStock,
   isBestseller,
+  "professions": professions[]->{
+        "title": title[$lang],
+        value
+  },
+  "createdAt":_createdAt,
+  "ageMin": ageRange.min,
+  "ageMax": ageRange.max,
   "reviews": reviews[] {
       author,
       rating,
@@ -163,6 +205,13 @@ export const allGiftsByGenderQuery = `{
     discountedPrice,
     inStock,
     isBestseller,
+    "professions": professions[]->{
+        "title": title[$lang],
+        value
+  },
+  "createdAt":_createdAt,
+  "ageMin": ageRange.min,
+   "ageMax": ageRange.max,
     "reviews": reviews[] {
       author,
       rating,
@@ -184,6 +233,13 @@ export const allGiftsByGenderQuery = `{
     discountedPrice,
     inStock,
     isBestseller,
+    "professions": professions[]->{
+        "title": title[$lang],
+        value
+  },
+  "createdAt":_createdAt,
+  "ageMin": ageRange.min,
+   "ageMax": ageRange.max,
     "reviews": reviews[] {
       author,
       rating,
@@ -218,6 +274,13 @@ export const singleProductQuery = `
     "discountedPrice": discountedPrice,
     "inStock": inStock,
     isBestseller,
+    "professions": professions[]->{
+        "title": title[$lang],
+        value
+  },
+  "createdAt":_createdAt,
+  "ageMin": ageRange.min,
+   "ageMax": ageRange.max,
     "characteristics": {"weight": weight,
     "dimensions": {
       "width": dimensions.width,
@@ -266,6 +329,13 @@ export const allSimilarProductsQuery = `*[_type == "product"
   discountedPrice,
   inStock,
   isBestseller,
+  "professions": professions[]->{
+        "title": title[$lang],
+        value
+  },
+  "createdAt":_createdAt,
+  "ageMin": ageRange.min,
+   "ageMax": ageRange.max,
   "reviews": reviews[] {
       author,
       rating,

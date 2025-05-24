@@ -10,6 +10,8 @@ import { Product } from '@/types/product';
 import TabMenu from './CatalogCategories/TabMenu';
 import NoItems from './NoItems';
 import CatalogSorting from './CatalogSorting/CatalogSorting';
+import { filterProducts } from '@/shared/utils/filterProducts';
+import { parseFiltersFromSearchParams } from '@/shared/utils/parseFiltersFromSearchParams';
 
 export interface FiltersState {
   type?: string[];
@@ -122,14 +124,20 @@ const Catalog = ({ categoryProducts, professions }: CatalogProps) => {
 
   const sortParam = searchParams.get('sort') || 'rating';
 
-  const sortedProducts = currentProducts
-    ? sortProducts(currentProducts, sortParam)
+  const filters = parseFiltersFromSearchParams(searchParams);
+  const filteredProducts = currentProducts
+    ? filterProducts(currentProducts, filters)
+    : [];
+
+  const sortedProducts = filteredProducts
+    ? sortProducts(filteredProducts, sortParam)
     : [];
 
   return (
     <section className="pb-20 xl:pb-[140px]">
       <Container className="flex gap-[20px] items-start">
         <CatalogFilters
+         activeTab={activeTab}
           onApplyFilters={handleApplyFilters}
           professions={professions}
         />
@@ -143,7 +151,7 @@ const Catalog = ({ categoryProducts, professions }: CatalogProps) => {
             />
           )}
           <CatalogSorting />
-          {currentProducts?.length ? (
+          {sortedProducts?.length ? (
             <CatalogProducts
               activeTab={activeTab}
               currentProducts={sortedProducts}

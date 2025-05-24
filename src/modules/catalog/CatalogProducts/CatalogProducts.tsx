@@ -65,9 +65,6 @@ const CatalogProducts = ({
           </motion.ul>
         )}
       />
-      {/* <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-[140px] mt-[33px] md:mt-[40px]">
-        {elements}
-      </div> */}
       <AddedToCartPopUp
         isPopUpShown={isAddedToCartPopUpShown}
         setIsPopUpShown={setIsAddedToCartPopUpShown}

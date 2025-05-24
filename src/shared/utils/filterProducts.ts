@@ -13,34 +13,55 @@ export const filterProducts = (
   products: Product[],
   filters: FiltersState
 ): Product[] => {
-  return products.filter(product => {
-    // Фільтр за type (припустимо, у product є поле type як рядок)
-    if (filters.type && filters.type.length > 0) {
-      if (!filters.type.includes(product.type)) return false;
-    }
+  const { type, profession, ageFrom, ageTo, priceFrom, priceTo } = filters;
 
-    // Фільтр за profession (припустимо, у product є масив професій)
-    if (filters.profession && filters.profession.length > 0) {
-      if (!product.professions?.some(p => filters.profession?.includes(p)))
-        return false;
-    }
+  let filtered = [...products];
 
-    // Фільтр за вік
-    if (filters.ageFrom !== undefined && product.ageFrom !== undefined) {
-      if (product.ageFrom < filters.ageFrom) return false;
-    }
-    if (filters.ageTo !== undefined && product.ageTo !== undefined) {
-      if (product.ageTo > filters.ageTo) return false;
-    }
+  if (type?.includes('discounts')) {
+    filtered = filtered.filter(product => !!product.discountedPrice);
+  }
 
-    // Фільтр за ціну
-    if (filters.priceFrom !== undefined && product.price !== undefined) {
-      if (product.price < filters.priceFrom) return false;
-    }
-    if (filters.priceTo !== undefined && product.price !== undefined) {
-      if (product.price > filters.priceTo) return false;
-    }
+  if (type?.includes('newProducts')) {
+    filtered = filtered.sort((a, b) => {
+      const dateA = new Date(a.createdAt || '').getTime();
+      const dateB = new Date(b.createdAt || '').getTime();
+      return dateB - dateA;
+    });
+  }
 
-    return true;
-  });
+  // Фільтр за profession (по value)
+  if (profession?.length && profession.length > 0) {
+    filtered = filtered.filter(product =>
+      product.professions?.some(p => profession.includes(p.value))
+    );
+  }
+
+  // Фільтр за віком (враховує діапазон перетину)
+  if (ageFrom !== undefined) {
+    filtered = filtered.filter(
+      product => product.ageMax === undefined || product.ageMax >= ageFrom
+    );
+  }
+  if (ageTo !== undefined) {
+    filtered = filtered.filter(
+      product => product.ageMin === undefined || product.ageMin <= ageTo
+    );
+  }
+
+  // Фільтр за ціною
+  if (priceFrom !== undefined) {
+    filtered = filtered.filter(product => {
+      const price = product.discountedPrice ?? product.price;
+      return price === undefined || price >= priceFrom;
+    });
+  }
+
+  if (priceTo !== undefined) {
+    filtered = filtered.filter(product => {
+      const price = product.discountedPrice ?? product.price;
+      return price === undefined || price <= priceTo;
+    });
+  }
+
+  return filtered;
 };
