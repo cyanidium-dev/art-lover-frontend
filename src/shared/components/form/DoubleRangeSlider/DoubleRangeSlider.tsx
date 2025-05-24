@@ -25,10 +25,27 @@ const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
   const t = useTranslations('catalogPage.filter');
 
   const trackRef = useRef<HTMLDivElement | null>(null);
+  const minThumbRef = useRef<HTMLDivElement | null>(null);
+  const maxThumbRef = useRef<HTMLDivElement | null>(null);
 
   const [minVal, setMinVal] = useState<number>(from);
   const [maxVal, setMaxVal] = useState<number>(to);
   const [dragging, setDragging] = useState<DragTarget>(null);
+  const [minThumbWidth, setMinThumbWidth] = useState(0);
+  const [maxThumbWidth, setmMaxThumbWidth] = useState(0);
+
+  useEffect(() => {
+    if (maxVal === max && maxThumbRef.current) {
+      const width = maxThumbRef.current.offsetWidth;
+      setmMaxThumbWidth(width);
+    }
+
+    if (minVal === min && minThumbRef.current) {
+      const width = minThumbRef.current.offsetWidth;
+      setMinThumbWidth(width);
+      console.log('Min thumb width:', width);
+    }
+  }, [maxVal, max, minVal, min]);
 
   // Синхронізація локального стану з пропсами from/to
   useEffect(() => {
@@ -101,7 +118,11 @@ const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
       {/* Трек */}
       <div
         ref={trackRef}
-        className="relative ml-[16px] mr-[23px] h-[2px] bg-dark rounded mt-[5px]"
+        style={{
+          marginLeft: minThumbWidth / 2,
+          marginRight: maxThumbWidth / 2,
+        }}
+        className="relative h-[2px] bg-dark rounded mt-[5px]"
       >
         {/* Активний діапазон */}
         <div
@@ -114,6 +135,7 @@ const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
 
         {/* Мінімальний повзунок + цифра */}
         <div
+          ref={minThumbRef}
           className="absolute top-1/2 -translate-y-1/2"
           style={{
             left: `${getPercent(minVal)}%`,
@@ -128,6 +150,7 @@ const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
 
         {/* Максимальний повзунок + цифра */}
         <div
+          ref={maxThumbRef}
           className="absolute top-1/2 -translate-y-1/2"
           style={{
             left: `${getPercent(maxVal)}%`,
