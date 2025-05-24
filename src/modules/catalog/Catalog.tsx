@@ -59,7 +59,6 @@ const Catalog = ({ categoryProducts }: CatalogProps) => {
       params.set('type', filters.type.join(','));
     else params.delete('type');
 
-    // professions - масив
     if (filters.profession && filters.profession.length > 0) {
       params.set('profession', filters.profession.join(','));
     } else {

@@ -1,4 +1,9 @@
-import { useState } from 'react';
+'use client';
+
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import TypeFilters from './TypeFilters/TypeFilters';
 import PriceFilter from './PriceFilter/PriceFilter';
 import ProfessionFilter from './ProfessionFilter/ProfessionFilter';
@@ -21,14 +26,43 @@ export interface FiltersState {
 
 const CatalogFilters = ({ onApplyFilters }: CatalogFiltersProps) => {
   const t = useTranslations('catalogPage.filter');
+  const searchParams = useSearchParams();
 
   const [filters, setFilters] = useState<FiltersState>({
-    profession: [],
     type: [],
+    profession: [],
   });
 
+  useEffect(() => {
+    if (!searchParams) return;
+
+    // Зчитуємо параметри з URL
+    const typeParam = searchParams.get('type');
+    const professionParam = searchParams.get('profession');
+    const ageFromParam = searchParams.get('ageFrom');
+    const ageToParam = searchParams.get('ageTo');
+    const priceFromParam = searchParams.get('priceFrom');
+    const priceToParam = searchParams.get('priceTo');
+
+    setFilters({
+      type: typeParam ? typeParam.split(',') : [],
+      profession: professionParam ? professionParam.split(',') : [],
+      ageFrom: ageFromParam ? Number(ageFromParam) : undefined,
+      ageTo: ageToParam ? Number(ageToParam) : undefined,
+      priceFrom: priceFromParam ? Number(priceFromParam) : undefined,
+      priceTo: priceToParam ? Number(priceToParam) : undefined,
+    });
+  }, [searchParams]);
+
   return (
-    <div className="hidden lg:block w-full lg:w-1/4 rounded-[16px] shadow px-[20px] py-[32px]">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeInAnimation({ x: -30 })}
+      className="hidden lg:block w-full lg:w-1/4 rounded-[16px] shadow px-[20px] py-[32px]"
+    >
       <TypeFilters
         value={filters.type}
         onChange={type => setFilters(f => ({ ...f, type }))}
@@ -59,7 +93,7 @@ const CatalogFilters = ({ onApplyFilters }: CatalogFiltersProps) => {
       >
         {t('button')}
       </MainButton>
-    </div>
+    </motion.div>
   );
 };
 
