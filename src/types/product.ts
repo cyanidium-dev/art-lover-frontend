@@ -29,4 +29,5 @@ export interface Product {
   addons: { title: string; price: number; id: string }[];
   colors: { title: string; hex: string }[];
   reviews: { author: string; rating: number; text: string }[];
+  isBestseller: boolean;
 }

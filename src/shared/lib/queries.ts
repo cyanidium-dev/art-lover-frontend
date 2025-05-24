@@ -30,6 +30,7 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
       discountedPrice,
       "mainImage": mainImage.asset->url,
       inStock,
+      isBestseller,
       "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
@@ -46,6 +47,7 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
     discountedPrice,
     "mainImage": mainImage.asset->url,
     inStock,
+    isBestseller,
     "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
@@ -60,6 +62,7 @@ export const allBestsellersQuery = `*[_type == "product" && isBestseller == true
   price,
   discountedPrice,
   inStock,
+  isBestseller,
   "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
@@ -76,6 +79,7 @@ export const allNewProductsQuery = `*[_type == "product"] | order(publishedAt de
   price,
   discountedPrice,
   inStock,
+  isBestseller,
   "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
@@ -93,6 +97,7 @@ export const allDiscountedProductsQuery = `*[_type == "product" && defined(disco
   price,
   discountedPrice,
   inStock,
+  isBestseller,
   "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
@@ -109,6 +114,7 @@ export const allGiftsQuery = `*[_type == "product" && isGift == true]{
   price,
   discountedPrice,
   inStock,
+  isBestseller,
   "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
@@ -126,6 +132,7 @@ export const allGiftsByGenderQuery = `{
     price,
     discountedPrice,
     inStock,
+    isBestseller,
     "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
@@ -141,6 +148,7 @@ export const allGiftsByGenderQuery = `{
     price,
     discountedPrice,
     inStock,
+    isBestseller,
     "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
@@ -169,7 +177,7 @@ export const singleProductQuery = `
     "price": price,
     "discountedPrice": discountedPrice,
     "inStock": inStock,
-    
+    isBestseller,
     "characteristics": {"weight": weight,
     "dimensions": {
       "width": dimensions.width,
@@ -217,6 +225,7 @@ export const allSimilarProductsQuery = `*[_type == "product"
   price,
   discountedPrice,
   inStock,
+  isBestseller,
   "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
