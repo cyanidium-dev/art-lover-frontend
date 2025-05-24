@@ -142,7 +142,7 @@ const Catalog = ({ categoryProducts, professions }: CatalogProps) => {
   return (
     <section className="pb-20 xl:pb-[140px]">
       <Container className="flex gap-[20px] items-start">
-        <div className="hidden lg:block w-1/4">
+        <div className="hidden lg:block w-1/4 min-w-[260px]">
           <CatalogFilters
             activeTab={activeTab}
             onApplyFilters={handleApplyFilters}
