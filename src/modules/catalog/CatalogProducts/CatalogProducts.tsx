@@ -8,6 +8,7 @@ import CartModal from '@/shared/components/cart/Cart';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
 import { Product } from '@/types/product';
 import * as motion from 'motion/react-client';
+import { AnimatePresence } from 'framer-motion';
 import {
   listVariants,
   listItemVariants,
@@ -40,28 +41,29 @@ const CatalogProducts = ({
           <motion.ul
             key={activeTab}
             initial="hidden"
-            whileInView="visible"
+            animate="visible"
             exit="exit"
-            viewport={{ once: true, amount: 0.1 }}
             variants={listVariants({
               staggerChildren: 0.3,
               delayChildren: 0.3,
             })}
             className="flex flex-wrap gap-4 xl:gap-5"
           >
-            {currentItems.map((favoriteItem, idx) => (
-              <motion.li
-                viewport={{ once: true, amount: 0.2 }}
-                variants={listItemVariants}
-                key={idx}
-                className="w-[calc(50%-8px)] md:w-[calc(33.33%-10.67px)] xl:w-[calc(33.33%-13.33px)]"
-              >
-                <ProductCard
-                  setIsAddedToCartPopUpShown={setIsAddedToCartPopUpShown}
-                  product={favoriteItem}
-                />
-              </motion.li>
-            ))}
+            <AnimatePresence mode="wait">
+              {currentItems.map(item => (
+                <motion.li
+                  layout
+                  variants={listItemVariants}
+                  key={item.id}
+                  className="w-[calc(50%-8px)] md:w-[calc(33.33%-10.67px)] xl:w-[calc(33.33%-13.33px)]"
+                >
+                  <ProductCard
+                    setIsAddedToCartPopUpShown={setIsAddedToCartPopUpShown}
+                    product={item}
+                  />
+                </motion.li>
+              ))}
+            </AnimatePresence>
           </motion.ul>
         )}
       />

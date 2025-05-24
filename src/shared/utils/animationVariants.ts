@@ -81,9 +81,8 @@ export const listItemVariants = {
   },
   exit: {
     opacity: 0,
-    y: -10,
     scale: 0.95,
-    transition: { duration: 0.3, ease: 'easeOut' },
+    transition: { duration: 0.5, ease: 'easeOut' },
   },
 };
 

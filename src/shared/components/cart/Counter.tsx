@@ -47,7 +47,7 @@ export default function Counter({
     >
       <button
         type="button"
-        className={`cursor-pointer flex items-center justify-center size-3 ${
+        className={`enabled:cursor-pointer flex items-center justify-center size-3 ${
           variant === 'white' ? 'text-white' : 'text-dark'
         }`}
         onClick={onMinusClick}
@@ -65,7 +65,7 @@ export default function Counter({
       </div>
       <button
         type="button"
-        className={`cursor-pointer flex items-center justify-center size-3 xl:size-4 ${
+        className={`enabled:cursor-pointer flex items-center justify-center size-3 xl:size-4 ${
           variant === 'white' ? 'text-white' : 'text-dark'
         }`}
         onClick={onPlusClick}

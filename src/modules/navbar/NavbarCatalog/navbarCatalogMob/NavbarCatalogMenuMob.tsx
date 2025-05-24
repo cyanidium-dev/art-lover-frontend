@@ -31,7 +31,7 @@ export default function NavbarCatalogMenuMob({
           animate="visible"
           exit="exit"
           variants={burgerMenuVariants}
-          className={`md:hidden absolute -z-[10] top-0 md:top-0 right-0 w-[100vw] md:w-[495px] bg-white md:bg-dark h-dvh`}
+          className={`${isOpen ? 'no-doc-scroll' : ''} md:hidden absolute -z-[10] top-0 md:top-0 right-0 w-[100vw] md:w-[495px] bg-white md:bg-dark h-dvh no-doc-scroll`}
         >
           <div className="relative -z-50 h-22 w-full md:hidden bg-white"></div>
           <div
