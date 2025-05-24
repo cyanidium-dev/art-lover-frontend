@@ -2,6 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
@@ -58,7 +60,14 @@ export default function CatalogSorting() {
   }, []);
 
   return (
-    <div className="flex items-center gap-4 mb-8 relative">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeInAnimation({ y: 30, delay: 0.2 })}
+      className="flex items-center gap-4 mb-8 relative"
+    >
       <Image
         src="/images/catalog/filter.svg"
         alt="sorting icon"
@@ -97,6 +106,6 @@ export default function CatalogSorting() {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
