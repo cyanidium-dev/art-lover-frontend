@@ -12,6 +12,10 @@ import NoItems from './NoItems';
 import CatalogSorting from './CatalogSorting/CatalogSorting';
 import { filterProducts } from '@/shared/utils/filterProducts';
 import { parseFiltersFromSearchParams } from '@/shared/utils/parseFiltersFromSearchParams';
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
+import Image from 'next/image';
+import CatalogFiltersModal from './CatalogFilters/CatalogFiltersModal';
 
 export interface FiltersState {
   type?: string[];
@@ -44,6 +48,8 @@ const SECTION_ID = 'catalog-page-products-list';
 const Catalog = ({ categoryProducts, professions }: CatalogProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
+
+  const [isOpenFilter, setIsOpenFilter] = useState(false);
 
   const subcategories = categoryProducts?.subcategories || [];
 
@@ -136,11 +142,13 @@ const Catalog = ({ categoryProducts, professions }: CatalogProps) => {
   return (
     <section className="pb-20 xl:pb-[140px]">
       <Container className="flex gap-[20px] items-start">
-        <CatalogFilters
-         activeTab={activeTab}
-          onApplyFilters={handleApplyFilters}
-          professions={professions}
-        />
+        <div className="hidden lg:block w-1/4">
+          <CatalogFilters
+            activeTab={activeTab}
+            onApplyFilters={handleApplyFilters}
+            professions={professions}
+          />
+        </div>
         <div id={SECTION_ID} className="w-full lg:w-3/4">
           <CatalogMainImage categoryProducts={categoryProducts} />
           {hasSubcategories && (
@@ -150,7 +158,27 @@ const Catalog = ({ categoryProducts, professions }: CatalogProps) => {
               setActiveTab={setActiveTab}
             />
           )}
-          <CatalogSorting />
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            exit="exit"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInAnimation({ y: 30, delay: 0.2 })}
+            className="flex items-center gap-4 mb-8 relative z-20"
+          >
+            <button
+              onClick={() => setIsOpenFilter(true)}
+              className="lg:hidden cursor-pointer"
+            >
+              <Image
+                src="/images/catalog/filter.svg"
+                alt="sorting icon"
+                width={32}
+                height={32}
+              />
+            </button>
+            <CatalogSorting />
+          </motion.div>
           {sortedProducts?.length ? (
             <CatalogProducts
               activeTab={activeTab}
@@ -162,6 +190,13 @@ const Catalog = ({ categoryProducts, professions }: CatalogProps) => {
           )}
         </div>
       </Container>
+      <CatalogFiltersModal
+        activeTab={activeTab}
+        handleApplyFilters={handleApplyFilters}
+        professions={professions}
+        isOpen={isOpenFilter}
+        onClose={() => setIsOpenFilter(false)}
+      />
     </section>
   );
 };

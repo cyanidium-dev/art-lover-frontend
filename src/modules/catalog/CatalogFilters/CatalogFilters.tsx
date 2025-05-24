@@ -15,6 +15,7 @@ interface CatalogFiltersProps {
   onApplyFilters: (filters: FiltersState) => void;
   professions: { title: string; value: string }[];
   activeTab: string;
+  onClose?: () => void;
 }
 
 export interface FiltersState {
@@ -30,6 +31,7 @@ const CatalogFilters = ({
   onApplyFilters,
   professions,
   activeTab,
+  onClose,
 }: CatalogFiltersProps) => {
   const t = useTranslations('catalogPage.filter');
   const searchParams = useSearchParams();
@@ -68,7 +70,7 @@ const CatalogFilters = ({
       exit="exit"
       viewport={{ once: true, amount: 0.2 }}
       variants={fadeInAnimation({ x: -30 })}
-      className="hidden lg:block w-full lg:w-1/4 rounded-[16px] shadow px-[20px] py-[32px]"
+      className="w-full rounded-[16px] shadow px-[20px] py-[32px]"
     >
       <TypeFilters
         value={filters.type}
@@ -97,7 +99,12 @@ const CatalogFilters = ({
       <MainButton
         className="h-12 mt-4"
         textStyles="text-[14px] xl:text-[16px]"
-        onClick={() => onApplyFilters(filters)}
+        onClick={() => {
+          onApplyFilters(filters);
+          if (onClose) {
+            onClose();
+          }
+        }}
       >
         {t('button')}
       </MainButton>

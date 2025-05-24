@@ -2,9 +2,6 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import * as motion from 'motion/react-client';
-import { fadeInAnimation } from '@/shared/utils/animationVariants';
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
 export default function CatalogSorting() {
@@ -60,52 +57,35 @@ export default function CatalogSorting() {
   }, []);
 
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      exit="exit"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={fadeInAnimation({ y: 30, delay: 0.2 })}
-      className="flex items-center gap-4 mb-8 relative z-20"
+    <div
+      className="relative w-full max-w-[250px] xl:max-w-[405px]"
+      ref={dropdownRef}
     >
-      <Image
-        src="/images/catalog/filter.svg"
-        alt="sorting icon"
-        width={32}
-        height={32}
-        className="xl:hidden"
-      />
+      <button
+        onClick={() => setIsOpen(prev => !prev)}
+        className="group cursor-pointer flex items-center gap-x-2 xl:gap-x-4 w-full h-8 xl:h-11 px-3 xl:px-7 rounded-full border border-orange-light text-[10px] xl:text-[16px] font-medium text-dark bg-white xl:hover:brightness-110 focus-visible:brightness-110 transition duration-300 ease-in-out"
+      >
+        <p>{t('sort')}</p>
+        <div className="size-2 rounded-full bg-dark shrink-0" />
+        <span className="truncate text-[10px] xl:text-[16px] font-semibold text-orange xl:group-hover:brightness-110 group-focus-visible:brightness-110 transition duration-300 ease-in-out">
+          {selected.title}
+        </span>
+      </button>
 
       <div
-        className="relative w-full max-w-[250px] xl:max-w-[405px]"
-        ref={dropdownRef}
-      >
-        <button
-          onClick={() => setIsOpen(prev => !prev)}
-          className="group cursor-pointer flex items-center gap-x-2 xl:gap-x-4 w-full h-8 xl:h-11 px-3 xl:px-7 rounded-full border border-orange-light text-[10px] xl:text-[16px] font-medium text-dark bg-white xl:hover:brightness-110 focus-visible:brightness-110 transition duration-300 ease-in-out"
-        >
-          <p>{t('sort')}</p>
-          <div className="size-2 rounded-full bg-dark shrink-0" />
-          <span className="truncate text-[10px] xl:text-[16px] font-semibold text-orange xl:group-hover:brightness-110 group-focus-visible:brightness-110 transition duration-300 ease-in-out">
-            {selected.title}
-          </span>
-        </button>
-
-        <div
-          className={`${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'} absolute right-0 w-[175px] xl:w-[263px] mt-2 bg-white rounded-[16px] 
+        className={`${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'} absolute right-0 w-[175px] xl:w-[263px] mt-2 bg-white rounded-[16px] 
             shadow-social overflow-hidden text-[10px] xl:text-[16px] font-semibold transition duration-500 ease-in-out`}
-        >
-          {sortingOptions.map(option => (
-            <button
-              key={option.value}
-              onClick={() => handleOptionClick(option)}
-              className="cursor-pointer w-full text-left px-4 py-1.5 xl:hover:bg-orange-light xl:hover:text-white text-dark transition duration-100 ease-in-out"
-            >
-              {option.title}
-            </button>
-          ))}
-        </div>
+      >
+        {sortingOptions.map(option => (
+          <button
+            key={option.value}
+            onClick={() => handleOptionClick(option)}
+            className="cursor-pointer w-full text-left px-4 py-1.5 xl:hover:bg-orange-light xl:hover:text-white text-dark transition duration-100 ease-in-out"
+          >
+            {option.title}
+          </button>
+        ))}
       </div>
-    </motion.div>
+    </div>
   );
 }

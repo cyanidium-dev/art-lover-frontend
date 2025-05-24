@@ -192,7 +192,7 @@ const SubscribeNews = () => {
                 required
               />
               <button
-                className="cursor-pointer rounded-[28px] w-[103px] xl:w-[148px] bg-white text-[12px] xl:text-[16px] xl:hover:bg-orange 
+                className="enabled:cursor-pointer rounded-[28px] w-[103px] xl:w-[148px] bg-white text-[12px] xl:text-[16px] xl:hover:bg-orange 
             focus-visible:bg-orange xl:hover:text-white focus-visible:text-white transition duration-300 ease-in-out"
                 type="submit"
                 disabled={loading}
