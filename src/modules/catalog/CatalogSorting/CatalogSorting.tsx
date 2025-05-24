@@ -66,7 +66,7 @@ export default function CatalogSorting() {
       exit="exit"
       viewport={{ once: true, amount: 0.2 }}
       variants={fadeInAnimation({ y: 30, delay: 0.2 })}
-      className="flex items-center gap-4 mb-8 relative"
+      className="flex items-center gap-4 mb-8 relative z-20"
     >
       <Image
         src="/images/catalog/filter.svg"
@@ -82,17 +82,17 @@ export default function CatalogSorting() {
       >
         <button
           onClick={() => setIsOpen(prev => !prev)}
-          className="group cursor-pointer flex items-center gap-x-2 xl:gap-x-4 w-full h-8 xl:h-11 px-3 xl:px-7 rounded-full border border-orange-light text-[10px] xl:text-[16px] font-medium text-dark bg-white"
+          className="group cursor-pointer flex items-center gap-x-2 xl:gap-x-4 w-full h-8 xl:h-11 px-3 xl:px-7 rounded-full border border-orange-light text-[10px] xl:text-[16px] font-medium text-dark bg-white xl:hover:brightness-110 focus-visible:brightness-110 transition duration-300 ease-in-out"
         >
           <p>{t('sort')}</p>
           <div className="size-2 rounded-full bg-dark shrink-0" />
-          <span className="truncate text-[10px] xl:text-[16px] font-semibold text-orange transition duration-500 ease-in-out">
+          <span className="truncate text-[10px] xl:text-[16px] font-semibold text-orange xl:group-hover:brightness-110 group-focus-visible:brightness-110 transition duration-300 ease-in-out">
             {selected.title}
           </span>
         </button>
 
         <div
-          className={`${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'} absolute right-0 z-20 w-[175px] xl:w-[263px] mt-2 bg-white rounded-[16px] 
+          className={`${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'} absolute right-0 w-[175px] xl:w-[263px] mt-2 bg-white rounded-[16px] 
             shadow-social overflow-hidden text-[10px] xl:text-[16px] font-semibold transition duration-500 ease-in-out`}
         >
           {sortingOptions.map(option => (

@@ -79,6 +79,22 @@
       "popularity": "По популярности",
       "discount": "По скидке",
       "availability": "По наличию"
+    },
+    "filter": {
+      "discounts": "Актуальные скидки",
+      "newProducts": "Новинки",
+      "from": "От",
+      "to": "До",
+      "price": "Цена",
+      "profession": "Профессия",
+      "age": "Возраст",
+      "professionsOptions": {
+        "marketer": "Маркетолог",
+        "teacher": "Учитель",
+        "designer": "Дизайнер",
+        "programmer": "Программист",
+        "beauty": "Мастер красоты"
+      }
     }
   },
   "blogPage": {

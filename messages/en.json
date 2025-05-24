@@ -79,6 +79,22 @@
       "popularity": "By popularity",
       "discount": "By discount",
       "availability": "By availability"
+    },
+    "filter": {
+      "discounts": "Current Discounts",
+      "newProducts": "New Arrivals",
+      "from": "From",
+      "to": "To",
+      "price": "Price",
+      "profession": "Profession",
+      "age": "Age",
+      "professionsOptions": {
+        "marketer": "Marketer",
+        "teacher": "Teacher",
+        "designer": "Designer",
+        "programmer": "Programmer",
+        "beauty": "Beauty Specialist"
+      }
     }
   },
   "blogPage": {

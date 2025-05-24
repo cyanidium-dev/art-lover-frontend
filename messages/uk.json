@@ -73,6 +73,22 @@
       "popularity": "За популярністю",
       "discount": "За знижкою",
       "availability": "За наявністю"
+    },
+    "filter": {
+      "discounts": "Актуальні знижки",
+      "newProducts": "Новинки",
+      "from": "Від",
+      "to": "До",
+      "price": "Ціна",
+      "profession": "Професія",
+      "age": "Вік",
+      "professionsOptions": {
+        "marketer": "Маркетолог",
+        "teacher": "Вчитель",
+        "designer": "Дизайнер",
+        "programmer": "Програміст",
+        "beauty": "Майстер краси"
+      }
     }
   },
   "blogPage": {
