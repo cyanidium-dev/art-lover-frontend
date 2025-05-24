@@ -17,25 +17,75 @@ const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
   const t = useTranslations('catalogPage.filter');
 
   const trackRef = useRef<HTMLDivElement | null>(null);
+  const minHandleRef = useRef<HTMLDivElement | null>(null);
+  const maxHandleRef = useRef<HTMLDivElement | null>(null);
+
   const [minVal, setMinVal] = useState<number>(min);
   const [maxVal, setMaxVal] = useState<number>(max);
   const [dragging, setDragging] = useState<DragTarget>(null);
 
+  // Відсоток позиції повзунка по треку
   const getPercent = (val: number): number => ((val - min) / (max - min)) * 100;
+
+  // Значення по відсотку позиції повзунка
+  const getValueFromPercent = (percent: number): number =>
+    Math.round(min + percent * (max - min));
 
   const handleMouseDown = (target: DragTarget) => () => setDragging(target);
 
   const handleMouseMove = (e: MouseEvent): void => {
     if (!dragging || !trackRef.current) return;
 
-    const { left, width } = trackRef.current.getBoundingClientRect();
-    const percent = Math.min(Math.max((e.clientX - left) / width, 0), 1);
-    const value = Math.round(min + percent * (max - min));
+    const trackRect = trackRef.current.getBoundingClientRect();
+    const trackLeft = trackRect.left;
+    const trackWidth = trackRect.width;
+
+    // Визначаємо ширину повзунка (вважаємо ширину одного повзунка)
+    const handleWidth =
+      minHandleRef.current?.offsetWidth ||
+      maxHandleRef.current?.offsetWidth ||
+      0;
+
+    // Відповідний відсоток ширини повзунка від треку
+    const handlePercentWidth = (handleWidth / trackWidth) * 100;
+
+    // Відносна позиція курсора (пікселі)
+    let relativeX = e.clientX - trackLeft;
+
+    // Обмежуємо в межах треку
+    if (relativeX < 0) relativeX = 0;
+    if (relativeX > trackWidth) relativeX = trackWidth;
+
+    // Відсоток від треку
+    const percent = relativeX / trackWidth;
+
+    // Відповідне значення
+    let value = getValueFromPercent(percent);
 
     if (dragging === 'min') {
-      if (value < maxVal) setMinVal(value);
+      // Максимально можна рухатися до maxVal в відсотках мінус ширина повзунка
+      const maxPercent = getPercent(maxVal) / 100 - handlePercentWidth / 100;
+      const clampedPercent = Math.min(percent, maxPercent);
+
+      // Перерахунок value з урахуванням clampedPercent
+      value = getValueFromPercent(clampedPercent);
+
+      // Обмеження по мінімуму
+      value = Math.max(value, min);
+
+      setMinVal(value);
     } else if (dragging === 'max') {
-      if (value > minVal) setMaxVal(value);
+      // Мінімально можна рухатися до minVal в відсотках плюс ширина повзунка
+      const minPercent = getPercent(minVal) / 100 + handlePercentWidth / 100;
+      const clampedPercent = Math.max(percent, minPercent);
+
+      // Перерахунок value з урахуванням clampedPercent
+      value = getValueFromPercent(clampedPercent);
+
+      // Обмеження по максимуму
+      value = Math.min(value, max);
+
+      setMaxVal(value);
     }
   };
 
@@ -51,7 +101,7 @@ const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
   });
 
   return (
-    <div className="w-full relative">
+    <div className="w-full relative select-none">
       {/* Метки */}
       <div className="w-full mb-8 flex justify-between text-[14px] font-semibold text-dark px-1">
         <div>{t('from')}</div>
@@ -60,7 +110,7 @@ const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
 
       {/* Трек */}
       <div ref={trackRef} className="relative h-[2px] bg-dark rounded mt-[5px]">
-        {/* Активный диапазон */}
+        {/* Активний діапазон */}
         <div
           className="absolute h-[2px] bg-dark rounded"
           style={{
@@ -69,35 +119,38 @@ const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
           }}
         ></div>
 
-        {/* Минимальный ползунок + цифра */}
+        {/* Мінімальний повзунок + цифра */}
         <div
+          ref={minHandleRef}
           className="absolute top-1/2 -translate-y-1/2"
-          style={{ left: `${getPercent(minVal)}%` }}
+          style={{
+            left: `${getPercent(minVal)}%`,
+            transform: 'translateX(-50%)',
+          }}
+          onMouseDown={handleMouseDown('min')}
         >
-          <div
-            className="px-2 py-1 text-[12px] text-white flex items-center justify-center bg-orange rounded-[4px] shadow cursor-pointer select-none"
-            onMouseDown={handleMouseDown('min')}
-          >
+          <div className="px-2 py-1 text-[12px] text-white flex items-center justify-center bg-orange rounded-[4px] shadow cursor-pointer select-none">
             {minVal}
           </div>
         </div>
 
-        {/* Максимальный ползунок + цифра */}
+        {/* Максимальний повзунок + цифра */}
         <div
+          ref={maxHandleRef}
           className="absolute top-1/2 -translate-y-1/2"
           style={{
             left: `${getPercent(maxVal)}%`,
-            transform: 'translateX(-100%)',
+            transform: 'translateX(-50%)',
           }}
+          onMouseDown={handleMouseDown('max')}
         >
-          <div
-            className="text-[12px] px-2 py-1 text-white flex items-center justify-center bg-orange rounded-[4px] shadow cursor-pointer select-none"
-            onMouseDown={handleMouseDown('max')}
-          >
+          <div className="text-[12px] px-2 py-1 text-white flex items-center justify-center bg-orange rounded-[4px] shadow cursor-pointer select-none">
             {maxVal}
           </div>
         </div>
       </div>
+
+      {/* Мінімальне та максимальне значення під треком */}
       <div className="w-full mt-6 flex justify-between text-[14px] font-semibold text-black px-1">
         <p className="text-[16px] font-normal">{min}</p>
         <p className="text-[16px] font-normal">{max}</p>
