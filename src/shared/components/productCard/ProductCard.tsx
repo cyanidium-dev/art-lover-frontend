@@ -34,7 +34,6 @@ export default function ProductCard({
   } = product;
 
   const handleClick = () => {
-    console.log(id);
     setIsAddedToCartPopUpShown(true);
     addToCart({
       id: `${id}${colors && colors?.length ? colors[0].hex : ''}`,

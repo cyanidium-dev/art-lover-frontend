@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { sortProducts } from '@/shared/utils/sortProducts';
 import CatalogFilters from './CatalogFilters/CatalogFilters';
 import CatalogMainImage from './CatalogMainImage/CatalogMainImage';
 import CatalogProducts from './CatalogProducts/CatalogProducts';
@@ -69,6 +70,12 @@ const Catalog = ({ categoryProducts }: CatalogProps) => {
   const currentProducts =
     currentSubcategory?.products || categoryProducts?.products;
 
+  const sortParam = searchParams.get('sort') || 'rating';
+
+  const sortedProducts = currentProducts
+    ? sortProducts(currentProducts, sortParam)
+    : [];
+
   return (
     <section className="pb-20 xl:pb-[140px]">
       <Container className="flex gap-[20px] items-start">
@@ -86,7 +93,7 @@ const Catalog = ({ categoryProducts }: CatalogProps) => {
           {currentProducts?.length ? (
             <CatalogProducts
               activeTab={activeTab}
-              currentProducts={currentProducts}
+              currentProducts={sortedProducts}
               categorySlug={categoryProducts.categorySlug}
             />
           ) : (

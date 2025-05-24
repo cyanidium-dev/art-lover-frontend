@@ -20,9 +20,10 @@ export const sortProducts = (
         return priceB - priceA;
       });
     case 'rating':
-      return [...products].sort(
+      const sortedByRating = [...products].sort(
         (a, b) => getAverageRating(b.reviews) - getAverageRating(a.reviews)
       );
+      return sortedByRating;
     case 'popularity':
       return [...products].sort((a, b) => {
         const aIsBestseller = a.isBestseller ? 1 : 0;

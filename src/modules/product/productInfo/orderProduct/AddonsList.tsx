@@ -31,7 +31,6 @@ export default function AddonsList({
     );
   };
 
-  console.log(selectedAddons);
   return (
     <motion.ul
       initial="hidden"

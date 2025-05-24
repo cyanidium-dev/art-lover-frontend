@@ -49,8 +49,6 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
     reviews,
   } = currentProduct;
 
-  console.log(addons);
-
   const [selectedColor, setSelectedColor] = useState({
     title: colors && colors?.length ? colors[0]?.title : '',
     hex: colors && colors?.length ? colors[0]?.hex : '',
@@ -175,7 +173,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
         variants={fadeInAnimation({ y: 30, delay: 0.6 })}
         className="mb-6 xl:mb-[26.5px] text-right text-[10px] xl:text-[14px] font-light leading-[120%]"
       >
-        ({t('reviews', { count: reviews?.length })})
+        ({t('reviews', { count: (reviews && reviews?.length) || 0 })})
       </motion.p>
       {!addons || !addons.length || inStock !== 'in_stock' ? null : (
         <AddonsList

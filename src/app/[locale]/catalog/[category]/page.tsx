@@ -35,8 +35,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               categorySlug: category,
             });
 
-  console.log(res);
-
   const categoryProducts =
     category === 'gifts'
       ? {

@@ -14,7 +14,7 @@ interface ReviewsSliderProps {
 
 function chunkArray<T>(arr: T[], size: number): T[][] {
   const chunked: T[][] = [];
-  for (let i = 0; i < arr.length; i += size) {
+  for (let i = 0; i < arr?.length; i += size) {
     chunked.push(arr.slice(i, i + size));
   }
   return chunked;
@@ -42,34 +42,36 @@ export default function ReviewsSlider({ currentProduct }: ReviewsSliderProps) {
             {t('title')}
           </h2>
           <p className="mt-[1px] text-[10px] xl:text-[16px] font-normal leading-none">
-            ({reviews.length})
+            ({(reviews && reviews?.length) || 0})
           </p>
         </div>
-        {reviews && reviews.length ? (
+        {reviews && reviews?.length ? (
           <div className="w-[calc(100%-105px-24px)] h-[0.5px] opacity-50 bg-dark"></div>
         ) : null}
       </div>
-      <SwiperWrapper
-        swiperClassName="product-reviews"
-        loop
-        isPagination={false}
-        breakpoints={{
-          0: {
-            slidesPerView: 1,
-            spaceBetween: 16,
-          },
-        }}
-      >
-        {chunkedReviews.map((group, idx) => (
-          <SwiperSlide key={idx}>
-            <div className="flex flex-col gap-y-4 xl:gap-y-5">
-              {group.map((review, idx) => (
-                <ReviewCard key={idx} review={review} />
-              ))}
-            </div>
-          </SwiperSlide>
-        ))}
-      </SwiperWrapper>
+      {reviews && reviews?.length ? (
+        <SwiperWrapper
+          swiperClassName="product-reviews"
+          loop
+          isPagination={false}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 16,
+            },
+          }}
+        >
+          {chunkedReviews.map((group, idx) => (
+            <SwiperSlide key={idx}>
+              <div className="flex flex-col gap-y-4 xl:gap-y-5">
+                {group.map((review, idx) => (
+                  <ReviewCard key={idx} review={review} />
+                ))}
+              </div>
+            </SwiperSlide>
+          ))}
+        </SwiperWrapper>
+      ) : null}
     </motion.div>
   );
 }

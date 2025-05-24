@@ -33,8 +33,6 @@ export default function CartListItem({
     addons,
   } = cartItem;
 
-  console.log(color);
-
   return (
     <>
       <div className="flex gap-x-[25px] p-3">

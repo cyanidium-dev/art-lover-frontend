@@ -28,6 +28,11 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
       "slug": slug.current,
       price,
       discountedPrice,
+       "reviews": reviews[] {
+      author,
+      rating,
+      text
+    },
       "mainImage": mainImage.asset->url,
       inStock,
       isBestseller,
@@ -48,6 +53,11 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
     "mainImage": mainImage.asset->url,
     inStock,
     isBestseller,
+    "reviews": reviews[] {
+      author,
+      rating,
+      text
+    },
     "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
@@ -63,6 +73,11 @@ export const allBestsellersQuery = `*[_type == "product" && isBestseller == true
   discountedPrice,
   inStock,
   isBestseller,
+  "reviews": reviews[] {
+      author,
+      rating,
+      text
+    },
   "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
@@ -80,6 +95,11 @@ export const allNewProductsQuery = `*[_type == "product"] | order(publishedAt de
   discountedPrice,
   inStock,
   isBestseller,
+  "reviews": reviews[] {
+      author,
+      rating,
+      text
+    },
   "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
@@ -98,6 +118,11 @@ export const allDiscountedProductsQuery = `*[_type == "product" && defined(disco
   discountedPrice,
   inStock,
   isBestseller,
+  "reviews": reviews[] {
+      author,
+      rating,
+      text
+    },
   "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
@@ -115,6 +140,11 @@ export const allGiftsQuery = `*[_type == "product" && isGift == true]{
   discountedPrice,
   inStock,
   isBestseller,
+  "reviews": reviews[] {
+      author,
+      rating,
+      text
+    },
   "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
@@ -133,6 +163,11 @@ export const allGiftsByGenderQuery = `{
     discountedPrice,
     inStock,
     isBestseller,
+    "reviews": reviews[] {
+      author,
+      rating,
+      text
+    },
     "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
@@ -149,6 +184,11 @@ export const allGiftsByGenderQuery = `{
     discountedPrice,
     inStock,
     isBestseller,
+    "reviews": reviews[] {
+      author,
+      rating,
+      text
+    },
     "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
@@ -226,6 +266,11 @@ export const allSimilarProductsQuery = `*[_type == "product"
   discountedPrice,
   inStock,
   isBestseller,
+  "reviews": reviews[] {
+      author,
+      rating,
+      text
+    },
   "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
