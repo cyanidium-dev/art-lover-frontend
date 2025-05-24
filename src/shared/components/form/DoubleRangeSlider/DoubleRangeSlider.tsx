@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 
 type DragTarget = 'min' | 'max' | null;
@@ -8,55 +8,78 @@ type DragTarget = 'min' | 'max' | null;
 interface CustomDoubleSliderProps {
   min?: number;
   max?: number;
-  maxSuffix?: string; // новий пропс для додаткового суфікса (наприклад "+")
+  maxSuffix?: string;
+  from?: number;
+  to?: number;
+  onChange?: (from: number, to: number) => void;
 }
 
 const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
   min = 0,
   max = 100,
-  maxSuffix = '', // за замовчуванням пусто
+  maxSuffix = '',
+  from = min,
+  to = max,
+  onChange,
 }) => {
   const t = useTranslations('catalogPage.filter');
 
   const trackRef = useRef<HTMLDivElement | null>(null);
-  const minHandleRef = useRef<HTMLDivElement | null>(null);
-  const maxHandleRef = useRef<HTMLDivElement | null>(null);
 
-  const [minVal, setMinVal] = useState<number>(min);
-  const [maxVal, setMaxVal] = useState<number>(max);
+  const [minVal, setMinVal] = useState<number>(from);
+  const [maxVal, setMaxVal] = useState<number>(to);
   const [dragging, setDragging] = useState<DragTarget>(null);
 
-  const getPercent = (val: number): number => ((val - min) / (max - min)) * 100;
+  // Синхронізація локального стану з пропсами from/to
+  useEffect(() => {
+    setMinVal(from);
+  }, [from]);
 
-  const getValueFromPercent = (percent: number): number =>
-    Math.round(min + percent * (max - min));
+  useEffect(() => {
+    setMaxVal(to);
+  }, [to]);
+
+  const getPercent = useCallback(
+    (val: number): number => ((val - min) / (max - min)) * 100,
+    [min, max]
+  );
+
+  const getValueFromPercent = useCallback(
+    (percent: number): number => Math.round(min + percent * (max - min)),
+    [min, max]
+  );
 
   const handleMouseDown = (target: DragTarget) => () => setDragging(target);
 
-  const handleMouseMove = (e: MouseEvent): void => {
-    if (!dragging || !trackRef.current) return;
+  const handleMouseUp = useCallback(() => {
+    setDragging(null);
+  }, []);
 
-    const trackRect = trackRef.current.getBoundingClientRect();
-    const trackLeft = trackRect.left;
-    const trackWidth = trackRect.width;
+  const handleMouseMove = useCallback(
+    (e: MouseEvent): void => {
+      if (!dragging || !trackRef.current) return;
 
-    let relativeX = e.clientX - trackLeft;
-    if (relativeX < 0) relativeX = 0;
-    if (relativeX > trackWidth) relativeX = trackWidth;
+      const trackRect = trackRef.current.getBoundingClientRect();
+      let relativeX = e.clientX - trackRect.left;
+      relativeX = Math.max(0, Math.min(relativeX, trackRect.width));
 
-    const percent = relativeX / trackWidth;
-    let value = getValueFromPercent(percent);
+      const percent = relativeX / trackRect.width;
+      let value = getValueFromPercent(percent);
 
-    if (dragging === 'min') {
-      value = Math.max(value, min);
-      setMinVal(value);
-    } else if (dragging === 'max') {
-      value = Math.min(value, max);
-      setMaxVal(value);
-    }
-  };
-
-  const handleMouseUp = (): void => setDragging(null);
+      if (dragging === 'min') {
+        value = Math.min(value, maxVal);
+        value = Math.max(value, min);
+        setMinVal(value);
+        onChange?.(value, maxVal);
+      } else if (dragging === 'max') {
+        value = Math.max(value, minVal);
+        value = Math.min(value, max);
+        setMaxVal(value);
+        onChange?.(minVal, value);
+      }
+    },
+    [dragging, min, max, minVal, maxVal, getValueFromPercent, onChange]
+  );
 
   useEffect(() => {
     window.addEventListener('mousemove', handleMouseMove);
@@ -65,7 +88,7 @@ const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseup', handleMouseUp);
     };
-  });
+  }, [handleMouseMove, handleMouseUp]);
 
   return (
     <div className="w-full relative select-none">
@@ -85,13 +108,12 @@ const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
           className="absolute h-[2px] bg-dark rounded"
           style={{
             left: `${getPercent(minVal)}%`,
-            width: `${getPercent(maxVal - minVal)}%`,
+            width: `${getPercent(maxVal) - getPercent(minVal)}%`,
           }}
         ></div>
 
         {/* Мінімальний повзунок + цифра */}
         <div
-          ref={minHandleRef}
           className="absolute top-1/2 -translate-y-1/2"
           style={{
             left: `${getPercent(minVal)}%`,
@@ -106,7 +128,6 @@ const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
 
         {/* Максимальний повзунок + цифра */}
         <div
-          ref={maxHandleRef}
           className="absolute top-1/2 -translate-y-1/2"
           style={{
             left: `${getPercent(maxVal)}%`,

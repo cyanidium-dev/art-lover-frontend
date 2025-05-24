@@ -1,15 +1,35 @@
 import Checkbox from '../../../../shared/components/form/Checkbox/Checkbox';
 import { useTranslations } from 'next-intl';
-
 import FilterLayout from '../FilterLayout/FilterLayout';
 
-const TypeFilters = () => {
+interface TypeFiltersProps {
+  value: string[];
+  onChange: (selected: string[]) => void;
+}
+
+const types = ['discounts', 'newProducts'] as const;
+
+const TypeFilters = ({ value, onChange }: TypeFiltersProps) => {
   const t = useTranslations('catalogPage.filter');
+
+  const toggleType = (type: string) => {
+    if (value.includes(type)) {
+      onChange(value.filter(t => t !== type));
+    } else {
+      onChange([...value, type]);
+    }
+  };
 
   return (
     <FilterLayout>
-      <Checkbox label={t('discounts')} />
-      <Checkbox label={t('newProducts')} />
+      {types.map(type => (
+        <Checkbox
+          key={type}
+          label={t(type)}
+          checked={value.includes(type)}
+          onChange={() => toggleType(type)}
+        />
+      ))}
     </FilterLayout>
   );
 };

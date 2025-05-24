@@ -81,13 +81,14 @@
       "availability": "By availability"
     },
     "filter": {
-      "discounts": "Current Discounts",
-      "newProducts": "New Arrivals",
+      "discounts": "Current discounts",
+      "newProducts": "New arrivals",
       "from": "From",
       "to": "To",
       "price": "Price",
       "profession": "Profession",
       "age": "Age",
+      "button": "Apply filter",
       "professionsOptions": {
         "marketer": "Marketer",
         "teacher": "Teacher",

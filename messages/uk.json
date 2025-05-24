@@ -82,6 +82,7 @@
       "price": "Ціна",
       "profession": "Професія",
       "age": "Вік",
+      "button": "Застосувати фільтр",
       "professionsOptions": {
         "marketer": "Маркетолог",
         "teacher": "Вчитель",

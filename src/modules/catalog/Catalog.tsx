@@ -11,6 +11,15 @@ import TabMenu from './CatalogCategories/TabMenu';
 import NoItems from './NoItems';
 import CatalogSorting from './CatalogSorting/CatalogSorting';
 
+export interface FiltersState {
+  type?: string[];
+  profession?: string[];
+  ageFrom?: number;
+  ageTo?: number;
+  priceFrom?: number;
+  priceTo?: number;
+}
+
 interface CatalogProps {
   categoryProducts: {
     categorySlug: string;
@@ -42,6 +51,47 @@ const Catalog = ({ categoryProducts }: CatalogProps) => {
     : '';
 
   const [activeTab, setActiveTab] = useState(defaultSubcategory || '');
+
+  const handleApplyFilters = (filters: FiltersState) => {
+    const params = new URLSearchParams(searchParams.toString());
+
+    if (filters.type && filters.type.length > 0)
+      params.set('type', filters.type.join(','));
+    else params.delete('type');
+
+    // professions - масив
+    if (filters.profession && filters.profession.length > 0) {
+      params.set('profession', filters.profession.join(','));
+    } else {
+      params.delete('profession');
+    }
+
+    if (filters.ageFrom !== undefined && filters.ageFrom !== null) {
+      params.set('ageFrom', String(filters.ageFrom));
+    } else {
+      params.delete('ageFrom');
+    }
+
+    if (filters.ageTo !== undefined && filters.ageTo !== null) {
+      params.set('ageTo', String(filters.ageTo));
+    } else {
+      params.delete('ageTo');
+    }
+
+    if (filters.priceFrom !== undefined && filters.priceFrom !== null) {
+      params.set('priceFrom', String(filters.priceFrom));
+    } else {
+      params.delete('priceFrom');
+    }
+
+    if (filters.priceTo !== undefined && filters.priceTo !== null) {
+      params.set('priceTo', String(filters.priceTo));
+    } else {
+      params.delete('priceTo');
+    }
+
+    router.push(`?${params.toString()}`, { scroll: false });
+  };
 
   useEffect(() => {
     if (!hasSubcategories) return;
@@ -79,7 +129,7 @@ const Catalog = ({ categoryProducts }: CatalogProps) => {
   return (
     <section className="pb-20 xl:pb-[140px]">
       <Container className="flex gap-[20px] items-start">
-        <CatalogFilters />
+        <CatalogFilters onApplyFilters={handleApplyFilters} />
         <div id={SECTION_ID} className="w-full lg:w-3/4">
           <CatalogMainImage categoryProducts={categoryProducts} />
           {hasSubcategories && (
