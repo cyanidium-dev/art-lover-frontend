@@ -280,6 +280,11 @@ export const allSimilarProductsQuery = `*[_type == "product"
   "mainImage": mainImage.asset->url,
   }`;
 
+export const allProfessionsQuery = `*[_type == "profession"] {
+   "title": title[$lang],
+    value
+ }`;
+
 export const allPostsQuery = `
   *[_type == "post"]  | order(_createdAt desc) {
     "id": _id,

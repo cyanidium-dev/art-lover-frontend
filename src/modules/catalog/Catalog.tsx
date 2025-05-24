@@ -34,11 +34,12 @@ interface CatalogProps {
     ];
     products?: Product[];
   };
+  professions: { title: string; value: string }[];
 }
 
 const SECTION_ID = 'catalog-page-products-list';
 
-const Catalog = ({ categoryProducts }: CatalogProps) => {
+const Catalog = ({ categoryProducts, professions }: CatalogProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -128,7 +129,10 @@ const Catalog = ({ categoryProducts }: CatalogProps) => {
   return (
     <section className="pb-20 xl:pb-[140px]">
       <Container className="flex gap-[20px] items-start">
-        <CatalogFilters onApplyFilters={handleApplyFilters} />
+        <CatalogFilters
+          onApplyFilters={handleApplyFilters}
+          professions={professions}
+        />
         <div id={SECTION_ID} className="w-full lg:w-3/4">
           <CatalogMainImage categoryProducts={categoryProducts} />
           {hasSubcategories && (

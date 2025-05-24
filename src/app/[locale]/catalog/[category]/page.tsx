@@ -7,7 +7,10 @@ import {
   allGiftsByGenderQuery,
   allNewProductsQuery,
   allProductsByCategoryQuery,
+  allProfessionsQuery,
 } from '@/shared/lib/queries';
+import { Suspense } from 'react';
+import Loader from '@/shared/components/loader/Loader';
 
 interface CategoryPageProps {
   params: Promise<{ category: string; locale: Locale }>;
@@ -16,6 +19,10 @@ interface CategoryPageProps {
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { locale, category } = await params;
   const t = await getTranslations('header.catalogMenu');
+
+  const professions = await fetchSanityData(allProfessionsQuery, {
+    lang: locale,
+  });
 
   const res =
     category === 'gifts'
@@ -72,7 +79,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   return (
     <>
-      <Catalog categoryProducts={categoryProducts} />
+      <Suspense fallback={<Loader />}>
+        {' '}
+        <Catalog
+          categoryProducts={categoryProducts}
+          professions={professions}
+        />
+      </Suspense>
     </>
   );
 }

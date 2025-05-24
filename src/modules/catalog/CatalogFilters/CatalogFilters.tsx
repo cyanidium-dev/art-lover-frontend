@@ -13,6 +13,7 @@ import { useTranslations } from 'next-intl';
 
 interface CatalogFiltersProps {
   onApplyFilters: (filters: FiltersState) => void;
+  professions: { title: string; value: string }[];
 }
 
 export interface FiltersState {
@@ -24,7 +25,10 @@ export interface FiltersState {
   priceTo?: number;
 }
 
-const CatalogFilters = ({ onApplyFilters }: CatalogFiltersProps) => {
+const CatalogFilters = ({
+  onApplyFilters,
+  professions,
+}: CatalogFiltersProps) => {
   const t = useTranslations('catalogPage.filter');
   const searchParams = useSearchParams();
 
@@ -75,6 +79,7 @@ const CatalogFilters = ({ onApplyFilters }: CatalogFiltersProps) => {
         }
       />
       <ProfessionFilter
+        professions={professions}
         value={filters.profession}
         onChange={profession => setFilters(f => ({ ...f, profession }))}
       />

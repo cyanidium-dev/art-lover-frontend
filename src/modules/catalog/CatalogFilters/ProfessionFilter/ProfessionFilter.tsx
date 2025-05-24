@@ -5,28 +5,33 @@ import FilterLayout from '../FilterLayout/FilterLayout';
 interface ProfessionFilterProps {
   value: string[];
   onChange: (selected: string[]) => void;
+  professions: { title: string; value: string }[];
 }
 
-const professions = ['marketer', 'teacher', 'designer', 'programmer', 'beauty'];
-
-const ProfessionFilter = ({ value, onChange }: ProfessionFilterProps) => {
+const ProfessionFilter = ({
+  value,
+  onChange,
+  professions,
+}: ProfessionFilterProps) => {
   const t = useTranslations('catalogPage.filter');
 
-  const toggleProfession = (profession: string) => {
-    if (value.includes(profession)) {
-      onChange(value.filter(p => p !== profession));
+  if (!professions) return null;
+
+  const toggleProfession = (profession: { title: string; value: string }) => {
+    if (value.includes(profession.value)) {
+      onChange(value.filter(p => p !== profession.value));
     } else {
-      onChange([...value, profession]);
+      onChange([...value, profession.value]);
     }
   };
 
   return (
     <FilterLayout title={t('profession')}>
-      {professions.map(profession => (
+      {professions?.map(profession => (
         <Checkbox
-          key={profession}
-          label={t(`professionsOptions.${profession}`)}
-          checked={value.includes(profession)}
+          key={profession.value}
+          label={profession.title}
+          checked={value.includes(profession.value)}
           onChange={() => toggleProfession(profession)}
         />
       ))}
