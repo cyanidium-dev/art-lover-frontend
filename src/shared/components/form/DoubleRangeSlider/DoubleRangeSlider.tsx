@@ -40,13 +40,6 @@ const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
     const trackLeft = trackRect.left;
     const trackWidth = trackRect.width;
 
-    const handleWidth =
-      minHandleRef.current?.offsetWidth ||
-      maxHandleRef.current?.offsetWidth ||
-      0;
-
-    const handlePercentWidth = (handleWidth / trackWidth) * 100;
-
     let relativeX = e.clientX - trackLeft;
     if (relativeX < 0) relativeX = 0;
     if (relativeX > trackWidth) relativeX = trackWidth;
@@ -55,20 +48,10 @@ const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
     let value = getValueFromPercent(percent);
 
     if (dragging === 'min') {
-      const maxPercent = getPercent(maxVal) / 100 - handlePercentWidth / 100;
-      const clampedPercent = Math.min(percent, maxPercent);
-
-      value = getValueFromPercent(clampedPercent);
       value = Math.max(value, min);
-
       setMinVal(value);
     } else if (dragging === 'max') {
-      const minPercent = getPercent(minVal) / 100 + handlePercentWidth / 100;
-      const clampedPercent = Math.max(percent, minPercent);
-
-      value = getValueFromPercent(clampedPercent);
       value = Math.min(value, max);
-
       setMaxVal(value);
     }
   };
@@ -93,7 +76,10 @@ const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
       </div>
 
       {/* Трек */}
-      <div ref={trackRef} className="relative h-[2px] bg-dark rounded mt-[5px]">
+      <div
+        ref={trackRef}
+        className="relative ml-[16px] mr-[23px] h-[2px] bg-dark rounded mt-[5px]"
+      >
         {/* Активний діапазон */}
         <div
           className="absolute h-[2px] bg-dark rounded"
