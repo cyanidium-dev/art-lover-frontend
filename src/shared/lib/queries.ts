@@ -28,10 +28,23 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
       "slug": slug.current,
       price,
       discountedPrice,
+       "reviews": reviews[] {
+      author,
+      rating,
+      text
+    },
       "mainImage": mainImage.asset->url,
       inStock,
+      isBestseller,
+      "professions": professions[]->{
+        "title": title[$lang],
+        value
+    },
+      "createdAt":_createdAt,
+      "ageMin": ageRange.min,
+      "ageMax": ageRange.max,
       "colors": colors[] {
-      "title": name,
+      "title": name[$lang],
       "hex": value.hex
     },
     }
@@ -46,8 +59,21 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
     discountedPrice,
     "mainImage": mainImage.asset->url,
     inStock,
+    isBestseller,
+    "professions": professions[]->{
+        "title": title[$lang],
+        value
+  },
+  "createdAt":_createdAt,
+  "ageMin": ageRange.min,
+      "ageMax": ageRange.max,
+    "reviews": reviews[] {
+      author,
+      rating,
+      text
+    },
     "colors": colors[] {
-      "title": name,
+      "title": name[$lang],
       "hex": value.hex
     },
   }
@@ -60,8 +86,21 @@ export const allBestsellersQuery = `*[_type == "product" && isBestseller == true
   price,
   discountedPrice,
   inStock,
+  isBestseller,
+  "professions": professions[]->{
+        "title": title[$lang],
+        value
+  },
+  "createdAt":_createdAt,
+   "ageMin": ageRange.min,
+   "ageMax": ageRange.max,
+  "reviews": reviews[] {
+      author,
+      rating,
+      text
+    },
   "colors": colors[] {
-      "title": name,
+      "title": name[$lang],
       "hex": value.hex
     },
   "slug": slug.current,
@@ -76,8 +115,21 @@ export const allNewProductsQuery = `*[_type == "product"] | order(publishedAt de
   price,
   discountedPrice,
   inStock,
+  isBestseller,
+  "professions": professions[]->{
+        "title": title[$lang],
+        value
+  },
+  "createdAt":_createdAt,
+  "ageMin": ageRange.min,
+  "ageMax": ageRange.max,
+  "reviews": reviews[] {
+      author,
+      rating,
+      text
+    },
   "colors": colors[] {
-      "title": name,
+      "title": name[$lang],
       "hex": value.hex
     },
   "slug": slug.current,
@@ -93,8 +145,21 @@ export const allDiscountedProductsQuery = `*[_type == "product" && defined(disco
   price,
   discountedPrice,
   inStock,
+  isBestseller,
+  "professions": professions[]->{
+        "title": title[$lang],
+        value
+  },
+  "createdAt":_createdAt,
+  "ageMin": ageRange.min,
+   "ageMax": ageRange.max,
+  "reviews": reviews[] {
+      author,
+      rating,
+      text
+    },
   "colors": colors[] {
-      "title": name,
+      "title": name[$lang],
       "hex": value.hex
     },
   "slug": slug.current,
@@ -109,14 +174,86 @@ export const allGiftsQuery = `*[_type == "product" && isGift == true]{
   price,
   discountedPrice,
   inStock,
+  isBestseller,
+  "professions": professions[]->{
+        "title": title[$lang],
+        value
+  },
+  "createdAt":_createdAt,
+  "ageMin": ageRange.min,
+  "ageMax": ageRange.max,
+  "reviews": reviews[] {
+      author,
+      rating,
+      text
+    },
   "colors": colors[] {
-      "title": name,
+      "title": name[$lang],
       "hex": value.hex
     },
   "slug": slug.current,
   "mainImage": mainImage.asset->url,
   "categorySlug": category->slug.current,
   "subcategorySlug": subcategory->slug.current
+}`;
+
+export const allGiftsByGenderQuery = `{
+  "female": *[_type == "product" && isGift == true && (gender == "female" || gender == "unisex")]{
+    "id": _id,
+    "title": title[$lang],
+    price,
+    discountedPrice,
+    inStock,
+    isBestseller,
+    "professions": professions[]->{
+        "title": title[$lang],
+        value
+  },
+  "createdAt":_createdAt,
+  "ageMin": ageRange.min,
+   "ageMax": ageRange.max,
+    "reviews": reviews[] {
+      author,
+      rating,
+      text
+    },
+    "colors": colors[] {
+      "title": name[$lang],
+      "hex": value.hex
+    },
+    "slug": slug.current,
+    "mainImage": mainImage.asset->url,
+    "categorySlug": category->slug.current,
+    "subcategorySlug": subcategory->slug.current
+  },
+  "male": *[_type == "product" && isGift == true && (gender == "male" || gender == "unisex")]{
+    "id": _id,
+    "title": title[$lang],
+    price,
+    discountedPrice,
+    inStock,
+    isBestseller,
+    "professions": professions[]->{
+        "title": title[$lang],
+        value
+  },
+  "createdAt":_createdAt,
+  "ageMin": ageRange.min,
+   "ageMax": ageRange.max,
+    "reviews": reviews[] {
+      author,
+      rating,
+      text
+    },
+    "colors": colors[] {
+      "title": name[$lang],
+      "hex": value.hex
+    },
+    "slug": slug.current,
+    "mainImage": mainImage.asset->url,
+    "categorySlug": category->slug.current,
+    "subcategorySlug": subcategory->slug.current
+  }
 }`;
 
 export const singleProductQuery = `
@@ -136,7 +273,14 @@ export const singleProductQuery = `
     "price": price,
     "discountedPrice": discountedPrice,
     "inStock": inStock,
-    
+    isBestseller,
+    "professions": professions[]->{
+        "title": title[$lang],
+        value
+  },
+  "createdAt":_createdAt,
+  "ageMin": ageRange.min,
+   "ageMax": ageRange.max,
     "characteristics": {"weight": weight,
     "dimensions": {
       "width": dimensions.width,
@@ -149,7 +293,7 @@ export const singleProductQuery = `
     "article": sku},
       "idealFor": tags[].[$lang],
     "colors": colors[] {
-      "title": name,
+      "title": name[$lang],
       "hex": value.hex
     },
     "addons": additions[] {
@@ -184,14 +328,32 @@ export const allSimilarProductsQuery = `*[_type == "product"
   price,
   discountedPrice,
   inStock,
+  isBestseller,
+  "professions": professions[]->{
+        "title": title[$lang],
+        value
+  },
+  "createdAt":_createdAt,
+  "ageMin": ageRange.min,
+   "ageMax": ageRange.max,
+  "reviews": reviews[] {
+      author,
+      rating,
+      text
+    },
   "colors": colors[] {
-      "title": name,
+      "title": name[$lang],
       "hex": value.hex
     },
   "slug": slug.current,
   "categorySlug": category->slug.current,
   "mainImage": mainImage.asset->url,
   }`;
+
+export const allProfessionsQuery = `*[_type == "profession"] {
+   "title": title[$lang],
+    value
+ }`;
 
 export const allPostsQuery = `
   *[_type == "post"]  | order(_createdAt desc) {

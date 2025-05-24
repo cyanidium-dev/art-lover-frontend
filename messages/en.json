@@ -69,7 +69,35 @@
       "thankYouTwo": "We hope our kits bring you joy and inspiration, and you create something truly amazing!"
     }
   },
-  "catalogPage": { "noItems": "There are no products in this category" },
+  "catalogPage": {
+    "noItems": "There are no products in this category",
+    "sort": "Sort",
+    "sortingOptions": {
+      "rating": "By highest rating",
+      "priceAscending": "By increasing price",
+      "pricDescending": "By decreasing price",
+      "popularity": "By popularity",
+      "discount": "By discount",
+      "availability": "By availability"
+    },
+    "filter": {
+      "discounts": "Current discounts",
+      "newProducts": "New arrivals",
+      "from": "From",
+      "to": "To",
+      "price": "Price",
+      "profession": "Profession",
+      "age": "Age",
+      "button": "Apply filter",
+      "professionsOptions": {
+        "marketer": "Marketer",
+        "teacher": "Teacher",
+        "designer": "Designer",
+        "programmer": "Programmer",
+        "beauty": "Beauty Specialist"
+      }
+    }
+  },
   "blogPage": {
     "title": "blog",
     "description": "Welcome to our blog! Here we share inspiration, creative ideas, useful lifehacks.",
@@ -389,6 +417,8 @@
     "catalogMenu": {
       "title": "Catalog",
       "gifts": "Gifts",
+      "women": "For her",
+      "men": "For him",
       "giftsDescription": "Give inspiration",
       "discounts": "Discounts",
       "discountsDescription": "Great deals",
@@ -491,6 +521,6 @@
   },
   "productCard": {
     "hrn": " UAH",
-    "button": "More details"
+    "button": "Details"
   }
 }

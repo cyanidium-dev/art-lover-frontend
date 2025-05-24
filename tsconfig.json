@@ -28,7 +28,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/modules/navbar/NavbarCatalog/navbarCatalogMob/NavBarCategoriesListMob.tsx",
-    "src/shared/components/icons/categoriesIcons/NewProducts.Icontsx"
+    "src/shared/components/icons/categoriesIcons/NewProducts.Icontsx",
+    "src/modules/catalog/CatalogFilters/CatalogFilters.tsx"
   ],
   "exclude": ["node_modules"]
 }

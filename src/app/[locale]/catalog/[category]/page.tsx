@@ -4,10 +4,13 @@ import { fetchSanityData } from '@/shared/utils/fetchSanityData';
 import { getTranslations } from 'next-intl/server';
 import {
   allDiscountedProductsQuery,
-  allGiftsQuery,
+  allGiftsByGenderQuery,
   allNewProductsQuery,
   allProductsByCategoryQuery,
+  allProfessionsQuery,
 } from '@/shared/lib/queries';
+import { Suspense } from 'react';
+import Loader from '@/shared/components/loader/Loader';
 
 interface CategoryPageProps {
   params: Promise<{ category: string; locale: Locale }>;
@@ -17,9 +20,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const { locale, category } = await params;
   const t = await getTranslations('header.catalogMenu');
 
+  const professions = await fetchSanityData(allProfessionsQuery, {
+    lang: locale,
+  });
+
   const res =
     category === 'gifts'
-      ? await fetchSanityData(allGiftsQuery, {
+      ? await fetchSanityData(allGiftsByGenderQuery, {
           lang: locale,
         })
       : category === 'discounts'
@@ -41,7 +48,18 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           categorySlug: 'gifts',
           categoryTitle: t('gifts'),
           categorySubtitle: t('giftsDescription'),
-          products: res,
+          subcategories: [
+            {
+              subcategoryTitle: t('women'),
+              subcategorySlug: 'women',
+              products: res.female,
+            },
+            {
+              subcategoryTitle: t('men'),
+              subcategorySlug: 'men',
+              products: res.male,
+            },
+          ],
         }
       : category === 'discounts'
         ? {
@@ -61,7 +79,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   return (
     <>
-      <Catalog categoryProducts={categoryProducts} />
+      <Suspense fallback={<Loader />}>
+        {' '}
+        <Catalog
+          categoryProducts={categoryProducts}
+          professions={professions}
+        />
+      </Suspense>
     </>
   );
 }
