@@ -1,31 +1,48 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
 export default function CatalogSorting() {
   const t = useTranslations('catalogPage');
-  const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState({
-    title: t('sortingOptions.rating'),
-    value: 'rating',
-  });
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const sortingOptions = [
     { title: t('sortingOptions.rating'), value: 'rating' },
-    { title: t('sortingOptions.priceAscending'), value: 'priceAscending' },
-    { title: t('sortingOptions.pricDescending'), value: 'pricDescending' },
+    { title: t('sortingOptions.priceAscending'), value: 'price-ascending' },
+    { title: t('sortingOptions.pricDescending'), value: 'price-descending' },
     { title: t('sortingOptions.popularity'), value: 'popularity' },
     { title: t('sortingOptions.discount'), value: 'discount' },
     { title: t('sortingOptions.availability'), value: 'availability' },
   ];
 
+  const initialSort = searchParams.get('sort') || 'rating';
+  const initialSelected =
+    sortingOptions.find(opt => opt.value === initialSort) || sortingOptions[0];
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [selected, setSelected] = useState(initialSelected);
+
   const handleOptionClick = (option: { value: string; title: string }) => {
     setSelected(option);
     setIsOpen(false);
+
+    const newParams = new URLSearchParams(Array.from(searchParams.entries()));
+    newParams.set('sort', option.value);
+    router.replace(`?${newParams.toString()}`, { scroll: false });
   };
+
+  useEffect(() => {
+    if (!searchParams.get('sort')) {
+      const newParams = new URLSearchParams(Array.from(searchParams.entries()));
+      newParams.set('sort', 'rating');
+      router.replace(`?${newParams.toString()}`, { scroll: false });
+    }
+  }, [router, searchParams]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -36,7 +53,6 @@ export default function CatalogSorting() {
         setIsOpen(false);
       }
     };
-
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
@@ -57,11 +73,11 @@ export default function CatalogSorting() {
       >
         <button
           onClick={() => setIsOpen(prev => !prev)}
-          className="cursor-pointer flex items-center gap-x-2 xl:gap-x-4 w-full h-8 xl:h-11 px-3 xl:px-7 rounded-full border border-orange-light text-[10px] xl:text-[16px] font-medium text-dark bg-white"
+          className="group cursor-pointer flex items-center gap-x-2 xl:gap-x-4 w-full h-8 xl:h-11 px-3 xl:px-7 rounded-full border border-orange-light text-[10px] xl:text-[16px] font-medium text-dark bg-white"
         >
           <p>{t('sort')}</p>
           <div className="size-2 rounded-full bg-dark shrink-0" />
-          <span className="truncate text-[10px] xl:text-[16px] font-semibold text-orange">
+          <span className="truncate text-[10px] xl:text-[16px] font-semibold text-orange transition duration-500 ease-in-out">
             {selected.title}
           </span>
         </button>

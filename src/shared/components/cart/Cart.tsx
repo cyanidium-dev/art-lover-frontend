@@ -80,7 +80,7 @@ export default function CartModal({
                 </button>
               </motion.div>
               <CartList setIsPopUpShown={setIsPopUpShown} />
-              <FreeDelivery cartItems={cartItems} />
+              <FreeDelivery />
             </div>
           </div>
           <CartTotal cartItems={cartItems} setIsPopUpShown={setIsPopUpShown} />

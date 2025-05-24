@@ -1,19 +1,15 @@
-import { getTotalSum } from '@/shared/utils/getTotalSum';
-import { CartItem } from '@/types/cartItem';
+import { useCartStore } from '@/shared/store/cartStore';
 import { Progress } from '@heroui/react';
 import * as motion from 'motion/react-client';
 import { useTranslations } from 'next-intl';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 
-interface FreeDeliveryProps {
-  cartItems: CartItem[];
-}
-
 const FREE_DELIVERY_SUM = 500;
 
-export default function FreeDelivery({ cartItems }: FreeDeliveryProps) {
+export default function FreeDelivery() {
   const t = useTranslations('cart');
-  const total = getTotalSum(cartItems);
+  const { getTotalAmount } = useCartStore();
+  const total = getTotalAmount();
 
   const needToOrderSum =
     FREE_DELIVERY_SUM >= total ? FREE_DELIVERY_SUM - total : 0;
