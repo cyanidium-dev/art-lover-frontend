@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
-import { useScreenWidth } from '@/shared/hooks/useScreenWidth';
+// import { useScreenWidth } from '@/shared/hooks/useScreenWidth';
 import TabMenuItem from './TabMenuItem';
 
 interface TabMenuProps {
@@ -18,11 +18,11 @@ export default function TabMenu({ activeTab, setActiveTab }: TabMenuProps) {
   const router = useRouter();
   const pathName = usePathname();
 
-  const screenWidth = useScreenWidth();
+  // const screenWidth = useScreenWidth();
 
   const menuList = [
     {
-      title: screenWidth > 640 ? t('ukraineDesk') : t('ukraineMob'),
+      title: t('ukraineDesk'),
       value: 'ukraine',
     },
     // {

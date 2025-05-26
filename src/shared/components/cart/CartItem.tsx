@@ -115,7 +115,9 @@ export default function CartListItem({
       </div>
 
       {addons && addons?.length ? (
-        <ul className="flex flex-col gap-2 p-3 text-white border-t border-white rounded-[8px]">
+        <ul
+          className={`flex flex-col gap-2 p-3 ${variant === 'white' ? 'text-white border-white' : 'text-dark border-dark'}  border-t  rounded-[8px]`}
+        >
           {addons.map(addon => {
             return (
               <li key={addon.id}>
@@ -126,10 +128,10 @@ export default function CartListItem({
                         type="checkbox"
                         checked={addon.checked}
                         onChange={() => toggleAddonChecked(id, addon.id)}
-                        className="peer appearance-none w-full h-full border border-white rounded-[6px] transition duration-300 ease-in-out"
+                        className={`peer appearance-none w-full h-full border  rounded-[6px] transition duration-300 ease-in-out ${variant === 'white' ? 'border-white' : 'border-dark'}`}
                       />
                       <svg
-                        className="absolute left-1/2 top-1/2 w-3 xl:w-4 h-3 xl:h-4 text-white transform -translate-x-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 transition-opacity duration-300 ease-in-out"
+                        className={`absolute left-1/2 top-1/2 w-3 xl:w-4 h-3 xl:h-4 transform -translate-x-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 transition-opacity duration-300 ease-in-out ${variant === 'white' ? 'text-white' : 'text-dark'}`}
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="2"
