@@ -460,3 +460,11 @@ export const productsByIds = `*[_type == "product" && _id in $ids]{
       "id": _key
     },
 }`;
+
+export const packagingQuery = `*[_type == "packaging"]{
+  "title": title[$lang],
+  price,
+  value,
+  "image": image.asset->url
+}
+`;

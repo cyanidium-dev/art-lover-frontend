@@ -1,23 +1,32 @@
-import { useTranslations } from 'next-intl';
+import { useEffect, useState } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
+import { fetchSanityData } from '@/shared/utils/fetchSanityData';
+import { packagingQuery } from '@/shared/lib/queries';
 import Image from 'next/image';
 import SecondaryButton from '../../buttons/SecondaryButton';
 import PlusIcon from '../../icons/PlusIcon';
 
 export default function AdditionalOptions() {
   const t = useTranslations('checkoutPage.form');
+  const locale = useLocale();
 
-  const additionalOptions = [
-    {
-      title: t('packaging'),
-      price: 100,
-      image: { url: '/images/mockedData/productImageOne.webp', alt: '' },
-    },
-    {
-      title: t('postcard'),
-      price: 30,
-      image: { url: '/images/mockedData/productImageOne.webp', alt: '' },
-    },
-  ];
+  const [additionalOptions, setAdditionalOptions] = useState<
+    { title: string; image: string; value: string; price: string }[]
+  >([]);
+
+  useEffect(() => {
+    const loadData = async () => {
+      const result = await fetchSanityData(packagingQuery, {
+        lang: locale,
+      });
+      setAdditionalOptions(result);
+    };
+
+    loadData();
+  }, [locale]);
+
+  if (!additionalOptions) return null;
+
   return (
     <ul
       className="flex flex-col gap-y-3 h-[262px] overflow-x-hidden overflow-y-auto scrollbar scrollbar-w-[2.5px] scrollbar-thumb-rounded-full 
@@ -30,8 +39,8 @@ export default function AdditionalOptions() {
         >
           <div className="relative shrink-0 aspect-[90/101] w-[90px] overflow-hidden rounded-[6px]">
             <Image
-              src={image?.url}
-              alt={image?.alt || 'product photo'}
+              src={image}
+              alt={'product photo'}
               fill
               sizes="33vw"
               className="w-full h-full object-cover"
