@@ -116,6 +116,8 @@ export const handleSubmitForm = async <T>(
       totalOrderSum,
     };
 
+    console.log(collectedOrderData);
+
     // Формуємо список товарів з переносами на новий рядок для Telegram
     const orderedListProducts = cartItems
       .map(cartItem => {
