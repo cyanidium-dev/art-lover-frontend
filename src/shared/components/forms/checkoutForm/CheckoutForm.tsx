@@ -29,6 +29,9 @@ import DeliveryBlockUkraine from './DeliveryBlockUkraine';
 import DeliveryBlockWorldwide from './DeliveryBlockWorldwide';
 import PostcardBlock from './PostcardBlock';
 
+import { fetchSanityData } from '@/shared/utils/fetchSanityData';
+import { promocodeByCode } from '@/shared/lib/queries';
+
 export interface ValuesCheckoutFormType {
   name: string;
   surname: string;
@@ -66,10 +69,18 @@ export default function CheckoutForm({
 }: CheckoutFormProps) {
   const t = useTranslations();
 
-  const { getTotalAmount } = useCartStore();
+  const { getTotalAmount, promocode, applyPromocode, removePromocode } =
+    useCartStore();
 
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingPromocode, setIsLoadingPromocode] = useState(false);
   const [total, setTotal] = useState(0);
+
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const sum = getTotalAmount();
 
@@ -95,11 +106,36 @@ export default function CheckoutForm({
     recipientPhone: '',
     message: '',
     postcard: '',
-    promocode: '',
+    promocode: promocode || '',
     tips: '',
   };
 
   const validationSchema = CheckoutValidation(activeTab);
+
+  const verifyPromocode = async (
+    values: ValuesCheckoutFormType,
+    setFieldError: (
+      field: keyof ValuesCheckoutFormType,
+      message: string
+    ) => void
+  ) => {
+    try {
+      setIsLoadingPromocode(true);
+      const promocode = await fetchSanityData(promocodeByCode, {
+        code: values.promocode,
+      });
+      if (promocode) {
+        const discount = promocode.discount;
+        applyPromocode(values.promocode, discount);
+      } else {
+        setFieldError('promocode', t('forms.errors.noPromocode'));
+      }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
+    } finally {
+      setIsLoadingPromocode(false);
+    }
+  };
 
   const submitForm = async (
     values: ValuesCheckoutFormType,
@@ -121,7 +157,7 @@ export default function CheckoutForm({
       onSubmit={submitForm}
       validationSchema={validationSchema}
     >
-      {({ errors, touched, dirty, isValid }) => (
+      {({ errors, touched, dirty, isValid, values, setFieldError }) => (
         <Form
           className={`relative flex flex-col md:flex-row w-full gap-y-6 md:gap-x-4 lg:gap-10 xl:gap-x-15 ${className}`}
         >
@@ -325,17 +361,30 @@ export default function CheckoutForm({
                 icon="heart"
                 title={t('checkoutPage.form.promocode')}
               />
-              <CustomizedInput
-                fieldName="promocode"
-                placeholder={t('forms.promocodePlaceholder')}
-                errors={errors}
-                touched={touched}
-              />
-              <button type="button" className="cursor-pointer">
-                {promocode
-                  ? t('checkoutPage.form.removePromocode')
-                  : t('checkoutPage.form.applyPromocode')}
-              </button>
+              {isClient && (
+                <>
+                  <CustomizedInput
+                    fieldName="promocode"
+                    placeholder={t('forms.promocodePlaceholder')}
+                    errors={errors}
+                    touched={touched}
+                  />
+
+                  <button
+                    onClick={
+                      promocode
+                        ? removePromocode
+                        : () => verifyPromocode(values, setFieldError)
+                    }
+                    type="button"
+                    className="mt-2 block w-fit ml-auto cursor-pointer text-[12px] xl:text-[14px] font-medium text-orange xl:hover:brightness-125 focus-visible:brightness-125 transition duration-300 ease-in-out"
+                  >
+                    {promocode
+                      ? t('checkoutPage.form.removePromo')
+                      : t('checkoutPage.form.applyPromo')}
+                  </button>
+                </>
+              )}
             </motion.div>
             <motion.div
               viewport={{ once: true, amount: 0.2 }}

@@ -394,3 +394,9 @@ export const allReviewsQuery = `*[_type == "product" && defined(reviews)]{
   }
 }.reviews[]
 `;
+
+export const promocodeByCode = `*[_type == "promocode" && code == $code && isActive == true][0]{
+  code,
+  title,
+  discount
+}`;

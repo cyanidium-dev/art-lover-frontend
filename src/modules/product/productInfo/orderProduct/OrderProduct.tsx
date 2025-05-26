@@ -32,7 +32,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
   const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
   const [isCartModalShown, setIsCartModalShown] = useState(false);
   const [count, setCount] = useState(1);
-  const { addToCart, getItemFinalPrice, applyPromocode } = useCartStore();
+  const { addToCart, getItemFinalPrice } = useCartStore();
 
   const {
     id,
@@ -63,7 +63,6 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
   const rating = getAverageRating(reviews);
 
   const handleAddToCartClick = () => {
-    applyPromocode('', 5);
     addToCart({
       id: `${id}${selectedColor.hex}`,
       title,

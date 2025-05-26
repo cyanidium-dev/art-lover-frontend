@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import NotificationPopUp from '@/shared/components/pop-ups/NotificationPopUp';
 import Backdrop from '@/shared/components/backdrop/Backdrop';
@@ -19,14 +19,22 @@ export default function CheckoutFormWithNotifications({
   const [isError, setIsError] = useState(false);
   const [isNotificationShown, setIsNotificationShown] = useState(false);
 
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <>
-      <CheckoutForm
-        activeTab={activeTab}
-        setIsError={setIsError}
-        setIsNotificationShown={setIsNotificationShown}
-        className={className}
-      />
+      {isClient && (
+        <CheckoutForm
+          activeTab={activeTab}
+          setIsError={setIsError}
+          setIsNotificationShown={setIsNotificationShown}
+          className={className}
+        />
+      )}
 
       <NotificationPopUp
         title={isError ? t('error.title') : t('success.title')}
