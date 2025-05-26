@@ -1,4 +1,5 @@
-import { Dispatch, SetStateAction } from 'react';
+'use client';
+import { Dispatch, SetStateAction, useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useCartStore } from '@/shared/store/cartStore';
 import { Product } from '@/types/product';
@@ -19,7 +20,13 @@ export default function ProductCard({
   const t = useTranslations('productCard');
   const locale = useLocale();
 
-  const { addToCart } = useCartStore();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const { addToCart, getItemFinalPrice } = useCartStore();
 
   const {
     id,
@@ -31,12 +38,16 @@ export default function ProductCard({
     slug,
     categorySlug,
     colors,
+    addons,
   } = product;
+
+  const updatedAddons = addons?.map(addon => ({ ...addon, checked: false }));
 
   const handleClick = () => {
     setIsAddedToCartPopUpShown(true);
     addToCart({
       id: `${id}${colors && colors?.length ? colors[0].hex : ''}`,
+      cmsId: id,
       title,
       price,
       discountedPrice,
@@ -45,6 +56,7 @@ export default function ProductCard({
       slug,
       quantity: 1,
       color: colors && colors?.length ? colors[0] : undefined,
+      addons: updatedAddons,
     });
   };
 
@@ -69,24 +81,26 @@ export default function ProductCard({
           />
         </div>
         <div className="flex flex-col justify-between mb-4 xl:mb-[18px]">
-          {discountedPrice && discountedPrice < price ? (
-            <p className="mb-1.5 xl:mb-2 h-auto leading-none">
-              <span className="text-[13px] xl:text-[16px] font-medium leading-[120%] text-orange">
-                {discountedPrice}
-                {t('hrn')}
-              </span>
-              <span className="text-[13px] xl:text-[16px] font-medium leading-[120%]">
-                &nbsp;
-              </span>
-              <span className="text-[9px] xl:text-[14px] font-normal leading-[120%] line-through">
-                {price} {t('hrn')}
-              </span>
-            </p>
-          ) : (
-            <p className="mb-1.5 xl:mb-2 text-[14px] xl:text-[16px] font-medium leading-[120%]">
-              {price} {t('hrn')}
-            </p>
-          )}
+          {isClient &&
+            ((discountedPrice && discountedPrice < price) ||
+            getItemFinalPrice(product) < price ? (
+              <p className="mb-1.5 xl:mb-2 h-auto leading-none">
+                <span className="text-[13px] xl:text-[16px] font-medium leading-[120%] text-orange">
+                  {getItemFinalPrice(product)}
+                  {t('hrn')}
+                </span>
+                <span className="text-[13px] xl:text-[16px] font-medium leading-[120%]">
+                  &nbsp;
+                </span>
+                <span className="text-[9px] xl:text-[14px] font-normal leading-[120%] line-through">
+                  {price} {t('hrn')}
+                </span>
+              </p>
+            ) : (
+              <p className="mb-1.5 xl:mb-2 text-[14px] xl:text-[16px] font-medium leading-[120%]">
+                {getItemFinalPrice(product)} {t('hrn')}
+              </p>
+            ))}
           <h3 className="text-[13px] xl:text-[18px] font-medium leading-[120%] line-clamp-2">
             {title}
           </h3>

@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useFormikContext, ErrorMessage } from 'formik';
-import CustomizedInput from '../formComponents/CustomizedInput';
-import RadioButtonInput from '../formComponents/RadioButtonInput';
+import CustomizedInput from '../../formComponents/CustomizedInput';
+import RadioButtonInput from '../../formComponents/RadioButtonInput';
 
 interface Values {
   [fieldName: string]: string;

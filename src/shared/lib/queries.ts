@@ -36,6 +36,11 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
       "mainImage": mainImage.asset->url,
       inStock,
       isBestseller,
+      "addons": additions[] {
+      "title": name[$lang],
+      "price": price,
+      "id": _key
+    },
       "professions": professions[]->{
         "title": title[$lang],
         value
@@ -60,6 +65,11 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
     "mainImage": mainImage.asset->url,
     inStock,
     isBestseller,
+    "addons": additions[] {
+      "title": name[$lang],
+      "price": price,
+      "id": _key
+    },
     "professions": professions[]->{
         "title": title[$lang],
         value
@@ -87,6 +97,11 @@ export const allBestsellersQuery = `*[_type == "product" && isBestseller == true
   discountedPrice,
   inStock,
   isBestseller,
+  "addons": additions[] {
+      "title": name[$lang],
+      "price": price,
+      "id": _key
+    },
   "professions": professions[]->{
         "title": title[$lang],
         value
@@ -116,6 +131,11 @@ export const allNewProductsQuery = `*[_type == "product"] | order(publishedAt de
   discountedPrice,
   inStock,
   isBestseller,
+  "addons": additions[] {
+      "title": name[$lang],
+      "price": price,
+      "id": _key
+    },
   "professions": professions[]->{
         "title": title[$lang],
         value
@@ -146,6 +166,11 @@ export const allDiscountedProductsQuery = `*[_type == "product" && defined(disco
   discountedPrice,
   inStock,
   isBestseller,
+  "addons": additions[] {
+      "title": name[$lang],
+      "price": price,
+      "id": _key
+    },
   "professions": professions[]->{
         "title": title[$lang],
         value
@@ -175,6 +200,11 @@ export const allGiftsQuery = `*[_type == "product" && isGift == true]{
   discountedPrice,
   inStock,
   isBestseller,
+  "addons": additions[] {
+      "title": name[$lang],
+      "price": price,
+      "id": _key
+    },
   "professions": professions[]->{
         "title": title[$lang],
         value
@@ -205,6 +235,11 @@ export const allGiftsByGenderQuery = `{
     discountedPrice,
     inStock,
     isBestseller,
+    "addons": additions[] {
+      "title": name[$lang],
+      "price": price,
+      "id": _key
+    },
     "professions": professions[]->{
         "title": title[$lang],
         value
@@ -233,6 +268,11 @@ export const allGiftsByGenderQuery = `{
     discountedPrice,
     inStock,
     isBestseller,
+    "addons": additions[] {
+      "title": name[$lang],
+      "price": price,
+      "id": _key
+    },
     "professions": professions[]->{
         "title": title[$lang],
         value
@@ -274,6 +314,11 @@ export const singleProductQuery = `
     "discountedPrice": discountedPrice,
     "inStock": inStock,
     isBestseller,
+    "addons": additions[] {
+      "title": name[$lang],
+      "price": price,
+      "id": _key
+    },
     "professions": professions[]->{
         "title": title[$lang],
         value
@@ -329,6 +374,11 @@ export const allSimilarProductsQuery = `*[_type == "product"
   discountedPrice,
   inStock,
   isBestseller,
+  "addons": additions[] {
+      "title": name[$lang],
+      "price": price,
+      "id": _key
+    },
   "professions": professions[]->{
         "title": title[$lang],
         value
@@ -394,3 +444,19 @@ export const allReviewsQuery = `*[_type == "product" && defined(reviews)]{
   }
 }.reviews[]
 `;
+
+export const promocodeByCode = `*[_type == "promocode" && code == $code && isActive == true][0]{
+  code,
+  title,
+  discount
+}`;
+
+export const productsByIds = `*[_type == "product" && _id in $ids]{
+  "id":_id,
+  price,
+  discountedPrice,
+  "addons": additions[] {
+      "price": price,
+      "id": _key
+    },
+}`;

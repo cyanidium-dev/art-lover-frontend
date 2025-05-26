@@ -4,7 +4,7 @@ import { useFormikContext, FormikErrors, FormikTouched } from 'formik';
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import clsx from 'clsx';
-import CustomizedInput from '../formComponents/CustomizedInput';
+import CustomizedInput from '../../formComponents/CustomizedInput';
 
 interface Values {
   [fieldName: string]: string;

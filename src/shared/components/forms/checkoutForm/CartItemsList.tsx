@@ -25,7 +25,7 @@ export default function CartItemsList() {
                 animate="visible"
                 exit="exit"
                 layout
-                className="flex gap-x-[25px] px-3 py-[11px] border border-dark rounded-[8px]"
+                className="border border-dark rounded-[8px]"
               >
                 <CartListItem cartItem={cartItem} variant="dark" />
               </motion.li>

@@ -1,6 +1,6 @@
 'use client';
 import { Form, Formik, FormikHelpers } from 'formik';
-import { Dispatch, SetStateAction, useState, useEffect } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import MaskedInput from 'react-text-mask';
 import Image from 'next/image';
@@ -10,24 +10,27 @@ import {
   listVariants,
   listItemVariants,
 } from '@/shared/utils/animationVariants';
-
+import { useRouter } from '@/i18n/navigation';
 import { CheckoutValidation } from '@/shared/schemas/checkoutFormValidation';
 import { handleSubmitForm } from '@/shared/utils/handleSubmitForm';
 import { phoneMask } from '@/shared/regex/regex';
 import { useCartStore } from '@/shared/store/cartStore';
 
-import CustomizedInput from '../formComponents/CustomizedInput';
-import SubmitButton from '../formComponents/SubmitButton';
+import CustomizedInput from '../../formComponents/CustomizedInput';
+import SubmitButton from '../../formComponents/SubmitButton';
 import CheckoutSubTitle from './CheckoutSubTitle';
 import TipsInputBlock from './TipsInputBlock';
 // import GiftHint from '@/modules/checkout/GiftHint';
-import RadioButtonInput from '../formComponents/RadioButtonInput';
+import RadioButtonInput from '../../formComponents/RadioButtonInput';
 import RecipientBlock from './RecipientBlock';
 import CartItemsList from './CartItemsList';
 import AdditionalOptions from './AdditionalOptions';
 import DeliveryBlockUkraine from './DeliveryBlockUkraine';
 import DeliveryBlockWorldwide from './DeliveryBlockWorldwide';
 import PostcardBlock from './PostcardBlock';
+
+import { fetchSanityData } from '@/shared/utils/fetchSanityData';
+import { promocodeByCode } from '@/shared/lib/queries';
 
 export interface ValuesCheckoutFormType {
   name: string;
@@ -54,7 +57,6 @@ export interface ValuesCheckoutFormType {
 interface CheckoutFormProps {
   setIsError: Dispatch<SetStateAction<boolean>>;
   setIsNotificationShown: Dispatch<SetStateAction<boolean>>;
-  setIsPopUpShown?: Dispatch<SetStateAction<boolean>>;
   activeTab: string;
   className?: string;
 }
@@ -62,22 +64,18 @@ interface CheckoutFormProps {
 export default function CheckoutForm({
   setIsError,
   setIsNotificationShown,
-  setIsPopUpShown,
   activeTab,
   className = '',
 }: CheckoutFormProps) {
   const t = useTranslations();
 
-  const { getTotalAmount } = useCartStore();
+  const { getTotalAmount, promocode, applyPromocode, removePromocode } =
+    useCartStore();
+
+  const router = useRouter();
 
   const [isLoading, setIsLoading] = useState(false);
-  const [total, setTotal] = useState(0);
-
-  const sum = getTotalAmount();
-
-  useEffect(() => {
-    setTotal(sum);
-  }, [sum]);
+  const [isLoadingPromocode, setIsLoadingPromocode] = useState(false);
 
   const initialValues = {
     name: '',
@@ -97,11 +95,46 @@ export default function CheckoutForm({
     recipientPhone: '',
     message: '',
     postcard: '',
-    promocode: '',
+    promocode: promocode || '',
     tips: '',
   };
 
   const validationSchema = CheckoutValidation(activeTab);
+
+  const verifyPromo = async (
+    values: ValuesCheckoutFormType,
+    setFieldError: (
+      field: keyof ValuesCheckoutFormType,
+      message: string
+    ) => void
+  ) => {
+    try {
+      setIsLoadingPromocode(true);
+      const promocode = await fetchSanityData(promocodeByCode, {
+        code: values.promocode,
+      });
+      if (promocode) {
+        const discount = promocode.discount;
+        applyPromocode(values.promocode, discount);
+      } else {
+        setFieldError('promocode', t('forms.errors.noPromocode'));
+      }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
+    } finally {
+      setIsLoadingPromocode(false);
+    }
+  };
+
+  const removePromo = async (
+    setFieldValue: (
+      field: keyof ValuesCheckoutFormType,
+      message: string
+    ) => void
+  ) => {
+    removePromocode();
+    setFieldValue('promocode', '');
+  };
 
   const submitForm = async (
     values: ValuesCheckoutFormType,
@@ -112,8 +145,8 @@ export default function CheckoutForm({
       setIsLoading,
       setIsError,
       setIsNotificationShown,
-      setIsPopUpShown,
-      false
+      values,
+      router
     );
   };
 
@@ -123,7 +156,15 @@ export default function CheckoutForm({
       onSubmit={submitForm}
       validationSchema={validationSchema}
     >
-      {({ errors, touched, dirty, isValid }) => (
+      {({
+        errors,
+        touched,
+        dirty,
+        isValid,
+        values,
+        setFieldError,
+        setFieldValue,
+      }) => (
         <Form
           className={`relative flex flex-col md:flex-row w-full gap-y-6 md:gap-x-4 lg:gap-10 xl:gap-x-15 ${className}`}
         >
@@ -330,9 +371,23 @@ export default function CheckoutForm({
               <CustomizedInput
                 fieldName="promocode"
                 placeholder={t('forms.promocodePlaceholder')}
+                isLoading={isLoadingPromocode}
                 errors={errors}
                 touched={touched}
               />
+              <button
+                onClick={
+                  promocode
+                    ? () => removePromo(setFieldValue)
+                    : () => verifyPromo(values, setFieldError)
+                }
+                type="button"
+                className="mt-2 block w-fit ml-auto cursor-pointer text-[12px] xl:text-[14px] font-medium text-orange xl:hover:brightness-125 focus-visible:brightness-125 transition duration-300 ease-in-out"
+              >
+                {promocode
+                  ? t('checkoutPage.form.removePromo')
+                  : t('checkoutPage.form.applyPromo')}
+              </button>
             </motion.div>
             <motion.div
               viewport={{ once: true, amount: 0.2 }}
@@ -355,7 +410,10 @@ export default function CheckoutForm({
                   {t('checkoutPage.form.total')}
                 </h3>
                 <p className="text-[16px] xl:text-[24px] font-medium leading-[120%]">
-                  {total} {t('checkoutPage.form.hrn')}
+                  {Math.round(
+                    getTotalAmount() * (1 + Number(values.tips.trim()) / 100)
+                  )}
+                  {t('checkoutPage.form.hrn')}
                 </p>
               </div>
               <SubmitButton

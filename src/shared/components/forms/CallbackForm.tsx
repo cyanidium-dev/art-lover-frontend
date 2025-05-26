@@ -6,8 +6,8 @@ import { useTranslations } from 'next-intl';
 
 import { CallBackValidation } from '@/shared/schemas/callbackFormValidation';
 
-import CustomizedInput from './formComponents/CustomizedInput';
-import SubmitButton from './formComponents/SubmitButton';
+import CustomizedInput from '../formComponents/CustomizedInput';
+import SubmitButton from '../formComponents/SubmitButton';
 
 export interface ValuesCallBackFormType {
   name: string;

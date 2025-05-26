@@ -19,7 +19,7 @@ export default function Confirmation() {
           whileInView="visible"
           exit="exit"
           viewport={{ once: true, amount: 0.2 }}
-          variants={fadeInAnimation({ delay: 1.2, scale: 0.9 })}
+          variants={fadeInAnimation({ delay: 0.8, scale: 0.9 })}
           className="w-fit mb-8 lg:mb-15 mx-auto"
         >
           <Image
@@ -46,7 +46,7 @@ export default function Confirmation() {
             whileInView="visible"
             exit="exit"
             viewport={{ once: true, amount: 0.2 }}
-            variants={fadeInAnimation({ y: 30, delay: 0.4 })}
+            variants={fadeInAnimation({ y: 30, delay: 0.2 })}
             className="lg:max-w-[358px] lg:mx-auto mb-5 xl:mb-[33px] text-[12px] lg:text-[20px] font-light leading-[120%] text-center"
           >
             {t('description')}
@@ -56,7 +56,7 @@ export default function Confirmation() {
             whileInView="visible"
             exit="exit"
             viewport={{ once: true, amount: 0.2 }}
-            variants={fadeInAnimation({ y: 30, delay: 0.8 })}
+            variants={fadeInAnimation({ y: 30, delay: 0.4 })}
           >
             <Link href="/">
               <SecondaryButton

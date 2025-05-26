@@ -97,7 +97,7 @@ const Catalog = ({ categoryProducts, professions }: CatalogProps) => {
     } else {
       params.delete('priceTo');
     }
-
+    params.set('page', '1');
     router.push(`?${params.toString()}`, { scroll: false });
   };
 

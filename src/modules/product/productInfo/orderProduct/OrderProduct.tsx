@@ -32,7 +32,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
   const [isAddedToCartPopUpShown, setIsAddedToCartPopUpShown] = useState(false);
   const [isCartModalShown, setIsCartModalShown] = useState(false);
   const [count, setCount] = useState(1);
-  const { addToCart } = useCartStore();
+  const { addToCart, getItemFinalPrice } = useCartStore();
 
   const {
     id,
@@ -65,6 +65,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
   const handleAddToCartClick = () => {
     addToCart({
       id: `${id}${selectedColor.hex}`,
+      cmsId: id,
       title,
       price,
       discountedPrice,
@@ -95,6 +96,12 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
       addReviewedProduct(currentProduct);
     }
   }, [currentProduct, addReviewedProduct]);
+
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return (
     <div className="mb-20 md:mb-8">
@@ -175,12 +182,13 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
       >
         ({t('reviews', { count: (reviews && reviews?.length) || 0 })})
       </motion.p>
-      {!addons || !addons.length || inStock !== 'in_stock' ? null : (
-        <AddonsList
-          selectedAddons={selectedAddons}
-          setSelectedAddons={setSelectedAddons}
-        />
-      )}
+      {isClient &&
+        (!addons || !addons.length || inStock !== 'in_stock' ? null : (
+          <AddonsList
+            selectedAddons={selectedAddons}
+            setSelectedAddons={setSelectedAddons}
+          />
+        ))}
       {!colors || !colors.length || inStock !== 'in_stock' ? null : (
         <ColorPicker
           colors={colors}
@@ -197,24 +205,26 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
         className={`${inStock !== 'in_stock' ? 'hidden' : 'flex'}  items-center justify-between mb-4 xl:mb-5`}
       >
         <Counter count={count} setCount={setCount} />
-        {discountedPrice && discountedPrice < price ? (
-          <div>
-            <span className="text-[16px] xl:text-[24px] font-semibold leading-[120%] text-orange">
-              {discountedPrice}
+        {isClient &&
+          ((discountedPrice && discountedPrice < price) ||
+          getItemFinalPrice(currentProduct) < price ? (
+            <div>
+              <span className="text-[16px] xl:text-[24px] font-semibold leading-[120%] text-orange">
+                {getItemFinalPrice(currentProduct)}
+                {t('hrn')}
+              </span>
+              &nbsp;&nbsp;
+              <span className="text-[12px] xl:text-[16px] font-normal leading-[120%] line-through">
+                {price}
+                {t('hrn')}
+              </span>
+            </div>
+          ) : (
+            <span className="text-[16px] xl:text-[24px] font-semibold leading-[120%]">
+              {getItemFinalPrice(currentProduct)}
               {t('hrn')}
             </span>
-            &nbsp;&nbsp;
-            <span className="text-[12px] xl:text-[16px] font-normal leading-[120%] line-through">
-              {price}
-              {t('hrn')}
-            </span>
-          </div>
-        ) : (
-          <span className="text-[16px] xl:text-[24px] font-semibold leading-[120%]">
-            {price}
-            {t('hrn')}
-          </span>
-        )}
+          ))}
       </motion.div>
       <motion.div
         initial="hidden"

@@ -32,6 +32,7 @@ export default function CatalogSorting() {
 
     const newParams = new URLSearchParams(Array.from(searchParams.entries()));
     newParams.set('sort', option.value);
+    newParams.set('page', '1');
     router.replace(`?${newParams.toString()}`, { scroll: false });
   };
 
@@ -39,6 +40,7 @@ export default function CatalogSorting() {
     if (!searchParams.get('sort')) {
       const newParams = new URLSearchParams(Array.from(searchParams.entries()));
       newParams.set('sort', 'rating');
+      newParams.set('page', '1');
       router.replace(`?${newParams.toString()}`, { scroll: false });
     }
   }, [router, searchParams]);
