@@ -20,6 +20,8 @@ const NavbarCart = ({
 }: NavbarCartProps) => {
   const { cartItems } = useCartStore();
 
+  console.log(cartItems);
+
   return (
     <>
       <button

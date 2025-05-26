@@ -1,5 +1,6 @@
 export interface CartItem {
   id: string;
+  cmsId: string;
   title: string;
   categorySlug: string;
   slug: string;

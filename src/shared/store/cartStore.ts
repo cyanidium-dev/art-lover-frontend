@@ -79,11 +79,27 @@ export const useCartStore = create<CartState>()(
           );
 
           if (existingItemIndex !== -1) {
-            const updatedCartItems = state.cartItems.map((item, index) =>
-              index === existingItemIndex
-                ? { ...item, quantity: item.quantity + newItem.quantity }
-                : item
-            );
+            const updatedCartItems = state.cartItems.map((item, index) => {
+              if (index === existingItemIndex) {
+                const mergedAddons =
+                  item.addons?.map(addon => {
+                    const matchingAddon = newItem.addons?.find(
+                      a => a.id === addon.id
+                    );
+                    return matchingAddon
+                      ? { ...addon, checked: matchingAddon.checked }
+                      : addon;
+                  }) || item.addons;
+
+                return {
+                  ...item,
+                  quantity: item.quantity + newItem.quantity,
+                  addons: mergedAddons,
+                };
+              }
+              return item;
+            });
+
             return { cartItems: updatedCartItems };
           } else {
             return {

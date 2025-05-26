@@ -65,6 +65,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
   const handleAddToCartClick = () => {
     addToCart({
       id: `${id}${selectedColor.hex}`,
+      cmsId: id,
       title,
       price,
       discountedPrice,

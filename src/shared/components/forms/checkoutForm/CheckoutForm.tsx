@@ -1,6 +1,6 @@
 'use client';
 import { Form, Formik, FormikHelpers } from 'formik';
-import { Dispatch, SetStateAction, useState, useEffect } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import MaskedInput from 'react-text-mask';
 import Image from 'next/image';
@@ -74,13 +74,6 @@ export default function CheckoutForm({
 
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingPromocode, setIsLoadingPromocode] = useState(false);
-  const [total, setTotal] = useState(0);
-
-  const sum = getTotalAmount();
-
-  useEffect(() => {
-    setTotal(sum);
-  }, [sum]);
 
   const initialValues = {
     name: '',
@@ -414,13 +407,16 @@ export default function CheckoutForm({
                   {t('checkoutPage.form.total')}
                 </h3>
                 <p className="text-[16px] xl:text-[24px] font-medium leading-[120%]">
-                  {total} {t('checkoutPage.form.hrn')}
+                  {Math.round(
+                    getTotalAmount() * (1 + Number(values.tips.trim()) / 100)
+                  )}
+                  {t('checkoutPage.form.hrn')}
                 </p>
               </div>
               <SubmitButton
                 dirty={dirty}
                 isValid={isValid}
-                isLoading={isLoading}
+                isLoading={true}
                 text={t('checkoutPage.form.checkout')}
                 className="h-10 md:h-12"
               />

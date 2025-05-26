@@ -38,12 +38,16 @@ export default function ProductCard({
     slug,
     categorySlug,
     colors,
+    addons,
   } = product;
+
+  const updatedAddons = addons?.map(addon => ({ ...addon, checked: false }));
 
   const handleClick = () => {
     setIsAddedToCartPopUpShown(true);
     addToCart({
       id: `${id}${colors && colors?.length ? colors[0].hex : ''}`,
+      cmsId: id,
       title,
       price,
       discountedPrice,
@@ -52,6 +56,7 @@ export default function ProductCard({
       slug,
       quantity: 1,
       color: colors && colors?.length ? colors[0] : undefined,
+      addons: updatedAddons,
     });
   };
 
