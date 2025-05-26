@@ -3,7 +3,7 @@ export const fadeInAnimation = ({
   y = 0,
   scale = 1,
   delay = 0,
-  duration = 1,
+  duration = 0.7,
   opacity = 0,
 }) => ({
   hidden: {
@@ -19,7 +19,7 @@ export const fadeInAnimation = ({
   exit: {
     opacity: 0,
     y: 30,
-    transition: { duration: 1, ease: 'easeIn' },
+    transition: { duration: 0.6, ease: 'easeIn' },
   },
 });
 
@@ -47,7 +47,7 @@ export const headerVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 1, ease: 'easeOut' },
+    transition: { duration: 0.7, ease: 'easeOut' },
   },
   exit: {
     opacity: 0,

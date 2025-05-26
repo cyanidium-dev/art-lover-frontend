@@ -1,3 +1,4 @@
+'use client';
 import { Dispatch, SetStateAction, useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useCartStore } from '@/shared/store/cartStore';
@@ -75,25 +76,26 @@ export default function ProductCard({
           />
         </div>
         <div className="flex flex-col justify-between mb-4 xl:mb-[18px]">
-          {(isClient && discountedPrice && discountedPrice < price) ||
-          getItemFinalPrice(product) < price ? (
-            <p className="mb-1.5 xl:mb-2 h-auto leading-none">
-              <span className="text-[13px] xl:text-[16px] font-medium leading-[120%] text-orange">
-                {getItemFinalPrice(product)}
-                {t('hrn')}
-              </span>
-              <span className="text-[13px] xl:text-[16px] font-medium leading-[120%]">
-                &nbsp;
-              </span>
-              <span className="text-[9px] xl:text-[14px] font-normal leading-[120%] line-through">
-                {price} {t('hrn')}
-              </span>
-            </p>
-          ) : (
-            <p className="mb-1.5 xl:mb-2 text-[14px] xl:text-[16px] font-medium leading-[120%]">
-              {getItemFinalPrice(product)} {t('hrn')}
-            </p>
-          )}
+          {isClient &&
+            ((discountedPrice && discountedPrice < price) ||
+            getItemFinalPrice(product) < price ? (
+              <p className="mb-1.5 xl:mb-2 h-auto leading-none">
+                <span className="text-[13px] xl:text-[16px] font-medium leading-[120%] text-orange">
+                  {getItemFinalPrice(product)}
+                  {t('hrn')}
+                </span>
+                <span className="text-[13px] xl:text-[16px] font-medium leading-[120%]">
+                  &nbsp;
+                </span>
+                <span className="text-[9px] xl:text-[14px] font-normal leading-[120%] line-through">
+                  {price} {t('hrn')}
+                </span>
+              </p>
+            ) : (
+              <p className="mb-1.5 xl:mb-2 text-[14px] xl:text-[16px] font-medium leading-[120%]">
+                {getItemFinalPrice(product)} {t('hrn')}
+              </p>
+            ))}
           <h3 className="text-[13px] xl:text-[18px] font-medium leading-[120%] line-clamp-2">
             {title}
           </h3>

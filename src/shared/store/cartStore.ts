@@ -32,7 +32,7 @@ export const useCartStore = create<CartState>()(
     (set, get) => ({
       cartItems: [],
       promocode: null,
-      discount: 10,
+      discount: 0,
       isCartAnimating: false,
       cartAnimationKey: Date.now(),
       animatingImage: null,
