@@ -76,12 +76,6 @@ export default function CheckoutForm({
   const [isLoadingPromocode, setIsLoadingPromocode] = useState(false);
   const [total, setTotal] = useState(0);
 
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   const sum = getTotalAmount();
 
   useEffect(() => {
@@ -112,7 +106,7 @@ export default function CheckoutForm({
 
   const validationSchema = CheckoutValidation(activeTab);
 
-  const verifyPromocode = async (
+  const verifyPromo = async (
     values: ValuesCheckoutFormType,
     setFieldError: (
       field: keyof ValuesCheckoutFormType,
@@ -137,6 +131,16 @@ export default function CheckoutForm({
     }
   };
 
+  const removePromo = async (
+    setFieldValue: (
+      field: keyof ValuesCheckoutFormType,
+      message: string
+    ) => void
+  ) => {
+    removePromocode();
+    setFieldValue('promocode', '');
+  };
+
   const submitForm = async (
     values: ValuesCheckoutFormType,
     formikHelpers: FormikHelpers<ValuesCheckoutFormType>
@@ -157,7 +161,15 @@ export default function CheckoutForm({
       onSubmit={submitForm}
       validationSchema={validationSchema}
     >
-      {({ errors, touched, dirty, isValid, values, setFieldError }) => (
+      {({
+        errors,
+        touched,
+        dirty,
+        isValid,
+        values,
+        setFieldError,
+        setFieldValue,
+      }) => (
         <Form
           className={`relative flex flex-col md:flex-row w-full gap-y-6 md:gap-x-4 lg:gap-10 xl:gap-x-15 ${className}`}
         >
@@ -361,30 +373,25 @@ export default function CheckoutForm({
                 icon="heart"
                 title={t('checkoutPage.form.promocode')}
               />
-              {isClient && (
-                <>
-                  <CustomizedInput
-                    fieldName="promocode"
-                    placeholder={t('forms.promocodePlaceholder')}
-                    errors={errors}
-                    touched={touched}
-                  />
-
-                  <button
-                    onClick={
-                      promocode
-                        ? removePromocode
-                        : () => verifyPromocode(values, setFieldError)
-                    }
-                    type="button"
-                    className="mt-2 block w-fit ml-auto cursor-pointer text-[12px] xl:text-[14px] font-medium text-orange xl:hover:brightness-125 focus-visible:brightness-125 transition duration-300 ease-in-out"
-                  >
-                    {promocode
-                      ? t('checkoutPage.form.removePromo')
-                      : t('checkoutPage.form.applyPromo')}
-                  </button>
-                </>
-              )}
+              <CustomizedInput
+                fieldName="promocode"
+                placeholder={t('forms.promocodePlaceholder')}
+                errors={errors}
+                touched={touched}
+              />
+              <button
+                onClick={
+                  promocode
+                    ? () => removePromo(setFieldValue)
+                    : () => verifyPromo(values, setFieldError)
+                }
+                type="button"
+                className="mt-2 block w-fit ml-auto cursor-pointer text-[12px] xl:text-[14px] font-medium text-orange xl:hover:brightness-125 focus-visible:brightness-125 transition duration-300 ease-in-out"
+              >
+                {promocode
+                  ? t('checkoutPage.form.removePromo')
+                  : t('checkoutPage.form.applyPromo')}
+              </button>
             </motion.div>
             <motion.div
               viewport={{ once: true, amount: 0.2 }}
