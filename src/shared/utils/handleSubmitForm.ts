@@ -8,6 +8,7 @@ import { productsByIds, promocodeByCode } from '../lib/queries';
 import { useCartStore } from '../store/cartStore';
 import { CartItem } from '@/types/cartItem';
 import { Product } from '@/types/product';
+import { useRouter } from '@/i18n/navigation';
 
 export const handleSubmitForm = async <T>(
   { resetForm }: FormikHelpers<T>,
@@ -15,7 +16,7 @@ export const handleSubmitForm = async <T>(
   setIsError: Dispatch<SetStateAction<boolean>>,
   setIsNotificationShown: Dispatch<SetStateAction<boolean>>,
   values: ValuesCheckoutFormType,
-  showSuccessNotification?: boolean
+  router: ReturnType<typeof useRouter>
 ) => {
   const {
     clearCart,
@@ -175,11 +176,7 @@ export const handleSubmitForm = async <T>(
     //Очищаємо кошик
     clearCart();
 
-    if (showSuccessNotification) {
-      setIsNotificationShown(true);
-    } else {
-      // window.location.assign('/confirmation');
-    }
+    router.push('/confirmation');
   } catch (error) {
     setIsError(true);
     setIsNotificationShown(true);

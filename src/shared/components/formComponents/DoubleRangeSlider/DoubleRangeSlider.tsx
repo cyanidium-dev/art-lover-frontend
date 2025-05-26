@@ -43,7 +43,6 @@ const CustomDoubleSlider: React.FC<CustomDoubleSliderProps> = ({
     if (minVal === min && minThumbRef.current) {
       const width = minThumbRef.current.offsetWidth;
       setMinThumbWidth(width);
-      console.log('Min thumb width:', width);
     }
   }, [maxVal, max, minVal, min]);
 

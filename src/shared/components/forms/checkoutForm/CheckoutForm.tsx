@@ -10,7 +10,7 @@ import {
   listVariants,
   listItemVariants,
 } from '@/shared/utils/animationVariants';
-
+import { useRouter } from '@/i18n/navigation';
 import { CheckoutValidation } from '@/shared/schemas/checkoutFormValidation';
 import { handleSubmitForm } from '@/shared/utils/handleSubmitForm';
 import { phoneMask } from '@/shared/regex/regex';
@@ -71,6 +71,8 @@ export default function CheckoutForm({
 
   const { getTotalAmount, promocode, applyPromocode, removePromocode } =
     useCartStore();
+
+  const router = useRouter();
 
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingPromocode, setIsLoadingPromocode] = useState(false);
@@ -144,7 +146,7 @@ export default function CheckoutForm({
       setIsError,
       setIsNotificationShown,
       values,
-      false
+      router
     );
   };
 
