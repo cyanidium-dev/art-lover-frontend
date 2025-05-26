@@ -10,6 +10,7 @@ import {
 import MaskedInput from 'react-text-mask';
 import { useId } from 'react';
 import Image from 'next/image';
+import LoaderIcon from '../icons/LoaderIcon';
 
 interface Values {
   [fieldName: string]: string;
@@ -55,6 +56,7 @@ export default function CustomizedInput({
   onFocus,
   inputType = 'text',
   showIcon,
+  isLoading = false,
 }: CustomizedInputProps) {
   const { handleChange, values } = useFormikContext<Values>();
   const isError = (errors as Record<string, unknown>)[fieldName];
@@ -78,7 +80,8 @@ export default function CustomizedInput({
           className={`${fieldStyles} ${fieldClassName} ${fieldFontSize} ${
             isError && isTouched ? 'border-red-500' : 'border-dark'
           }`}
-        />{' '}
+        />
+        {isLoading && <LoaderIcon />}
         <span
           className={`pointer-events-none absolute left-5 ${
             as === 'textarea' ? 'top-3' : 'top-1/2 -translate-y-1/2'

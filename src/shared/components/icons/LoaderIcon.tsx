@@ -2,7 +2,7 @@ export default function LoaderIcon() {
   return (
     <svg
       aria-hidden="true"
-      className="absolute top-[10px] md:top-[14px] xl:top-[13px] right-8 w-5 h-5 text-white/50 rotation fill-orange"
+      className="absolute top-[10px] md:top-[14px] xl:top-[13px] right-8 w-5 h-5 text-gray-light rotation fill-orange"
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

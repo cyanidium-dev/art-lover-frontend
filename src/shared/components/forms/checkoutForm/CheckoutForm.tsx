@@ -369,6 +369,7 @@ export default function CheckoutForm({
               <CustomizedInput
                 fieldName="promocode"
                 placeholder={t('forms.promocodePlaceholder')}
+                isLoading={isLoadingPromocode}
                 errors={errors}
                 touched={touched}
               />
@@ -416,7 +417,7 @@ export default function CheckoutForm({
               <SubmitButton
                 dirty={dirty}
                 isValid={isValid}
-                isLoading={true}
+                isLoading={isLoading}
                 text={t('checkoutPage.form.checkout')}
                 className="h-10 md:h-12"
               />
