@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useFormikContext } from 'formik';
-import TextareaWithCounter from '../formComponents/TextAreaWithCounter';
+import TextareaWithCounter from '../../formComponents/TextAreaWithCounter';
 
 interface Values {
   [fieldName: string]: string;

@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { useFormikContext, FormikErrors, FormikTouched } from 'formik';
-import CustomizedInput from '../formComponents/CustomizedInput';
-import RadioButtonInput from '../formComponents/RadioButtonInput';
+import CustomizedInput from '../../formComponents/CustomizedInput';
+import RadioButtonInput from '../../formComponents/RadioButtonInput';
 import MaskedInput from 'react-text-mask';
 import { phoneMask } from '@/shared/regex/regex';
 

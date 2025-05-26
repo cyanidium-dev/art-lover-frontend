@@ -2,6 +2,7 @@
 
 import { Dispatch, SetStateAction } from 'react';
 import { useTranslations } from 'next-intl';
+import { useCartStore } from '@/shared/store/cartStore';
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 
@@ -22,6 +23,8 @@ export default function AddonsList({
   setSelectedAddons,
 }: AddonsListProps) {
   const t = useTranslations('productPage');
+
+  const { getAddonFinalPrice } = useCartStore();
 
   const toggleOption = (selectedId: string) => {
     setSelectedAddons(prev =>
@@ -69,7 +72,7 @@ export default function AddonsList({
                 </span>
               </div>
               <span className="text-[14px] xl:text-[16px] font-semibold leading-[120%] text-orange">
-                + {addon?.price}
+                + {getAddonFinalPrice(addon?.price)}
                 {t('hrn')}
               </span>
             </label>

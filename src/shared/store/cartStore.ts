@@ -1,9 +1,12 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { CartItem } from '@/types/cartItem';
+import { Product } from '@/types/product';
 
 interface CartState {
   cartItems: CartItem[];
+  promocode: string | null;
+  discount: number;
   addToCart: (newItem: CartItem) => void;
   increaseQuantity: (itemId: string) => void;
   decreaseQuantity: (itemId: string) => void;
@@ -11,6 +14,10 @@ interface CartState {
   removeSingleItem: (itemId: string) => void;
   clearCart: () => void;
   getTotalAmount: () => number;
+  getItemFinalPrice: (item: Product | CartItem) => number;
+  getAddonFinalPrice: (item: number) => number;
+  applyPromocode: (code: string, discount: number) => void;
+  removePromocode: () => void;
   toggleAddonChecked: (itemId: string, addonId: string) => void;
   isCartAnimating: boolean;
   cartAnimationKey: number;
@@ -24,9 +31,46 @@ export const useCartStore = create<CartState>()(
   persist(
     (set, get) => ({
       cartItems: [],
+      promocode: null,
+      discount: 10,
       isCartAnimating: false,
       cartAnimationKey: Date.now(),
       animatingImage: null,
+
+      getItemFinalPrice: item => {
+        const discount = get().discount;
+        const basePrice =
+          'discountedPrice' in item &&
+          item.discountedPrice &&
+          item.discountedPrice < item.price
+            ? item.discountedPrice
+            : item.price;
+
+        return Math.round(basePrice * (1 - discount / 100));
+      },
+
+      getAddonFinalPrice: (price: number) => {
+        const discount = get().discount;
+        return Math.round(price * (1 - discount / 100));
+      },
+
+      getTotalAmount: () => {
+        const { cartItems, getItemFinalPrice, discount } = get();
+        return cartItems.reduce((sum, item) => {
+          const itemTotal = getItemFinalPrice(item) * item.quantity;
+
+          const addonsTotal =
+            item.addons?.reduce((addonSum, addon) => {
+              if (!addon.checked) return addonSum;
+              const discountedAddonPrice = Math.round(
+                addon.price * (1 - discount / 100)
+              );
+              return addonSum + discountedAddonPrice;
+            }, 0) || 0;
+
+          return sum + itemTotal + addonsTotal;
+        }, 0);
+      },
 
       addToCart: newItem => {
         set(state => {
@@ -50,50 +94,25 @@ export const useCartStore = create<CartState>()(
       },
 
       removeFromCart: itemId => {
-        set(state => {
-          const index = state.cartItems.findIndex(item => item.id === itemId);
-          if (index === -1) return state;
-
-          return {
-            cartItems: [
-              ...state.cartItems.slice(0, index),
-              ...state.cartItems.slice(index + 1),
-            ],
-          };
-        });
+        set(state => ({
+          cartItems: state.cartItems.filter(item => item.id !== itemId),
+        }));
       },
 
       removeSingleItem: id => {
-        set({
-          cartItems: get().cartItems.filter(cartItem => cartItem.id !== id),
-        });
+        set(state => ({
+          cartItems: state.cartItems.filter(cartItem => cartItem.id !== id),
+        }));
       },
 
       clearCart: () => set({ cartItems: [] }),
 
-      getTotalAmount: () => {
-        const { cartItems } = get();
-        return cartItems.reduce((sum, item) => {
-          const baseTotal = item.discountedPrice
-            ? item.discountedPrice * item.quantity
-            : item.price * item.quantity;
-
-          const addonsTotal =
-            item.addons?.reduce((addonSum, addon) => {
-              return addon.checked ? addonSum + addon.price * 1 : addonSum;
-            }, 0) || 0;
-
-          return sum + baseTotal + addonsTotal;
-        }, 0);
-      },
-
       increaseQuantity: itemId => {
-        set(state => {
-          const updatedCartItems = state.cartItems.map(item =>
+        set(state => ({
+          cartItems: state.cartItems.map(item =>
             item.id === itemId ? { ...item, quantity: item.quantity + 1 } : item
-          );
-          return { cartItems: updatedCartItems };
-        });
+          ),
+        }));
       },
 
       decreaseQuantity: itemId => {
@@ -102,12 +121,13 @@ export const useCartStore = create<CartState>()(
 
           if (existingItem) {
             if (existingItem.quantity > 1) {
-              const updatedCartItems = state.cartItems.map(item =>
-                item.id === itemId
-                  ? { ...item, quantity: item.quantity - 1 }
-                  : item
-              );
-              return { cartItems: updatedCartItems };
+              return {
+                cartItems: state.cartItems.map(item =>
+                  item.id === itemId
+                    ? { ...item, quantity: item.quantity - 1 }
+                    : item
+                ),
+              };
             } else {
               return {
                 cartItems: state.cartItems.filter(item => item.id !== itemId),
@@ -118,22 +138,30 @@ export const useCartStore = create<CartState>()(
         });
       },
 
-      toggleAddonChecked: (itemId: string, addonId: string) => {
-        set(state => {
-          const updatedCartItems = state.cartItems.map(item => {
+      toggleAddonChecked: (itemId, addonId) => {
+        set(state => ({
+          cartItems: state.cartItems.map(item => {
             if (item.id === itemId && item.addons) {
-              const updatedAddons = item.addons.map(addon => {
-                if (addon.id === addonId) {
-                  return { ...addon, checked: !addon.checked };
-                }
-                return addon;
-              });
-              return { ...item, addons: updatedAddons };
+              return {
+                ...item,
+                addons: item.addons.map(addon =>
+                  addon.id === addonId
+                    ? { ...addon, checked: !addon.checked }
+                    : addon
+                ),
+              };
             }
             return item;
-          });
-          return { cartItems: updatedCartItems };
-        });
+          }),
+        }));
+      },
+
+      applyPromocode: (code, discount) => {
+        set({ promocode: code, discount });
+      },
+
+      removePromocode: () => {
+        set({ promocode: null, discount: 0 });
       },
 
       setCartAnimation: isAnimating => {

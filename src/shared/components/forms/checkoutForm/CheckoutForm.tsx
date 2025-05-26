@@ -16,12 +16,12 @@ import { handleSubmitForm } from '@/shared/utils/handleSubmitForm';
 import { phoneMask } from '@/shared/regex/regex';
 import { useCartStore } from '@/shared/store/cartStore';
 
-import CustomizedInput from '../formComponents/CustomizedInput';
-import SubmitButton from '../formComponents/SubmitButton';
+import CustomizedInput from '../../formComponents/CustomizedInput';
+import SubmitButton from '../../formComponents/SubmitButton';
 import CheckoutSubTitle from './CheckoutSubTitle';
 import TipsInputBlock from './TipsInputBlock';
 // import GiftHint from '@/modules/checkout/GiftHint';
-import RadioButtonInput from '../formComponents/RadioButtonInput';
+import RadioButtonInput from '../../formComponents/RadioButtonInput';
 import RecipientBlock from './RecipientBlock';
 import CartItemsList from './CartItemsList';
 import AdditionalOptions from './AdditionalOptions';
@@ -54,7 +54,6 @@ export interface ValuesCheckoutFormType {
 interface CheckoutFormProps {
   setIsError: Dispatch<SetStateAction<boolean>>;
   setIsNotificationShown: Dispatch<SetStateAction<boolean>>;
-  setIsPopUpShown?: Dispatch<SetStateAction<boolean>>;
   activeTab: string;
   className?: string;
 }
@@ -62,7 +61,6 @@ interface CheckoutFormProps {
 export default function CheckoutForm({
   setIsError,
   setIsNotificationShown,
-  setIsPopUpShown,
   activeTab,
   className = '',
 }: CheckoutFormProps) {
@@ -112,7 +110,7 @@ export default function CheckoutForm({
       setIsLoading,
       setIsError,
       setIsNotificationShown,
-      setIsPopUpShown,
+      values,
       false
     );
   };
@@ -333,6 +331,11 @@ export default function CheckoutForm({
                 errors={errors}
                 touched={touched}
               />
+              <button type="button" className="cursor-pointer">
+                {promocode
+                  ? t('checkoutPage.form.removePromocode')
+                  : t('checkoutPage.form.applyPromocode')}
+              </button>
             </motion.div>
             <motion.div
               viewport={{ once: true, amount: 0.2 }}

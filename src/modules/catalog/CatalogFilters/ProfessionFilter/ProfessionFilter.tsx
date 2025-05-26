@@ -1,4 +1,4 @@
-import Checkbox from '../../../../shared/components/form/Checkbox/Checkbox';
+import Checkbox from '../../../../shared/components/formComponents/Checkbox/Checkbox';
 import { useTranslations } from 'next-intl';
 import FilterLayout from '../FilterLayout/FilterLayout';
 

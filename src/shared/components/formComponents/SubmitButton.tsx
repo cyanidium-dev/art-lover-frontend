@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import MainButton from '../../buttons/MainButton';
+import MainButton from '../buttons/MainButton';
 
 interface SubmitButtonProps {
   dirty: boolean;

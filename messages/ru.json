@@ -251,6 +251,8 @@
       "postcard": "Открытка",
       "addButton": "Добавить",
       "promocode": "Промокод",
+      "applyPromo": "Apply promocode",
+      "removePromo": "Remove promocode",
       "tips": "Оставить чаевые нашим упаковщикам",
       "total": "Общая стоимость",
       "hrn": " грн",
@@ -514,7 +516,8 @@
       "sixCharZero": "После +38 должна быть цифра 0",
       "chooseDelivery": "Выберите сервис доставки",
       "onlyNumbersAllowed": "Допустимы только цифры",
-      "positiveNumbers": "Чаевые не могут быть меньше 0"
+      "positiveNumbers": "Чаевые не могут быть меньше 0",
+      "noPromocode": "Промокод не найден"
     },
     "submitButton": "Отправить",
     "sending": "Отправка..."

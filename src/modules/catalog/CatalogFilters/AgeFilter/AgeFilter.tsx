@@ -1,6 +1,6 @@
 'use client';
 
-import DoubleRangeSlider from '../../../../shared/components/form/DoubleRangeSlider/DoubleRangeSlider';
+import DoubleRangeSlider from '../../../../shared/components/formComponents/DoubleRangeSlider/DoubleRangeSlider';
 import { useTranslations } from 'next-intl';
 import FilterLayout from '../FilterLayout/FilterLayout';
 

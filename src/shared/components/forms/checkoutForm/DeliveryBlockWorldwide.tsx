@@ -1,7 +1,7 @@
 'use client';
 import { useFormikContext } from 'formik';
-import CustomizedInput from '../formComponents/CustomizedInput';
-import RadioButtonInput from '../formComponents/RadioButtonInput';
+import CustomizedInput from '../../formComponents/CustomizedInput';
+import RadioButtonInput from '../../formComponents/RadioButtonInput';
 import { useEffect } from 'react';
 
 interface Values {

@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useCartStore } from '@/shared/store/cartStore';
 import { CartItem } from '@/types/cartItem';
@@ -20,7 +20,18 @@ export default function CartListItem({
 }: CartItemProps) {
   const t = useTranslations('cart');
 
-  const { removeFromCart, toggleAddonChecked } = useCartStore();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const {
+    removeFromCart,
+    toggleAddonChecked,
+    getItemFinalPrice,
+    getAddonFinalPrice,
+  } = useCartStore();
   const {
     id,
     title,
@@ -75,24 +86,26 @@ export default function CartListItem({
                 variant === 'white' ? 'text-white' : 'text-dark'
               }`}
             >
-              {discountedPrice && discountedPrice < price ? (
-                <p className="mb-1.5 xl:mb-2 h-auto leading-none">
-                  <span className="text-[14px] xl:text-[16px] font-medium leading-[120%] text-orange">
-                    {discountedPrice}
-                    {t('hrn')}
-                  </span>
-                  <span className="text-[14px] xl:text-[16px] font-medium leading-[120%]">
-                    &nbsp;
-                  </span>
-                  <span className="text-[10px] xl:text-[12px] font-normal leading-[120%] line-through">
-                    {price} {t('hrn')}
-                  </span>
-                </p>
-              ) : (
-                <p className="mb-1.5 xl:mb-2 text-[14px] xl:text-[16px] font-medium leading-[120%]">
-                  {price} {t('hrn')}
-                </p>
-              )}
+              {isClient &&
+                ((discountedPrice && discountedPrice < price) ||
+                getItemFinalPrice(cartItem) < price ? (
+                  <p className="mb-1.5 xl:mb-2 h-auto leading-none">
+                    <span className="text-[14px] xl:text-[16px] font-medium leading-[120%] text-orange">
+                      {getItemFinalPrice(cartItem)}
+                      {t('hrn')}
+                    </span>
+                    <span className="text-[14px] xl:text-[16px] font-medium leading-[120%]">
+                      &nbsp;
+                    </span>
+                    <span className="text-[10px] xl:text-[12px] font-normal leading-[120%] line-through">
+                      {price} {t('hrn')}
+                    </span>
+                  </p>
+                ) : (
+                  <p className="mb-1.5 xl:mb-2 text-[14px] xl:text-[16px] font-medium leading-[120%]">
+                    {getItemFinalPrice(cartItem)} {t('hrn')}
+                  </p>
+                ))}
             </div>
             <Counter
               className="w-[98px]"
@@ -144,10 +157,12 @@ export default function CartListItem({
                       {addon?.title}
                     </span>
                   </div>
-                  <span className="text-[14px] xl:text-[16px] font-semibold leading-[120%]">
-                    + {addon?.price}
-                    {t('hrn')}
-                  </span>
+                  {isClient && (
+                    <span className="text-[14px] xl:text-[16px] font-semibold leading-[120%]">
+                      + {getAddonFinalPrice(addon?.price)}
+                      {t('hrn')}
+                    </span>
+                  )}
                 </label>
               </li>
             );

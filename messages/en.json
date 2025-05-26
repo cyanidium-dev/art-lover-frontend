@@ -251,6 +251,8 @@
       "postcard": "Postcard",
       "addButton": "Add",
       "promocode": "Promo code",
+      "applyPromo": "Apply promocode",
+      "removePromo": "Remove promocode",
       "tips": "Leave a tip for our packers",
       "total": "Total cost",
       "hrn": " UAH",
@@ -514,7 +516,8 @@
       "sixCharZero": "After +38 the next digit must be 0",
       "chooseDelivery": "Choose a delivery service",
       "onlyNumbersAllowed": "Only numbers allowed",
-      "positiveNumbers": "Tips cannot be less than 0"
+      "positiveNumbers": "Tips cannot be less than 0",
+      "noPromocode": "Promocode not found"
     },
     "submitButton": "Send",
     "sending": "Sending..."

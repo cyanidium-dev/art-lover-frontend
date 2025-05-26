@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useCartStore } from '@/shared/store/cartStore';
 import { Product } from '@/types/product';
@@ -19,7 +19,13 @@ export default function ProductCard({
   const t = useTranslations('productCard');
   const locale = useLocale();
 
-  const { addToCart } = useCartStore();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const { addToCart, getItemFinalPrice } = useCartStore();
 
   const {
     id,
@@ -69,10 +75,11 @@ export default function ProductCard({
           />
         </div>
         <div className="flex flex-col justify-between mb-4 xl:mb-[18px]">
-          {discountedPrice && discountedPrice < price ? (
+          {(isClient && discountedPrice && discountedPrice < price) ||
+          getItemFinalPrice(product) < price ? (
             <p className="mb-1.5 xl:mb-2 h-auto leading-none">
               <span className="text-[13px] xl:text-[16px] font-medium leading-[120%] text-orange">
-                {discountedPrice}
+                {getItemFinalPrice(product)}
                 {t('hrn')}
               </span>
               <span className="text-[13px] xl:text-[16px] font-medium leading-[120%]">
@@ -84,7 +91,7 @@ export default function ProductCard({
             </p>
           ) : (
             <p className="mb-1.5 xl:mb-2 text-[14px] xl:text-[16px] font-medium leading-[120%]">
-              {price} {t('hrn')}
+              {getItemFinalPrice(product)} {t('hrn')}
             </p>
           )}
           <h3 className="text-[13px] xl:text-[18px] font-medium leading-[120%] line-clamp-2">
