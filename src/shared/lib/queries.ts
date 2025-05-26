@@ -462,6 +462,7 @@ export const productsByIds = `*[_type == "product" && _id in $ids]{
 }`;
 
 export const packagingQuery = `*[_type == "packaging"]{
+  "id": _id,
   "title": title[$lang],
   price,
   value,

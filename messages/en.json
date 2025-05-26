@@ -250,6 +250,7 @@
       "packaging": "Gift packaging",
       "postcard": "Postcard",
       "addButton": "Add",
+      "removeButton": "Remove",
       "promocode": "Promo code",
       "applyPromo": "Apply promocode",
       "removePromo": "Remove promocode",

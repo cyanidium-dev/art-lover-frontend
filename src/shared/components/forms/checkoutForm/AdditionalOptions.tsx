@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
+import { useCartStore } from '@/shared/store/cartStore';
 import { fetchSanityData } from '@/shared/utils/fetchSanityData';
 import { packagingQuery } from '@/shared/lib/queries';
 import Image from 'next/image';
@@ -9,9 +10,11 @@ import PlusIcon from '../../icons/PlusIcon';
 export default function AdditionalOptions() {
   const t = useTranslations('checkoutPage.form');
   const locale = useLocale();
+  const { additionalItems, addAdditionalItem, removeAdditionalItem } =
+    useCartStore();
 
   const [additionalOptions, setAdditionalOptions] = useState<
-    { title: string; image: string; value: string; price: string }[]
+    { title: string; image: string; id: string; price: number }[]
   >([]);
 
   useEffect(() => {
@@ -32,7 +35,7 @@ export default function AdditionalOptions() {
       className="flex flex-col gap-y-3 h-[262px] overflow-x-hidden overflow-y-auto scrollbar scrollbar-w-[2.5px] scrollbar-thumb-rounded-full 
       scrollbar-track-rounded-full scrollbar-thumb-orange scrollbar-track-transparent"
     >
-      {additionalOptions.map(({ image, title, price }, idx) => (
+      {additionalOptions.map(({ image, title, price, id }, idx) => (
         <li
           key={idx}
           className="flex gap-x-[25px] px-3 py-[11px] rounded-[8px] border border-gray-light"
@@ -59,10 +62,17 @@ export default function AdditionalOptions() {
               {t('hrn')}
             </p>
             <SecondaryButton
+              onClick={
+                additionalItems.some(item => item.id === id)
+                  ? () => removeAdditionalItem(id)
+                  : () => addAdditionalItem({ image, title, price, id })
+              }
               className="gap-x-[34px] w-[79px] xl:w-[132px] h-7 xl:h-[35px]"
               textStyles="text-[10px] xl:text-[12px] font-medium"
             >
-              {t('addButton')}
+              {additionalItems.some(item => item.id === id)
+                ? t('removeButton')
+                : t('addButton')}
               <PlusIcon className="hidden xl:block size-3.5" />
             </SecondaryButton>
           </div>

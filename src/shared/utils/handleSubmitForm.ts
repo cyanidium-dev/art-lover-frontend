@@ -20,7 +20,9 @@ export const handleSubmitForm = async <T>(
 ) => {
   const {
     clearCart,
+    clearAdditionalItems,
     cartItems,
+    additionalItems,
     promocode,
     discount,
     applyPromocode,
@@ -138,6 +140,11 @@ export const handleSubmitForm = async <T>(
       })
       .join('\n');
 
+    // Формуємо список додаткового упакування з переносами на новий рядок для Telegram
+    const additionalItemsList = additionalItems
+      .map(item => `- ${item.title}`)
+      .join('\n');
+
     // Формуємо дані для telegram
     const dataTelegram =
       `<b>Замовлення #${orderNumber}</b>\n` +
@@ -157,11 +164,12 @@ export const handleSubmitForm = async <T>(
       `<b>Прізвище одержувача:</b> ${values.recipientSurname?.trim()}\n` +
       `<b>Телефон одержувача:</b> ${values.recipientPhone?.replace(/[^\d+]/g, '')}\n` +
       `<b>Повідомлення:</b> ${values.message?.trim()}\n` +
-      `<b>Текст вітальної листівки:</b> ${values.postcard?.trim()}\n` +
       `<b>Чайові:</b> ${values.tips?.trim()}%\n` +
       `<b>Промокод:</b> ${values.promocode?.trim()}\n` +
       `<b>Розмір знижки за промокодом:</b> ${discount}%\n` +
       `<b>Список товарів в замовленні:</b>\n${orderedListProducts}\n` +
+      `<b>Додаткове пакування:</b>\n${additionalItemsList}\n` +
+      `<b>Текст вітальної листівки:</b> ${values.postcard?.trim()}\n` +
       `<b>Сума замовлення:</b> ${totalOrderSum} грн\n`;
 
     await axios({
@@ -177,6 +185,8 @@ export const handleSubmitForm = async <T>(
     resetForm();
     //Очищаємо кошик
     clearCart();
+    //Очищаємо додаткове пакування
+    clearAdditionalItems();
 
     router.push('/confirmation');
   } catch (error) {

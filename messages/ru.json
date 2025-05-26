@@ -250,6 +250,7 @@
       "packaging": "Подарочная упаковка",
       "postcard": "Открытка",
       "addButton": "Добавить",
+      "removeButton": "Удалить",
       "promocode": "Промокод",
       "applyPromo": "Apply promocode",
       "removePromo": "Remove promocode",
