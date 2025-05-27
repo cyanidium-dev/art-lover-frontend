@@ -13,7 +13,7 @@ export interface BasketOrderItem {
   footer: string | null;
   tax: unknown[];
   uktzed: string | null;
-  discounts: Array<{
+  discounts?: Array<{
     type: 'percent' | null;
     mode: 'manual' | null;
     value: number | null;
@@ -28,13 +28,8 @@ export const useMonopayBasketOrder = () => {
 
   const basketFromCartItems = cartItems.map(item => {
     const itemBasePrice = getItemFinalPrice(item);
-    const addonsTotal =
-      item.addons?.reduce((sum, addon) => {
-        if (!addon.checked) return sum;
-        return sum + getAddonFinalPrice(addon.price);
-      }, 0) || 0;
 
-    const sum = (itemBasePrice + addonsTotal) * 100; // ціна за одиницю в копійках
+    const sum = itemBasePrice * 100;
     const total = sum * item.quantity;
 
     return {
@@ -53,8 +48,32 @@ export const useMonopayBasketOrder = () => {
     };
   });
 
+  // окремі рядки для всіх відмічених аддонів
+  const basketFromCartAddons = cartItems.flatMap(
+    item =>
+      item.addons
+        ?.filter(addon => addon.checked)
+        .map(addon => {
+          const sum = getAddonFinalPrice(addon.price) * 100;
+          return {
+            name: addon.title,
+            qty: 1,
+            sum,
+            total: sum,
+            icon: null,
+            unit: 'шт.',
+            code: addon.id,
+            barcode: null,
+            header: null,
+            footer: null,
+            tax: [],
+            uktzed: null,
+          };
+        }) || []
+  );
+
   const basketFromAdditionalItems = additionalItems.map(item => {
-    const sum = getAddonFinalPrice(item.price) * 100; // ціна за одиницю в копійках
+    const sum = getAddonFinalPrice(item.price) * 100;
     return {
       name: item.title,
       qty: 1,
@@ -71,5 +90,9 @@ export const useMonopayBasketOrder = () => {
     };
   });
 
-  return [...basketFromCartItems, ...basketFromAdditionalItems];
+  return [
+    ...basketFromCartItems,
+    ...basketFromCartAddons,
+    ...basketFromAdditionalItems,
+  ];
 };
