@@ -103,10 +103,6 @@ export default function PublicContract() {
 
   const sellerData = [
     t('sellerDetails.details.name'),
-    t('sellerDetails.details.address'),
-    t('sellerDetails.details.account'),
-    t('sellerDetails.details.mfo'),
-    t('sellerDetails.details.edrpou'),
     t('sellerDetails.details.phone'),
     t('sellerDetails.details.email'),
   ];
