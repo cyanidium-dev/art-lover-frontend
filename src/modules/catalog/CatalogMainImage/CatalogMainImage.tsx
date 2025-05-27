@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import { Product } from '@/types/product';
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/shared/utils/animationVariants';
 
 interface CatalogMainBannerProps {
   categoryProducts: {
@@ -52,7 +54,12 @@ const CatalogMainBanner = ({ categoryProducts }: CatalogMainBannerProps) => {
   } = categoryProducts;
 
   return (
-    <div
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeInAnimation({ y: 30 })}
       className={`relative flex flex-col justify-end p-3 xl:px-8 xl:py-7 z-10 mb-[24px] md:mb-[32px] h-25 xs:h-30 sm:h-40 xl:h-[196px] rounded-[8px] xl:rounded-[16px] border border-dark overflow-hidden ${bannerColor === 'dark' ? 'bg-dark' : 'bg-white'}`}
     >
       <Image
@@ -96,7 +103,7 @@ const CatalogMainBanner = ({ categoryProducts }: CatalogMainBannerProps) => {
       >
         {categoryTitle}
       </h2>
-    </div>
+    </motion.div>
   );
 };
 
