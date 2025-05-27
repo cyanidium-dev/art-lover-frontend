@@ -164,8 +164,8 @@ export const handleSubmitForm = async <T>(
       `<b>Прізвище одержувача:</b> ${values.recipientSurname?.trim()}\n` +
       `<b>Телефон одержувача:</b> ${values.recipientPhone?.replace(/[^\d+]/g, '')}\n` +
       `<b>Повідомлення:</b> ${values.message?.trim()}\n` +
-      `<b>Чайові:</b> ${values.tips?.trim()}%\n` +
-      `<b>Промокод:</b> ${values.promocode?.trim()}\n` +
+      `<b>Чайові:</b> ${values.tips?.trim() ? `${values.tips?.trim()}%` : ''}\n` +
+      `<b>Промокод:</b> ${values.promocode?.trim() ? values.promocode?.trim() : ''}\n` +
       `<b>Розмір знижки за промокодом:</b> ${discount}%\n` +
       `<b>Список товарів в замовленні:</b>\n${orderedListProducts}\n` +
       `<b>Додаткове пакування:</b>\n${additionalItemsList}\n` +

@@ -31,6 +31,29 @@ interface CatalogProps {
     categorySlug: string;
     categoryTitle: string;
     categorySubtitle: string;
+    bannerColor: 'dark' | 'light';
+    bannerImages: {
+      mobileLeft: {
+        url: string;
+        width: number;
+        height: number;
+      };
+      mobileRight: {
+        url: string;
+        width: number;
+        height: number;
+      };
+      desktopLeft: {
+        url: string;
+        width: number;
+        height: number;
+      };
+      desktopRight: {
+        url: string;
+        width: number;
+        height: number;
+      };
+    };
     subcategories?: [
       {
         subcategorySlug: string;
