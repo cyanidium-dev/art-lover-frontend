@@ -163,7 +163,37 @@ const Catalog = ({ categoryProducts, professions }: CatalogProps) => {
     : [];
 
   return (
-    <section className="pb-20 xl:pb-[140px]">
+    <section className="relative pb-20 xl:pb-[140px]">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeInAnimation({ delay: 1.2, scale: 0.9 })}
+        className="hidden xl:block absolute -z-10 bottom-[430px] right-[0px]"
+      >
+        <Image
+          src="/images/catalog/figureRightBottomDesk.svg"
+          alt="background"
+          width="371"
+          height="379"
+        />
+      </motion.div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeInAnimation({ delay: 1.2, scale: 0.9 })}
+        className="hidden xl:block absolute -z-10 bottom-[-120px] left-[-15px]"
+      >
+        <Image
+          src="/images/catalog/figureLeftBottomDesk.svg"
+          alt="background"
+          width="371"
+          height="379"
+        />
+      </motion.div>
       <Container className="flex gap-[20px] items-start">
         <div className="hidden lg:block w-1/4 min-w-[260px]">
           <CatalogFilters

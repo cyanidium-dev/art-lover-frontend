@@ -14,6 +14,7 @@ import {
   listItemVariants,
 } from '@/shared/utils/animationVariants';
 import { useCatalogItemsPerPage } from '@/shared/hooks/useCatalogItemsPerPage';
+import CatalogImages from './CatalogImages';
 
 interface CatalogProductsProps {
   currentProducts: Product[];
@@ -32,7 +33,8 @@ const CatalogProducts = ({
   const [isCartModalShown, setIsCartModalShown] = useState(false);
 
   return (
-    <div key={categorySlug}>
+    <div className="relative" key={categorySlug}>
+      <CatalogImages />
       <Pagination
         items={currentProducts}
         scrollTargetId={SECTION_ID}
