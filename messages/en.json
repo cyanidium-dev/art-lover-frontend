@@ -250,6 +250,7 @@
       "packaging": "Gift packaging",
       "postcard": "Postcard",
       "addButton": "Add",
+      "removeButton": "Remove",
       "promocode": "Promo code",
       "applyPromo": "Apply promocode",
       "removePromo": "Remove promocode",
@@ -290,7 +291,7 @@
         "two": "1.2. Goods or Services – the subject of the agreement between the parties, selected by the buyer on the online store’s website and placed in the shopping cart, or already purchased by the Buyer from the Seller remotely.",
         "three": "1.3. Online Store – the Seller’s website located at https://www.artlover.com, created for concluding retail and wholesale purchase and sale agreements based on the Buyer’s acquaintance with the product descriptions offered by the Seller via the Internet.",
         "four": "1.4. Buyer – a legally capable individual who is at least 18 years old, receives information from the Seller, places an order for the purchase of goods presented on the online store’s website for purposes not related to business activities, or a legal entity or individual entrepreneur.",
-        "five": "Seller – Individual Entrepreneur Klimchuk Olena Oleksandrivna (identification code 3536710923), established and operating in accordance with the current legislation of Ukraine and conducting business activities in accordance with registration documents (registered address of the IE – Ukraine, 12411, Zhytomyr region, Zhytomyr district, Berezivka village, Liubarska TG, Molodizhna Street, building 33)."
+        "five": "The Seller is a sole proprietor, Ilchyshyn Oleksandra Serhiivna, established and operating in accordance with the current legislation of Ukraine and conducting business activities in compliance with registration documents."
       }
     },
     "partTwo": {
@@ -399,15 +400,11 @@
       }
     },
     "sellerDetails": {
-      "title": "SELLER'S ADDRESS AND DETAILS",
+      "title": "SELLER CONTACT DETAILS",
       "details": {
-        "name": "Sole Proprietor Olena Oleksandrivna Klimchuk",
-        "address": "12411, Zhytomyr region, Zhytomyr district, Berezivka village, Liubarska TG, Molodizhna Street, building 33",
-        "account": "IBAN: UA493052990000026001030135345 at JSC CB 'PRIVATBANK'",
-        "mfo": "MFO: 305299",
-        "edrpou": "EDRPOU: 3536710923",
-        "phone": "Phone: +38 096 719 80 97",
-        "email": "Email: lemusenature@gmail.com"
+        "name": "Private Entrepreneur Ilchyshyn Oleksandra Serhiivna",
+        "phone": "Tel.: +380 (96) 393 19 88",
+        "email": "e-mail: artlover.ua@gmail.com"
       }
     }
   },

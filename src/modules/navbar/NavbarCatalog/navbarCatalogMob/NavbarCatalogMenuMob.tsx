@@ -62,7 +62,7 @@ export default function NavbarCatalogMenuMob({
               exit="exit"
               viewport={{ once: true, amount: 0.2 }}
               variants={fadeInAnimation({ delay: 0.4, scale: 0.9 })}
-              className="w-[360px] h-[131px] ml-auto -mt-[22px]"
+              className="w-[360px] h-[131px] ml-auto -mt-[22px] pointer-events-none"
             >
               <Image
                 src="/images/navbar/catalogMenuFigureMob.svg"

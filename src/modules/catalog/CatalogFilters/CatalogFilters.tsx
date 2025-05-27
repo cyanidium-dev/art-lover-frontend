@@ -70,7 +70,7 @@ const CatalogFilters = ({
       exit="exit"
       viewport={{ once: true, amount: 0.2 }}
       variants={fadeInAnimation({ x: -30 })}
-      className="w-full rounded-[16px] shadow px-[20px] py-[32px]"
+      className="w-full rounded-[16px] shadow px-[20px] py-[32px] bg-white"
     >
       <TypeFilters
         value={filters.type}

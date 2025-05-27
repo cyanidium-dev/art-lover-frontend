@@ -1,22 +1,69 @@
 export const allCategoriesQuery = `
   *[_type == "category"] | order(_createdAt asc) {
-  "id": _id,
-  "title": title[$lang],
-  "subtitle": subtitle[$lang],
-  "slug": slug.current,
-  icon,
-  "subcategories": subcategories[]->{
     "id": _id,
     "title": title[$lang],
-    "slug": slug.current
+    "subtitle": subtitle[$lang],
+    "slug": slug.current,
+    icon,
+    bannerColor,
+    "bannerImages": {
+      "mobileLeft": {
+        "url": bannerImages.mobileLeft.asset->url,
+        "width": bannerImages.mobileLeft.asset->metadata.dimensions.width,
+        "height": bannerImages.mobileLeft.asset->metadata.dimensions.height
+      },
+      "mobileRight": {
+        "url": bannerImages.mobileRight.asset->url,
+        "width": bannerImages.mobileRight.asset->metadata.dimensions.width,
+        "height": bannerImages.mobileRight.asset->metadata.dimensions.height
+      },
+      "desktopLeft": {
+        "url": bannerImages.desktopLeft.asset->url,
+        "width": bannerImages.desktopLeft.asset->metadata.dimensions.width,
+        "height": bannerImages.desktopLeft.asset->metadata.dimensions.height
+      },
+      "desktopRight": {
+        "url": bannerImages.desktopRight.asset->url,
+        "width": bannerImages.desktopRight.asset->metadata.dimensions.width,
+        "height": bannerImages.desktopRight.asset->metadata.dimensions.height
+      }
+    },
+    "subcategories": subcategories[]->{
+      "id": _id,
+      "title": title[$lang],
+      "slug": slug.current
+    }
   }
-}
 `;
 
-export const allProductsByCategoryQuery = `*[_type == "category" && slug.current == $categorySlug] {
+export const allProductsByCategoryQuery = `
+*[_type == "category" && slug.current == $categorySlug][0] {
   "categoryTitle": title[$lang],
   "categorySubtitle": subtitle[$lang],
   "categorySlug": slug.current,
+  bannerColor,
+  "bannerImages": {
+    "mobileLeft": {
+      "url": bannerImages.mobileLeft.asset->url,
+      "width": bannerImages.mobileLeft.asset->metadata.dimensions.width,
+      "height": bannerImages.mobileLeft.asset->metadata.dimensions.height
+    },
+    "mobileRight": {
+      "url": bannerImages.mobileRight.asset->url,
+      "width": bannerImages.mobileRight.asset->metadata.dimensions.width,
+      "height": bannerImages.mobileRight.asset->metadata.dimensions.height
+    },
+    "desktopLeft": {
+      "url": bannerImages.desktopLeft.asset->url,
+      "width": bannerImages.desktopLeft.asset->metadata.dimensions.width,
+      "height": bannerImages.desktopLeft.asset->metadata.dimensions.height
+    },
+    "desktopRight": {
+      "url": bannerImages.desktopRight.asset->url,
+      "width": bannerImages.desktopRight.asset->metadata.dimensions.width,
+      "height": bannerImages.desktopRight.asset->metadata.dimensions.height
+    }
+  },
   "subcategories": subcategories[]->{
     "subcategoryTitle": title[$lang],
     "subcategorySlug": slug.current,
@@ -28,30 +75,30 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
       "slug": slug.current,
       price,
       discountedPrice,
-       "reviews": reviews[] {
-      author,
-      rating,
-      text
-    },
+      "reviews": reviews[] {
+        author,
+        rating,
+        text
+      },
       "mainImage": mainImage.asset->url,
       inStock,
       isBestseller,
       "addons": additions[] {
-      "title": name[$lang],
-      "price": price,
-      "id": _key
-    },
+        "title": name[$lang],
+        "price": price,
+        "id": _key
+      },
       "professions": professions[]->{
         "title": title[$lang],
         value
-    },
-      "createdAt":_createdAt,
+      },
+      "createdAt": _createdAt,
       "ageMin": ageRange.min,
       "ageMax": ageRange.max,
       "colors": colors[] {
-      "title": name[$lang],
-      "hex": value.hex
-    },
+        "title": name[$lang],
+        "hex": value.hex
+      }
     }
   },
   "products": *[
@@ -71,12 +118,12 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
       "id": _key
     },
     "professions": professions[]->{
-        "title": title[$lang],
-        value
-  },
-  "createdAt":_createdAt,
-  "ageMin": ageRange.min,
-      "ageMax": ageRange.max,
+      "title": title[$lang],
+      value
+    },
+    "createdAt": _createdAt,
+    "ageMin": ageRange.min,
+    "ageMax": ageRange.max,
     "reviews": reviews[] {
       author,
       rating,
@@ -85,9 +132,9 @@ export const allProductsByCategoryQuery = `*[_type == "category" && slug.current
     "colors": colors[] {
       "title": name[$lang],
       "hex": value.hex
-    },
+    }
   }
-}[0]
+}
 `;
 
 export const allBestsellersQuery = `*[_type == "product" && isBestseller == true]{
@@ -460,3 +507,12 @@ export const productsByIds = `*[_type == "product" && _id in $ids]{
       "id": _key
     },
 }`;
+
+export const packagingQuery = `*[_type == "packaging"]{
+  "id": _id,
+  "title": title[$lang],
+  price,
+  value,
+  "image": image.asset->url
+}
+`;

@@ -7,6 +7,20 @@ interface CartState {
   cartItems: CartItem[];
   promocode: string | null;
   discount: number;
+  additionalItems: {
+    id: string;
+    title: string;
+    price: number;
+    image: string;
+  }[];
+  addAdditionalItem: (item: {
+    id: string;
+    title: string;
+    price: number;
+    image: string;
+  }) => void;
+  removeAdditionalItem: (id: string) => void;
+  clearAdditionalItems: () => void;
   addToCart: (newItem: CartItem) => void;
   increaseQuantity: (itemId: string) => void;
   decreaseQuantity: (itemId: string) => void;
@@ -33,6 +47,7 @@ export const useCartStore = create<CartState>()(
       cartItems: [],
       promocode: null,
       discount: 0,
+      additionalItems: [],
       isCartAnimating: false,
       cartAnimationKey: Date.now(),
       animatingImage: null,
@@ -55,10 +70,11 @@ export const useCartStore = create<CartState>()(
       },
 
       getTotalAmount: () => {
-        const { cartItems, getItemFinalPrice, discount } = get();
-        return cartItems.reduce((sum, item) => {
-          const itemTotal = getItemFinalPrice(item) * item.quantity;
+        const { cartItems, getItemFinalPrice, discount, additionalItems } =
+          get();
 
+        const cartTotal = cartItems.reduce((sum, item) => {
+          const itemTotal = getItemFinalPrice(item) * item.quantity;
           const addonsTotal =
             item.addons?.reduce((addonSum, addon) => {
               if (!addon.checked) return addonSum;
@@ -70,6 +86,13 @@ export const useCartStore = create<CartState>()(
 
           return sum + itemTotal + addonsTotal;
         }, 0);
+
+        const additionalTotal = additionalItems.reduce(
+          (sum, item) => sum + Math.round(item.price * (1 - discount / 100)),
+          0
+        );
+
+        return cartTotal + additionalTotal;
       },
 
       addToCart: newItem => {
@@ -178,6 +201,24 @@ export const useCartStore = create<CartState>()(
 
       removePromocode: () => {
         set({ promocode: null, discount: 0 });
+      },
+
+      addAdditionalItem: item => {
+        set(state => {
+          const exists = state.additionalItems.find(i => i.id === item.id);
+          if (exists) return state;
+          return { additionalItems: [...state.additionalItems, item] };
+        });
+      },
+
+      removeAdditionalItem: id => {
+        set(state => ({
+          additionalItems: state.additionalItems.filter(item => item.id !== id),
+        }));
+      },
+
+      clearAdditionalItems: () => {
+        set({ additionalItems: [] });
       },
 
       setCartAnimation: isAnimating => {
