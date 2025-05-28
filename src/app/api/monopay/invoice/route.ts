@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import axios from 'axios';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
 const MONOPAY_TOKEN = process.env.MONOPAY_TOKEN;
@@ -20,8 +21,8 @@ export async function POST(req: NextRequest) {
         basketOrder: body.basketOrder,
         destination: 'Покупка товару',
         comment: 'Покупка товару',
-        redirectUrl: `${SITE_URL}confirmation`,
-        webHookUrl: `${SITE_URL}api/monopay/webhook`,
+        redirectUrl: `${SITE_URL}/confirmation`,
+        webHookUrl: `${SITE_URL}/api/monopay/webhook`,
       },
       validity: 3600, // 1 година
       paymentType: 'debit',
@@ -41,6 +42,14 @@ export async function POST(req: NextRequest) {
     if (!response.ok) {
       return NextResponse.json({ error: data }, { status: response.status });
     }
+    await axios({
+      method: 'post',
+      url: `${SITE_URL}/api/telegram`,
+      data: `InvoiceId: ${data}`,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
     return NextResponse.json({ pageUrl: data.pageUrl }); // URL куди переадресовувати
   } catch (error) {

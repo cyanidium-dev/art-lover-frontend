@@ -8,7 +8,7 @@ const MONOPAY_PUBKEY = process.env.MONOPAY_PUBKEY!; // Base64 ECDSA pubkey
 export async function POST(req: NextRequest) {
   await axios({
     method: 'post',
-    url: `${SITE_URL}api/telegram`,
+    url: `${SITE_URL}/api/telegram`,
     data: 'Монопей зайшов за посиланням вебхука',
     headers: {
       'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
     if (!isValid) {
       await axios({
         method: 'post',
-        url: `${SITE_URL}api/telegram`,
+        url: `${SITE_URL}/api/telegram`,
         data: 'Не верифікований підпис',
         headers: {
           'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
 
     await axios({
       method: 'post',
-      url: `${SITE_URL}api/telegram`,
+      url: `${SITE_URL}/api/telegram`,
       data: 'Всі перевірки пройдені, але без умови success',
       headers: {
         'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ export async function POST(req: NextRequest) {
 
       await axios({
         method: 'post',
-        url: `${SITE_URL}api/telegram`,
+        url: `${SITE_URL}/api/telegram`,
         data: message,
         headers: {
           'Content-Type': 'application/json',
