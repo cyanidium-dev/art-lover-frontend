@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
     await axios({
       method: 'post',
       url: `${SITE_URL}/api/telegram`,
-      data: `InvoiceId: ${data}`,
+      data: `InvoiceId: ${data.invoiceId}`,
       headers: {
         'Content-Type': 'application/json',
       },
