@@ -6,6 +6,15 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const MONOPAY_PUBKEY = process.env.MONOPAY_PUBKEY!; // Base64 ECDSA pubkey
 
 export async function POST(req: NextRequest) {
+  await axios({
+    method: 'post',
+    url: `${SITE_URL}/api/telegram`,
+    data: 'Монопей зайшов за посиланням вебхука',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
   try {
     const rawBody = await req.text(); // Важливо: отримаємо тіло як рядок для перевірки підпису
     const signature = req.headers.get('x-sign');
@@ -16,7 +25,7 @@ export async function POST(req: NextRequest) {
 
     // Перевірка підпису
     const verify = createVerify('SHA256');
-    verify.update(rawBody);
+    verify.write(rawBody);
     verify.end();
 
     const signatureBuf = Buffer.from(signature, 'base64');
@@ -25,10 +34,27 @@ export async function POST(req: NextRequest) {
     const isValid = verify.verify(publicKeyBuf, signatureBuf);
 
     if (!isValid) {
+      await axios({
+        method: 'post',
+        url: `${SITE_URL}/api/telegram`,
+        data: 'Не верифікований підпис',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       return new NextResponse('Invalid signature', { status: 403 });
     }
 
     const data = JSON.parse(rawBody);
+
+    await axios({
+      method: 'post',
+      url: `${SITE_URL}/api/telegram`,
+      data: 'Всі перевірки пройдені, але без умови success',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
     if (data.status === 'success') {
       const message = `✅ Оплата через MonoPay успішна!\nСума: ${data.finalAmount / 100} грн\nЗамовлення: ${data.invoiceId}`;
