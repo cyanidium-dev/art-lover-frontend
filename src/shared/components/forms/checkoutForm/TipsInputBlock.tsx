@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import clsx from 'clsx';
 import CustomizedInput from '../../formComponents/CustomizedInput';
+import { useCartStore } from '@/shared/store/cartStore';
 
 interface Values {
   [fieldName: string]: string;
@@ -22,6 +23,7 @@ export default function TipsInputBlock({
   touched,
 }: TipsInputBlockProps) {
   const t = useTranslations('forms');
+  const { setTips } = useCartStore();
 
   const { setFieldValue, values } = useFormikContext<Values>();
   const [selectedTip, setSelectedTip] = useState<number | null>(null);
@@ -29,12 +31,21 @@ export default function TipsInputBlock({
   const handleTipClick = (tip: number) => {
     setSelectedTip(tip);
     setFieldValue('tips', tip.toString());
+    setTips(tip); // оновлення Zustand
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSelectedTip(null);
     setFieldValue('tips', value);
+    const numericValue = parseFloat(value);
+    console.log(value);
+    console.log(numericValue);
+    if (!isNaN(numericValue)) {
+      setTips(numericValue);
+    } else {
+      setTips(0);
+    }
   };
 
   useEffect(() => {

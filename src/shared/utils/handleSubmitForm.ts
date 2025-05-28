@@ -30,6 +30,7 @@ export const handleSubmitForm = async <T>(
     applyPromocode,
     removePromocode,
     getTotalAmount,
+    clearTips,
   } = useCartStore.getState();
 
   setIsLoading(true);
@@ -88,9 +89,7 @@ export const handleSubmitForm = async <T>(
     }, []),
   }));
 
-  const totalOrderSum = Math.round(
-    getTotalAmount() * (1 + Number(values.tips.trim()) / 100)
-  );
+  const totalOrderSum = getTotalAmount();
 
   console.log(totalOrderSum);
 
@@ -213,10 +212,19 @@ export const handleSubmitForm = async <T>(
 
     //Очищаємо форму
     resetForm();
+
     //Очищаємо кошик
     clearCart();
+
     //Очищаємо додаткове пакування
     clearAdditionalItems();
+
+    //Очищаємо чайові
+    clearTips();
+
+    //Видаляємо промокод
+    removePromocode();
+
     //Редірект на сторінку підтвердження замовлення
     router.push('/confirmation');
   } catch (error) {

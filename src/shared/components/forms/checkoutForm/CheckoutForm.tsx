@@ -75,6 +75,8 @@ export default function CheckoutForm({
     applyPromocode,
     removePromocode,
     cartItems,
+    setTips,
+    tips,
   } = useCartStore();
 
   const router = useRouter();
@@ -101,7 +103,7 @@ export default function CheckoutForm({
     message: '',
     postcard: '',
     promocode: promocode || '',
-    tips: '',
+    tips: tips > 0 ? tips.toString() : '',
   };
 
   const validationSchema = CheckoutValidation(activeTab);
@@ -143,12 +145,12 @@ export default function CheckoutForm({
 
   const basketOrder = useMonopayBasketOrder();
 
-  console.log(basketOrder);
-
   const submitForm = async (
     values: ValuesCheckoutFormType,
     formikHelpers: FormikHelpers<ValuesCheckoutFormType>
   ) => {
+    setTips(Number(values.tips.trim()));
+
     await handleSubmitForm<ValuesCheckoutFormType>(
       formikHelpers,
       setIsLoading,
@@ -420,20 +422,14 @@ export default function CheckoutForm({
                   {t('checkoutPage.form.total')}
                 </h3>
                 <p className="text-[16px] xl:text-[24px] font-medium leading-[120%]">
-                  {Math.round(
-                    getTotalAmount() * (1 + Number(values.tips.trim()) / 100)
-                  )}
+                  {getTotalAmount()}
                   {t('checkoutPage.form.hrn')}
                 </p>
               </div>
               <SubmitButton
                 dirty={dirty}
                 isValid={
-                  isValid &&
-                  !!cartItems.length &&
-                  Math.round(
-                    getTotalAmount() * (1 + Number(values.tips.trim()) / 100)
-                  ) !== 0
+                  isValid && !!cartItems.length && getTotalAmount() !== 0
                 }
                 isLoading={isLoading}
                 text={t('checkoutPage.form.checkout')}

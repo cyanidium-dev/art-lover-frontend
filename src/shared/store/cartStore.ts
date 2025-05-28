@@ -19,6 +19,10 @@ interface CartState {
     price: number;
     image: string;
   }) => void;
+  tips: number;
+  setTips: (amount: number) => void;
+  clearTips: () => void;
+  getTipsAmount: () => number;
   removeAdditionalItem: (id: string) => void;
   clearAdditionalItems: () => void;
   addToCart: (newItem: CartItem) => void;
@@ -51,6 +55,7 @@ export const useCartStore = create<CartState>()(
       isCartAnimating: false,
       cartAnimationKey: Date.now(),
       animatingImage: null,
+      tips: 0,
 
       getItemFinalPrice: item => {
         const discount = get().discount;
@@ -70,8 +75,13 @@ export const useCartStore = create<CartState>()(
       },
 
       getTotalAmount: () => {
-        const { cartItems, getItemFinalPrice, discount, additionalItems } =
-          get();
+        const {
+          cartItems,
+          getItemFinalPrice,
+          discount,
+          additionalItems,
+          tips,
+        } = get();
 
         const cartTotal = cartItems.reduce((sum, item) => {
           const itemTotal = getItemFinalPrice(item) * item.quantity;
@@ -92,7 +102,7 @@ export const useCartStore = create<CartState>()(
           0
         );
 
-        return cartTotal + additionalTotal;
+        return Math.round((cartTotal + additionalTotal) * ((100 + tips) / 100));
       },
 
       addToCart: newItem => {
@@ -219,6 +229,45 @@ export const useCartStore = create<CartState>()(
 
       clearAdditionalItems: () => {
         set({ additionalItems: [] });
+      },
+
+      setTips: (amount: number) => set({ tips: amount }),
+      clearTips: () => set({ tips: 0 }),
+
+      getTipsAmount: () => {
+        const {
+          tips,
+          cartItems,
+          getItemFinalPrice,
+          discount,
+          additionalItems,
+        } = get();
+
+        // Підрахунок суми товарів і додаткових позицій без чайових
+        const cartTotal = cartItems.reduce((sum, item) => {
+          const itemTotal = getItemFinalPrice(item) * item.quantity;
+          const addonsTotal =
+            item.addons?.reduce((addonSum, addon) => {
+              if (!addon.checked) return addonSum;
+              const discountedAddonPrice = Math.round(
+                addon.price * (1 - discount / 100)
+              );
+              return addonSum + discountedAddonPrice;
+            }, 0) || 0;
+          return sum + itemTotal + addonsTotal;
+        }, 0);
+
+        const additionalTotal = additionalItems.reduce(
+          (sum, item) => sum + Math.round(item.price * (1 - discount / 100)),
+          0
+        );
+
+        const totalWithoutTips = cartTotal + additionalTotal;
+
+        // Вираховуємо суму чайових у гривнях
+        const tipsAmount = Math.round((totalWithoutTips * tips) / 100);
+
+        return tipsAmount;
       },
 
       setCartAnimation: isAnimating => {
