@@ -91,8 +91,6 @@ export const handleSubmitForm = async <T>(
 
   const totalOrderSum = getTotalAmount();
 
-  console.log(totalOrderSum);
-
   const collectedOrderData = {
     orderDate,
     orderNumber,
@@ -132,20 +130,20 @@ export const handleSubmitForm = async <T>(
 
       const checkedAddons = cartItem.addons?.filter(addon => addon.checked);
       const addons = checkedAddons?.length
-        ? checkedAddons.map(addon => `    - ${addon.title}`).join('\n')
+        ? checkedAddons.map(addon => `    - ${addon.title} - 1 шт.`).join('\n')
         : null;
 
       return (
         `- ${cartItem.title}${colorLine}${quantityLine}` +
-        (addons ? `\n  Додаткові товари:\n${addons}` : '')
+        (addons ? `\n  додаткові товари:\n${addons} ` : '')
       );
     })
     .join('\n');
 
   // Формуємо список додаткового упакування з переносами на новий рядок для Telegram
-  const additionalItemsList = additionalItems
-    .map(item => `- ${item.title}`)
-    .join('\n');
+  const additionalItemsList = additionalItems.length
+    ? additionalItems.map(item => `- ${item.title} - 1 шт.`).join('\n') + '\n'
+    : '';
 
   // Формуємо дані для telegram
   const dataTelegram =
@@ -170,7 +168,7 @@ export const handleSubmitForm = async <T>(
     `<b>Промокод:</b> ${values.promocode?.trim() ? values.promocode?.trim() : ''}\n` +
     `<b>Розмір знижки за промокодом:</b> ${discount}%\n` +
     `<b>Список товарів в замовленні:</b>\n${orderedListProducts}\n` +
-    `<b>Додаткове пакування:</b>\n${additionalItemsList}\n` +
+    `<b>Додаткове пакування:</b>\n${additionalItemsList}` +
     `<b>Текст вітальної листівки:</b> ${values.postcard?.trim()}\n` +
     `<b>Сума замовлення:</b> ${totalOrderSum} грн\n`;
 
