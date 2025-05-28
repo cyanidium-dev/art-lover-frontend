@@ -44,7 +44,7 @@ export default function DeliveryInfo() {
       </div>
       <div
         className={`overflow-hidden transition-[max-height] duration-700 ${
-          isShownMore ? 'max-h-[600px] ease-in' : 'max-h-0 ease-out'
+          isShownMore ? 'max-h-[1000px] ease-in' : 'max-h-0 ease-out'
         }`}
       >
         <p
@@ -91,7 +91,7 @@ export default function DeliveryInfo() {
           {t('delivery.returns.notRefundable.title')}
         </h4>
         <p
-          className={`text-[12px] xl:text-[14px] font-light leading-[120%] text-justify`}
+          className={`mb-1 text-[12px] xl:text-[14px] font-light leading-[120%] text-justify`}
         >
           {t('delivery.returns.notRefundable.partOne')}
         </p>
@@ -105,7 +105,7 @@ export default function DeliveryInfo() {
           {t('delivery.howToReturn.title')}
         </h4>
         <p
-          className={`text-[12px] xl:text-[14px] font-light leading-[120%] text-justify`}
+          className={`mb-1 text-[12px] xl:text-[14px] font-light leading-[120%] text-justify`}
         >
           {t('delivery.howToReturn.partOne')}
         </p>
