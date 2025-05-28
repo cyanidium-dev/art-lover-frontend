@@ -34,8 +34,6 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
   const [count, setCount] = useState(1);
   const { addToCart, getItemFinalPrice } = useCartStore();
 
-  console.log(count);
-
   const {
     id,
     title,
