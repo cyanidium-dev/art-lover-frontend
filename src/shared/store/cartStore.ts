@@ -136,7 +136,10 @@ export const useCartStore = create<CartState>()(
             return { cartItems: updatedCartItems };
           } else {
             return {
-              cartItems: [...state.cartItems, { ...newItem, quantity: 1 }],
+              cartItems: [
+                ...state.cartItems,
+                { ...newItem, quantity: newItem.quantity ?? 1 },
+              ],
             };
           }
         });
