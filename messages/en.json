@@ -206,9 +206,40 @@
     "button": "Add product to cart",
     "fullDescription": "Full product description",
     "delivery": {
-      "title": "Delivery & Returns",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam leo massa, rhoncus eget nibh sit amet, lacinia condimentum odio. Fusce tellus justo, facilisis et risus id, gravida molestie sem. Maecenas faucibus, lectus at suscipit viverra, lorem ante molestie erat, a convallis ex velit et mi."
+      "title": "Delivery and returns",
+      "description": "We carefully package all orders to ensure the items arrive in proper condition.",
+      "conditions": {
+        "title": "Delivery conditions:",
+        "ukraine": {
+          "title": "Within Ukraine:",
+          "description": "Delivery is carried out via Nova Poshta or Ukrposhta. Estimated delivery time is 1–3 working days after order confirmation."
+        },
+        "worldwide": {
+          "title": "International dlivery:",
+          "description": "Available upon prior agreement. Contact us to clarify the cost and delivery terms."
+        },
+        "shippingCost": {
+          "title": "Shipping cost:",
+          "description": "According to the tariffs of the selected service. Free shipping on orders over 2000 UAH."
+        }
+      },
+      "returns": {
+        "title": "Returns and exchanges",
+        "description": "You can return or exchange an item within 14 days of receiving the order, provided it has not been used and retains its original appearance and packaging.",
+        "notRefundable": {
+          "title": "Non-returnable items:",
+          "partOne": "- Consumable materials with signs of use (paints, glues, varnishes, etc.).",
+          "partTwo": "- Items made or assembled to individual order."
+        }
+      },
+      "howToReturn": {
+        "title": "How to return or exchange an item:",
+        "partOne": "1. Contact us via email or messenger, providing your order number and the reason for the return.",
+        "partTwo": "2. Send the item to the address provided by our manager.",
+        "partThree": "3. After inspecting the item, we will refund the money or send an exchange."
+      }
     },
+
     "idealFor": "Ideal for:",
     "characteristics": {
       "title": "Product characteristics:",
