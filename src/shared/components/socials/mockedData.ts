@@ -1,6 +1,12 @@
 export const socials = {
-  instagram: { url: 'https://www.instagram.com/artlover_ua/', qty: '421' },
-  youtube: { url: '', qty: '21' },
-  tiktok: { url: '', qty: '421' },
-  facebook: { url: '', qty: '21' },
+  instagram: { url: 'https://www.instagram.com/artlover_ua/', qty: '13' },
+  youtube: {
+    url: '/',
+    qty: '1',
+  },
+  tiktok: { url: 'https://www.tiktok.com/@artlover_ua', qty: '22' },
+  facebook: {
+    url: 'https://www.facebook.com/people/ArtLover/100092202464550/',
+    qty: '1',
+  },
 };
