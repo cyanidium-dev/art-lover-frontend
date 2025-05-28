@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
 
       await axios({
         method: 'post',
-        url: `${SITE_URL}api/telegram`,
+        url: `${SITE_URL}/api/telegram`,
         data: statusMessage,
         headers: {
           'Content-Type': 'application/json',
