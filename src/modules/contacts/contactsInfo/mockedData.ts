@@ -1,4 +1,4 @@
 export const contacts = {
-  phone: '+380800550130',
-  emails: ['artlovershop@gmail.com', 'korpartlover@gmail.com'],
+  phone: '+380963931988',
+  emails: ['artlover.ua@gmail.com'],
 };

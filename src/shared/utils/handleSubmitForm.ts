@@ -118,8 +118,6 @@ export const handleSubmitForm = async <T>(
     totalOrderSum,
   };
 
-  console.log(collectedOrderData);
-
   // Формуємо список товарів з переносами на новий рядок для Telegram
   const orderedListProducts = cartItems
     .map(cartItem => {
@@ -171,8 +169,6 @@ export const handleSubmitForm = async <T>(
     `<b>Додаткове пакування:</b>\n${additionalItemsList}` +
     `<b>Текст вітальної листівки:</b> ${values.postcard?.trim()}\n` +
     `<b>Сума замовлення:</b> ${totalOrderSum} грн\n`;
-
-  console.log(totalOrderSum);
 
   if (collectedOrderData.payment === 'Картою на сайті') {
     try {

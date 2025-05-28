@@ -94,8 +94,6 @@ export const useMonopayBasketOrder = (): BasketOrder => {
     };
   });
 
-  console.log(tips);
-
   const tipsItem = tips
     ? [
         {

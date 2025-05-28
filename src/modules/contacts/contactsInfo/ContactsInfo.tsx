@@ -5,7 +5,7 @@ import {
   listItemVariants,
 } from '@/shared/utils/animationVariants';
 import { contacts } from './mockedData';
-import { phoneRegex } from '@/shared/regex/regex';
+import { headerPhoneRegex } from '@/shared/regex/regex';
 import Container from '@/shared/components/container/Container';
 import Image from 'next/image';
 import ContactsInfoImages from './ContactsInfoImages';
@@ -50,19 +50,15 @@ export default function ContactsInfo() {
                 aria-label="phone number"
                 className="block mb-3 xl:mb-5 text-[14px] xl:text-[18px] font-medium leading-[120%] text-gray-light text-center xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
               >
-                {phone
-                  .replace(/^\+38/, '')
-                  .replace(/^380/, '0')
-                  .replace(/\D/g, '')
-                  .replace(phoneRegex, '0 $1 $2 $3')}
+                {phone.replace(headerPhoneRegex, '$1-$2-$3-$4-$5')}
               </a>
             ) : null}
-            <p className="mb-2 text-[12px] xl:text-[14px] font-medium leading-[120%] text-center xl:text-left text-gray-light">
+            {/* <p className="mb-2 text-[12px] xl:text-[14px] font-medium leading-[120%] text-center xl:text-left text-gray-light">
               {t('lineOne')}
             </p>
             <p className="text-[12px] xl:text-[14px] font-medium leading-[120%] text-center xl:text-left text-gray-light">
               {t('lineTwo')}
-            </p>
+            </p> */}
           </motion.li>
           <motion.li
             viewport={{ once: true, amount: 0.2 }}
@@ -96,9 +92,9 @@ export default function ContactsInfo() {
                 ))}
               </ul>
             ) : null}
-            <p className="text-[14px] font-medium leading-[120%] text-center text-gray-light">
+            {/* <p className="text-[14px] font-medium leading-[120%] text-center text-gray-light">
               {t('corporate')}
-            </p>
+            </p> */}
           </motion.li>
           <motion.li
             viewport={{ once: true, amount: 0.2 }}

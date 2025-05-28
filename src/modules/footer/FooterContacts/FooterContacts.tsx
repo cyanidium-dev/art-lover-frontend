@@ -21,10 +21,10 @@ const FooterContacts = () => {
         variants={fadeInAnimation({ y: 30, delay: 0.4 })}
       >
         <a
-          href="tel:0 800 550 130"
+          href="tel:+380963931988"
           className="text-orange text-[14px] xl:text-[16px] font-semibold mb-[8px] xl:hover:brightness-125 focus-visible:brightness-125 transition duration-300 ease-in-out"
         >
-          0 800 550 130
+          +380 (96) 393 19 88
         </a>
         <p className="text-white text-[12px] xl:text-[14px] mb-[32px]">
           {t('free')}

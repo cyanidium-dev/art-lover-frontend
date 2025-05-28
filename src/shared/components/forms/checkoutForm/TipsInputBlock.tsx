@@ -39,8 +39,6 @@ export default function TipsInputBlock({
     setSelectedTip(null);
     setFieldValue('tips', value);
     const numericValue = parseFloat(value);
-    console.log(value);
-    console.log(numericValue);
     if (!isNaN(numericValue)) {
       setTips(numericValue);
     } else {
