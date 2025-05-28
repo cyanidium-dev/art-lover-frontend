@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
         destination: 'Покупка товару',
         comment: 'Покупка товару',
         redirectUrl: `${SITE_URL}/confirmation`,
-        webHookUrl: `${SITE_URL}/api/monopay/webhook`,
+        webHookUrl: `https://art-lover-frontend.vercel.app/api/monopay/webhook`,
       },
       validity: 3600, // 1 година
       paymentType: 'debit',

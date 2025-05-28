@@ -8,7 +8,7 @@ const MONOPAY_PUBKEY = process.env.MONOPAY_PUBKEY!; // Base64 ECDSA pubkey
 export async function POST(req: NextRequest) {
   await axios({
     method: 'post',
-    url: `${SITE_URL}api/telegram`,
+    url: `https://art-lover-frontend.vercel.app/api/telegram`,
     data: 'Монопей зайшов за посиланням вебхука',
     headers: {
       'Content-Type': 'application/json',
