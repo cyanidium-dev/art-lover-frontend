@@ -146,8 +146,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             }
           : res;
 
-  console.log(res);
-
   return (
     <>
       <Suspense fallback={<Loader />}>

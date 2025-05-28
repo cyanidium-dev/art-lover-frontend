@@ -15,7 +15,7 @@ import { CheckoutValidation } from '@/shared/schemas/checkoutFormValidation';
 import { handleSubmitForm } from '@/shared/utils/handleSubmitForm';
 import { phoneMask } from '@/shared/regex/regex';
 import { useCartStore } from '@/shared/store/cartStore';
-
+import { useMonopayBasketOrder } from '@/shared/hooks/useMonopayBasketOrder';
 import CustomizedInput from '../../formComponents/CustomizedInput';
 import SubmitButton from '../../formComponents/SubmitButton';
 import CheckoutSubTitle from './CheckoutSubTitle';
@@ -69,8 +69,15 @@ export default function CheckoutForm({
 }: CheckoutFormProps) {
   const t = useTranslations();
 
-  const { getTotalAmount, promocode, applyPromocode, removePromocode } =
-    useCartStore();
+  const {
+    getTotalAmount,
+    promocode,
+    applyPromocode,
+    removePromocode,
+    cartItems,
+    setTips,
+    tips,
+  } = useCartStore();
 
   const router = useRouter();
 
@@ -96,7 +103,7 @@ export default function CheckoutForm({
     message: '',
     postcard: '',
     promocode: promocode || '',
-    tips: '',
+    tips: tips > 0 ? tips.toString() : '',
   };
 
   const validationSchema = CheckoutValidation(activeTab);
@@ -136,17 +143,22 @@ export default function CheckoutForm({
     setFieldValue('promocode', '');
   };
 
+  const basketOrder = useMonopayBasketOrder();
+
   const submitForm = async (
     values: ValuesCheckoutFormType,
     formikHelpers: FormikHelpers<ValuesCheckoutFormType>
   ) => {
+    setTips(Number(values.tips.trim()));
+
     await handleSubmitForm<ValuesCheckoutFormType>(
       formikHelpers,
       setIsLoading,
       setIsError,
       setIsNotificationShown,
       values,
-      router
+      router,
+      basketOrder
     );
   };
 
@@ -410,15 +422,15 @@ export default function CheckoutForm({
                   {t('checkoutPage.form.total')}
                 </h3>
                 <p className="text-[16px] xl:text-[24px] font-medium leading-[120%]">
-                  {Math.round(
-                    getTotalAmount() * (1 + Number(values.tips.trim()) / 100)
-                  )}
+                  {getTotalAmount()}
                   {t('checkoutPage.form.hrn')}
                 </p>
               </div>
               <SubmitButton
                 dirty={dirty}
-                isValid={isValid}
+                isValid={
+                  isValid && !!cartItems.length && getTotalAmount() !== 0
+                }
                 isLoading={isLoading}
                 text={t('checkoutPage.form.checkout')}
                 className="h-10 md:h-12"

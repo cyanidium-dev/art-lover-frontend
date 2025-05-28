@@ -4,7 +4,7 @@ import * as motion from 'motion/react-client';
 import { useTranslations } from 'next-intl';
 import { fadeInAnimation } from '@/shared/utils/animationVariants';
 
-const FREE_DELIVERY_SUM = 500;
+const FREE_DELIVERY_SUM = 2000;
 
 export default function FreeDelivery() {
   const t = useTranslations('cart');

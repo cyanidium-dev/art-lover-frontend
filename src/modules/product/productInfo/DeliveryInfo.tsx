@@ -48,9 +48,71 @@ export default function DeliveryInfo() {
         }`}
       >
         <p
-          className={`pt-4 xl:pt-6 xl:pb-3 text-[12px] xl:text-[14px] font-light leading-[120%] text-justify`}
+          className={`pt-4 xl:pt-6 pb-3 text-[12px] xl:text-[14px] font-light leading-[120%] text-justify`}
         >
           {t('delivery.description')}
+        </p>
+        <h3 className="mb-3 xl:mb-4 text-[16px] xl:text-[20px] font-medium leading-[120%]">
+          {t('delivery.conditions.title')}
+        </h3>
+        <h4 className="my-1 xl:my-2 text-[12px] xl:text-[16px] font-medium leading-[120%]">
+          {t('delivery.conditions.ukraine.title')}
+        </h4>
+        <p
+          className={`text-[12px] xl:text-[14px] font-light leading-[120%] text-justify`}
+        >
+          {t('delivery.conditions.ukraine.description')}
+        </p>
+        <h4 className="my-1 xl:my-2 text-[12px] xl:text-[16px] font-medium leading-[120%]">
+          {t('delivery.conditions.worldwide.title')}
+        </h4>
+        <p
+          className={`text-[12px] xl:text-[14px] font-light leading-[120%] text-justify`}
+        >
+          {t('delivery.conditions.worldwide.description')}
+        </p>
+        <h4 className="my-1 xl:my-2 text-[12px] xl:text-[16px] font-medium leading-[120%]">
+          {t('delivery.conditions.shippingCost.title')}
+        </h4>
+        <p
+          className={`text-[12px] xl:text-[14px] font-light leading-[120%] text-justify`}
+        >
+          {t('delivery.conditions.shippingCost.description')}
+        </p>
+        <h3 className="my-3 xl:my-4 text-[16px] xl:text-[20px] font-medium leading-[120%]">
+          {t('delivery.returns.title')}
+        </h3>
+        <p
+          className={`text-[12px] xl:text-[14px] font-light leading-[120%] text-justify`}
+        >
+          {t('delivery.returns.description')}
+        </p>
+        <h4 className="my-1 xl:my-2 text-[12px] xl:text-[16px] font-medium leading-[120%]">
+          {t('delivery.returns.notRefundable.title')}
+        </h4>
+        <p
+          className={`text-[12px] xl:text-[14px] font-light leading-[120%] text-justify`}
+        >
+          {t('delivery.returns.notRefundable.partOne')}
+        </p>
+        <p
+          className={`text-[12px] xl:text-[14px] font-light leading-[120%] text-justify`}
+        >
+          {t('delivery.returns.notRefundable.partTwo')}
+        </p>
+
+        <h4 className="my-1 xl:my-2 text-[12px] xl:text-[16px] font-medium leading-[120%]">
+          {t('delivery.howToReturn.title')}
+        </h4>
+        <p
+          className={`text-[12px] xl:text-[14px] font-light leading-[120%] text-justify`}
+        >
+          {t('delivery.howToReturn.partOne')}
+        </p>
+        <p
+          className={`text-[12px] xl:text-[14px] font-light leading-[120%] text-justify`}
+        >
+          {t('delivery.howToReturn.partTwo')}
         </p>
       </div>
     </motion.div>
