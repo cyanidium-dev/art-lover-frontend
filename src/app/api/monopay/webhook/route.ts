@@ -5,11 +5,20 @@ import axios from 'axios';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const MONOPAY_PUBKEY = process.env.MONOPAY_PUBKEY!; // Base64 ECDSA pubkey
 
+// GET — для перевірки доступності вебхука
+export async function GET() {
+  await axios.post(
+    `${SITE_URL}api/telegram`,
+    '✅ GET-запит на /api/monopay/webhook'
+  );
+  return new NextResponse('OK');
+}
+
 export async function POST(req: NextRequest) {
   await axios({
     method: 'post',
     url: `https://art-lover-frontend.vercel.app/api/telegram`,
-    data: 'Монопей зайшов за посиланням вебхука',
+    data: '⚠️ MonoPay POST-запит на webhook',
     headers: {
       'Content-Type': 'application/json',
     },
