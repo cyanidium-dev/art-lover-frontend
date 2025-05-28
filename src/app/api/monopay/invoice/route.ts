@@ -21,8 +21,8 @@ export async function POST(req: NextRequest) {
         basketOrder: body.basketOrder,
         destination: 'Покупка товару',
         comment: 'Покупка товару',
-        redirectUrl: `${SITE_URL}confirmation`,
-        webHookUrl: `${SITE_URL}api/monopay/webhook`,
+        redirectUrl: `${SITE_URL}/confirmation`,
+        webHookUrl: `${SITE_URL}/api/monopay/webhook`,
       },
       validity: 3600, // 1 година
       paymentType: 'debit',
@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
     await axios({
       method: 'post',
       url: `${SITE_URL}api/telegram`,
-      data: `InvoiceId: ${data.invoiceId}, ${SITE_URL}/api/monopay/webhook`,
+      data: `InvoiceId: ${data.invoiceId}, ${SITE_URL}/api/monopay/webhook, ${SITE_URL}/confirmation`,
       headers: {
         'Content-Type': 'application/json',
       },
