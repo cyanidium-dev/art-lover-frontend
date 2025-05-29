@@ -19,6 +19,7 @@ const FooterSocial = () => {
           <a
             href={instagram.url}
             target="_blank"
+            rel="noopener noreferrer nofollow"
             className="flex items-center gap-[12px] text-white text-[14px] font-normal leading-[120%] xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
           >
             <InstagramIcon className="size-5 xl:size-[27px]" />
@@ -29,6 +30,7 @@ const FooterSocial = () => {
           <a
             href={youtube.url}
             target="_blank"
+            rel="noopener noreferrer nofollow"
             className="flex items-center gap-[12px] text-white text-[14px] font-normal leading-[120%] xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
           >
             <YoutubeIcon className="size-5 xl:size-[27px]" />
@@ -39,6 +41,7 @@ const FooterSocial = () => {
           <a
             href={tiktok.url}
             target="_blank"
+            rel="noopener noreferrer nofollow"
             className="flex items-center gap-[12px] text-white text-[14px] font-normal leading-[120%] xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
           >
             <TiktokIcon className="size-5 xl:size-[27px]" />
@@ -49,6 +52,7 @@ const FooterSocial = () => {
           <a
             href={facebook.url}
             target="_blank"
+            rel="noopener noreferrer nofollow"
             className="flex items-center gap-[12px] text-white text-[14px] font-normal leading-[120%] xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
           >
             <FacebookIcon className="size-5 xl:size-[27px]" />
@@ -56,13 +60,7 @@ const FooterSocial = () => {
           </a>
         </li>
         <li>
-          <a
-            href="https://monobank.ua/"
-            target="_blank"
-            className="flex items-center gap-[12px] text-white xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
-          >
-            <MonoPayIcon className="w-[70px] xl:w-[76px] h-auto" />
-          </a>
+          <MonoPayIcon className="w-[70px] xl:w-[76px] h-auto text-white" />
         </li>
       </ul>
     </FooterColumn>
