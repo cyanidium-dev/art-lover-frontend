@@ -33,6 +33,7 @@ interface CartState {
   removeFromCart: (itemId: string) => void;
   removeSingleItem: (itemId: string) => void;
   clearCart: () => void;
+  getCartTotal: () => number;
   getTotalAmount: () => number;
   getItemFinalPrice: (item: Product | CartItem) => number;
   getAddonFinalPrice: (item: number) => number;
@@ -105,6 +106,26 @@ export const useCartStore = create<CartState>()(
         );
 
         return Math.round((cartTotal + additionalTotal) * ((100 + tips) / 100));
+      },
+
+      getCartTotal: () => {
+        const { cartItems, getItemFinalPrice, discount } = get();
+
+        const cartTotal = cartItems.reduce((sum, item) => {
+          const itemTotal = getItemFinalPrice(item) * item.quantity;
+          const addonsTotal =
+            item.addons?.reduce((addonSum, addon) => {
+              if (!addon.checked) return addonSum;
+              const discountedAddonPrice = Math.round(
+                addon.price * (1 - discount / 100)
+              );
+              return addonSum + discountedAddonPrice;
+            }, 0) || 0;
+
+          return sum + itemTotal + addonsTotal;
+        }, 0);
+
+        return cartTotal;
       },
 
       addToCart: newItem => {

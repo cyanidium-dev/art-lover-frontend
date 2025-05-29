@@ -19,9 +19,9 @@ export default function CartTotal({
 }: CartTotalProps) {
   const t = useTranslations('cart');
   const [total, setTotal] = useState(0);
-  const { getTotalAmount } = useCartStore();
+  const { getCartTotal } = useCartStore();
 
-  const sum = getTotalAmount();
+  const sum = getCartTotal();
 
   useEffect(() => {
     setTotal(sum);

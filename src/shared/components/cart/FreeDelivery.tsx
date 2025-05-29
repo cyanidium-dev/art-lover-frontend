@@ -8,8 +8,8 @@ const FREE_DELIVERY_SUM = 2000;
 
 export default function FreeDelivery() {
   const t = useTranslations('cart');
-  const { getTotalAmount } = useCartStore();
-  const total = getTotalAmount();
+  const { getCartTotal } = useCartStore();
+  const total = getCartTotal();
 
   const needToOrderSum =
     FREE_DELIVERY_SUM >= total ? FREE_DELIVERY_SUM - total : 0;
