@@ -180,6 +180,17 @@ export const handleSubmitForm = async <T>(
 
       const { pageUrl } = res.data;
 
+      //Очищаємо форму
+      resetForm();
+      //Очищаємо кошик
+      clearCart();
+      //Очищаємо додаткове пакування
+      clearAdditionalItems();
+      //Очищаємо чайові
+      clearTips();
+      //Видаляємо промокод
+      removePromocode();
+
       if (pageUrl) {
         window.location.href = pageUrl; // переадресація на оплату
       } else {
@@ -206,19 +217,14 @@ export const handleSubmitForm = async <T>(
 
     //Очищаємо форму
     resetForm();
-
     //Очищаємо кошик
     clearCart();
-
     //Очищаємо додаткове пакування
     clearAdditionalItems();
-
     //Очищаємо чайові
     clearTips();
-
     //Видаляємо промокод
     removePromocode();
-
     //Редірект на сторінку підтвердження замовлення
     router.push('/confirmation');
   } catch (error) {
