@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import { socials } from '@/shared/components/socials/mockedData';
 import InstagramIcon from '@/shared/components/icons/InstagramIcon';
 import FooterColumn from '../FooterColumn/FooterColumn';
 import YoutubeIcon from '@/shared/components/icons/YoutubeIcon';
@@ -9,12 +10,14 @@ import MonoPayIcon from '@/shared/components/icons/MonoPayIcon';
 const FooterSocial = () => {
   const t = useTranslations('footer');
 
+  const { instagram, facebook, youtube, tiktok } = socials;
+
   return (
     <FooterColumn title={t('socials')}>
       <ul className="flex gap-[16px] items-center xl:block">
         <li className="xl:mb-[20px]">
           <a
-            href="https://www.instagram.com/"
+            href={instagram.url}
             target="_blank"
             className="flex items-center gap-[12px] text-white text-[14px] font-normal leading-[120%] xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
           >
@@ -24,7 +27,7 @@ const FooterSocial = () => {
         </li>
         <li className="xl:mb-[20px]">
           <a
-            href="https://www.youtube.com/"
+            href={youtube.url}
             target="_blank"
             className="flex items-center gap-[12px] text-white text-[14px] font-normal leading-[120%] xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
           >
@@ -34,7 +37,7 @@ const FooterSocial = () => {
         </li>
         <li className="xl:mb-[20px]">
           <a
-            href="https://www.tiktok.com/"
+            href={tiktok.url}
             target="_blank"
             className="flex items-center gap-[12px] text-white text-[14px] font-normal leading-[120%] xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
           >
@@ -44,7 +47,7 @@ const FooterSocial = () => {
         </li>
         <li className="xl:mb-[20px]">
           <a
-            href="https://facebook.com/"
+            href={facebook.url}
             target="_blank"
             className="flex items-center gap-[12px] text-white text-[14px] font-normal leading-[120%] xl:hover:text-orange focus-visible:text-orange transition duration-300 ease-in-out"
           >
