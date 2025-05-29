@@ -81,6 +81,7 @@ export const allProductsByCategoryQuery = `
         text
       },
       "mainImage": mainImage.asset->url,
+      "categorySlug": category->slug.current,
       inStock,
       isBestseller,
       "addons": additions[] {
@@ -110,6 +111,7 @@ export const allProductsByCategoryQuery = `
     price,
     discountedPrice,
     "mainImage": mainImage.asset->url,
+    "categorySlug": category->slug.current,
     inStock,
     isBestseller,
     "addons": additions[] {
