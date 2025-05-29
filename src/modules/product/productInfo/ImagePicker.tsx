@@ -14,7 +14,7 @@ interface ImagePickerProps {
 export default function ImagePicker({ currentProduct }: ImagePickerProps) {
   const { images, mainImage, price, discountedPrice } = currentProduct;
 
-  const imagesList = [mainImage, ...images];
+  const imagesList = images?.length ? [mainImage, ...images] : [mainImage];
 
   const [currentIdx, setCurrentIdx] = useState(0);
 
