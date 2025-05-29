@@ -14,7 +14,7 @@ export function getDefaultMetadata(
       description: t('description'),
       images: [
         {
-          url: `${SITE_URL}/src/app/opengraph-image.jpg`,
+          url: `${SITE_URL}/opengraph-image.jpg`,
           width: 1200,
           height: 630,
           alt: 'Art Lover',
