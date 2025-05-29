@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
+
 export function getDefaultMetadata(
   t: (key: string) => string,
   locale: string
@@ -12,7 +14,7 @@ export function getDefaultMetadata(
       description: t('description'),
       images: [
         {
-          url: '/src/app/opengraph-image.jpg',
+          url: `${SITE_URL}/src/app/opengraph-image.jpg`,
           width: 1200,
           height: 630,
           alt: 'Art Lover',
