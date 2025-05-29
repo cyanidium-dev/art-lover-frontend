@@ -12,12 +12,14 @@ interface CartState {
     title: string;
     price: number;
     image: string;
+    value: string;
   }[];
   addAdditionalItem: (item: {
     id: string;
     title: string;
     price: number;
     image: string;
+    value: string;
   }) => void;
   tips: number;
   setTips: (amount: number) => void;

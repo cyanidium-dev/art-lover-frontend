@@ -27,8 +27,6 @@ import CartItemsList from './CartItemsList';
 import AdditionalOptions from './AdditionalOptions';
 import DeliveryBlockUkraine from './DeliveryBlockUkraine';
 import DeliveryBlockWorldwide from './DeliveryBlockWorldwide';
-import PostcardBlock from './PostcardBlock';
-
 import { fetchSanityData } from '@/shared/utils/fetchSanityData';
 import { promocodeByCode } from '@/shared/lib/queries';
 
@@ -369,7 +367,6 @@ export default function CheckoutForm({
                 title={t('checkoutPage.form.addPackaging')}
               />
               <AdditionalOptions />
-              <PostcardBlock />
             </motion.div>
             <motion.div
               viewport={{ once: true, amount: 0.2 }}

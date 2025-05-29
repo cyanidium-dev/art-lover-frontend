@@ -1,18 +1,31 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import { useTranslations } from 'next-intl';
 import { useFormikContext } from 'formik';
+import { useCartStore } from '@/shared/store/cartStore';
 import TextareaWithCounter from '../../formComponents/TextAreaWithCounter';
 
 interface Values {
   [fieldName: string]: string;
 }
 
-export default function PostcardBlock() {
+interface PostcardBlockProps {
+  isInputShown: boolean;
+  setIsInputShown: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function PostcardBlock({
+  isInputShown,
+  setIsInputShown,
+}: PostcardBlockProps) {
   const t = useTranslations();
+  const { additionalItems } = useCartStore();
+
+  const isPostcardAdded = additionalItems.find(
+    additional => additional.value === 'postcard'
+  );
 
   const { errors, touched } = useFormikContext<Values>();
-  const [isInputShown, setIsInputShown] = useState(false);
 
   const toggleIsInputShown = () => setIsInputShown(!isInputShown);
 
@@ -20,9 +33,10 @@ export default function PostcardBlock() {
     <>
       <button
         type="button"
+        disabled={!isPostcardAdded}
         onClick={toggleIsInputShown}
-        className="cursor-pointer flex items-center justify-center w-full h-10 relative mt-5 xl:mt-6 xl:h-11 px-3 xl:px-6 py-[9px] xl:py-[12.5px] 
-        rounded-full border border-orange xl:hover:brightness-125 focus-visible:brightness-125 transition duration-300 ease-in-out"
+        className="enabled:cursor-pointer flex items-center justify-center w-full h-10 relative mt-5 xl:mt-6 xl:h-11 px-3 xl:px-6 py-[9px] xl:py-[12.5px] 
+        rounded-full border border-orange enabled:xl:hover:brightness-125 enabled:focus-visible:brightness-125 transition duration-300 ease-in-out"
       >
         <p
           className="text-[11px] 
