@@ -10,7 +10,7 @@ import { Locale } from '@/types/locale';
 import { Suspense } from 'react';
 import Loader from '@/shared/components/loader/Loader';
 import type { Metadata } from 'next';
-import { metadata as defaultMetadata } from '@/app/[locale]/layout';
+import { getDefaultMetadata } from '@/shared/utils/generateDefaultMetadata';
 
 interface ProductPageProps {
   params: Promise<{ category: string; product: string; locale: Locale }>;
@@ -20,14 +20,18 @@ export async function generateMetadata({
   params,
 }: ProductPageProps): Promise<Metadata> {
   const { product, locale } = await params;
+  const t = await getTranslations('metaData');
+
   const currentProduct = await fetchSanityData(singleProductQuery, {
     slug: product,
     lang: locale,
   });
 
   return {
-    title: currentProduct?.seoTitle || defaultMetadata.title,
-    description: currentProduct?.seoDescription || defaultMetadata.description,
+    title: currentProduct?.seoTitle || getDefaultMetadata(t, locale).title,
+    description:
+      currentProduct?.seoDescription ||
+      getDefaultMetadata(t, locale).description,
     openGraph: {
       images: [
         {

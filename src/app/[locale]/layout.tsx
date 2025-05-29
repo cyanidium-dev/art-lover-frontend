@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import localFont from 'next/font/local';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
@@ -7,7 +6,8 @@ import { fadeInAnimation } from '@/shared/utils/animationVariants';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-
+import { getTranslations, getLocale } from 'next-intl/server';
+import { getDefaultMetadata } from '@/shared/utils/generateDefaultMetadata';
 import Navbar from '@/modules/navbar/Navbar';
 import SubscribeNews from '@/modules/subscribeNews/SubscribeNews';
 import Footer from '@/modules/footer/Footer';
@@ -24,10 +24,12 @@ const denistina = localFont({
   variable: '--font-denistina',
 });
 
-export const metadata: Metadata = {
-  title: 'Art Lover',
-  description: "Ідеальні арт-товари для ваших об'єктів",
-};
+export async function generateMetadata() {
+  const locale = await getLocale();
+  const t = await getTranslations('metaData');
+
+  return getDefaultMetadata(t, locale);
+}
 
 export default async function RootLayout({
   children,
