@@ -37,6 +37,7 @@ export default function ContactsInfo() {
               alt="phone"
               width={64}
               height={64}
+              priority
               className="absolute -top-8 md:top-[-104px] left-[calc(50%-32px)] w-16 md:w-20 h-auto"
             />
             <h3 className="mb-3 xl:mb-5 text-[16px] xl:text-[20px] font-semibold leading-[160%] text-center">
@@ -70,6 +71,7 @@ export default function ContactsInfo() {
               alt="email"
               width={64}
               height={64}
+              priority
               className="absolute -top-8 md:top-[-104px] left-[calc(50%-32px)] w-16 md:w-20 h-auto"
             />
             <h3 className="mb-3 xl:mb-5 text-[16px] xl:text-[20px] font-semibold leading-[160%] text-center">
@@ -106,6 +108,7 @@ export default function ContactsInfo() {
               alt="calendar"
               width={64}
               height={64}
+              priority
               className="absolute -top-8 md:top-[-104px] left-[calc(50%-32px)] w-16 md:w-20 h-auto"
             />
             <h3 className="mb-3 xl:mb-5 text-[16px] xl:text-[20px] font-semibold leading-[160%] text-center">
