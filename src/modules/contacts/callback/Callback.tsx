@@ -46,6 +46,7 @@ export default function Callback() {
               src="/images/contactsPage/callback/imageOne.webp"
               alt="envelope with heart"
               fill
+              sizes="25vw"
               className="object-cover"
             />
           </motion.div>

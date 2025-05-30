@@ -117,6 +117,7 @@ export default function ImagePicker({ currentProduct }: ImagePickerProps) {
                 src={img}
                 alt={'product photo'}
                 fill
+                sizes="25vw"
                 className="w-full h-full object-cover rounded-[4px] xl:rounded-[8px] transition-all duration-300 ease-in-out"
               />
             </div>

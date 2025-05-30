@@ -46,6 +46,7 @@ export default function CategorySlideTwoDesk({
             alt="background"
             className="-z-10 object-cover"
             fill
+            sizes="50vw"
           />
           <h3 className="mb-6 text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-dark">
             {categories[1]?.title}
@@ -66,6 +67,7 @@ export default function CategorySlideTwoDesk({
             alt="background"
             className="-z-10 object-contain object-right"
             fill
+            sizes="50vw"
           />
           <h3 className="max-w-[176px] mb-5 text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-white">
             {categories[2]?.title}
@@ -86,6 +88,7 @@ export default function CategorySlideTwoDesk({
             alt="background"
             className="-z-10 object-cover"
             fill
+            sizes="50vw"
           />
           <h3 className="xl:max-w-[240px] mb-5 text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-dark">
             {categories[3]?.title}
@@ -105,6 +108,7 @@ export default function CategorySlideTwoDesk({
             alt="background"
             className="-z-10 object-cover"
             fill
+            sizes="50vw"
           />
           <h3 className="mb-2 text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-white">
             {categories[4]?.title}

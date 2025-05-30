@@ -39,6 +39,7 @@ export default function CategorySlideOneDesk({
             alt="background"
             className="-z-10 object-cover"
             fill
+            sizes="50vw"
           />
           <p className="mb-1 font-denistina text-[20px] lg:text-[32px] leading-none text-dark">
             {categories[1]?.description}
@@ -56,6 +57,7 @@ export default function CategorySlideOneDesk({
             alt="background"
             className="-z-10 object-cover"
             fill
+            sizes="50vw"
           />
           <h3 className="text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-white">
             {categories[2]?.title}
@@ -73,6 +75,7 @@ export default function CategorySlideOneDesk({
             alt="background"
             className="-z-10 object-cover"
             fill
+            sizes="50vw"
           />
           <h3 className="mb-1 text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-dark">
             {categories[3]?.title}
@@ -92,6 +95,7 @@ export default function CategorySlideOneDesk({
             alt="background"
             className="-z-10 object-cover"
             fill
+            sizes="50vw"
           />
           <h3 className="mb-2 text-[17px] lg:text-[28px] font-semibold leading-none uppercase text-white">
             {categories[4]?.title}
