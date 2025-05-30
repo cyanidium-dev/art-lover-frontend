@@ -54,6 +54,7 @@ const Navbar = () => {
             <div className="flex items-center gap-[10px] xl:gap-[24px] flex-row-reverse xl:flex-row">
               <Link
                 href="/"
+                aria-label="logo home page link"
                 onClick={() => {
                   setIsOpenBurgerMenu(false);
                   setIsOpenCatalogMenu(false);
