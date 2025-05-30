@@ -37,7 +37,7 @@ export default function Benefits() {
         >
           <Image
             src={benefit?.icon}
-            alt={benefit?.description || 'icon'}
+            alt={'icon'}
             width={40}
             height={40}
             className="w-10 xl:w-16 h-auto"

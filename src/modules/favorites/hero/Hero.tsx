@@ -60,7 +60,7 @@ export default function Hero() {
           >
             {t('title')}
           </motion.h1>
-          <motion.p
+          <motion.h2
             initial="hidden"
             whileInView="visible"
             exit="exit"
@@ -69,7 +69,7 @@ export default function Hero() {
             className="md:pt-[57px] md:mb-2 text-[14px] xl:text-[16px] font-light leading-[120%]"
           >
             {t('description')}
-          </motion.p>
+          </motion.h2>
         </motion.div>
       </Container>
     </section>

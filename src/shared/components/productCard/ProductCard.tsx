@@ -68,6 +68,7 @@ export default function ProductCard({
           alt="promotion label"
           width="169"
           height="109"
+          priority
           className="absolute z-10 top-0 right-0 pointer-events-none"
         />
       ) : null}
@@ -77,6 +78,8 @@ export default function ProductCard({
             src={mainImage}
             alt={'product'}
             fill
+            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            priority
             className="object-cover"
           />
         </div>

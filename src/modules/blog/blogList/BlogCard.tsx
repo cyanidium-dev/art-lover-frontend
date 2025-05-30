@@ -23,14 +23,15 @@ export default function BlogCard({ article }: BlogCardProps) {
             src={images[0]}
             alt={'blog photo'}
             fill
+            priority
             sizes="(max-width: 768px) 100vw, 33vw"
             className="object-cover object-center"
           />
         </div>
 
-        <h3 className="mb-2 text-[14px] xl:text-[18px] font-medium leading-[120%] text-orange line-clamp-1">
+        <h2 className="mb-2 text-[14px] xl:text-[18px] font-medium leading-[120%] text-orange line-clamp-1">
           {title}: {subtitle.toLowerCase()}
-        </h3>
+        </h2>
       </Link>
       <p className="mb-5 xl:mb-7 text-[12px] xl:text-[16px] font-medium leading-[120%] line-clamp-1">
         {description}
