@@ -15,6 +15,7 @@ export const handleSubmitForm = async <T>(
   { resetForm }: FormikHelpers<T>,
   setIsLoading: Dispatch<SetStateAction<boolean>>,
   setIsError: Dispatch<SetStateAction<boolean>>,
+  setIsUnavailable: Dispatch<SetStateAction<boolean>>,
   setIsNotificationShown: Dispatch<SetStateAction<boolean>>,
   values: ValuesCheckoutFormType,
   router: ReturnType<typeof useRouter>,
@@ -70,24 +71,37 @@ export const handleSubmitForm = async <T>(
     removePromocode();
   }
 
-  //Оновлюємо ціни на товари в кошику
-  useCartStore.setState(state => ({
-    cartItems: state.cartItems.reduce<CartItem[]>((acc, cartItem) => {
-      const productFromCms = resProducts.find(
-        (product: Product) => product.id === cartItem.cmsId
-      );
-      //Видаляємо товар, якщо не знайдений в cms
-      if (!productFromCms) return acc;
+  // Оновлюємо cartItems і перевіряємо наявність товарів
+  const updatedCartItems: CartItem[] = [];
+  const unavailableProducts: string[] = [];
 
-      acc.push({
-        ...cartItem,
-        price: productFromCms.price,
-        discountedPrice: productFromCms.discountedPrice,
-      });
+  cartItems.forEach(cartItem => {
+    const productFromCms = resProducts.find(
+      (product: Product) => product.id === cartItem.cmsId
+    );
 
-      return acc;
-    }, []),
-  }));
+    if (!productFromCms || productFromCms.inStock !== 'in_stock') {
+      unavailableProducts.push(cartItem.title);
+      return;
+    }
+
+    updatedCartItems.push({
+      ...cartItem,
+      price: productFromCms.price,
+      discountedPrice: productFromCms.discountedPrice,
+    });
+  });
+
+  useCartStore.setState({ cartItems: updatedCartItems });
+
+  // Якщо знайдено недоступні товари — показати помилку і припинити процес замовлення
+  if (unavailableProducts.length > 0) {
+    setIsLoading(false);
+    setIsError(true);
+    setIsUnavailable(true);
+    setIsNotificationShown(true);
+    return;
+  }
 
   const totalOrderSum = getTotalAmount();
 

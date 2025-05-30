@@ -504,6 +504,7 @@ export const productsByIds = `*[_type == "product" && _id in $ids]{
   "id":_id,
   price,
   discountedPrice,
+  inStock,
   "addons": additions[] {
       "price": price,
       "id": _key
