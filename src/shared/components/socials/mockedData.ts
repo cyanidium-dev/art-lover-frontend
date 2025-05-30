@@ -1,8 +1,8 @@
 export const socials = {
   instagram: { url: 'https://www.instagram.com/artlover_ua/', qty: '13' },
   youtube: {
-    url: '/',
-    qty: '1',
+    url: 'https://www.youtube.com/@artlover_ua',
+    qty: '3',
   },
   tiktok: { url: 'https://www.tiktok.com/@artlover_ua', qty: '22' },
   facebook: {
