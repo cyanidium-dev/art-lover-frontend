@@ -112,6 +112,11 @@ const sitemapConfig = {
         priority: 0.7,
       },
       {
+        loc: '/favorites',
+        changefreq: 'monthly',
+        priority: 0.7,
+      },
+      {
         loc: '/blog',
         changefreq: 'weekly',
         priority: 0.8,
