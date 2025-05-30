@@ -204,6 +204,7 @@
     "linkCopied": "Link copied",
     "inStock": "In stock",
     "outOfStock": "Out of stock",
+    "onOrder": "On order",
     "reviews": "{count, plural, one {# review} other {# reviews}}",
     "color": "COLOR",
     "hrn": " UAH",

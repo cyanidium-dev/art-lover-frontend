@@ -198,6 +198,7 @@
     "linkCopied": "Посилання скопійоване",
     "inStock": "В наявності",
     "outOfStock": "Немає в наявності",
+    "onOrder": "Під замовлення",
     "reviews": "{count, plural, one {# відгук} few {# відгуки} many {# відгуків} other {# відгука}}",
     "color": "КОЛІР",
     "hrn": " грн",

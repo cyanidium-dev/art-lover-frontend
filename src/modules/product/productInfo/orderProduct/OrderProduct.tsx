@@ -154,10 +154,18 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
       >
         <p
           className={`text-[12px] xl:text-[16px] font-normal leading-[120%] ${
-            inStock === 'in_stock' ? 'text-green' : 'text-red-500'
+            inStock === 'in_stock'
+              ? 'text-green'
+              : inStock === 'on_order'
+                ? 'text-orange'
+                : 'text-red-500'
           }`}
         >
-          {inStock === 'in_stock' ? t('inStock') : t('outOfStock')}
+          {inStock === 'in_stock'
+            ? t('inStock')
+            : inStock === 'on_order'
+              ? t('onOrder')
+              : t('outOfStock')}
         </p>
         <Rating
           initialValue={rating}
