@@ -21,6 +21,7 @@ export default function TeamCard({ teammate }: TeamCardProps) {
         src="/images/aboutPage/team/figureEvenMob.svg"
         alt="background"
         fill
+        priority
         sizes="33vw"
         className="hidden group-even:block group-even:xl:hidden absolute -z-10 top-0 left-0 w-full h-full object-cover"
       />
