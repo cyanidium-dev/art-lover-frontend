@@ -154,10 +154,18 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
       >
         <p
           className={`text-[12px] xl:text-[16px] font-normal leading-[120%] ${
-            inStock === 'in_stock' ? 'text-green' : 'text-red-500'
+            inStock === 'in_stock'
+              ? 'text-green'
+              : inStock === 'on_order'
+                ? 'text-orange'
+                : 'text-red-500'
           }`}
         >
-          {inStock === 'in_stock' ? t('inStock') : t('outOfStock')}
+          {inStock === 'in_stock'
+            ? t('inStock')
+            : inStock === 'on_order'
+              ? t('onOrder')
+              : t('outOfStock')}
         </p>
         <Rating
           initialValue={rating}
@@ -183,13 +191,13 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
         ({t('reviews', { count: (reviews && reviews?.length) || 0 })})
       </motion.p>
       {isClient &&
-        (!addons || !addons.length || inStock !== 'in_stock' ? null : (
+        (!addons || !addons.length || inStock === 'out_of_stock' ? null : (
           <AddonsList
             selectedAddons={selectedAddons}
             setSelectedAddons={setSelectedAddons}
           />
         ))}
-      {!colors || !colors.length || inStock !== 'in_stock' ? null : (
+      {!colors || !colors.length || inStock === 'out_of_stock' ? null : (
         <ColorPicker
           colors={colors}
           selectedColor={selectedColor}
@@ -202,7 +210,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
         exit="exit"
         viewport={{ once: true, amount: 0.5 }}
         variants={fadeInAnimation({ y: 30, delay: 1.2 })}
-        className={`${inStock !== 'in_stock' ? 'hidden' : 'flex'}  items-center justify-between mb-4 xl:mb-5`}
+        className={`${inStock === 'out_of_stock' ? 'hidden' : 'flex'}  items-center justify-between mb-4 xl:mb-5`}
       >
         <Counter count={count} setCount={setCount} />
         {isClient &&
@@ -235,7 +243,7 @@ export default function OrderProduct({ currentProduct }: OrderProductProps) {
         className="flex items-center gap-x-4"
       >
         <MainButton
-          disabled={inStock !== 'in_stock'}
+          disabled={inStock === 'out_of_stock'}
           onClick={handleAddToCartClick}
           className="h-[49px] xl:h-[58px]"
           textStyles="text-[14px] xl:text-[16px]"

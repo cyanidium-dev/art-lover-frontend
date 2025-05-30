@@ -16,6 +16,7 @@ export default function CheckoutFormWithNotifications({
   className,
 }: CheckoutFormWithNotificationsProps) {
   const t = useTranslations('popUps.notification');
+  const [isUnavailable, setIsUnavailable] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isNotificationShown, setIsNotificationShown] = useState(false);
 
@@ -24,14 +25,25 @@ export default function CheckoutFormWithNotifications({
       <CheckoutForm
         activeTab={activeTab}
         setIsError={setIsError}
+        setIsUnavailable={setIsUnavailable}
         setIsNotificationShown={setIsNotificationShown}
         className={className}
       />
 
       <NotificationPopUp
-        title={isError ? t('error.title') : t('success.title')}
+        title={
+          isUnavailable
+            ? t('unavailable.title')
+            : isError
+              ? t('error.title')
+              : t('success.title')
+        }
         description={
-          isError ? t('error.description') : t('success.description')
+          isUnavailable
+            ? t('unavailable.description')
+            : isError
+              ? t('error.description')
+              : t('success.description')
         }
         isPopUpShown={isNotificationShown}
         setIsPopUpShown={setIsNotificationShown}

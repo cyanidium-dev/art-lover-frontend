@@ -54,6 +54,7 @@ export interface ValuesCheckoutFormType {
 
 interface CheckoutFormProps {
   setIsError: Dispatch<SetStateAction<boolean>>;
+  setIsUnavailable: Dispatch<SetStateAction<boolean>>;
   setIsNotificationShown: Dispatch<SetStateAction<boolean>>;
   activeTab: string;
   className?: string;
@@ -61,6 +62,7 @@ interface CheckoutFormProps {
 
 export default function CheckoutForm({
   setIsError,
+  setIsUnavailable,
   setIsNotificationShown,
   activeTab,
   className = '',
@@ -153,6 +155,7 @@ export default function CheckoutForm({
       formikHelpers,
       setIsLoading,
       setIsError,
+      setIsUnavailable,
       setIsNotificationShown,
       values,
       router,

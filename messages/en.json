@@ -204,6 +204,7 @@
     "linkCopied": "Link copied",
     "inStock": "In stock",
     "outOfStock": "Out of stock",
+    "onOrder": "On order",
     "reviews": "{count, plural, one {# review} other {# reviews}}",
     "color": "COLOR",
     "hrn": " UAH",
@@ -503,6 +504,10 @@
       "error": {
         "title": "Unfortunately, something went wrong",
         "description": "Please try submitting the form again or call us."
+      },
+      "unavailable": {
+        "title": "Please review your cart.",
+        "description": "Unfortunately, some of the items you selected are unavailable."
       }
     },
     "subscribeNotification": {
