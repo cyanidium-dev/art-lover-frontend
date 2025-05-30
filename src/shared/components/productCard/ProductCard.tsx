@@ -119,7 +119,7 @@ export default function ProductCard({
           </SecondaryButton>
         </Link>
         <CartButton
-          disabled={inStock !== 'in_stock'}
+          disabled={inStock === 'out_of_stock'}
           onClick={handleClick}
           className="shrink-0"
         />

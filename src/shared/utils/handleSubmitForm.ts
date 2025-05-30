@@ -80,7 +80,7 @@ export const handleSubmitForm = async <T>(
       (product: Product) => product.id === cartItem.cmsId
     );
 
-    if (!productFromCms || productFromCms.inStock !== 'in_stock') {
+    if (!productFromCms || productFromCms.inStock === 'out_of_stock') {
       unavailableProducts.push(cartItem.title);
       return;
     }
