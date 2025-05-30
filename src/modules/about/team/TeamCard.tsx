@@ -29,6 +29,7 @@ export default function TeamCard({ teammate }: TeamCardProps) {
         src="/images/aboutPage/team/figureFirstMob.svg"
         alt="background"
         fill
+        priority
         sizes="33vw"
         className="hidden group-first:block group-first:xl:hidden absolute -z-10 top-0 left-0 w-full h-full object-cover"
       />
@@ -66,6 +67,7 @@ export default function TeamCard({ teammate }: TeamCardProps) {
             src={image?.url}
             alt={image?.alt || 'teammate'}
             fill
+            sizes="(max-width: 768px) 100vw, 33vw"
             className="object-cover"
           />
         </div>
